@@ -1,0 +1,808 @@
+{
+  "generated": "2026-06-12",
+  "note": "Real weather-context fragments (from text hits on cold/hot/precip/travel/outdoor) for surfacer, rain, particle pop, ECHO-style. ~150-200 unique-ish samples.",
+  "fragments": [
+    {
+      "week": "2021-02-01",
+      "text": "Hahaha. He\u2019s lived with me in u Uniontown for over a year bc GC was making him fucking suicidal. He\u2019ll be in the city wi",
+      "type": "high_signal"
+    },
+    {
+      "week": "2017-10-09",
+      "text": "Took a drive to the ribs today"
+    },
+    {
+      "week": "2019-10-07",
+      "text": "OK .I actually had to make a couple runs and I\u2019m stopping to pick up a fresh one for you. so I\u2019ll hit you soon as I get back to the house .probably be close to Half hour. I\u2019ll bring it to you if you need me to"
+    },
+    {
+      "week": "2025-01-06",
+      "text": "I\u2019m home on 76"
+    },
+    {
+      "week": "2025-03-17",
+      "text": "i just left nyc"
+    },
+    {
+      "week": "2025-10-20",
+      "text": "CAN I DRIVE OUT THERE AT 1PM OR NOT"
+    },
+    {
+      "week": "2019-12-30",
+      "text": "Plz plz make sure Betty can\u2019t get anything off the desk. Even like papers/receipts used to crush. She will eat them. ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2016-05-23",
+      "text": "It wasn't much use to me...she was filming so it was mostly me in the shot and that's not gonna do anything for me",
+      "type": "high_signal"
+    },
+    {
+      "week": "2026-04-20",
+      "text": "okay claude i have an actual big boy, real-life job/career opportunity here i need you to hit this one out of the park.  !ULTRATHINK  this is my friend jerad friedline. he is one of my best friends who i've known since high school when i would go to my family'"
+    },
+    {
+      "week": "2018-09-24",
+      "text": "What\u2019s this bs about uniontown closing up?"
+    },
+    {
+      "week": "2019-09-30",
+      "text": "Damn she's hot but she has that blowup doll mouth"
+    },
+    {
+      "week": "2025-07-21",
+      "text": "Against everyone\u2019s opinions, including your own\u2026 whats sick\u2026. I see something in you. An unbridled organic you choose to",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-08-11",
+      "text": "https://youtube.com/shorts/CJEF-cELc-A?si=vwzRZJztNZKnXOHy"
+    },
+    {
+      "week": "2025-04-14",
+      "text": "Leah Sarah just added to their Snapchat Story! Tap to see what they're up to: https://snapchat.com/t/NrRVs90J  Reply STO",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-10-07",
+      "text": "Cash App: Your $13.05 payment at Apple was declined because there wasn't enough money in your Cash Balance.",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-07-02",
+      "text": "I, and this is true, stopped at 3 gas stations between pikewood and home. I didn\u2019t need gas at any of them"
+    },
+    {
+      "week": "2020-06-08",
+      "text": "and it applies to anybody who isn\u2019t working or getting sick pay.   i applied in early april and just got approved ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2023-11-13",
+      "text": "From exterminator: I apologize jim , my office messed up my route , i won\u2019t be there till 11:30 / 12:00",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-02-03",
+      "text": "I\u2019m home on 76"
+    },
+    {
+      "week": "2025-10-27",
+      "text": "seriously do not fucking act like you don\u2019t have any idea why i\u2019m upset whenever you decide you need to text me",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-12-24",
+      "text": "Ok ill have her put it in grill on the porch. You can just throw that in there. Thanks bud"
+    },
+    {
+      "week": "2020-03-30",
+      "text": "Yeah man you\u2019re in the thick of it. Pretty bad in California but not as bad as NYC clearly. I don\u2019t know what life will look like after this..."
+    },
+    {
+      "week": "2018-10-08",
+      "text": "I grabbed wrong cig pack when left house. I went back already . Have in pocket so couldnt leave it. My bad. IM pullin in pool hall fast stop. Bank and you. Be there real soon."
+    },
+    {
+      "week": "2018-11-12",
+      "text": "Hit you soon not home yet"
+    },
+    {
+      "week": "2017-06-26",
+      "text": "Which street do I turn on again man? I remember it's at the end of the road next to 5 but which street?"
+    },
+    {
+      "week": "2018-08-27",
+      "text": "Yeah come in by but you will have to just stop and have a beer because my cousin and mom are outside"
+    },
+    {
+      "week": "2018-12-03",
+      "text": "Annie doesn't want me to take her car right now. I don't know if you are able to run to atm for me or if you'd rather wa",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-06-25",
+      "text": "Thought you might appricate it. Anyway IM home good somethin dif again.  Waitin for the load to get here just bouncin around last couple days but like this can stop and try if out and about."
+    },
+    {
+      "week": "2016-11-21",
+      "text": "Well I'm going to my house now if you wanna come meet us I can give you the cash (I'd meet you but I don't have a car)"
+    },
+    {
+      "week": "2025-12-01",
+      "text": "That\u2019s what I thought but also sounded like it was outside"
+    },
+    {
+      "week": "2024-06-24",
+      "text": "Cash App: Your $86 payment at Apple.com Bill was declined because there wasn\u2019t enough money in your Cash Balance.",
+      "type": "high_signal"
+    },
+    {
+      "week": "2017-04-24",
+      "text": "I love you tooo",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-12-22",
+      "text": "I\u2019m coming home in a bit"
+    },
+    {
+      "week": "2018-07-30",
+      "text": "Dan i am not trying to argue with you and fight all day. I am sorry I wasn\u2019t nice this morning.  I appreciate you gettin",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-09-02",
+      "text": "it should be noted, however, that you\u2019re back on top of my crush hierarchy and would have no qualms traveling to get all",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-10-22",
+      "text": "I have to Fucking dollars to my name ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-01-22",
+      "text": "I said I\ufe0f was looking for an actual bandaid for my toe and I\ufe0f found old old old school designer makeup",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-06-10",
+      "text": "It\u2019s been a good run though! I\u2019ll have 3+ years consistent employment serving in manhattan as experience for the c.v.",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-09-08",
+      "text": " you were my family and i would never have hurt you\u2026it\u2019s hard for me to even accept that this is happening. i was sure y",
+      "type": "high_signal"
+    },
+    {
+      "week": "2015-12-07",
+      "text": "I love you Dan ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-07-14",
+      "text": "New York Department of Motor Vehicles(DMV) Final Notice: Enforcement Penalties Begin on July 16. Our records show that a",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-02-19",
+      "text": "Just got home let me know when your here"
+    },
+    {
+      "week": "2019-07-08",
+      "text": "I'm headed back to Fayette county. When the bus was pulling into Pittsburgh I was kind of shocked, thinking \"where are the rest of the buildings?\""
+    },
+    {
+      "week": "2024-10-21",
+      "text": "CVS Pharmacy: Hi DANIEL, our community is nearing this year's Flu and COVID season. We understand life can be busy. Book",
+      "type": "high_signal"
+    },
+    {
+      "week": "2023-12-11",
+      "text": "Hows that compared to good ol snow"
+    },
+    {
+      "week": "2026-02-02",
+      "text": "Mannnnnnnn I had my ex paying for my phone for like the last year and I finally gave her back the phone yesterday hahah",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-11-10",
+      "text": "idk i love you goodnight",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-12-23",
+      "text": "Can you stop by? I\u2019m home on 76"
+    },
+    {
+      "week": "2020-03-30",
+      "text": "\ufffcthis is my preferred loadout but if you like the ak, you\u2019ll be smart to pair it with something for close combat like sm",
+      "type": "high_signal"
+    },
+    {
+      "week": "2016-06-06",
+      "text": "I feel like you are annoyed with me \ud83d\ude14",
+      "type": "high_signal"
+    },
+    {
+      "week": "2017-12-25",
+      "text": "If you don\u2019t want to actually make a vlog we should return that stuff and use the money towards an Apple Watch",
+      "type": "high_signal"
+    },
+    {
+      "week": "2020-01-20",
+      "text": "AT&T Free Msg: We have an important message for the AT&T account holder. Are you financially responsible for this AT&T a",
+      "type": "high_signal"
+    },
+    {
+      "week": "2026-04-20",
+      "text": "Oh no. I\u2019m really sorry annie",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-08-19",
+      "text": "Cash App: We canceled your Cash Card and mailed you a replacement. All of your subscriptions and recurring payments will",
+      "type": "high_signal"
+    },
+    {
+      "week": "2026-06-08",
+      "text": "SEND ME MY FUCKING MONEY ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2023-10-30",
+      "text": "It\u2019s also better than what I\u2019m going to go through with a fucking dog"
+    },
+    {
+      "week": "2020-06-22",
+      "text": "thanks again. i\u2019ll have her get in touch with you about when to meet up.  would it be possible to get 10,000 in case thi",
+      "type": "high_signal"
+    },
+    {
+      "week": "2016-04-18",
+      "text": "I'll message you when I walk through the door"
+    },
+    {
+      "week": "2025-09-29",
+      "text": "I\u2019m going home"
+    },
+    {
+      "week": "2023-12-04",
+      "text": "Spent this month trying to stop being a bot",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-10-22",
+      "text": "Is your GF hot?"
+    },
+    {
+      "week": "2020-06-15",
+      "text": "Hey, join me at Lily Lush on the Wix app to easily stay updated and get in touch with me on the go. Join with this link:",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-01-01",
+      "text": "Oh my bad I didn\u2019t read your message about putting leopard on the drive. Hmm.. you saved OS X as a dmg?"
+    },
+    {
+      "week": "2024-10-14",
+      "text": "I\u2019m home on 76"
+    },
+    {
+      "week": "2019-01-28",
+      "text": "Just getting out I\u2019ll be home in 20"
+    },
+    {
+      "week": "2026-02-02",
+      "text": "i do think i was on the pulse because i moved to brooklyn RIGHT when that williamsburg LCD soundsystem era hit"
+    },
+    {
+      "week": "2016-05-09",
+      "text": "I'm going to sleep too"
+    },
+    {
+      "week": "2025-02-03",
+      "text": "I\u2019m home on 76"
+    },
+    {
+      "week": "2025-01-13",
+      "text": "Title: Light of the City  Genre: Drama, Spiritual Journey  Logline: A young African immigrant arrives in New York with dreams of a better life, only to discover that true success lies not just in career, but in friendship, faith, and personal transformation. T"
+    },
+    {
+      "week": "2018-09-03",
+      "text": "I'm home whenever rdy"
+    },
+    {
+      "week": "2020-04-20",
+      "text": "Cash App: Your $7.41 payment at Apple was declined because your Cash Card is disabled. Open the app to enable your card ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-12-16",
+      "text": "307 e. 76th Street Apt 17 New York, NY 10021  our name is on the mailbox (inside the building.)   i\u2019m not sure who is listed on the directory outside. it hasn\u2019t been changed since we got here"
+    },
+    {
+      "week": "2020-08-24",
+      "text": "yeah they\u2019re doing it outside"
+    },
+    {
+      "week": "2018-04-02",
+      "text": "Thank you for taking me home.  I only had one beer while I was there but history suggests that for me, being tired is just as bad when driving!"
+    },
+    {
+      "week": "2020-05-25",
+      "text": "Hey Dan, Are you guys home? John needs to get into the apt."
+    },
+    {
+      "week": "2019-07-01",
+      "text": "Well first let me make sure I can get a ride to wherever I have to catch the bus. Look at tickets and let me know my opt",
+      "type": "high_signal"
+    },
+    {
+      "week": "2020-02-17",
+      "text": "$27 for Bernie? Because the truth is, no one is just going to let us walk to the nomination. If you thought 6 super PACs and endless attacks were a lot before Nevada, just wait until this week. We must be ready. Because if we are, then we are going to win. Use"
+    },
+    {
+      "week": "2021-03-29",
+      "text": "This is the best laugh I\u2019ve had maybe ever. It\u2019s James adomian  doing Trump talking about sonic the hedgehog and the off",
+      "type": "high_signal"
+    },
+    {
+      "week": "2026-05-18",
+      "text": "If you had absolutely any idea how much I did not want to be FORCE HELD CAPTIVE to talk to Lindsay Smith for like 10 fuc",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-08-26",
+      "text": "Your SPECTRUM bill is past due.  Services have been suspended. To restore service, visit www.spectrum.net/support/myacco",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-01-27",
+      "text": "I\u2019m home on 76"
+    },
+    {
+      "week": "2016-05-02",
+      "text": "I just need a shower and I'm gonna get some monay so we can get something. If you wanna go back you can, I don't wanna b",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-06-24",
+      "text": "Are you excited about getting your boy Donald Trump back into the White House? He\u2019s going to win for sure"
+    },
+    {
+      "week": "2020-02-10",
+      "text": "** Urgent Bernie 2020 Update ** Politico is reporting \"whispers about ATTACK ADS being cut against Sanders\" if we do well tomorrow in New Hampshire. So we've set a goal of 75,000 donations TODAY. Because we have to be ready. We have no choice if we're going to"
+    },
+    {
+      "week": "2019-03-25",
+      "text": "Can u stop up? Not in a hurry ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-07-22",
+      "text": "Can you stop by? I'm home on 76"
+    },
+    {
+      "week": "2017-07-10",
+      "text": "okay well they owe me a major favor in the pro shop. i did the contour maps of the new greens in photoshop. i might be able to get us on the new track. i\u2019ll get back to you on that, but let\u2019s shoot for sunday"
+    },
+    {
+      "week": "2019-08-05",
+      "text": "if you lived in a trailer park in rural PA...could you imagine refusing to move to an apartment in nyc"
+    },
+    {
+      "week": "2019-06-03",
+      "text": "okay is it cool if i get back to you in a little bit to confirm? didn't realize the price would jump so much for a couple so i just need to check with the girlf first"
+    },
+    {
+      "week": "2017-03-27",
+      "text": "well you stopped liking me",
+      "type": "high_signal"
+    },
+    {
+      "week": "2023-12-11",
+      "text": "Hi I don\u2019t handle this. The HR person would send an email to you. Can you check your email if you missed any emails from",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-09-30",
+      "text": "dude i've never once fucked a girl with actual titties before. it was like better than a hot fudge sundae"
+    },
+    {
+      "week": "2019-02-04",
+      "text": "Truth be told I doubt you\u2019re over the limit for the new one that I have. They switched from bamboo to a popular composit",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-01-07",
+      "text": "Oh yeah today is nyc for you"
+    },
+    {
+      "week": "2015-12-07",
+      "text": "Vanessa is going to need to get an rca adapter for the amp. It doesn't have an XLR jack"
+    },
+    {
+      "week": "2020-05-11",
+      "text": "Thanks. Please come to Trifecta Health Park Avenue,30 East 60th Street, Suite 2403. For further help, please call us at 8003853905."
+    },
+    {
+      "week": "2026-03-30",
+      "text": "Do you want more of these pretzels?  I\u2019m going to bed"
+    },
+    {
+      "week": "2025-03-17",
+      "text": "I\u2019ve learned a lot about AI from playing around and getting better at writing prompts but until I learn python i\u2019m not going to really be able to accomplish much"
+    },
+    {
+      "week": "2020-02-03",
+      "text": "I will get the check ready and I will be home this afternoon."
+    },
+    {
+      "week": "2020-06-29",
+      "text": "can we like film or cam or do *sonething* idk it is driving me crazy that you won\u2019t decide what kind of sex life we actu",
+      "type": "high_signal"
+    },
+    {
+      "week": "2017-01-23",
+      "text": "Someone asked where you are ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2017-01-23",
+      "text": "I'm getting dinner with my grandma and then going back to the house"
+    },
+    {
+      "week": "2015-11-30",
+      "text": "But I'm sitting here outside. I'm not coming in unless invited in. But I can't go home without that light. I can't sleep without it"
+    },
+    {
+      "week": "2020-05-04",
+      "text": "Cash App: Your $7.41 payment at Apple was declined because your Cash Card is disabled. Open the app to enable your card ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-03-25",
+      "text": "Srry bro my boy doesn't answer I think he went home"
+    },
+    {
+      "week": "2025-11-17",
+      "text": "On my way! Home"
+    },
+    {
+      "week": "2020-02-03",
+      "text": "Cash App: Your $5.29 payment at Apple was declined because your Cash Card is disabled. Open the app to enable your card ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-03-25",
+      "text": "Can you stop by ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-05-27",
+      "text": "T-Mobile: You're missing out! My T-Mobile makes managing your line quick and easy. Log in to get started: sms.t-mobile.c",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-09-15",
+      "text": "God I miss you so much. I\u2019m trying to plan my day. Mondays are the slowest days and should be my \u201cday off\u201d moving forward but we\u2019ll see. I have to come up with a number I want for this loan today from Daddy F. He\u2019s not happy about it and I\u2019m not either. I gues"
+    },
+    {
+      "week": "2020-04-06",
+      "text": "i was just delivering food and my boosted board died on west 85th so i had to walk across the park. i figured it would be empty but it\u2019s like packed. people playing baseball and shit."
+    },
+    {
+      "week": "2019-02-18",
+      "text": "ing golf, throwing frisbee, and when we made that video throwing football were the most fun I had all summer"
+    },
+    {
+      "week": "2025-09-01",
+      "text": "okay that\u2019s enough cheese for two non wine drinkers.  i\u2019m so glad we clarified what happened earlier too, i feel like it",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-04-16",
+      "text": "see ya at the pool hall around 10pm"
+    },
+    {
+      "week": "2026-03-09",
+      "text": "It\u2019s going to take forever for Ard to start."
+    },
+    {
+      "week": "2016-11-21",
+      "text": "We're near Claire's house bout to go home"
+    },
+    {
+      "week": "2017-10-02",
+      "text": "it\u2019s the same bank she goes to, so i think they might be okay with it. i\u2019m probably not going to be back from work in time"
+    },
+    {
+      "week": "2018-07-02",
+      "text": "Then by the time I got to uniontown the same thing happened."
+    },
+    {
+      "week": "2025-01-27",
+      "text": "URvet Care: Smile Alert! \ud83e\uddb7\ud83e\udea5February is National Pet Dental Health Month. Snag 10% off dental treatments (up to $400) wit",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-04-21",
+      "text": "Cash App: Your $16.32 payment at Amazon was declined because there wasn't enough money in your Cash Balance.",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-10-06",
+      "text": "Guessing you aren\u2019t going to want to do this on your end which is okay, but I didn\u2019t want mine to say single",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-07-16",
+      "text": "She\u2019s just off and Home. Lol"
+    },
+    {
+      "week": "2020-08-17",
+      "text": "just wanted to follow up and get an idea of how soon the checks are able to be issued. my mom said that there was a 10 d",
+      "type": "high_signal"
+    },
+    {
+      "week": "2026-01-19",
+      "text": "Getting headlight changed.  Then I\u2019ll be home"
+    },
+    {
+      "week": "2018-09-03",
+      "text": "Package in hand. On way back.  I have one stop. Then home. Get you ready and be down asap!"
+    },
+    {
+      "week": "2020-04-06",
+      "text": "i ldelivered a single piece of avocado toast and now i\u2019m on the worst walk ever lol"
+    },
+    {
+      "week": "2025-09-22",
+      "text": "Also I was not trying to be cold or short last night.   I could tell that you weren\u2019t being rude or didn\u2019t seem mad at me but that you weren\u2019t trying to get into a whole thing so I was just doing my best to match you and not launch into a full 5 volume encyclo"
+    },
+    {
+      "week": "2019-02-11",
+      "text": "She just pulled im u at home?"
+    },
+    {
+      "week": "2019-06-17",
+      "text": "You are fine honey ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-12-10",
+      "text": "Warm the car up a min and be on way"
+    },
+    {
+      "week": "2024-06-17",
+      "text": "I'm home on 76"
+    },
+    {
+      "week": "2016-01-11",
+      "text": "\ufffc https://drive.google.com/open?id=0B86miIFElnynTDZEenRCOEdqVkU"
+    },
+    {
+      "week": "2019-09-09",
+      "text": "Also keep in mind my dad is one of the most prolific when it comes to embellishing stories and completely misrepresentin",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-05-13",
+      "text": "can you stop by when you get started",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-07-01",
+      "text": "Well first let me make sure I can get a ride to wherever I have to catch the bus. Look at tickets and let me know my options but I'm thinking morgantown would be the closest bus depot"
+    },
+    {
+      "week": "2017-10-16",
+      "text": "I gotta run back to get my sticks but I think I\u2019m coming right back up"
+    },
+    {
+      "week": "2018-05-14",
+      "text": "Btw that tank is fucking wild. It keeps the juice isolated from the atomizer until you fire it and it tastes so. Fucking. Good"
+    },
+    {
+      "week": "2024-09-30",
+      "text": "Hi Thalia, it's Mandy with RJW Exteriors! I saw you inquired about replacing your windows a while back... I'm reaching o",
+      "type": "high_signal"
+    },
+    {
+      "week": "2015-12-14",
+      "text": "Had a dream about you last night.. Don't worry it wasn't wet"
+    },
+    {
+      "week": "2018-03-26",
+      "text": "did you stop for gas? i put so much in",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-09-23",
+      "text": "Can u please meet me 61 Lexington ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-02-03",
+      "text": "Can you stop by",
+      "type": "high_signal"
+    },
+    {
+      "week": "2021-02-22",
+      "text": "Also I wasn\u2019t planning to actually do that but it\u2019s been a thought that i might wish I had done it down the road"
+    },
+    {
+      "week": "2018-04-30",
+      "text": "Sounds good bro. I'm gonna head up and help hit for the new guys at 11. I have to go look at a spot @ 6pm but hit me up ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2020-03-09",
+      "text": "Vanguard security code:  737558  Code expires in 10 minutes. Reply HELP for help, STOP to cancel, Msg&Data Rates May App",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-08-11",
+      "text": "\ufffci was able to map out how happy or miserable my relationship is by running the whole 135,000 message chat log with my g",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-10-07",
+      "text": "I\u2019m home on 76"
+    },
+    {
+      "week": "2024-09-30",
+      "text": "I\u2019m home on 76"
+    },
+    {
+      "week": "2020-07-27",
+      "text": "hey rod! hope you\u2019re doing well and staying safe.  i went through all of the estate documentation and i just wanted to s",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-12-15",
+      "text": "i\u2019m going to try this"
+    },
+    {
+      "week": "2017-05-22",
+      "text": "Going to get the car"
+    },
+    {
+      "week": "2025-08-18",
+      "text": "you tell my EX girlfriend kristin that because she never texted me i am going to be forced to deepfake her in the worst possible situations"
+    },
+    {
+      "week": "2018-02-19",
+      "text": "you\u2019re in for a real treat today. she\u2019s been up since 1am. she hasn\u2019t stopped messing around with the coasters or anythi",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-09-22",
+      "text": "(Bring a bucket though because it\u2019s going to be like a fire hose)"
+    },
+    {
+      "week": "2018-06-18",
+      "text": "Yeah i got you the sub and buck set aside. I might have the extra not sure. Still early. Get busy around two sometime bu",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-09-16",
+      "text": "Cash App: Your $11.87 payment at Gristedes was declined because there is not enough cash available in your app. Open the",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-03-26",
+      "text": "Ment get home for you"
+    },
+    {
+      "week": "2019-05-06",
+      "text": "i\u2019m outside skating give me a 5 min heads up"
+    },
+    {
+      "week": "2016-11-28",
+      "text": "What's the dog's name? It would really make it pop if I wrote it in some clean black script over the picture. When you b",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-08-05",
+      "text": "Sick, going to fuck around with this tonight for sure."
+    },
+    {
+      "week": "2023-10-09",
+      "text": "I still think that the optics are bad, but it\u2019s hard to say Hamas isn\u2019t justified in revolutionary action ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2026-02-23",
+      "text": "All these assholes in Fayette County they think they\u2019re gonna get some kind of a fucking deal. I\u2019m so annoyed.",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-08-12",
+      "text": "Cash App: We declined a $141.53 purchase at Apple to keep your account safe. Open Cash App to let us know if it was you.",
+      "type": "high_signal"
+    },
+    {
+      "week": "2019-02-04",
+      "text": "My mom stoppin up. Make sure Dont pull in if see anyone here. ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-09-02",
+      "text": "Cash App: Your $12.99 payment at Apple was declined because there wasn't enough money in your Cash Balance.",
+      "type": "high_signal"
+    },
+    {
+      "week": "2025-02-17",
+      "text": "I\u2019m home on. 76"
+    },
+    {
+      "week": "2018-10-29",
+      "text": "If you don\u2019t want to fuck me because I suck as a person and gf then I get it ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2023-10-30",
+      "text": "Sorry about your guy",
+      "type": "high_signal"
+    },
+    {
+      "week": "2016-09-26",
+      "text": "Please please please",
+      "type": "high_signal"
+    },
+    {
+      "week": "2021-01-25",
+      "text": "It\u2019s so fucked up dude ",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-04-23",
+      "text": "We meet, smoke a bowl and just bullshit first time she and I meet. I leave and once I'm gone she can tell you if she's d",
+      "type": "high_signal"
+    },
+    {
+      "week": "2024-05-27",
+      "text": "I'm home on 76"
+    },
+    {
+      "week": "2025-10-06",
+      "text": "alright so I\u2019m going to go. We\u2019re showing the house in an hour and I\u2019m just not really able to process this all right now"
+    },
+    {
+      "week": "2026-03-16",
+      "text": "I\u2019m going to pick up food shortly and I\u2019ll be home after that"
+    },
+    {
+      "week": "2018-09-10",
+      "text": "I think my mom has a couch with the same print as al\u2019s sport coat"
+    },
+    {
+      "week": "2019-12-23",
+      "text": "hey dude! would like to link before the holiday if you\u2019re going to be around. is there anything interesting i could add to the collection?  the last set of tablature was super ridiculous and i still have a bunch of that but anything benzo or mushy or dmt i wou"
+    },
+    {
+      "week": "2025-08-18",
+      "text": "I feel like I\u2019m dying and the only way to fix it is to flirt with an Asian woman by opening up with \u2018ni hai\u2019",
+      "type": "high_signal"
+    },
+    {
+      "week": "2026-04-13",
+      "text": "Omg PLEASE don\u2019t cancel he\u2019s going to fucking kill me",
+      "type": "high_signal"
+    },
+    {
+      "week": "2018-10-15",
+      "text": "We are almost out of gas and I have to wait until my account is up before I can put some in the tank"
+    },
+    {
+      "week": "2017-05-22",
+      "text": "And you somehow found out that you knew his sister or something so it's not someone making an off-handed comment to you ",
+      "type": "high_signal"
+    }
+  ]
+}

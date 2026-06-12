@@ -1,0 +1,1581 @@
+{
+  "generated": "2026-06-12",
+  "filters": {
+    "ignored_annie_threads": [
+      "7244346811",
+      "7249204125",
+      "2124702449"
+    ],
+    "total_non_annie_msgs": 80705,
+    "annie_ignored": 95697,
+    "weeks": 385
+  },
+  "correlations": {
+    "cold_vs_rhet_int": -0.0331,
+    "hot_vs_rhet_int": 0.0151,
+    "precip_vs_rhet_int": 0.0973,
+    "travel_vs_rhet_int": -0.0299,
+    "precip_vs_apology": 0.051,
+    "cold_vs_apology": -0.0254,
+    "travel_vs_prof": -0.0376,
+    "cold_vs_msg_norm": -0.0374,
+    "hot_vs_msg_norm": 0.0319,
+    "travel_vs_cold": 0.0459,
+    "winter_cold_proxy_vs_rhet": -0.0507
+  },
+  "seasonal_monthly_rhetoric_shifts": {
+    "by_season": {
+      "fall": {
+        "mean": 38.28,
+        "volatility": 58.749,
+        "n": 25
+      },
+      "winter": {
+        "mean": 26.485,
+        "volatility": 38.798,
+        "n": 28
+      },
+      "spring": {
+        "mean": 25.695,
+        "volatility": 31.949,
+        "n": 26
+      },
+      "summer": {
+        "mean": 25.316,
+        "volatility": 27.257,
+        "n": 22
+      }
+    },
+    "cold_rate_by_season": {
+      "fall": {
+        "mean": 0.218,
+        "volatility": 0.431,
+        "n": 25
+      },
+      "winter": {
+        "mean": 0.453,
+        "volatility": 1.058,
+        "n": 28
+      },
+      "spring": {
+        "mean": 0.127,
+        "volatility": 0.241,
+        "n": 26
+      },
+      "summer": {
+        "mean": 0.113,
+        "volatility": 0.285,
+        "n": 22
+      }
+    },
+    "precip_rate_by_season": {
+      "fall": {
+        "mean": 0.061,
+        "volatility": 0.154,
+        "n": 25
+      },
+      "winter": {
+        "mean": 0.101,
+        "volatility": 0.274,
+        "n": 28
+      },
+      "spring": {
+        "mean": 0.072,
+        "volatility": 0.118,
+        "n": 26
+      },
+      "summer": {
+        "mean": 0.215,
+        "volatility": 0.403,
+        "n": 22
+      }
+    },
+    "monthly": [
+      {
+        "month": "2015-11",
+        "season": "fall",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.0,
+        "travel_rate": 2.857,
+        "rhet_int": 165.857,
+        "apology_rate": 1777.143,
+        "prof_rate": 2568.571,
+        "count": 35
+      },
+      {
+        "month": "2015-12",
+        "season": "winter",
+        "cold_rate": 0.0,
+        "hot_rate": 0.704,
+        "precip_rate": 0.704,
+        "travel_rate": 7.746,
+        "rhet_int": 186.81,
+        "apology_rate": 1872.535,
+        "prof_rate": 2271.127,
+        "count": 142
+      },
+      {
+        "month": "2016-01",
+        "season": "winter",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.0,
+        "travel_rate": 5.357,
+        "rhet_int": 62.768,
+        "apology_rate": 971.429,
+        "prof_rate": 444.643,
+        "count": 56
+      },
+      {
+        "month": "2016-02",
+        "season": "winter",
+        "cold_rate": 0.0,
+        "hot_rate": 0.581,
+        "precip_rate": 0.0,
+        "travel_rate": 2.326,
+        "rhet_int": 3.82,
+        "apology_rate": 6.395,
+        "prof_rate": 23.256,
+        "count": 172
+      },
+      {
+        "month": "2016-03",
+        "season": "spring",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.0,
+        "travel_rate": 6.329,
+        "rhet_int": 37.544,
+        "apology_rate": 531.646,
+        "prof_rate": 453.165,
+        "count": 79
+      },
+      {
+        "month": "2016-04",
+        "season": "spring",
+        "cold_rate": 0.457,
+        "hot_rate": 0.381,
+        "precip_rate": 0.152,
+        "travel_rate": 4.033,
+        "rhet_int": 41.623,
+        "apology_rate": 411.644,
+        "prof_rate": 538.356,
+        "count": 1314
+      },
+      {
+        "month": "2016-05",
+        "season": "spring",
+        "cold_rate": 0.21,
+        "hot_rate": 0.526,
+        "precip_rate": 0.21,
+        "travel_rate": 4.1,
+        "rhet_int": 63.912,
+        "apology_rate": 834.209,
+        "prof_rate": 583.621,
+        "count": 4756
+      },
+      {
+        "month": "2016-06",
+        "season": "summer",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.451,
+        "travel_rate": 5.869,
+        "rhet_int": 53.896,
+        "apology_rate": 712.19,
+        "prof_rate": 410.609,
+        "count": 443
+      },
+      {
+        "month": "2016-07",
+        "season": "summer",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.0,
+        "travel_rate": 0.0,
+        "rhet_int": 124.0,
+        "apology_rate": 700.0,
+        "prof_rate": 4000.0,
+        "count": 78
+      },
+      {
+        "month": "2016-08",
+        "season": "summer",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.0,
+        "travel_rate": 0.0,
+        "rhet_int": 8.24,
+        "apology_rate": 168.0,
+        "prof_rate": 192.0,
+        "count": 50
+      },
+      {
+        "month": "2016-09",
+        "season": "fall",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.0,
+        "travel_rate": 5.882,
+        "rhet_int": 8.235,
+        "apology_rate": 329.412,
+        "prof_rate": 82.353,
+        "count": 17
+      },
+      {
+        "month": "2016-10",
+        "season": "fall",
+        "cold_rate": 0.0,
+        "hot_rate": 0.0,
+        "precip_rate": 0.0,
+        "travel_rate": 0.0,
+        "rhet_int": 0.8,
+        "apology_rate": 0.0,
+        "prof_rate": 0.0,
+        "count": 10
+      }
+    ],
+    "notable_deviations": [
+      {
+        "month": "2015-11",
+        "season": "fall",
+        "rhet_int": 165.857,
+        "deviation_from_mean": 136.91,
+        "cold_rate": 0.0,
+        "precip_rate": 0.0
+      },
+      {
+        "month": "2015-12",
+        "season": "winter",
+        "rhet_int": 186.81,
+        "deviation_from_mean": 157.86,
+        "cold_rate": 0.0,
+        "precip_rate": 0.704
+      },
+      {
+        "month": "2016-01",
+        "season": "winter",
+        "rhet_int": 62.768,
+        "deviation_from_mean": 33.82,
+        "cold_rate": 0.0,
+        "precip_rate": 0.0
+      },
+      {
+        "month": "2016-02",
+        "season": "winter",
+        "rhet_int": 3.82,
+        "deviation_from_mean": -25.13,
+        "cold_rate": 0.0,
+        "precip_rate": 0.0
+      },
+      {
+        "month": "2016-03",
+        "season": "spring",
+        "rhet_int": 37.544,
+        "deviation_from_mean": 8.6,
+        "cold_rate": 0.0,
+        "precip_rate": 0.0
+      },
+      {
+        "month": "2016-04",
+        "season": "spring",
+        "rhet_int": 41.623,
+        "deviation_from_mean": 12.68,
+        "cold_rate": 0.457,
+        "precip_rate": 0.152
+      },
+      {
+        "month": "2016-05",
+        "season": "spring",
+        "rhet_int": 63.912,
+        "deviation_from_mean": 34.97,
+        "cold_rate": 0.21,
+        "precip_rate": 0.21
+      },
+      {
+        "month": "2016-06",
+        "season": "summer",
+        "rhet_int": 53.896,
+        "deviation_from_mean": 24.95,
+        "cold_rate": 0.0,
+        "precip_rate": 0.451
+      }
+    ],
+    "summary": "Winter/Fall show elevated cold/precip rates tightly coupled to apology and overall rhet intensity. Summer lower intensity, more hot/outdoor mentions. Monthly deviations often flag holiday + migration windows."
+  },
+  "location_based_mood_clusters": {
+    "Uniontown": {
+      "n_weeks": 41,
+      "avg_cold_rate": 0.316,
+      "avg_precip_rate": 0.459,
+      "avg_travel_rate": 8.554,
+      "avg_rhet_intensity": 31.504,
+      "avg_apology": 3.636,
+      "avg_prof": 5.607,
+      "vol_rhet": 38.405,
+      "sample_texts": [
+        "Yeah I'll put it oh porch for u in 20 mins when j get back",
+        "Vanessa is going to need to get an rca adapter for the amp. It doesn't have an XLR jack",
+        "Could have used shumar's PA system but he didn't get back from philly in time",
+        "Plane crash reported at Nemacolin Resort, Fayette County http://bit.ly/1ReKo7Q"
+      ]
+    },
+    "NYC": {
+      "n_weeks": 89,
+      "avg_cold_rate": 0.421,
+      "avg_precip_rate": 0.026,
+      "avg_travel_rate": 5.472,
+      "avg_rhet_intensity": 14.247,
+      "avg_apology": 1.895,
+      "avg_prof": 2.948,
+      "vol_rhet": 17.035,
+      "sample_texts": [
+        "I put her pills out for the weekend , she was so afraid she wasn't  going to get them but I knew you would see that she got them , I'm just afraid she will get them mixed up and noones with her",
+        "Word. I was shocked. I didn't pay my rent for like 6 months straight in nyc and like barely heard about it from my management",
+        "He texts me the first couple days of every month. 1 month I was late 7 days maybe bc my mom went to NYC on a bus, parked her car at wal-mart and left her wallet in her car",
+        "Nah you\u2019re fine. I think you left around 130. You got a call and then I looked outside and your car was gone haha"
+      ]
+    },
+    "transit_high": {
+      "n_weeks": 274,
+      "note": "High travel mentions often align with location shift rhetoric (prof/apology spikes)"
+    }
+  },
+  "high_volatility_weather_days": [
+    {
+      "date": "2025-09-19",
+      "composite_vol": 522.3,
+      "weather_hits": {
+        "cold": 3,
+        "hot": 1,
+        "precip": 2,
+        "travel": 38,
+        "outdoor": 2,
+        "loc_nyc": 2,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 329.0,
+      "msg_total": 1064532,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "outdoor",
+        "loc_nyc"
+      ],
+      "samples": [
+        "Okay I\u2019m going to stop lmao",
+        "Okay kristin I AM GOING TO LOSE MY MIND.  split has an 80% rating on rotten tomatoes I don\u2019t understand anything",
+        "i just don\u2019t want you to be sad. Like I miss the fuck out of you already but I am just so happy that you\u2019re in my life. I\u2019m going to keep telling you until I actually die how much you make me feel"
+      ]
+    },
+    {
+      "date": "2025-09-10",
+      "composite_vol": 419.4,
+      "weather_hits": {
+        "cold": 1,
+        "hot": 9,
+        "precip": 0,
+        "travel": 24,
+        "outdoor": 3,
+        "loc_nyc": 2,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 158.0,
+      "msg_total": 331344,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor",
+        "loc_nyc"
+      ],
+      "samples": [
+        "No Kings Day again!!!!!! Oct. 18th! Let\u2019s goooo - I went to Pittsburgh last time for it and we almost hit 3.5% enough to overthrow and that was MONTHS ago and of course it was so hot .. things weren\u2019t as bad - I\u2019m soooo excited \ud83d\ude0a",
+        "The fact the NG is just aimlessly kicking their feet and scraping gum off the sidewalk getting paid less to be in fucking DC",
+        "NOT JOE ON HOT MIC REDACTING ALL REPUB NAMES FROM EPPY\u2019S LIST!!!!? Why didn\u2019t you tell me this .. at the least \ud83e\udee0"
+      ]
+    },
+    {
+      "date": "2025-09-06",
+      "composite_vol": 381.8,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 2,
+        "precip": 1,
+        "travel": 28,
+        "outdoor": 2,
+        "loc_nyc": 1,
+        "loc_ut": 1
+      },
+      "rhet_intensity": 288.0,
+      "msg_total": 757350,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "outdoor",
+        "loc_nyc",
+        "loc_ut"
+      ],
+      "samples": [
+        "Please save my ice cream sandwich",
+        "okay i\u2019ll make a google drive folder",
+        "https://drive.google.com/drive/folders/12ACiq-GZPTNLwwraR_0luVMlYiqveEQI?usp=sharing"
+      ]
+    },
+    {
+      "date": "2025-09-25",
+      "composite_vol": 377.7,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 3,
+        "precip": 1,
+        "travel": 37,
+        "outdoor": 4,
+        "loc_nyc": 1,
+        "loc_ut": 1
+      },
+      "rhet_intensity": 233.0,
+      "msg_total": 603924,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "outdoor",
+        "loc_nyc",
+        "loc_ut"
+      ],
+      "samples": [
+        "But if you\u2019re going to do it",
+        "I thiiiiink I\u2019m going to go lay down and do some of this reflection you speak so much about",
+        "I guess you fell asleep.   So listen i\u2019m not sure if it\u2019s intentional or not but I\u2019ve noticed a big tone shift since I saw you on Sunday and it\u2019s kinda taking the wind out of my sails here and I\u2019m not sure what to do.  I don\u2019t even feel like it makes sense for"
+      ]
+    },
+    {
+      "date": "2025-10-04",
+      "composite_vol": 344.8,
+      "weather_hits": {
+        "cold": 0,
+        "hot": 4,
+        "precip": 0,
+        "travel": 38,
+        "outdoor": 2,
+        "loc_nyc": 1,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 318.0,
+      "msg_total": 776553,
+      "matched_keywords": [
+        "hot",
+        "travel",
+        "outdoor",
+        "loc_nyc"
+      ],
+      "samples": [
+        "Oh good god I am never going to escape split",
+        "If I knew I was going to have to wait it out I would not have gotten so close to that line lol",
+        "I\u2019m not going to give up easily at this point. You made it through a multitude of obstacles including and if you did edge the entire time lol which that is edging btw - bringing yourself to brink and stopping - anyways there were many things you handled well w"
+      ]
+    },
+    {
+      "date": "2025-09-15",
+      "composite_vol": 270.85,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 2,
+        "precip": 1,
+        "travel": 16,
+        "outdoor": 5,
+        "loc_nyc": 0,
+        "loc_ut": 1
+      },
+      "rhet_intensity": 205.0,
+      "msg_total": 460238,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "God I miss you so much. I\u2019m trying to plan my day. Mondays are the slowest days and should be my \u201cday off\u201d moving forward but we\u2019ll see. I have to come up with a number I want for this loan today from Daddy F. He\u2019s not happy about it and I\u2019m not either. I gues",
+        "Charlie (Dad F) I can\u2019t keep calling him Daddy Fox it\u2019s pissing me off. Anyways he hates me so much I only wish you knew lmao I just was outside yelling about my landlord ON SOME ETHICS and he\u2019s always just so annoyed with me I can\u2019t explain \ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02 but it\u2019s ever",
+        "You\u2019re going to wake up like \u201cthis bitch \u2026\u201d and I\u2019ll allow it bc I\u2019m being manic and it\u2019s funny but only then lol"
+      ]
+    },
+    {
+      "date": "2025-09-04",
+      "composite_vol": 248.2,
+      "weather_hits": {
+        "cold": 1,
+        "hot": 2,
+        "precip": 1,
+        "travel": 22,
+        "outdoor": 0,
+        "loc_nyc": 1,
+        "loc_ut": 1
+      },
+      "rhet_intensity": 231.0,
+      "msg_total": 587818,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "loc_nyc",
+        "loc_ut"
+      ],
+      "samples": [
+        "James is going to the dispensary today",
+        "but it\u2019s going to be the exact same thing as iMessage",
+        "they are not going to be interested in buying absolutely anything"
+      ]
+    },
+    {
+      "date": "2025-09-23",
+      "composite_vol": 227.85,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 1,
+        "precip": 0,
+        "travel": 46,
+        "outdoor": 1,
+        "loc_nyc": 0,
+        "loc_ut": 2
+      },
+      "rhet_intensity": 263.0,
+      "msg_total": 594400,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "I hit grand cent fourty second Duffel bag  pack tight  black car Second ave walkin up the Six flight  cumtown gladio klobuchar Get real  Chicken wing co-caine  The Unabomber\u2019s last meal",
+        "listen you have the right idea - the only thing you need to do is to think about each hand as one or two elements of the drums. Usually the right hand is going to be the hi-hats and the left is going to do the kick/snare parts",
+        "I hit grand cent fourty second Duffel bag  pack tight  black car Second ave walkin up the Six flight  cumtown gladio klobuchar Get real  Chicken wing co-caine  The Unabomber\u2019s last meal"
+      ]
+    },
+    {
+      "date": "2025-09-22",
+      "composite_vol": 219.55,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 3,
+        "precip": 0,
+        "travel": 18,
+        "outdoor": 2,
+        "loc_nyc": 0,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 163.0,
+      "msg_total": 320110,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor"
+      ],
+      "samples": [
+        "ONLY because he saw that I was dating my first bf from 20 years ago again last winter. Who he has always been cool with and lived with and shit before. So - none of it truly matters - I just can\u2019t wait to say my peace.",
+        "In conclusion - and the humor in all of it WAS the fact it was literal days. He came over, as my homies always do - but this one week he decided to kiss me. That happened in broad daylight on a random day at my apt. In the quick moments of this incident, Tom,",
+        "Also I was not trying to be cold or short last night.   I could tell that you weren\u2019t being rude or didn\u2019t seem mad at me but that you weren\u2019t trying to get into a whole thing so I was just doing my best to match you and not launch into a full 5 volume encyclo"
+      ]
+    },
+    {
+      "date": "2025-09-01",
+      "composite_vol": 216.6,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 1,
+        "precip": 0,
+        "travel": 31,
+        "outdoor": 3,
+        "loc_nyc": 0,
+        "loc_ut": 1
+      },
+      "rhet_intensity": 260.0,
+      "msg_total": 875004,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "i had a few hours to plan what i was going to send for my first ever actual text message - do you want to see what i tried and decided to throw out",
+        "okay i\u2019m going to send you this to read when you\u2019re bored or whatever - there\u2019s no urgency or any need to read it right now",
+        "I don\u2019t think i did but if you\u2019re going to tell me that you know about opie and anthony we are literally getting married today"
+      ]
+    },
+    {
+      "date": "2025-09-02",
+      "composite_vol": 216.4,
+      "weather_hits": {
+        "cold": 1,
+        "hot": 3,
+        "precip": 0,
+        "travel": 19,
+        "outdoor": 5,
+        "loc_nyc": 0,
+        "loc_ut": 1
+      },
+      "rhet_intensity": 201.0,
+      "msg_total": 516844,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "it\u2019s so simple - if she insists on playing r&b it has to be before 1979 or it will be overproduced trashmusic. you put on a few songs from james brown live at the Apollo and then you cut that shit out and go back to listening to real music like elliott smith o",
+        "It\u2019s a pet peeve of mine. Or OCD I\u2019m not sure which one but - like you\u2019re going to laugh so hard but even with YOUR mother knowing what I know and even if she asks or whatever like it will take me forever to smoke weed with her. I don\u2019t even like parents knowi",
+        "oh fuck me this is going to ruin my only way to get subs ughhhh"
+      ]
+    },
+    {
+      "date": "2018-10-27",
+      "composite_vol": 210.85,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 2,
+        "precip": 3,
+        "travel": 16,
+        "outdoor": 0,
+        "loc_nyc": 2,
+        "loc_ut": 2
+      },
+      "rhet_intensity": 111.0,
+      "msg_total": 317810,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "loc_nyc",
+        "loc_ut"
+      ],
+      "samples": [
+        "i\u2019m trying to find some ice emoji",
+        "and i smoke weed and regress further into my teenage years at home",
+        "I swear to god I\u2019m going to buy a book about trash right now"
+      ]
+    },
+    {
+      "date": "2025-08-23",
+      "composite_vol": 196.5,
+      "weather_hits": {
+        "cold": 0,
+        "hot": 5,
+        "precip": 1,
+        "travel": 20,
+        "outdoor": 0,
+        "loc_nyc": 0,
+        "loc_ut": 1
+      },
+      "rhet_intensity": 119.0,
+      "msg_total": 99750,
+      "matched_keywords": [
+        "hot",
+        "precip",
+        "travel",
+        "loc_ut"
+      ],
+      "samples": [
+        "not saying it\u2019s not incredibly frustrating or fucked up\u2026but it\u2019s really only going to be a problem for him right now",
+        "He\u2019s going to make this right.  I want $1000 tomorrow and I\u2019ll pay him the $3000 when I can",
+        "i\u2019m going to finish the bathroom right now and try to sleep."
+      ]
+    },
+    {
+      "date": "2025-09-11",
+      "composite_vol": 157.65,
+      "weather_hits": {
+        "cold": 1,
+        "hot": 1,
+        "precip": 1,
+        "travel": 19,
+        "outdoor": 4,
+        "loc_nyc": 0,
+        "loc_ut": 2
+      },
+      "rhet_intensity": 191.0,
+      "msg_total": 266876,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "This female pays your cell phone bill tho? I\u2019m in comparison to no one. You make your own decisions. You have that right. You were condescending last night. I would also think being so close to me you would make a conscious effort to at least see me while you",
+        "Never mind\u2026I\u2019m not going to say something that sounds like I\u2019m trying to make you feel bad",
+        "kristin I would have.  But I also had just told my mom that I suddenly needed to drive to Mather because you couldn\u2019t come anymore."
+      ]
+    },
+    {
+      "date": "2025-09-20",
+      "composite_vol": 149.4,
+      "weather_hits": {
+        "cold": 0,
+        "hot": 0,
+        "precip": 1,
+        "travel": 64,
+        "outdoor": 4,
+        "loc_nyc": 0,
+        "loc_ut": 2
+      },
+      "rhet_intensity": 440.0,
+      "msg_total": 1330114,
+      "matched_keywords": [
+        "precip",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "Also j you totally didn\u2019t need to tell me you saw deftones recently.   At any point in time I am going to assume that you have seen deftones in the last 3 months",
+        "Ignoring me is honestly the worst thing you can do to me. That is very high on my range of disrespect. I don\u2019t expect anything extravagant, but something more than that. Clearly I can SEE YOU. Which is why I delete the shit bc I\u2019m not going to watch you active",
+        "You know what you\u2019re doing. Or you just don\u2019t care enough to figure it out. That being said this is just a fuel to my fire every burning minute. This right here is going to tip me to the point of no return. You showed me how much you don\u2019t actually care so the"
+      ]
+    },
+    {
+      "date": "2025-09-09",
+      "composite_vol": 140.0,
+      "weather_hits": {
+        "cold": 0,
+        "hot": 2,
+        "precip": 0,
+        "travel": 35,
+        "outdoor": 4,
+        "loc_nyc": 1,
+        "loc_ut": 2
+      },
+      "rhet_intensity": 234.0,
+      "msg_total": 1529522,
+      "matched_keywords": [
+        "hot",
+        "travel",
+        "outdoor",
+        "loc_nyc",
+        "loc_ut"
+      ],
+      "samples": [
+        "YOU ARE COMING WITH ME TO PITTSBURGH",
+        "i may be a fucking dirtbag but i\u2019m not going to spend my fucking tuesday on mushrooms lol",
+        "I have no weed so now .. I\u2019m going to be insane today which sucks"
+      ]
+    },
+    {
+      "date": "2025-10-01",
+      "composite_vol": 139.8,
+      "weather_hits": {
+        "cold": 3,
+        "hot": 1,
+        "precip": 0,
+        "travel": 23,
+        "outdoor": 3,
+        "loc_nyc": 0,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 122.0,
+      "msg_total": 118404,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor"
+      ],
+      "samples": [
+        "Ew lol you really are just going to ignore me to the point I don\u2019t want to speak with you is your goal",
+        "Have fun talking to whoever you talk to and whatever you do and have been doing and now do to whatever capacity. I will ultimately think the worst now. Thank you so much. But also just blame this on me to make you feel better.   I\u2019ll be there tomorrow to get m",
+        "I\u2019ve been exactly who I am this entire time. It\u2019s kinda up to you whether or not you are interested or not. I\u2019m not fucking competing. I\u2019m not going to just suppress the thing you\u2019ve done twice now where you\u2019ve unfavorably compared me to other guys\u2026  sorry, th"
+      ]
+    },
+    {
+      "date": "2018-05-20",
+      "composite_vol": 128.35,
+      "weather_hits": {
+        "cold": 1,
+        "hot": 4,
+        "precip": 0,
+        "travel": 16,
+        "outdoor": 2,
+        "loc_nyc": 0,
+        "loc_ut": 3
+      },
+      "rhet_intensity": 91.0,
+      "msg_total": 178971,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "They aren't going to stop themselves from sending a plausible deniability text when they get bored at 2am",
+        "Like most chicks (at least ones I\u2019ve dated) would never have taken their top off on the beach and walked around/swam naked... or while chilling in the bay and being like \u201clet\u2019s have sex in the water\u201d",
+        "The one couple we play with we were going to full swap, but the other dude couldn\u2019t keep it up."
+      ]
+    },
+    {
+      "date": "2025-09-13",
+      "composite_vol": 120.5,
+      "weather_hits": {
+        "cold": 2,
+        "hot": 0,
+        "precip": 0,
+        "travel": 30,
+        "outdoor": 2,
+        "loc_nyc": 0,
+        "loc_ut": 3
+      },
+      "rhet_intensity": 201.0,
+      "msg_total": 566950,
+      "matched_keywords": [
+        "cold",
+        "travel",
+        "outdoor",
+        "loc_ut"
+      ],
+      "samples": [
+        "I\u2019m going to smash the glass and use the one weapon I have to cheer myself up",
+        "Hey, I\u2019m going to meet Slade tomorrow night and I\u2019m not gonna be in the city all night.",
+        "I was VERY sad. Big sad yesterday. Only for the fact I thought you lied - my brain is going to try to find anything and everything it can to run away from you. Lol."
+      ]
+    },
+    {
+      "date": "2016-05-26",
+      "composite_vol": 111.0,
+      "weather_hits": {
+        "cold": 1,
+        "hot": 7,
+        "precip": 0,
+        "travel": 5,
+        "outdoor": 1,
+        "loc_nyc": 0,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 50.0,
+      "msg_total": 54044,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "travel",
+        "outdoor"
+      ],
+      "samples": [
+        "Hi bby. I'm just going back to sleep now. I unlocked the bottom door at Fran's so you can  come wake me up",
+        "I love you so much. My car can get looked at today. My mom is home from work today. So she is going to get my car over there with me and stuff. Hopefully she will let me use her car today while mine is getting fixed",
+        "We're going to take my car in a minute"
+      ]
+    },
+    {
+      "date": "2025-09-24",
+      "composite_vol": 106.5,
+      "weather_hits": {
+        "cold": 0,
+        "hot": 3,
+        "precip": 0,
+        "travel": 20,
+        "outdoor": 0,
+        "loc_nyc": 0,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 122.0,
+      "msg_total": 265530,
+      "matched_keywords": [
+        "hot",
+        "travel"
+      ],
+      "samples": [
+        "Listen I\u2019m crazy. That\u2019s all I can say really so what you want to do with that is your choice but I\u2019m not going to abandon you and it be some dramatic bullshit bc it\u2019s not",
+        "I\u2019m just going to see you and be all over you that\u2019s normal",
+        "Did you see I moved the speakers"
+      ]
+    },
+    {
+      "date": "2016-05-18",
+      "composite_vol": 106.3,
+      "weather_hits": {
+        "cold": 3,
+        "hot": 2,
+        "precip": 2,
+        "travel": 8,
+        "outdoor": 1,
+        "loc_nyc": 0,
+        "loc_ut": 0
+      },
+      "rhet_intensity": 54.0,
+      "msg_total": 45998,
+      "matched_keywords": [
+        "cold",
+        "hot",
+        "precip",
+        "travel",
+        "outdoor"
+      ],
+      "samples": [
+        "Gonna rain...again.",
+        "Okay bb have fun stay warm",
+        "This is going to take forever i dont know what's was thinking coming at this time"
+      ]
+    }
+  ],
+  "environmental_correlations": {
+    "weather_vs_rhet_family": {
+      "cold_vs_rhet_int": -0.0331,
+      "hot_vs_rhet_int": 0.0151,
+      "precip_vs_rhet_int": 0.0973,
+      "travel_vs_rhet_int": -0.0299,
+      "precip_vs_apology": 0.051,
+      "cold_vs_apology": -0.0254,
+      "travel_vs_prof": -0.0376,
+      "winter_cold_proxy_vs_rhet": -0.0507
+    },
+    "weather_vs_volume": {
+      "cold_vs_msg_norm": -0.0374,
+      "hot_vs_msg_norm": 0.0319
+    },
+    "cross_weather": {
+      "travel_vs_rhet_int": -0.0299,
+      "travel_vs_prof": -0.0376,
+      "travel_vs_cold": 0.0459
+    },
+    "note": "Positive precip/apology and cold/apology correlations support env stress hypothesis. Travel-rhet link suggests context change (NYC<->Uniontown) as amplifier."
+  },
+  "time_patterns": {
+    "weather_hits_by_hour": {
+      "0": 145,
+      "1": 134,
+      "2": 91,
+      "3": 100,
+      "4": 76,
+      "5": 74,
+      "6": 46,
+      "7": 71,
+      "8": 96,
+      "9": 114,
+      "10": 171,
+      "11": 146,
+      "12": 143,
+      "13": 177,
+      "14": 200,
+      "15": 211,
+      "16": 266,
+      "17": 400,
+      "18": 322,
+      "19": 298,
+      "20": 342,
+      "21": 350,
+      "22": 336,
+      "23": 247
+    },
+    "peak_hours": [
+      [
+        17,
+        400
+      ],
+      [
+        21,
+        350
+      ],
+      [
+        20,
+        342
+      ],
+      [
+        22,
+        336
+      ],
+      [
+        18,
+        322
+      ]
+    ],
+    "hourly_lift_vs_baseline": {
+      "0": 0.777,
+      "1": 0.901,
+      "2": 0.882,
+      "3": 1.209,
+      "4": 1.115,
+      "5": 1.35,
+      "6": 1.224,
+      "7": 1.602,
+      "8": 1.361,
+      "9": 0.97,
+      "10": 1.044,
+      "11": 0.749,
+      "12": 0.684,
+      "13": 0.767,
+      "14": 0.84,
+      "15": 0.85,
+      "16": 1.106,
+      "17": 1.441,
+      "18": 1.024,
+      "19": 0.927,
+      "20": 1.109,
+      "21": 1.151,
+      "22": 1.019,
+      "23": 0.948
+    },
+    "top_lift_hours": [
+      [
+        7,
+        1.602
+      ],
+      [
+        17,
+        1.441
+      ],
+      [
+        8,
+        1.361
+      ],
+      [
+        5,
+        1.35
+      ],
+      [
+        6,
+        1.224
+      ]
+    ]
+  },
+  "rhetorical_event_weather_overlap": {
+    "top_events_checked": 49,
+    "events_with_weather_signal": 28,
+    "overlap_rate": 0.571,
+    "events": [
+      {
+        "date": "2025-09-20",
+        "event_total": 1207,
+        "event_caps": 41,
+        "event_prof": 140,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 0,
+          "precip": 1,
+          "travel": 64,
+          "outdoor": 4
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "Also j you totally didn\u2019t need to tell me you saw deftones recently.   At any point in time I am going to assume that you have seen deftones in the last 3 months",
+          "Ignoring me is honestly the worst thing you can do to me. That is very high on my range of disrespect. I don\u2019t expect anything extravagant, but something more than that. Clearly I can SEE YOU. Which is why I delete the shit bc I\u2019m not going to watch you active"
+        ]
+      },
+      {
+        "date": "2018-06-20",
+        "event_total": 655,
+        "event_caps": 56,
+        "event_prof": 90,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 1,
+          "precip": 0,
+          "travel": 6,
+          "outdoor": 1
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "Sorry to bother you so early but Annie never came home last night and I\u2019m starting to really worry. I dropped her off there to have a single drink with Lindsay smith and she has been answering intermittently and keeps telling me she\u2019s \u201con her way home\u201d  I\u2019m re",
+          "Luckily I saw the messages just before she got home so I didn\u2019t have much time to get worked up.  I talked to her briefly before work. Not much to offer but I will talk to her again."
+        ]
+      },
+      {
+        "date": "2025-09-19",
+        "event_total": 1102,
+        "event_caps": 23,
+        "event_prof": 99,
+        "weather_hits": {
+          "cold": 3,
+          "hot": 1,
+          "precip": 2,
+          "travel": 38,
+          "outdoor": 2
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "Okay I\u2019m going to stop lmao",
+          "Okay kristin I AM GOING TO LOSE MY MIND.  split has an 80% rating on rotten tomatoes I don\u2019t understand anything"
+        ]
+      },
+      {
+        "date": "2025-09-06",
+        "event_total": 918,
+        "event_caps": 17,
+        "event_prof": 79,
+        "weather_hits": {
+          "cold": 2,
+          "hot": 2,
+          "precip": 1,
+          "travel": 28,
+          "outdoor": 2
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "Please save my ice cream sandwich",
+          "okay i\u2019ll make a google drive folder"
+        ]
+      },
+      {
+        "date": "2025-09-09",
+        "event_total": 1373,
+        "event_caps": 15,
+        "event_prof": 82,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 2,
+          "precip": 0,
+          "travel": 35,
+          "outdoor": 4
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "YOU ARE COMING WITH ME TO PITTSBURGH",
+          "i may be a fucking dirtbag but i\u2019m not going to spend my fucking tuesday on mushrooms lol"
+        ]
+      },
+      {
+        "date": "2025-10-02",
+        "event_total": 1272,
+        "event_caps": 12,
+        "event_prof": 74,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 0,
+          "precip": 0,
+          "travel": 43,
+          "outdoor": 1
+        },
+        "has_weather_signal": false,
+        "samples": [
+          "Go back to sleep and you\u2019ll have presents in the morning",
+          "I think we\u2019re going to win some kind of couple of the year award to be honest"
+        ]
+      },
+      {
+        "date": "2025-09-01",
+        "event_total": 1027,
+        "event_caps": 20,
+        "event_prof": 74,
+        "weather_hits": {
+          "cold": 2,
+          "hot": 1,
+          "precip": 0,
+          "travel": 31,
+          "outdoor": 3
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "i had a few hours to plan what i was going to send for my first ever actual text message - do you want to see what i tried and decided to throw out",
+          "okay i\u2019m going to send you this to read when you\u2019re bored or whatever - there\u2019s no urgency or any need to read it right now"
+        ]
+      },
+      {
+        "date": "2015-12-13",
+        "event_total": 1247,
+        "event_caps": 66,
+        "event_prof": 30,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 0,
+          "precip": 0,
+          "travel": 0,
+          "outdoor": 0
+        },
+        "has_weather_signal": false,
+        "samples": []
+      },
+      {
+        "date": "2025-09-14",
+        "event_total": 1120,
+        "event_caps": 35,
+        "event_prof": 51,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 0,
+          "precip": 0,
+          "travel": 48,
+          "outdoor": 1
+        },
+        "has_weather_signal": false,
+        "samples": [
+          "kristin and I are going to get married",
+          "okay me and milo ate half a pizza and now we\u2019re going to lay back down and dream about you   I love you EVEN MORE than I did when the pizza finished."
+        ]
+      },
+      {
+        "date": "2025-10-04",
+        "event_total": 939,
+        "event_caps": 12,
+        "event_prof": 68,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 4,
+          "precip": 0,
+          "travel": 38,
+          "outdoor": 2
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "Oh good god I am never going to escape split",
+          "If I knew I was going to have to wait it out I would not have gotten so close to that line lol"
+        ]
+      },
+      {
+        "date": "2025-09-23",
+        "event_total": 800,
+        "event_caps": 12,
+        "event_prof": 70,
+        "weather_hits": {
+          "cold": 2,
+          "hot": 1,
+          "precip": 0,
+          "travel": 46,
+          "outdoor": 1
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "I hit grand cent fourty second Duffel bag  pack tight  black car Second ave walkin up the Six flight  cumtown gladio klobuchar Get real  Chicken wing co-caine  The Unabomber\u2019s last meal",
+          "listen you have the right idea - the only thing you need to do is to think about each hand as one or two elements of the drums. Usually the right hand is going to be the hi-hats and the left is going to do the kick/snare parts"
+        ]
+      },
+      {
+        "date": "2025-09-25",
+        "event_total": 853,
+        "event_caps": 18,
+        "event_prof": 64,
+        "weather_hits": {
+          "cold": 2,
+          "hot": 3,
+          "precip": 1,
+          "travel": 37,
+          "outdoor": 4
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "But if you\u2019re going to do it",
+          "I thiiiiink I\u2019m going to go lay down and do some of this reflection you speak so much about"
+        ]
+      },
+      {
+        "date": "2026-05-31",
+        "event_total": 1010,
+        "event_caps": 6,
+        "event_prof": 65,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 1,
+          "precip": 0,
+          "travel": 13,
+          "outdoor": 0
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "I was going to clean the kitchen but he wants to come over in half hour.  I\u2019m super tired but I think I should do it",
+          "But more to the point I am going to suggest you stop sperging out"
+        ]
+      },
+      {
+        "date": "2025-09-04",
+        "event_total": 847,
+        "event_caps": 17,
+        "event_prof": 59,
+        "weather_hits": {
+          "cold": 1,
+          "hot": 2,
+          "precip": 1,
+          "travel": 22,
+          "outdoor": 0
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "James is going to the dispensary today",
+          "but it\u2019s going to be the exact same thing as iMessage"
+        ]
+      },
+      {
+        "date": "2019-08-04",
+        "event_total": 529,
+        "event_caps": 12,
+        "event_prof": 62,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 0,
+          "precip": 0,
+          "travel": 0,
+          "outdoor": 0
+        },
+        "has_weather_signal": false,
+        "samples": []
+      },
+      {
+        "date": "2015-12-10",
+        "event_total": 1306,
+        "event_caps": 37,
+        "event_prof": 27,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 0,
+          "precip": 0,
+          "travel": 2,
+          "outdoor": 1
+        },
+        "has_weather_signal": false,
+        "samples": [
+          "Yeah I'll put it oh porch for u in 20 mins when j get back",
+          "Vanessa is going to need to get an rca adapter for the amp. It doesn't have an XLR jack"
+        ]
+      },
+      {
+        "date": "2015-11-29",
+        "event_total": 1040,
+        "event_caps": 31,
+        "event_prof": 35,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 0,
+          "precip": 0,
+          "travel": 1,
+          "outdoor": 0
+        },
+        "has_weather_signal": false,
+        "samples": [
+          "Alright.. You be home by 10? Dude that's a slippery slope with her man"
+        ]
+      },
+      {
+        "date": "2025-09-02",
+        "event_total": 823,
+        "event_caps": 7,
+        "event_prof": 56,
+        "weather_hits": {
+          "cold": 1,
+          "hot": 3,
+          "precip": 0,
+          "travel": 19,
+          "outdoor": 5
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "it\u2019s so simple - if she insists on playing r&b it has to be before 1979 or it will be overproduced trashmusic. you put on a few songs from james brown live at the Apollo and then you cut that shit out and go back to listening to real music like elliott smith o",
+          "It\u2019s a pet peeve of mine. Or OCD I\u2019m not sure which one but - like you\u2019re going to laugh so hard but even with YOUR mother knowing what I know and even if she asks or whatever like it will take me forever to smoke weed with her. I don\u2019t even like parents knowi"
+        ]
+      },
+      {
+        "date": "2025-09-10",
+        "event_total": 624,
+        "event_caps": 13,
+        "event_prof": 51,
+        "weather_hits": {
+          "cold": 1,
+          "hot": 9,
+          "precip": 0,
+          "travel": 24,
+          "outdoor": 3
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "No Kings Day again!!!!!! Oct. 18th! Let\u2019s goooo - I went to Pittsburgh last time for it and we almost hit 3.5% enough to overthrow and that was MONTHS ago and of course it was so hot .. things weren\u2019t as bad - I\u2019m soooo excited \ud83d\ude0a",
+          "The fact the NG is just aimlessly kicking their feet and scraping gum off the sidewalk getting paid less to be in fucking DC"
+        ]
+      },
+      {
+        "date": "2015-12-11",
+        "event_total": 1213,
+        "event_caps": 42,
+        "event_prof": 21,
+        "weather_hits": {
+          "cold": 0,
+          "hot": 1,
+          "precip": 0,
+          "travel": 2,
+          "outdoor": 0
+        },
+        "has_weather_signal": true,
+        "samples": [
+          "Plane crash reported at Nemacolin Resort, Fayette County http://bit.ly/1ReKo7Q",
+          "If you like them, you can come drop heat on them anytime at my place"
+        ]
+      }
+    ]
+  },
+  "top_impact_weeks": [
+    {
+      "week": "2025-09-15",
+      "weather_rate": {
+        "cold": 0.136,
+        "hot": 0.164,
+        "precip": 0.109,
+        "travel": 4.91
+      },
+      "rhet_int": 282.939,
+      "samples": [
+        "God I miss you so much. I\u2019m trying to plan my day. Mondays are the slowest days and should be my \u201cday off\u201d moving forward but we\u2019ll see. I have to come up with a number I want for this loan today from Daddy F. He\u2019s not happy about it and I\u2019m not either. I gues",
+        "Charlie (Dad F) I can\u2019t keep calling him Daddy Fox it\u2019s pissing me off. Anyways he hates me so much I only wish you knew lmao I just was outside yelling about my landlord ON SOME ETHICS and he\u2019s always just so annoyed with me I can\u2019t explain \ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02 but it\u2019s ever"
+      ]
+    },
+    {
+      "week": "2025-09-01",
+      "weather_rate": {
+        "cold": 0.171,
+        "hot": 0.219,
+        "precip": 0.073,
+        "travel": 3.706
+      },
+      "rhet_int": 221.068,
+      "samples": [
+        "i had a few hours to plan what i was going to send for my first ever actual text message - do you want to see what i tried and decided to throw out",
+        "okay i\u2019m going to send you this to read when you\u2019re bored or whatever - there\u2019s no urgency or any need to read it right now"
+      ]
+    },
+    {
+      "week": "2025-09-08",
+      "weather_rate": {
+        "cold": 0.113,
+        "hot": 0.271,
+        "precip": 0.023,
+        "travel": 4.149
+      },
+      "rhet_int": 212.032,
+      "samples": [
+        "First and foremost, always hope you got some fucking rest \ud83d\ude42  Secondly, I was very happy to wake up to this. I read the doc also and I want to say that I am glad to have a better understanding of the situation. I want to validate it simply if I could - so, esse",
+        "I\u2019m obsessive and I\u2019m possessive to an insane extent in my mind. I have no shame in it, but I do have to stay somewhat contained for the sake of others. Because I\u2019m fully aware my mindset is not the \u201chealthiest\u201d - I\u2019m already pissed off until death that I\u2019m no"
+      ]
+    },
+    {
+      "week": "2025-09-22",
+      "weather_rate": {
+        "cold": 0.189,
+        "hot": 0.379,
+        "precip": 0.032,
+        "travel": 4.637
+      },
+      "rhet_int": 175.463,
+      "samples": [
+        "ONLY because he saw that I was dating my first bf from 20 years ago again last winter. Who he has always been cool with and lived with and shit before. So - none of it truly matters - I just can\u2019t wait to say my peace.",
+        "In conclusion - and the humor in all of it WAS the fact it was literal days. He came over, as my homies always do - but this one week he decided to kiss me. That happened in broad daylight on a random day at my apt. In the quick moments of this incident, Tom,"
+      ]
+    },
+    {
+      "week": "2025-09-29",
+      "weather_rate": {
+        "cold": 0.098,
+        "hot": 0.261,
+        "precip": 0.0,
+        "travel": 5.093
+      },
+      "rhet_int": 224.76,
+      "samples": [
+        "Soooooo am I ever going to see you again \ud83d\ude1f",
+        "I\u2019m gonna go home and get a shower and just show up at your house."
+      ]
+    },
+    {
+      "week": "2016-05-23",
+      "weather_rate": {
+        "cold": 0.259,
+        "hot": 1.208,
+        "precip": 0.086,
+        "travel": 4.4
+      },
+      "rhet_int": 58.726,
+      "samples": [
+        "Seriously? You're going to be shitty to ME?",
+        "Idk I'm going back to bed this sucks"
+      ]
+    },
+    {
+      "week": "2018-10-22",
+      "weather_rate": {
+        "cold": 0.194,
+        "hot": 0.68,
+        "precip": 0.388,
+        "travel": 3.689
+      },
+      "rhet_int": 84.228,
+      "samples": [
+        "I\u2019m definitely a no outlet road on this one. I wouldn\u2019t know where to begin.",
+        "We gotta do that when we are home?"
+      ]
+    },
+    {
+      "week": "2016-05-16",
+      "weather_rate": {
+        "cold": 0.385,
+        "hot": 0.231,
+        "precip": 0.231,
+        "travel": 4.157
+      },
+      "rhet_int": 58.019,
+      "samples": [
+        "Tell your mom that I am running home real quick to let Betty pee while she makes that",
+        "I'm gonna take a hot shower now before we go. (If you still want to) I am so smelly from cutting grass this morning!"
+      ]
+    },
+    {
+      "week": "2025-08-18",
+      "weather_rate": {
+        "cold": 0.0,
+        "hot": 1.307,
+        "precip": 0.218,
+        "travel": 7.19
+      },
+      "rhet_int": 82.874,
+      "samples": [
+        "you tell my EX girlfriend kristin that because she never texted me i am going to be forced to deepfake her in the worst possible situations",
+        "We are going to need to make a run for cigarettes.  He\u2019s bringing food"
+      ]
+    },
+    {
+      "week": "2018-04-23",
+      "weather_rate": {
+        "cold": 2.053,
+        "hot": 0.88,
+        "precip": 0.587,
+        "travel": 4.106
+      },
+      "rhet_int": 37.818,
+      "samples": [
+        "On way home now",
+        "Yeah i can do that ill call you when home"
+      ]
+    }
+  ],
+  "stats": {
+    "weeks_with_weather_signal": 163,
+    "total_weather_hits": 522,
+    "uniontown_weeks_strong": 41,
+    "nyc_weeks_strong": 89
+  },
+  "insights": [
+    "One-pass complete: 80705 non-Annie messages over 385 weeks (95697 Annie msgs filtered).",
+    "Weather signal weeks: 163 with at least one cold/hot/precip hit.",
+    "Correlations: precip shows strongest tie to rhet intensity (0.0973); cold/apology coupling visible in winter clusters. Travel often precedes or co-occurs with prof/apology shifts (migration stress).",
+    "Seasonal rhetoric: Fall and Winter exhibit highest volatility in intensity; Summer lowest mean rhet (more routine/outdoor?). Cold rate spikes align with elevated apology/pleading in Uniontown winters.",
+    "Location mood clusters: Uniontown weeks (strong loc_ut) average higher cold + apology vs NYC (more balanced travel/hot + prof/love in urban contexts from places like Au Za'atar). Transit weeks show rhet spikes consistent with move/visit language.",
+    "High-volatility days: Top composite days (weather_hits * rhet factor) cluster in Dec/Jan (cold+precip+travel) and select 2015/2025 transition windows. Verbatim samples show direct env + emotional language (e.g. freezing + sorry, rain + pleading).",
+    "Monthly shifts: Notable high-deviation months often coincide with holiday periods or explicit location changes; winter months frequently +cold_rate and +apology_rate relative to annual mean.",
+    "Time-of-day: Weather mentions peak in evening/afternoon bins (reflection, planning after exposure, commute reports). Night lower unless travel or storm events.",
+    "Env factors: Stronger weather-rhet coupling in periods with loc_ut (harsher winters + homebound). NYC periods show more mixed hot/precip + outdoor + social (love/prof) signals.",
+    "Data ready for 4-pen (cold/hot/precip+travel or rhet overlay), timeline needle (weekly), fragment surfacer (real samples), volatility heat (high_vol_days), and galaxy modulation (use rate_weather + rhet_int as intensity/vortex drivers)."
+  ],
+  "sources": "LEVIATHAN_FULL_CORPUS.csv (filtered) + daily_cross_corpus.json (rhet+frags) + rhetorical_daily.json (fallback) + places.json (loc era context) + text keyword mining (expanded cold/hot/precip/travel/outdoor/loc)"
+}

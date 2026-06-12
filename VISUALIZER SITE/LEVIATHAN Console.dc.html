@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="../galaxy-cluster (1).js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <meta name="ext-resource-dependency" content="data/messages.json" data-resource-id="messages">
+  <meta name="ext-resource-dependency" content="data/places.json" data-resource-id="places">
+  <meta name="ext-resource-dependency" content="data/favs.json" data-resource-id="favs">
+  <meta name="ext-resource-dependency" content="data/rhetorical_daily.json" data-resource-id="rhetoricalDaily">
+  <meta name="ext-resource-dependency" content="data/top_rhetorical_events.json" data-resource-id="rhetoricalEvents">
+  <meta name="ext-resource-dependency" content="data/annie_rhetoric.json" data-resource-id="annie">
+  <meta name="ext-resource-dependency" content="data/high_emotion_fragments.json" data-resource-id="fragments">
+  <meta name="ext-resource-dependency" content="data/youtube_daily.json" data-resource-id="youtubeDaily">
+  <meta name="ext-resource-dependency" content="data/youtube_top_entities.json" data-resource-id="youtubeEntities">
+  <meta name="ext-resource-dependency" content="data/youtube_music_influence.json" data-resource-id="youtubeInfluence">
+  <meta name="ext-resource-dependency" content="data/weather_weekly.json" data-resource-id="weatherWeekly">
+  <meta name="ext-resource-dependency" content="data/weather_analysis.json" data-resource-id="weatherAnalysis">
+  <meta name="ext-resource-dependency" content="data/weather_fragments.json" data-resource-id="weatherFragments">
+
+  <meta name="ext-resource-dependency" content="data/weather_non_annie_weekly.json" data-resource-id="weatherWeeklyNonAnnie">
+  <meta name="ext-resource-dependency" content="data/weather_analysis_non_annie.json" data-resource-id="weatherAnalysisNonAnnie">
+  <meta name="ext-resource-dependency" content="data/weather_fragments_non_annie.json" data-resource-id="weatherFragmentsNonAnnie">
+
+  <template id="__bundler_thumbnail" data-bg-color="#07090d">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#07090d"></rect>
+      <g transform="translate(0,400)">
+        <rect x="120" y="-110" width="14" height="110" fill="#e8a33d" opacity="0.9"></rect>
+        <rect x="150" y="-60" width="14" height="60" fill="#e8a33d" opacity="0.7"></rect>
+        <rect x="180" y="-170" width="14" height="170" fill="#e8a33d"></rect>
+        <rect x="210" y="-90" width="14" height="90" fill="#e8a33d" opacity="0.8"></rect>
+        <rect x="240" y="-200" width="14" height="200" fill="#ffd28a"></rect>
+        <rect x="270" y="-70" width="14" height="70" fill="#e8a33d" opacity="0.7"></rect>
+        <rect x="300" y="-130" width="14" height="130" fill="#e8a33d" opacity="0.85"></rect>
+        <rect x="330" y="-95" width="14" height="95" fill="#e8a33d" opacity="0.75"></rect>
+        <rect x="360" y="-240" width="14" height="240" fill="#ffd28a"></rect>
+        <rect x="390" y="-120" width="14" height="120" fill="#e8a33d" opacity="0.8"></rect>
+        <rect x="420" y="-60" width="14" height="60" fill="#e8a33d" opacity="0.6"></rect>
+        <rect x="450" y="-150" width="14" height="150" fill="#e8a33d" opacity="0.9"></rect>
+        <rect x="480" y="-185" width="14" height="185" fill="#ffd28a"></rect>
+        <rect x="510" y="-80" width="14" height="80" fill="#e8a33d" opacity="0.7"></rect>
+        <rect x="120" y="0" width="14" height="70" fill="#4fc3e8" opacity="0.8"></rect>
+        <rect x="150" y="0" width="14" height="120" fill="#4fc3e8" opacity="0.7"></rect>
+        <rect x="180" y="0" width="14" height="60" fill="#4fc3e8" opacity="0.9"></rect>
+        <rect x="210" y="0" width="14" height="150" fill="#4fc3e8" opacity="0.75"></rect>
+        <rect x="240" y="0" width="14" height="90" fill="#a6e6ff"></rect>
+        <rect x="270" y="0" width="14" height="130" fill="#4fc3e8" opacity="0.7"></rect>
+        <rect x="300" y="0" width="14" height="70" fill="#4fc3e8" opacity="0.8"></rect>
+        <rect x="330" y="0" width="14" height="110" fill="#4fc3e8" opacity="0.7"></rect>
+        <rect x="360" y="0" width="14" height="80" fill="#a6e6ff"></rect>
+        <rect x="390" y="0" width="14" height="140" fill="#4fc3e8" opacity="0.75"></rect>
+        <rect x="420" y="0" width="14" height="100" fill="#4fc3e8" opacity="0.6"></rect>
+        <rect x="450" y="0" width="14" height="60" fill="#4fc3e8" opacity="0.85"></rect>
+        <rect x="480" y="0" width="14" height="120" fill="#a6e6ff"></rect>
+        <rect x="510" y="0" width="14" height="90" fill="#4fc3e8" opacity="0.7"></rect>
+      </g>
+      <circle cx="820" cy="400" r="150" fill="none" stroke="#1d2430" stroke-width="2"></circle>
+      <circle cx="820" cy="400" r="100" fill="none" stroke="#1d2430" stroke-width="2"></circle>
+      <circle cx="820" cy="400" r="40" fill="#e8a33d"></circle>
+      <circle cx="970" cy="400" r="22" fill="#9b8cf2"></circle>
+      <circle cx="820" cy="250" r="16" fill="#e87da0"></circle>
+      <circle cx="720" cy="400" r="13" fill="#4fc3e8"></circle>
+      <circle cx="900" cy="500" r="18" fill="#7fd486"></circle>
+      <line x1="820" y1="400" x2="970" y2="400" stroke="#e8a33d" stroke-width="1.5" opacity="0.5"></line>
+      <line x1="820" y1="400" x2="820" y2="250" stroke="#e8a33d" stroke-width="1.5" opacity="0.5"></line>
+      <text x="600" y="700" font-family="monospace" font-size="48" fill="#e8a33d" text-anchor="middle" letter-spacing="14">LEVIATHAN</text>
+      <text x="600" y="740" font-family="monospace" font-size="20" fill="#5b6472" text-anchor="middle" letter-spacing="6">TOTAL RECORD</text>
+    </svg>
+  </template>
+  <style>
+    html, body { margin: 0; padding: 0; background: #07090d; overflow: hidden; }
+    * { box-sizing: border-box; }
+    ::selection { background: #e8a33d; color: #07090d; }
+    @keyframes lvShimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(340px); } }
+    @keyframes lvBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+    @keyframes lvFadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</helmet>
+
+<div data-screen-label="LEVIATHAN console" style="position: fixed; inset: 0; display: flex; flex-direction: column; background: #07090d; color: #e8e6e1; font-family: 'Space Grotesk', sans-serif; user-select: none; -webkit-user-select: none;">
+  <!-- immersive galaxy background (modulated by weather volatility / rhetoric intensity on WEATHER tab) -->
+  <galaxy-cluster id="galaxy-bg" intensity="0.35" style="position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.85;"></galaxy-cluster>
+
+  <!-- ======== HEADER ======== -->
+  <div style="display: flex; align-items: stretch; gap: 24px; padding: 14px 22px 10px 22px; border-bottom: 1px solid #161b24; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; justify-content: center; gap: 2px; min-width: 235px;">
+      <div style="display: flex; align-items: baseline; gap: 8px;">
+        <div style="font-size: 23px; font-weight: 700; letter-spacing: 0.22em;">LEVIATHAN</div>
+        <div style="width: 8px; height: 8px; background: #e8a33d; transform: rotate(45deg); animation: lvBlink 2.4s infinite;"></div>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #5b6472;">TOTAL RECORD &middot; 2011&ndash;2026 &middot; SIX CORPORA, ONE SUBJECT</div>
+    </div>
+
+    <div style="display: flex; gap: 26px; align-items: center; flex: 1; justify-content: flex-end; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8a33d;">{{ cMsgs }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">MESSAGES</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8e6e1;">{{ cThreads }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">THREADS</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8e6e1;">{{ cPlaces }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">PLACES</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #4fc3e8;">{{ cKm }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">KM TRACKED</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8e6e1;">{{ cWorks }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">RATED WORKS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== TAB BAR ======== -->
+  <div style="display: flex; gap: 6px; padding: 8px 22px; border-bottom: 1px solid #161b24; align-items: center;">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+      <div onClick="{{ t.onClick }}" style="{{ t.style }}">
+        <span style="opacity: 0.55; margin-right: 7px;">{{ t.num }}</span>{{ t.label }}
+      </div>
+    </sc-for>
+    <div style="flex: 1;"></div>
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #3d4554;">KEYS 1&ndash;9</div>
+  </div>
+
+  <!-- ======== STAGE ======== -->
+  <div style="flex: 1; position: relative; min-height: 0;" data-screen-label="{{ stageLabel }}">
+    <canvas ref="{{ canvasRef }}" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: crosshair;"></canvas>
+
+    <!-- module chips -->
+    <div style="position: absolute; top: 12px; right: 16px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; max-width: 70%;">
+      <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
+        <div onClick="{{ ch.onClick }}" style="{{ ch.style }}">{{ ch.label }}</div>
+      </sc-for>
+    </div>
+
+    <!-- loading overlay -->
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #07090d;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.3em; color: #e8a33d;">DECOMPRESSING CORPUS</div>
+        <div style="width: 340px; height: 2px; background: #1a2029; overflow: hidden; position: relative;">
+          <div style="position: absolute; top: 0; left: 0; width: 120px; height: 100%; background: linear-gradient(90deg, transparent, #e8a33d, transparent); animation: lvShimmer 1.1s linear infinite;"></div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #5b6472; text-align: center; line-height: 1.9;">181,650 MESSAGES &middot; 6,185 LOCATION FIXES &middot; 12,863 WATCHES<br>1,121 RATED WORKS &middot; 2,210 DAYS OF RHETORIC &middot; 41,971 KM</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 7px 22px; border-top: 1px solid #161b24;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: #6b7484;">{{ hint }}</div>
+    <div style="flex: 1;"></div>
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #3d4554;">LEVIATHAN CORPUS &middot; SEMANTIC LOCATION &middot; FINALFAVS</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+<meta name="ext-resource-dependency" content="data/weather_weekly.json" data-resource-id="weatherWeekly">
+<meta name="ext-resource-dependency" content="data/weather_analysis.json" data-resource-id="weatherAnalysis">
+<meta name="ext-resource-dependency" content="data/weather_fragments.json" data-resource-id="weatherFragments">
+
+  <meta name="ext-resource-dependency" content="data/weather_non_annie_weekly.json" data-resource-id="weatherWeeklyNonAnnie">
+  <meta name="ext-resource-dependency" content="data/weather_analysis_non_annie.json" data-resource-id="weatherAnalysisNonAnnie">
+  <meta name="ext-resource-dependency" content="data/weather_fragments_non_annie.json" data-resource-id="weatherFragmentsNonAnnie">
+
+class Component extends DCLogic {
+  state = {
+    loading: true,
+    tab: 'pulse',
+    cnt: { m: 0, t: 0, p: 0, k: 0, w: 0 },
+    clockMode: 'all',
+    atlasPlay: false,
+    atlasSpeed: 120,
+    atlasView: 'FULL',
+    lexMode: 'pack',
+    shelfCat: 'ALL',
+    weatherMode: 'rate',
+    weatherLayers: { love: true, prof: true, sorry: true, qual: true, imp: true, caps: true },
+    anniePlay: false,
+    annieSpeed: 1.4,
+    signalMusic: false
+  };
+
+  // ---------- constants ----------
+  COL = {
+    bg: '#07090d', panel: '#10141b', line: '#1d2430', grid: '#141a23',
+    txt: '#e8e6e1', dim: '#5b6472', faint: '#3d4554',
+    amber: '#e8a33d', amberHi: '#ffd28a', cyan: '#4fc3e8', cyanHi: '#a6e6ff',
+    red: '#e85d4f', green: '#7fd486', rose: '#e87da0', violet: '#9b8cf2', violetHi: '#cfc4ff'
+  };
+  MONO = "'IBM Plex Mono', monospace";
+  GROT = "'Space Grotesk', sans-serif";
+
+  // ---------- lifecycle ----------
+  componentDidMount() {
+    this.alive = true;
+    this.mouse = { x: -1, y: -1, down: false, dragTab: null };
+    this.lastT = 0;
+    this.onKey = (e) => {
+      const order = ['pulse', 'clock', 'orbits', 'atlas', 'lexicon', 'shelf', 'weather', 'annie', 'signal'];
+      const i = '123456789'.indexOf(e.key);
+      if (i >= 0) this.setTab(order[i]);
+      if (e.key === ' ' && this.state.tab === 'atlas') { e.preventDefault(); this.setState(s => ({ atlasPlay: !s.atlasPlay })); }
+      if (e.key === ' ' && this.state.tab === 'annie') { e.preventDefault(); this.setState(s => ({ anniePlay: !s.anniePlay })); }
+    };
+    window.addEventListener('keydown', this.onKey);
+    this.loadData();
+  }
+
+  componentWillUnmount() {
+    this.alive = false;
+    window.removeEventListener('keydown', this.onKey);
+    if (this.ro) this.ro.disconnect();
+  }
+
+  async loadData() {
+    try {
+      // Route every dataset through the standalone bundler's resource map when present
+      // (window.__resources[id] is a blob: URL); fall back to the relative path otherwise.
+      const src = (id, path) => (window.__resources && window.__resources[id]) || path;
+      const grab = (id, path) => fetch(src(id, path)).then(r => r.json());
+      const [msg, plc, fav, rhetD, evs, annie, frags, ytd, yte, yti, wWeekly, wAnalysis, wFrags] = await Promise.all([
+        grab('messages', 'data/messages.json'),
+        grab('places', 'data/places.json'),
+        grab('favs', 'data/favs.json'),
+        grab('rhetoricalDaily', 'data/rhetorical_daily.json'),
+        grab('rhetoricalEvents', 'data/top_rhetorical_events.json'),
+        grab('annie', 'data/annie_rhetoric.json'),
+        grab('fragments', 'data/high_emotion_fragments.json'),
+        grab('youtubeDaily', 'data/youtube_daily.json'),
+        grab('youtubeEntities', 'data/youtube_top_entities.json'),
+        grab('youtubeInfluence', 'data/youtube_music_influence.json'),
+        grab('weatherWeekly', 'data/weather_weekly.json'),
+        grab('weatherAnalysis', 'data/weather_analysis.json'),
+        grab('weatherFragments', 'data/weather_fragments.json')
+      ]);
+      const rhet = { daily: rhetD.daily };
+      this.buildDerived(msg, plc, fav);
+      const dec = (s) => (s || '').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n));
+      this.D.rhet = rhet.daily;
+      this.D.rhetEvents = evs.top;
+      this.D.annie = annie;
+      this.D.frags = frags.fragments;
+      this.D.yt = {
+        daily: ytd.daily.filter(d => d.day >= '2009-01-01'),
+        total: ytd.total_watches,
+        artists: yte.top_music_artists.map(a => ({ name: dec(a.name), count: a.count })),
+        infl: yti.top_influencers.map(a => ({ ...a, artist: dec(a.artist) }))
+      };
+      this.D.weather = {
+        weekly: (wWeekly && wWeekly.weeks) || [],
+        analysis: wAnalysis || {},
+        fragments: (wFrags && wFrags.fragments) || []
+      };
+      this.setState({ loading: false });
+      this.animateCounters();
+    } catch (e) {
+      console.error('LEVIATHAN data load failed', e);
+    }
+  }
+
+  // ---------- derived data ----------
+  d2i(dateStr) { return Math.round(Date.UTC(+dateStr.slice(0, 4), +dateStr.slice(5, 7) - 1, +dateStr.slice(8, 10)) / 86400000); }
+  i2d(idx) { const d = new Date(idx * 86400000); return d; }
+  fmtDate(idx, long) {
+    const d = this.i2d(idx);
+    const M = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    if (long) return M[d.getUTCMonth()] + ' ' + String(d.getUTCDate()).padStart(2, '0') + ' ' + d.getUTCFullYear();
+    return M[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+  }
+
+  buildDerived(msg, plc, fav) {
+    const D = { msg, plc, fav };
+    // contiguous daily series
+    const first = this.d2i(msg.daily[0][0]);
+    const last = this.d2i(msg.daily[msg.daily.length - 1][0]);
+    const N = last - first + 1;
+    const S = new Float32Array(N), R = new Float32Array(N);
+    for (const [d, s, r] of msg.daily) { const i = this.d2i(d) - first; S[i] = s; R[i] = r; }
+    let maxDay = 1;
+    for (let i = 0; i < N; i++) maxDay = Math.max(maxDay, S[i], R[i]);
+    D.day0 = first; D.N = N; D.S = S; D.R = R; D.maxDay = maxDay;
+    D.eras = [
+      { a: '2011-03-18', b: '2013-05-01', label: 'NYC ONE', tone: 'amber' },
+      { a: '2013-05-01', b: '2019-02-01', label: 'UNIONTOWN', tone: 'slate' },
+      { a: '2019-02-01', b: '2025-02-01', label: 'NYC TWO', tone: 'amber' },
+      { a: '2025-02-01', b: '2026-06-09', label: 'RETURN', tone: 'slate' }
+    ].map(e => ({ ...e, i0: this.d2i(e.a) - first, i1: this.d2i(e.b) - first }));
+    D.events = [
+      ['2011-03-18', 'first recorded message'],
+      ['2015-11-26', 'annie thread opens'],
+      ['2019-02-15', 'move \u2192 307 E 76th'],
+      ['2025-02-22', 'return \u2192 337 saratoga'],
+      ['2025-09-09', 'loudest day on record \u00b7 1,373 msgs'],
+      ['2026-06-01', 'closure']
+    ].map(([d, label]) => ({ i: this.d2i(d) - first, label }));
+    // module states
+    this.M = {
+      pulse: { a: 0, b: N, ta: 0, tb: N, vx: 0, reveal: 0, drag: null },
+      clock: { rot: 0, rotV: 0, needle: 0, flash: new Float32Array(24), drag: null },
+      orbits: null,
+      atlas: null,
+      lexicon: null,
+      shelf: null
+    };
+    this.D = D;
+  }
+
+  animateCounters() {
+    const t0 = performance.now(), dur = 1500;
+    const target = { m: 181650, t: 568, p: 548, k: 41971, w: 1121 };
+    const step = () => {
+      if (!this.alive) return;
+      const p = Math.min(1, (performance.now() - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      this.setState({ cnt: { m: Math.round(target.m * e), t: Math.round(target.t * e), p: Math.round(target.p * e), k: Math.round(target.k * e), w: Math.round(target.w * e) } });
+      if (p < 1) setTimeout(step, 40);
+    };
+    step();
+  }
+
+  // ---------- canvas plumbing ----------
+  canvasRef = (el) => {
+    if (!el || el === this.cv) return;
+    this.cv = el;
+    this.ctx = el.getContext('2d');
+    const pos = (e) => { const r = el.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+    el.addEventListener('pointerdown', (e) => { el.setPointerCapture(e.pointerId); const p = pos(e); this.mouse.x = p.x; this.mouse.y = p.y; this.mouse.down = true; this.dispatch('down', p, e); });
+    el.addEventListener('pointermove', (e) => { const p = pos(e); const dx = p.x - this.mouse.x, dy = p.y - this.mouse.y; this.mouse.x = p.x; this.mouse.y = p.y; this.dispatch('move', { ...p, dx, dy }, e); });
+    el.addEventListener('pointerup', (e) => { const p = pos(e); this.mouse.down = false; this.dispatch('up', p, e); });
+    el.addEventListener('pointerleave', () => { this.mouse.x = -1; this.mouse.y = -1; this.mouse.down = false; this.dispatch('leave', {}, null); });
+    el.addEventListener('wheel', (e) => { e.preventDefault(); this.dispatch('wheel', pos(e), e); }, { passive: false });
+    el.addEventListener('dblclick', (e) => this.dispatch('dbl', pos(e), e));
+    if (this.ro) this.ro.disconnect();
+    this.ro = new ResizeObserver(() => this.fit());
+    this.ro.observe(el.parentElement);
+    this.fit();
+    if (!this.rafOn) { this.rafOn = true; requestAnimationFrame(this.loop); }
+  };
+
+  fit() {
+    if (!this.cv) return;
+    const r = this.cv.parentElement.getBoundingClientRect();
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    this.W = Math.max(50, r.width); this.H = Math.max(50, r.height);
+    this.cv.width = Math.round(this.W * dpr); this.cv.height = Math.round(this.H * dpr);
+    this.dpr = dpr;
+  }
+
+  loop = (t) => {
+    if (!this.alive) return;
+    requestAnimationFrame(this.loop);
+    const dt = Math.min(0.05, (t - this.lastT) / 1000 || 0.016);
+    this.lastT = t;
+    if (!this.ctx) return;
+    const ctx = this.ctx;
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    ctx.fillStyle = this.COL.bg;
+    ctx.fillRect(0, 0, this.W, this.H);
+    if (!this.D || this.state.loading) return;
+    const fn = this['draw_' + this.state.tab];
+    if (fn) fn.call(this, ctx, this.W, this.H, dt);
+    // galaxy bg intensity modulation for immersive weather "storm" / volatility feel (when on WEATHER tab or high current intensity)
+    if (this.galaxyEl || (this.galaxyEl = document.getElementById('galaxy-bg'))) {
+      let inten = 0.35;
+      if (this.state.tab === 'weather' && this.M && this.M.weather) {
+        const Wt = this.M.weather; const span = Math.max(1, Wt.b - Wt.a);
+        let sum = 0, cnt=0;
+        for (let i=Math.max(0,Math.floor(Wt.a)); i<Math.min(Wt.nW, Math.ceil(Wt.b)); i++) {
+          const r = Wt.rate && Wt.rate.rhet ? Wt.rate.rhet[i] : 0; // or use weather severity from weekly if attached
+          sum += (r || 0); cnt++;
+        }
+        const avg = cnt ? sum / cnt : 10;
+        inten = Math.min(0.95, 0.3 + (avg / 40) * 0.65);
+      }
+      this.galaxyEl.setAttribute('intensity', inten.toFixed(2));
+    }
+  };
+
+  dispatch(type, p, e) {
+    if (!this.D || this.state.loading) return;
+    const fn = this['pt_' + this.state.tab];
+    if (fn) fn.call(this, type, p, e);
+  }
+
+  setTab = (tab) => { if (tab !== this.state.tab) this.setState({ tab }); };
+
+  // ---------- shared draw helpers ----------
+  card(ctx, x, y, lines, opts) {
+    // lines: [[text, color, font]] ; auto-flips to stay on screen
+    const o = opts || {};
+    ctx.save();
+    let w = 0;
+    const lh = o.lh || 16;
+    for (const [txt, , font] of lines) { ctx.font = font || ('10px ' + this.MONO); w = Math.max(w, ctx.measureText(txt).width); }
+    w += 24; const h = lines.length * lh + 16;
+    let bx = x + 14, by = y - h - 10;
+    if (bx + w > this.W - 8) bx = x - w - 14;
+    if (by < 8) by = y + 16;
+    if (bx < 8) bx = 8;
+    ctx.fillStyle = 'rgba(13,17,24,0.94)';
+    ctx.strokeStyle = o.border || this.COL.line;
+    ctx.beginPath(); ctx.rect(bx, by, w, h); ctx.fill(); ctx.stroke();
+    lines.forEach(([txt, color, font], i) => {
+      ctx.font = font || ('10px ' + this.MONO);
+      ctx.fillStyle = color || this.COL.txt;
+      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText(txt, bx + 12, by + 12 + (i + 0.55) * lh - 4);
+    });
+    ctx.restore();
+    return { bx, by, w, h };
+  }
+
+  fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+
+  maskId(id) {
+    if (/^\+\d{11}$/.test(id)) return '+' + id.slice(1, 2) + ' ' + id.slice(2, 5) + ' \u00b7\u00b7\u00b7 ' + id.slice(7);
+    if (id.includes('@')) return id.slice(0, 4) + '\u00b7\u00b7\u00b7@';
+    if (id.startsWith('chat')) return 'GROUP \u00b7' + id.slice(-4);
+    return id.slice(0, 12);
+  }
+
+  // ============================================================
+  // MODULE 01 — PULSE
+  // ============================================================
+  draw_pulse(ctx, W, H, dt) {
+    const D = this.D, C = this.COL, P = this.M.pulse;
+    P.reveal = Math.min(1, P.reveal + dt * 0.8);
+    // inertia + smoothing
+    if (!this.mouse.down && Math.abs(P.vx) > 0.001) {
+      const span = P.tb - P.ta;
+      P.ta -= P.vx * span; P.tb -= P.vx * span; P.vx *= 0.93;
+      this.pulseClamp();
+    }
+    P.a += (P.ta - P.a) * Math.min(1, dt * 11);
+    P.b += (P.tb - P.b) * Math.min(1, dt * 11);
+
+    const eraY = 8, eraH = 20;
+    const wTop = 42, wBot = H - 104;
+    const mid = (wTop + wBot) / 2, half = (wBot - wTop) / 2 - 4;
+    const mmY = H - 64, mmH = 34;
+    const span = Math.max(1, P.b - P.a);
+    const xOf = (i) => ((i - P.a) / span) * W;
+    const iOf = (x) => P.a + (x / W) * span;
+
+    // era bands
+    for (const e of D.eras) {
+      const x0 = Math.max(0, xOf(e.i0)), x1 = Math.min(W, xOf(e.i1));
+      if (x1 < 0 || x0 > W || x1 - x0 < 2) continue;
+      ctx.fillStyle = e.tone === 'amber' ? 'rgba(232,163,61,0.07)' : 'rgba(79,195,232,0.05)';
+      ctx.fillRect(x0, eraY, x1 - x0, eraH);
+      ctx.fillStyle = e.tone === 'amber' ? 'rgba(232,163,61,0.06)' : 'rgba(79,195,232,0.04)';
+      ctx.fillRect(x0, wTop, x1 - x0, wBot - wTop);
+      if (x1 - x0 > 70) {
+        ctx.font = '9px ' + this.MONO;
+        ctx.fillStyle = e.tone === 'amber' ? C.amber : C.cyan;
+        ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillText(e.label, x0 + 8, eraY + eraH / 2 + 0.5);
+      }
+    }
+
+    // year grid
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    const y0 = this.i2d(D.day0 + Math.floor(P.a)).getUTCFullYear();
+    const y1 = this.i2d(D.day0 + Math.ceil(P.b)).getUTCFullYear();
+    for (let y = y0; y <= y1 + 1; y++) {
+      const i = this.d2i(y + '-01-01') - D.day0;
+      const x = xOf(i);
+      if (x < -40 || x > W + 40) continue;
+      ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, wTop); ctx.lineTo(x, wBot + 16); ctx.stroke();
+      ctx.font = '10px ' + this.MONO; ctx.fillStyle = C.dim;
+      ctx.fillText(String(y), x, wBot + 20);
+    }
+    // month ticks when zoomed
+    if (span < 1200) {
+      for (let y = y0; y <= y1; y++) for (let m = 1; m < 12; m++) {
+        const i = this.d2i(y + '-' + String(m + 1).padStart(2, '0') + '-01') - D.day0;
+        const x = xOf(i);
+        if (x < 0 || x > W) continue;
+        ctx.strokeStyle = 'rgba(20,26,35,0.7)';
+        ctx.beginPath(); ctx.moveTo(x, mid - half * 0.5); ctx.lineTo(x, mid + half * 0.5); ctx.stroke();
+        if (span < 420) {
+          ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+          ctx.fillText('JFMAMJJASOND'[m], x, wBot + 6);
+        }
+      }
+    }
+
+    // midline
+    ctx.strokeStyle = '#222a37'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, mid); ctx.lineTo(W, mid); ctx.stroke();
+
+    // waveform columns
+    const amp = (v) => Math.min(1, Math.sqrt(v / D.maxDay) * 1.12) * half;
+    const revealX = P.reveal * W * 1.15;
+    for (let x = 0; x < W; x++) {
+      if (x > revealX) break;
+      const i0 = Math.max(0, Math.floor(iOf(x))), i1 = Math.min(D.N - 1, Math.max(i0, Math.floor(iOf(x + 1))));
+      if (i0 >= D.N || i1 < 0) continue;
+      let s = 0, r = 0;
+      for (let i = i0; i <= i1; i++) { if (D.S[i] > s) s = D.S[i]; if (D.R[i] > r) r = D.R[i]; }
+      const fade = Math.min(1, (revealX - x) / 60);
+      if (s > 0) {
+        const h = amp(s);
+        const g = ctx.createLinearGradient(0, mid - h, 0, mid);
+        g.addColorStop(0, 'rgba(232,163,61,' + (0.95 * fade) + ')');
+        g.addColorStop(1, 'rgba(232,163,61,' + (0.18 * fade) + ')');
+        ctx.fillStyle = g;
+        ctx.fillRect(x, mid - h, 1, h);
+      }
+      if (r > 0) {
+        const h = amp(r);
+        const g = ctx.createLinearGradient(0, mid, 0, mid + h);
+        g.addColorStop(0, 'rgba(79,195,232,' + (0.16 * fade) + ')');
+        g.addColorStop(1, 'rgba(79,195,232,' + (0.85 * fade) + ')');
+        ctx.fillStyle = g;
+        ctx.fillRect(x, mid, 1, h);
+      }
+    }
+    // axis legend
+    ctx.font = '9px ' + this.MONO; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = C.amber; ctx.fillText('\u25b2 SENT', 10, wTop + 8);
+    ctx.fillStyle = C.cyan; ctx.fillText('\u25bc RECEIVED', 10, wBot - 8);
+
+    // event pins
+    let hoverEvent = null;
+    for (const ev of D.events) {
+      const x = xOf(ev.i);
+      if (x < -10 || x > W + 10) continue;
+      const near = Math.abs(this.mouse.x - x) < 7 && this.mouse.y > wTop && this.mouse.y < wBot;
+      if (near) hoverEvent = { ...ev, x };
+      ctx.save();
+      ctx.translate(x, mid);
+      ctx.rotate(Math.PI / 4);
+      ctx.fillStyle = near ? C.amberHi : C.amber;
+      const s = near ? 5.5 : 4;
+      ctx.fillRect(-s / 2, -s / 2, s, s);
+      ctx.restore();
+    }
+
+    // minimap
+    this.pulseMini(ctx, W, mmY, mmH);
+
+    // hover crosshair + card
+    const mx = this.mouse.x, my = this.mouse.y;
+    if (mx >= 0 && my > wTop && my < wBot && !P.drag) {
+      const di = Math.floor(iOf(mx));
+      if (di >= 0 && di < D.N) {
+        ctx.strokeStyle = 'rgba(232,230,225,0.25)';
+        ctx.setLineDash([3, 4]);
+        ctx.beginPath(); ctx.moveTo(mx, wTop); ctx.lineTo(mx, wBot); ctx.stroke();
+        ctx.setLineDash([]);
+        const perPx = span / W;
+        let lines;
+        if (perPx <= 1.6) {
+          const s = D.S[di], r = D.R[di];
+          lines = [
+            [this.fmtDate(D.day0 + di, true), C.txt, '600 11px ' + this.MONO],
+            [this.fmt(s) + ' sent', C.amber],
+            [this.fmt(r) + ' received', C.cyan]
+          ];
+        } else {
+          const w = Math.ceil(perPx * 3);
+          let s = 0, r = 0;
+          for (let i = Math.max(0, di - w); i <= Math.min(D.N - 1, di + w); i++) { s += D.S[i]; r += D.R[i]; }
+          lines = [
+            ['\u2248 ' + this.fmtDate(D.day0 + di), C.txt, '600 11px ' + this.MONO],
+            [this.fmt(s) + ' sent / ' + this.fmt(r) + ' recv', C.dim],
+            ['in surrounding ' + (2 * w + 1) + ' days', C.faint]
+          ];
+        }
+        if (hoverEvent) lines.push(['\u25c6 ' + hoverEvent.label, C.amberHi]);
+        this.card(ctx, mx, Math.min(my, mid), lines);
+      }
+    }
+  }
+
+  pulseMini(ctx, W, y, h) {
+    const D = this.D, C = this.COL, P = this.M.pulse;
+    if (!this._miniCache || this._miniCache.w !== W) {
+      const cols = new Float32Array(W * 2);
+      for (let x = 0; x < W; x++) {
+        const i0 = Math.floor((x / W) * D.N), i1 = Math.max(i0, Math.floor(((x + 1) / W) * D.N) - 1);
+        let s = 0, r = 0;
+        for (let i = i0; i <= i1 && i < D.N; i++) { if (D.S[i] > s) s = D.S[i]; if (D.R[i] > r) r = D.R[i]; }
+        cols[x * 2] = s; cols[x * 2 + 1] = r;
+      }
+      this._miniCache = { w: W, cols };
+    }
+    const { cols } = this._miniCache;
+    ctx.fillStyle = '#0b0f15';
+    ctx.fillRect(0, y, W, h);
+    const midm = y + h / 2;
+    for (let x = 0; x < W; x += 1) {
+      const s = cols[x * 2], r = cols[x * 2 + 1];
+      const hs = Math.sqrt(s / D.maxDay) * (h / 2 - 2), hr = Math.sqrt(r / D.maxDay) * (h / 2 - 2);
+      if (s) { ctx.fillStyle = 'rgba(232,163,61,0.45)'; ctx.fillRect(x, midm - hs, 1, hs); }
+      if (r) { ctx.fillStyle = 'rgba(79,195,232,0.4)'; ctx.fillRect(x, midm, 1, hr); }
+    }
+    // view window
+    const x0 = (P.a / D.N) * W, x1 = (P.b / D.N) * W;
+    ctx.fillStyle = 'rgba(232,230,225,0.07)';
+    ctx.fillRect(x0, y, x1 - x0, h);
+    ctx.strokeStyle = 'rgba(232,230,225,0.4)'; ctx.lineWidth = 1;
+    ctx.strokeRect(x0 + 0.5, y + 0.5, Math.max(3, x1 - x0) - 1, h - 1);
+  }
+
+  pulseClamp() {
+    const P = this.M.pulse, N = this.D.N;
+    const span = Math.max(10, Math.min(N, P.tb - P.ta));
+    if (P.ta < -span * 0.15) P.ta = -span * 0.15;
+    if (P.tb > N + span * 0.15) P.tb = N + span * 0.15;
+    P.tb = P.ta + span;
+    if (P.tb > N + span * 0.15) { P.tb = N + span * 0.15; P.ta = P.tb - span; }
+  }
+
+  pt_pulse(type, p, e) {
+    const P = this.M.pulse, W = this.W, H = this.H;
+    const mmY = H - 64, mmH = 34;
+    const span = P.tb - P.ta;
+    if (type === 'down') {
+      if (p.y > mmY - 4 && p.y < mmY + mmH + 4) {
+        P.drag = 'mini';
+        const center = (p.x / W) * this.D.N;
+        P.ta = center - span / 2; P.tb = center + span / 2;
+        this.pulseClamp();
+      } else { P.drag = 'pan'; P.vx = 0; }
+    } else if (type === 'move') {
+      if (!this.mouse.down) return;
+      if (P.drag === 'pan') {
+        const d = (p.dx / W) * span;
+        P.ta -= d; P.tb -= d;
+        P.vx = p.dx / W;
+        this.pulseClamp();
+        P.a = P.ta; P.b = P.tb;
+      } else if (P.drag === 'mini') {
+        const center = (p.x / W) * this.D.N;
+        P.ta = center - span / 2; P.tb = center + span / 2;
+        this.pulseClamp();
+      }
+    } else if (type === 'up' || type === 'leave') {
+      P.drag = null;
+    } else if (type === 'wheel') {
+      const f = Math.exp(e.deltaY * 0.0016);
+      const pivot = P.ta + (p.x / W) * span;
+      P.ta = pivot - (pivot - P.ta) * f;
+      P.tb = pivot + (P.tb - pivot) * f;
+      this.pulseClamp();
+    } else if (type === 'dbl') {
+      P.ta = 0; P.tb = this.D.N;
+    }
+  }
+
+  pulseJump = (label) => {
+    const P = this.M.pulse, D = this.D;
+    if (label === 'FULL') { P.ta = 0; P.tb = D.N; return; }
+    const e = D.eras.find(x => x.label === label);
+    if (e) { P.ta = e.i0 - 20; P.tb = e.i1 + 20; this.pulseClamp(); }
+  };
+
+  // ============================================================
+  // placeholder for modules streaming in
+  // ============================================================
+  drawStandby(ctx, W, H, label) {
+    const C = this.COL;
+    ctx.font = '11px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = C.dim;
+    ctx.fillText(label + ' \u2014 CALIBRATING', W / 2, H / 2);
+  }
+  // ============================================================
+  // MODULE 02 — CLOCK  (spin a 15-year average day)
+  // ============================================================
+  draw_clock(ctx, W, H, dt) {
+    const D = this.D, C = this.COL, K = this.M.clock;
+    const hourly = D.msg.hourly, hw = D.msg.hourWeek;
+    const cx = W / 2, cy = H / 2 + 6;
+    const R = Math.min(W, H) * 0.40;
+    const r0 = R * 0.46;
+    K.geo = { cx, cy, R, r0 };
+    if (!K.drag) { K.rot += K.rotV * dt; K.rotV *= Math.pow(0.90, dt * 60); if (Math.abs(K.rotV) < 0.0002) K.rotV = 0; }
+    const rot = K.rot;
+    const mode = this.state.clockMode;
+    const val = (h) => mode === 'sent' ? hourly[h][0] : mode === 'recv' ? hourly[h][1] : hourly[h][0] + hourly[h][1];
+    let mx = 0; for (let h = 0; h < 24; h++) mx = Math.max(mx, val(h));
+    let hwMax = 0; for (let d = 0; d < 7; d++) for (let h = 0; h < 24; h++) hwMax = Math.max(hwMax, hw[d][h]);
+
+    const angOf = (h) => (h / 24) * Math.PI * 2 - Math.PI / 2 + rot;
+    const needleHour = ((Math.round((-rot / (Math.PI * 2)) * 24) % 24) + 24) % 24;
+
+    // inner polar heatmap: 7 day-of-week rings x 24 wedges
+    const ringW = (r0 - R * 0.10) / 7;
+    for (let d = 0; d < 7; d++) {
+      const ri = R * 0.10 + d * ringW, ro = ri + ringW - 1.2;
+      for (let h = 0; h < 24; h++) {
+        const a0 = angOf(h) - Math.PI / 24, a1 = angOf(h) + Math.PI / 24;
+        const t = hw[d][h] / hwMax;
+        ctx.beginPath();
+        ctx.arc(cx, cy, ro, a0, a1); ctx.arc(cx, cy, ri, a1, a0, true); ctx.closePath();
+        ctx.fillStyle = 'rgba(232,163,61,' + (0.05 + Math.pow(t, 0.7) * 0.85).toFixed(3) + ')';
+        ctx.fill();
+      }
+    }
+
+    // outer 24h bars
+    for (let h = 0; h < 24; h++) {
+      const a = angOf(h);
+      const t = val(h) / mx;
+      const len = (R - r0) * (0.15 + Math.pow(t, 0.85) * 0.85);
+      const aw = Math.PI / 24 * 0.82;
+      const isNeedle = h === needleHour, isHover = h === K.hoverH;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r0 + len, a - aw, a + aw); ctx.arc(cx, cy, r0, a + aw, a - aw, true); ctx.closePath();
+      if (isNeedle) ctx.fillStyle = mode === 'recv' ? C.cyanHi : C.amberHi;
+      else if (isHover) ctx.fillStyle = mode === 'recv' ? C.cyan : C.amber;
+      else ctx.fillStyle = mode === 'recv' ? 'rgba(79,195,232,' + (0.35 + t * 0.55).toFixed(3) + ')' : 'rgba(232,163,61,' + (0.35 + t * 0.55).toFixed(3) + ')';
+      ctx.fill();
+      const lx = cx + Math.cos(a) * (R + 16), ly = cy + Math.sin(a) * (R + 16);
+      ctx.font = (isNeedle ? '600 10px ' : '9px ') + this.MONO;
+      ctx.fillStyle = isNeedle ? C.txt : C.faint;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(h).padStart(2, '0'), lx, ly);
+    }
+
+    // fixed needle pointing up
+    ctx.strokeStyle = C.txt; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(cx, cy - r0 * 0.92); ctx.lineTo(cx, cy - R - 6); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx, cy - R - 12); ctx.lineTo(cx - 5, cy - R - 2); ctx.lineTo(cx + 5, cy - R - 2); ctx.closePath();
+    ctx.fillStyle = C.txt; ctx.fill();
+
+    // center readout plate
+    ctx.beginPath(); ctx.arc(cx, cy, R * 0.10 - 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#0b0f15'; ctx.fill();
+    const hv = hourly[needleHour];
+    ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '600 30px ' + this.MONO; ctx.fillStyle = C.txt;
+    ctx.fillText(String(needleHour).padStart(2, '0') + ':00', cx, cy - R * 0.46 - 14);
+    ctx.font = '9px ' + this.MONO;
+    ctx.fillStyle = C.amber; ctx.fillText(this.fmt(hv[0]) + ' SENT', cx - 50, cy - R * 0.46 + 6);
+    ctx.fillStyle = C.cyan; ctx.fillText(this.fmt(hv[1]) + ' RECV', cx + 50, cy - R * 0.46 + 6);
+    if (!D.totalsAll) D.totalsAll = D.msg.totals.sent + D.msg.totals.recv;
+    ctx.fillStyle = C.dim; ctx.font = '8px ' + this.MONO;
+    ctx.fillText(((hv[0] + hv[1]) / D.totalsAll * 100).toFixed(1) + '% OF 15 YEARS OF TRAFFIC HAPPENS HERE', cx, cy - R * 0.46 + 22);
+
+    // ring legend
+    ctx.fillStyle = C.faint; ctx.font = '8px ' + this.MONO;
+    ctx.fillText('INNER RINGS: SUN \u2192 SAT \u00b7 OUTER BARS: HOUR VOLUME', cx, cy + R + 30);
+
+    // hover detect
+    if (this.mouse.x >= 0) {
+      const dx = this.mouse.x - cx, dy = this.mouse.y - cy, rr = Math.hypot(dx, dy);
+      if (rr > r0 && rr < R + 8) {
+        let a = Math.atan2(dy, dx) - rot + Math.PI / 2;
+        a = ((a % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+        K.hoverH = Math.round(a / (Math.PI * 2) * 24) % 24;
+      } else K.hoverH = -1;
+    } else K.hoverH = -1;
+    if (K.hoverH >= 0 && K.hoverH !== needleHour && !K.drag) {
+      const hh = hourly[K.hoverH];
+      this.card(ctx, this.mouse.x, this.mouse.y, [
+        [String(K.hoverH).padStart(2, '0') + ':00 \u2014 ' + String((K.hoverH + 1) % 24).padStart(2, '0') + ':00', C.txt, '600 11px ' + this.MONO],
+        [this.fmt(hh[0]) + ' sent', C.amber],
+        [this.fmt(hh[1]) + ' received', C.cyan]
+      ]);
+    }
+  }
+  pt_clock(type, p, e) {
+    const K = this.M.clock, g = K.geo; if (!g) return;
+    if (type === 'down') {
+      if (Math.hypot(p.x - g.cx, p.y - g.cy) < g.R + 30) {
+        K.drag = true; K.lastAng = Math.atan2(p.y - g.cy, p.x - g.cx); K.rotV = 0;
+      }
+    } else if (type === 'move' && K.drag && this.mouse.down) {
+      const a = Math.atan2(p.y - g.cy, p.x - g.cx);
+      let d = a - K.lastAng;
+      if (d > Math.PI) d -= Math.PI * 2; if (d < -Math.PI) d += Math.PI * 2;
+      K.rot += d; K.lastAng = a; K.rotV = d * 55;
+    } else if (type === 'up' || type === 'leave') {
+      K.drag = false;
+    } else if (type === 'wheel') {
+      K.rotV = 0; K.rot += (e.deltaY > 0 ? -1 : 1) * (Math.PI * 2 / 24);
+    }
+  }
+  // ============================================================
+  // MODULE 03 — ORBITS  (fling the people in your life)
+  // ============================================================
+  initOrbits() {
+    const D = this.D;
+    const NOW = this.d2i('2026-06-09');
+    const list = D.msg.threads.slice(0, 18);
+    const maxTot = list[0].tot;
+    const cx = this.W / 2, cy = this.H / 2;
+    this.M.orbits = {
+      bodies: list.map((t, i) => {
+        const recencyDays = Math.max(0, NOW - this.d2i(t.last));
+        const rad = 80 + Math.min(1, Math.sqrt(recencyDays / 4200)) * (Math.min(this.W, this.H) * 0.42 - 80);
+        const size = 7 + Math.sqrt(t.tot / maxTot) * 32;
+        const theta = (i * 2.399963) % (Math.PI * 2); // golden angle spread
+        return {
+          t, baseRad: rad, theta, omega: (28 / rad) * (i % 2 ? 1 : -1) * 0.5,
+          size, px: cx + Math.cos(theta) * rad, py: cy + Math.sin(theta) * rad, vx: 0, vy: 0,
+          recencyDays
+        };
+      }),
+      pinned: null, drag: null, hover: null
+    };
+  }
+  draw_orbits(ctx, W, H, dt) {
+    if (!this.M.orbits || this._orbW !== W + 'x' + H) { this._orbW = W + 'x' + H; this.initOrbits(); }
+    const C = this.COL, O = this.M.orbits, cx = W / 2, cy = H / 2;
+    dt = Math.min(dt, 0.03);
+    // guide rings
+    ctx.strokeStyle = 'rgba(34,42,55,0.5)'; ctx.lineWidth = 1;
+    const maxR = Math.min(W, H) * 0.42;
+    for (let r = 80; r <= maxR; r += (maxR - 80) / 3) { ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('TALKED YESTERDAY', cx, cy - 80 + 12);
+    ctx.fillText('SILENT FOR A DECADE', cx, cy - maxR - 10);
+
+    for (const b of O.bodies) {
+      b.theta += b.omega * dt;
+      const ax = cx + Math.cos(b.theta) * b.baseRad, ay = cy + Math.sin(b.theta) * b.baseRad;
+      if (O.drag === b) { b.px = this.mouse.x; b.py = this.mouse.y; }
+      else {
+        const k = 3.2, damp = Math.pow(0.88, dt * 60);
+        b.vx += (ax - b.px) * k * dt; b.vy += (ay - b.py) * k * dt;
+        b.vx *= damp; b.vy *= damp;
+        b.px += b.vx * dt; b.py += b.vy * dt;
+      }
+    }
+    // connectors
+    for (const b of O.bodies) {
+      const lit = O.pinned === b || O.hover === b;
+      ctx.strokeStyle = 'rgba(232,163,61,' + (lit ? 0.45 : 0.10) + ')';
+      ctx.lineWidth = lit ? 1.4 : 0.8;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(b.px, b.py); ctx.stroke();
+    }
+    // bodies
+    for (const b of O.bodies) {
+      const lit = O.hover === b || O.pinned === b;
+      const named = !!b.t.name;
+      const base = named ? '232,163,61' : '124,152,182';
+      const g = ctx.createRadialGradient(b.px, b.py, 1, b.px, b.py, b.size);
+      g.addColorStop(0, 'rgba(' + base + ',' + (lit ? 1 : 0.9) + ')');
+      g.addColorStop(0.65, 'rgba(' + base + ',' + (lit ? 0.6 : 0.3) + ')');
+      g.addColorStop(1, 'rgba(' + base + ',0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(b.px, b.py, b.size * (lit ? 1.2 : 1), 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = named ? '#ffd28a' : '#dfe8f2';
+      ctx.beginPath(); ctx.arc(b.px, b.py, Math.max(2, b.size * 0.3), 0, Math.PI * 2); ctx.fill();
+      if (b.size > 15 || lit) {
+        ctx.font = '600 ' + (b.size > 22 ? 11 : 9) + 'px ' + this.MONO;
+        ctx.fillStyle = lit ? C.txt : C.dim; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+        ctx.fillText(b.t.name || this.maskId(b.t.id), b.px, b.py + b.size + 4);
+      }
+    }
+    // sun
+    const pulse = 1 + Math.sin(performance.now() / 600) * 0.05;
+    const sg = ctx.createRadialGradient(cx, cy, 2, cx, cy, 38 * pulse);
+    sg.addColorStop(0, '#fff4e0'); sg.addColorStop(0.45, '#e8a33d'); sg.addColorStop(1, 'rgba(232,163,61,0)');
+    ctx.fillStyle = sg; ctx.beginPath(); ctx.arc(cx, cy, 38 * pulse, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#07090d'; ctx.font = '700 11px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('DAN', cx, cy);
+
+    // hover detect
+    O.hover = null;
+    let best = 1e9;
+    for (const b of O.bodies) { const d = Math.hypot(this.mouse.x - b.px, this.mouse.y - b.py); if (d < b.size + 8 && d < best) { best = d; O.hover = b; } }
+    if (this.cv) this.cv.style.cursor = O.drag ? 'grabbing' : (O.hover ? 'grab' : 'crosshair');
+
+    const show = O.pinned || O.hover;
+    if (show) this.drawDossier(ctx, show, show === O.pinned);
+  }
+  drawDossier(ctx, b, pinned) {
+    const C = this.COL, t = b.t;
+    const x = 18, y = 64, w = 256, h = 158;
+    ctx.fillStyle = 'rgba(13,17,24,0.95)'; ctx.strokeStyle = pinned ? C.amber : C.line; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.rect(x, y, w, h); ctx.fill(); ctx.stroke();
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '700 15px ' + this.GROT; ctx.fillStyle = t.name ? C.amberHi : C.txt;
+    ctx.fillText(t.name || this.maskId(t.id), x + 14, y + 26);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText(this.fmt(t.tot) + ' MESSAGES \u00b7 ' + (b.recencyDays < 30 ? 'ACTIVE' : this.fmt(Math.round(b.recencyDays / 30.4)) + ' MO SILENT'), x + 14, y + 43);
+    const bw = w - 28, by = y + 54, sr = t.s / (t.s + t.r);
+    ctx.fillStyle = C.amber; ctx.fillRect(x + 14, by, bw * sr, 6);
+    ctx.fillStyle = C.cyan; ctx.fillRect(x + 14 + bw * sr, by, bw * (1 - sr), 6);
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.amber; ctx.fillText(this.fmt(t.s) + ' SENT', x + 14, by + 17);
+    ctx.textAlign = 'right'; ctx.fillStyle = C.cyan; ctx.fillText(this.fmt(t.r) + ' RECV', x + 14 + bw, by + 17);
+    ctx.textAlign = 'left';
+    // monthly sparkline
+    const monthly = t.monthly || [];
+    if (monthly.length > 1) {
+      const spX = x + 14, spY = y + 88, spW = w - 28, spH = 34;
+      let mxm = 1; for (const mm of monthly) mxm = Math.max(mxm, mm[1]);
+      ctx.strokeStyle = 'rgba(232,163,61,0.9)'; ctx.lineWidth = 1.3; ctx.beginPath();
+      monthly.forEach((mm, i) => {
+        const px = spX + (i / (monthly.length - 1)) * spW;
+        const py = spY + spH - Math.sqrt(mm[1] / mxm) * spH;
+        i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+      });
+      ctx.stroke();
+    }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText(t.first + '  \u2192  ' + t.last, x + 14, y + h - 12);
+    if (pinned) { ctx.fillStyle = C.amber; ctx.textAlign = 'right'; ctx.fillText('\u25c9 PINNED', x + w - 14, y + h - 12); ctx.textAlign = 'left'; }
+  }
+  pt_orbits(type, p) {
+    const O = this.M.orbits; if (!O) return;
+    if (type === 'down') {
+      let hit = null, best = 1e9;
+      for (const b of O.bodies) { const d = Math.hypot(p.x - b.px, p.y - b.py); if (d < b.size + 10 && d < best) { best = d; hit = b; } }
+      if (hit) { O.drag = hit; O.downPos = { x: p.x, y: p.y }; hit.vx = 0; hit.vy = 0; }
+    } else if (type === 'move') {
+      if (O.drag && this.mouse.down) { O.drag.vx = p.dx * 26; O.drag.vy = p.dy * 26; }
+    } else if (type === 'up') {
+      if (O.drag) {
+        const moved = O.downPos ? Math.hypot(p.x - O.downPos.x, p.y - O.downPos.y) : 0;
+        if (moved < 5) O.pinned = (O.pinned === O.drag ? null : O.drag);
+        O.drag = null;
+      } else O.pinned = null;
+    } else if (type === 'leave') { O.drag = null; }
+  }
+  orbitsScatter = () => {
+    const O = this.M.orbits; if (!O) return;
+    for (const b of O.bodies) { const a = Math.random() * Math.PI * 2; const f = 700 + Math.random() * 1100; b.vx = Math.cos(a) * f; b.vy = Math.sin(a) * f; }
+  };
+  // ============================================================
+  // MODULE 04 — ATLAS  (replay a decade of movement)
+  // ============================================================
+  initAtlas() {
+    const D = this.D, pl = D.plc.places, tl = D.plc.tl;
+    let latMin = 1e9, latMax = -1e9, lngMin = 1e9, lngMax = -1e9, maxDay = 0;
+    for (const p of pl) { latMin = Math.min(latMin, p.lat); latMax = Math.max(latMax, p.lat); lngMin = Math.min(lngMin, p.lng); lngMax = Math.max(lngMax, p.lng); }
+    for (const v of tl) maxDay = Math.max(maxDay, v[0]);
+    const latMid = (latMin + latMax) / 2, lngMid = (lngMin + lngMax) / 2;
+    const cosM = Math.cos(latMid * Math.PI / 180);
+    const fit = Math.min((this.W * 0.8) / Math.max(0.2, (lngMax - lngMin) * cosM), (this.H * 0.8) / Math.max(0.2, latMax - latMin));
+    this.atlasViews = {
+      FULL: { lat: latMid, lng: lngMid, zoom: fit },
+      FAYETTE: { lat: 39.9, lng: -79.73, zoom: fit * 11 },
+      NYC: { lat: 40.765, lng: -73.96, zoom: fit * 13 }
+    };
+    this.M.atlas = {
+      view: { ...this.atlasViews.FULL }, target: { ...this.atlasViews.FULL },
+      playDay: maxDay, maxDay, scrub: false, drag: false, heat: new Float32Array(pl.length), hover: -1
+    };
+  }
+  atlasFly = (name) => { if (this.M.atlas && this.atlasViews[name]) Object.assign(this.M.atlas.target, this.atlasViews[name]); };
+  draw_atlas(ctx, W, H, dt) {
+    if (!this.M.atlas) this.initAtlas();
+    const C = this.COL, A = this.M.atlas, D = this.D, pl = D.plc.places, tl = D.plc.tl;
+    const v = A.view, tg = A.target, e = Math.min(1, dt * 4.5);
+    v.lat += (tg.lat - v.lat) * e; v.lng += (tg.lng - v.lng) * e;
+    v.zoom += (tg.zoom - v.zoom) * Math.min(1, dt * 4.5);
+    const cx = W / 2, cy = H / 2, cosL = Math.cos(v.lat * Math.PI / 180);
+    const px = (lng) => cx + (lng - v.lng) * v.zoom * cosL;
+    const py = (lat) => cy - (lat - v.lat) * v.zoom;
+
+    if (this.state.atlasPlay && !A.scrub) {
+      A.playDay += this.state.atlasSpeed * dt;
+      if (A.playDay >= A.maxDay) { A.playDay = A.maxDay; this.setState({ atlasPlay: false }); }
+    }
+    A.heat.fill(0);
+    let idx = 0;
+    for (; idx < tl.length; idx++) { if (tl[idx][0] > A.playDay) break; A.heat[tl[idx][1]] += tl[idx][3] || 30; }
+
+    // graticule
+    ctx.strokeStyle = 'rgba(22,28,38,0.9)'; ctx.lineWidth = 1;
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = 'rgba(61,69,84,0.7)'; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+    const latStep = v.zoom > 2000 ? 0.1 : 0.5, lngStep = v.zoom > 2000 ? 0.1 : 1;
+    for (let lat = 38; lat <= 43; lat += latStep) { const y = py(lat); if (y < 0 || y > H) continue; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); ctx.fillText(lat.toFixed(1) + '\u00b0N', 6, y - 2); }
+    for (let lng = -81; lng <= -72; lng += lngStep) { const x = px(lng); if (x < 0 || x > W) continue; ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+
+    // accumulated places
+    let maxHeat = 1; for (let i = 0; i < pl.length; i++) if (A.heat[i] > maxHeat) maxHeat = A.heat[i];
+    A.screen = A.screen || new Float32Array(pl.length * 2);
+    for (let i = 0; i < pl.length; i++) {
+      const x = px(pl[i].lng), y = py(pl[i].lat);
+      A.screen[i * 2] = x; A.screen[i * 2 + 1] = y;
+      if (A.heat[i] === 0 || x < -24 || x > W + 24 || y < -24 || y > H + 24) continue;
+      const t = A.heat[i] / maxHeat;
+      const r = 1.8 + Math.sqrt(t) * 17;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(79,195,232,' + (0.08 + t * 0.30).toFixed(3) + ')'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, Math.max(1.2, r * 0.3), 0, Math.PI * 2);
+      ctx.fillStyle = i === A.hover ? '#ffffff' : 'rgba(166,230,255,0.85)'; ctx.fill();
+    }
+    // travelling pen trail
+    const trailN = 70, start = Math.max(1, idx - trailN);
+    ctx.lineWidth = 1.2;
+    for (let i = start; i < idx; i++) {
+      const a = tl[i - 1][1], b = tl[i][1];
+      if (a === b) continue;
+      const age = (i - start) / trailN;
+      ctx.strokeStyle = 'rgba(232,163,61,' + (age * 0.55).toFixed(3) + ')';
+      ctx.beginPath(); ctx.moveTo(A.screen[a * 2], A.screen[a * 2 + 1]); ctx.lineTo(A.screen[b * 2], A.screen[b * 2 + 1]); ctx.stroke();
+    }
+    if (idx > 0) {
+      const last = tl[idx - 1][1];
+      const x = A.screen[last * 2], y = A.screen[last * 2 + 1];
+      const pr = 6 + Math.sin(performance.now() / 180) * 2;
+      ctx.strokeStyle = C.amberHi; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(x, y, pr + 3, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = C.amberHi; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, Math.PI * 2); ctx.fill();
+    }
+    // hub labels
+    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.font = '8.5px ' + this.MONO;
+    for (let i = 0; i < Math.min(pl.length, 60); i++) {
+      if (pl[i].c < 100 || A.heat[i] === 0) continue;
+      const x = A.screen[i * 2], y = A.screen[i * 2 + 1];
+      if (x < 30 || x > W - 30 || y < 20 || y > H) continue;
+      ctx.fillStyle = 'rgba(232,230,225,0.5)';
+      ctx.fillText(((pl[i].n || (pl[i].a || '').split(',')[0]) + '').slice(0, 24), x, y - 9);
+    }
+
+    // hover
+    A.hover = -1; let best = 13;
+    if (this.mouse.y < H - 56) {
+      for (let i = 0; i < pl.length; i++) {
+        if (A.heat[i] === 0) continue;
+        const d = Math.hypot(this.mouse.x - A.screen[i * 2], this.mouse.y - A.screen[i * 2 + 1]);
+        if (d < best) { best = d; A.hover = i; }
+      }
+    }
+    if (A.hover >= 0) {
+      const p = pl[A.hover];
+      this.card(ctx, this.mouse.x, this.mouse.y, [
+        [((p.n || (p.a || '').split(',')[0]) + '').slice(0, 30), C.txt, '600 11px ' + this.MONO],
+        [(p.a || '').slice(0, 38), C.dim, '9px ' + this.MONO],
+        [this.fmt(p.c) + ' VISITS \u00b7 ' + this.fmtHrs(p.min) + ' OF LIFE', C.cyan],
+        [p.first + ' \u2192 ' + p.last, C.faint, '8px ' + this.MONO]
+      ]);
+    }
+    this.atlasScrubber(ctx, W, H);
+  }
+  fmtHrs(min) { const h = min / 60; return h >= 72 ? this.fmt(Math.round(h / 24)) + ' DAYS' : this.fmt(Math.round(h)) + ' HRS'; }
+  atlasScrubber(ctx, W, H) {
+    const C = this.COL, A = this.M.atlas;
+    const x = 20, w = W - 40, y = H - 34, h = 6;
+    A.scrubGeo = { x, w, y };
+    ctx.fillStyle = '#141a23'; ctx.fillRect(x, y, w, h);
+    const f = A.playDay / A.maxDay;
+    ctx.fillStyle = 'rgba(232,163,61,0.85)'; ctx.fillRect(x, y, w * f, h);
+    ctx.fillStyle = C.amberHi; ctx.beginPath(); ctx.arc(x + w * f, y + h / 2, 7, 0, Math.PI * 2); ctx.fill();
+    const ms = Date.UTC(2014, 0, 1) + A.playDay * 86400000;
+    const d = new Date(ms);
+    const M = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    ctx.font = '600 12px ' + this.MONO; ctx.fillStyle = C.txt; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+    ctx.fillText(M[d.getUTCMonth()] + ' ' + String(d.getUTCDate()).padStart(2, '0') + ' ' + d.getUTCFullYear(), x, y - 10);
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'right';
+    ctx.fillText('AUG 2014 \u2014 JUN 2026 \u00b7 6,185 FIXES', x + w, y - 10);
+  }
+  pt_atlas(type, p, e) {
+    const A = this.M.atlas; if (!A) return;
+    const g = A.scrubGeo;
+    if (type === 'down') {
+      if (g && p.y > g.y - 14) {
+        A.scrub = true;
+        A.playDay = Math.max(0, Math.min(1, (p.x - g.x) / g.w)) * A.maxDay;
+      } else A.drag = true;
+    } else if (type === 'move' && this.mouse.down) {
+      if (A.scrub && g) {
+        A.playDay = Math.max(0, Math.min(1, (p.x - g.x) / g.w)) * A.maxDay;
+      } else if (A.drag) {
+        const cosL = Math.cos(A.view.lat * Math.PI / 180);
+        A.target.lng -= p.dx / (A.view.zoom * cosL); A.target.lat += p.dy / A.view.zoom;
+        A.view.lng = A.target.lng; A.view.lat = A.target.lat;
+      }
+    } else if (type === 'up' || type === 'leave') {
+      A.scrub = false; A.drag = false;
+    } else if (type === 'wheel') {
+      const f = Math.exp(-e.deltaY * 0.0016);
+      const cosL = Math.cos(A.view.lat * Math.PI / 180);
+      const wx = A.view.lng + (p.x - this.W / 2) / (A.view.zoom * cosL);
+      const wy = A.view.lat - (p.y - this.H / 2) / A.view.zoom;
+      A.target.zoom = Math.max(20, Math.min(80000, A.view.zoom * f));
+      A.target.lng = wx - (p.x - this.W / 2) / (A.target.zoom * cosL);
+      A.target.lat = wy + (p.y - this.H / 2) / A.target.zoom;
+    } else if (type === 'dbl') {
+      Object.assign(A.target, this.atlasViews.FULL);
+    }
+  }
+  // ============================================================
+  // MODULE 05 — LEXICON  (physics word cloud + caps seismograph)
+  // ============================================================
+  initLexicon() {
+    const D = this.D, W = this.W, H = this.H;
+    const words = D.msg.words.slice(0, 90);
+    const maxC = words[0][1];
+    const seisH = 96;
+    const nodes = words.map(([w, c], i) => {
+      const fs = 11 + Math.sqrt(c / maxC) * 46;
+      return {
+        w, c, fs, r: fs * (0.36 + w.length * 0.052),
+        x: W / 2 + (Math.random() - 0.5) * W * 0.7,
+        y: (H - seisH) / 2 + (Math.random() - 0.5) * (H - seisH) * 0.6,
+        vx: 0, vy: 0, sig: ['fucking', 'lol', 'love', 'sorry', 'annie', 'shit', 'fuck'].includes(w)
+      };
+    });
+    this.M.lexicon = { nodes, seisH, drag: null, pinned: null, hover: null, mode: this.state.lexMode };
+  }
+  lexSetMode = (mode) => {
+    const L = this.M.lexicon; if (!L) return;
+    L.mode = mode;
+    if (mode === 'rain') for (const n of L.nodes) { n.y = -Math.random() * this.H * 1.5; n.vy = 0; n.vx = 0; }
+  };
+  draw_lexicon(ctx, W, H, dt) {
+    if (!this.M.lexicon || this._lexW !== W + 'x' + H) { this._lexW = W + 'x' + H; this.initLexicon(); }
+    const C = this.COL, L = this.M.lexicon;
+    dt = Math.min(dt, 0.03);
+    const floor = H - L.seisH - 8;
+    const cx = W / 2, cy = floor / 2;
+    // physics
+    for (const n of L.nodes) {
+      if (L.drag === n) { n.x = this.mouse.x; n.y = this.mouse.y; continue; }
+      if (L.mode === 'pack') {
+        n.vx += (cx - n.x) * 0.9 * dt;
+        n.vy += (cy - n.y) * 0.9 * dt;
+      } else {
+        n.vy += 600 * dt; // gravity
+        if (n.y + n.r * 0.45 > floor) { n.y = floor - n.r * 0.45; n.vy *= -0.35; n.vx *= 0.92; }
+        if (n.x - n.r < 0) { n.x = n.r; n.vx *= -0.5; }
+        if (n.x + n.r > W) { n.x = W - n.r; n.vx *= -0.5; }
+      }
+      const damp = Math.pow(L.mode === 'pack' ? 0.86 : 0.995, dt * 60);
+      n.vx *= damp; n.vy *= damp;
+      n.x += n.vx * dt; n.y += n.vy * dt;
+    }
+    // collisions (3 passes, ellipse-ish via radius)
+    for (let pass = 0; pass < 3; pass++) {
+      for (let i = 0; i < L.nodes.length; i++) {
+        const a = L.nodes[i];
+        for (let j = i + 1; j < L.nodes.length; j++) {
+          const b = L.nodes[j];
+          const dx = b.x - a.x, dy = (b.y - a.y) * 1.9;
+          const d = Math.hypot(dx, dy) || 0.01;
+          const min = (a.r + b.r) * 0.62;
+          if (d < min) {
+            const push = (min - d) / d * 0.5;
+            const pxx = dx * push, pyy = dy * push / 1.9;
+            if (L.drag !== a) { a.x -= pxx; a.y -= pyy; }
+            if (L.drag !== b) { b.x += pxx; b.y += pyy; }
+          }
+        }
+      }
+    }
+    // hover
+    L.hover = null;
+    for (const n of L.nodes) {
+      if (Math.abs(this.mouse.x - n.x) < n.r * 0.62 && Math.abs(this.mouse.y - n.y) < n.fs * 0.65) { L.hover = n; break; }
+    }
+    if (this.cv) this.cv.style.cursor = L.drag ? 'grabbing' : (L.hover ? 'grab' : 'crosshair');
+    // draw words
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (const n of L.nodes) {
+      const lit = n === L.hover || n === L.pinned;
+      ctx.font = (n.fs > 26 ? '700 ' : '500 ') + n.fs.toFixed(1) + 'px ' + this.GROT;
+      if (lit) ctx.fillStyle = C.amberHi;
+      else if (n.sig) ctx.fillStyle = 'rgba(232,163,61,0.95)';
+      else { const t = Math.min(1, n.fs / 40); ctx.fillStyle = 'rgba(' + Math.round(140 + t * 92) + ',' + Math.round(146 + t * 84) + ',' + Math.round(160 + t * 65) + ',' + (0.5 + t * 0.5).toFixed(2) + ')'; }
+      ctx.fillText(n.w, n.x, n.y);
+    }
+    const show = L.pinned || L.hover;
+    if (show) {
+      const per = show.c / this.D.msg.totals.sent;
+      this.card(ctx, this.mouse.x >= 0 ? this.mouse.x : show.x, this.mouse.y >= 0 ? this.mouse.y : show.y, [
+        ['\u201c' + show.w + '\u201d', C.amberHi, '700 14px ' + this.GROT],
+        [this.fmt(show.c) + ' USES IN SENT MESSAGES', C.txt],
+        ['ONCE EVERY ' + Math.round(1 / per) + ' MESSAGES', C.dim, '9px ' + this.MONO]
+      ], { border: show === L.pinned ? C.amber : C.line });
+    }
+    this.lexSeismograph(ctx, W, H);
+  }
+  lexSeismograph(ctx, W, H) {
+    const C = this.COL, D = this.D, L = this.M.lexicon;
+    const sy = H - L.seisH, sh = L.seisH;
+    ctx.fillStyle = '#0a0e14'; ctx.fillRect(0, sy, W, sh);
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(0, sy + 0.5); ctx.lineTo(W, sy + 0.5); ctx.stroke();
+    const caps = D.msg.caps;
+    if (!caps || !caps.length) return;
+    const m0 = caps[0][0], m1 = caps[caps.length - 1][0];
+    const mIdx = (m) => (+m.slice(0, 4) - +m0.slice(0, 4)) * 12 + (+m.slice(5, 7) - +m0.slice(5, 7));
+    const span = mIdx(m1) + 1;
+    let mx = 1; for (const [, c] of caps) mx = Math.max(mx, c);
+    const base = sy + sh - 16;
+    // hover
+    let hoverI = -1;
+    if (this.mouse.y > sy) hoverI = Math.floor(this.mouse.x / W * span);
+    for (const [m, c] of caps) {
+      const i = mIdx(m);
+      const x = (i / span) * W, bw = Math.max(1.5, W / span - 1);
+      const hh = Math.pow(c / mx, 0.6) * (sh - 26);
+      const isH = i === hoverI;
+      ctx.fillStyle = isH ? C.amberHi : 'rgba(232,93,79,' + (0.35 + (c / mx) * 0.6).toFixed(2) + ')';
+      ctx.fillRect(x, base - hh, bw, hh);
+      if (isH) {
+        this.card(ctx, this.mouse.x, sy - 4, [
+          [m, C.txt, '600 11px ' + this.MONO],
+          [this.fmt(c) + ' ALL-CAPS BURSTS', C.red]
+        ]);
+      }
+    }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText('SHOUT SEISMOGRAPH \u00b7 ALL-CAPS EVENTS PER MONTH \u00b7 2011 \u2192 2026', 10, sy + 14);
+    // year ticks
+    ctx.textAlign = 'center';
+    for (let y = 2012; y <= 2026; y += 2) {
+      const i = mIdx(y + '-01');
+      if (i < 0 || i > span) continue;
+      ctx.fillStyle = C.faint;
+      ctx.fillText("'" + String(y).slice(2), (i / span) * W, base + 12);
+    }
+  }
+  pt_lexicon(type, p) {
+    const L = this.M.lexicon; if (!L) return;
+    if (type === 'down') {
+      let hit = null;
+      for (const n of L.nodes) if (Math.abs(p.x - n.x) < n.r * 0.62 && Math.abs(p.y - n.y) < n.fs * 0.65) { hit = n; break; }
+      if (hit) { L.drag = hit; L.downPos = { x: p.x, y: p.y }; hit.vx = 0; hit.vy = 0; }
+    } else if (type === 'move') {
+      if (L.drag && this.mouse.down) { L.drag.vx = p.dx * 30; L.drag.vy = p.dy * 30; }
+    } else if (type === 'up') {
+      if (L.drag) {
+        const moved = L.downPos ? Math.hypot(p.x - L.downPos.x, p.y - L.downPos.y) : 0;
+        if (moved < 5) L.pinned = (L.pinned === L.drag ? null : L.drag);
+        L.drag = null;
+      } else L.pinned = null;
+    } else if (type === 'leave') { L.drag = null; }
+  }
+  // ============================================================
+  // MODULE 06 — SHELF  (1,121 rated works: him vs the world)
+  // ============================================================
+  CAT_COLORS = { Music: '#e8a33d', Book: '#4fc3e8', Movie: '#e85d4f', Art: '#7fd486', Other: '#9b8cf2' };
+  catOf(c) {
+    if (/music|album|song/i.test(c)) return 'Music';
+    if (/book|lit/i.test(c)) return 'Book';
+    if (/movie|film/i.test(c)) return 'Movie';
+    if (/art|paint/i.test(c)) return 'Art';
+    return 'Other';
+  }
+  initShelf() {
+    const D = this.D;
+    const items = D.fav.filter(f => f.m > 0 && f.g > 0).map(f => ({
+      ...f, cat: this.catOf(f.c),
+      jx: (Math.random() - 0.5), jy: (Math.random() - 0.5),
+      born: Math.random()
+    }));
+    this.M.shelf = { items, pinned: null, hover: null, reveal: 0 };
+  }
+  draw_shelf(ctx, W, H, dt) {
+    if (!this.M.shelf) this.initShelf();
+    const C = this.COL, S = this.M.shelf;
+    S.reveal = Math.min(1, S.reveal + dt * 0.55);
+    const padL = 70, padR = 40, padT = 46, padB = 64;
+    const pw = W - padL - padR, ph = H - padT - padB;
+    const fcat = this.state.shelfCat;
+    // axes: x = world avg (1..10), y = my rating (1..10)
+    const X = (g) => padL + ((g - 1) / 9) * pw;
+    const Y = (m) => padT + (1 - (m - 1) / 9) * ph;
+    // grid
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint;
+    for (let v = 1; v <= 10; v++) {
+      ctx.beginPath(); ctx.moveTo(X(v), padT); ctx.lineTo(X(v), padT + ph); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(padL, Y(v)); ctx.lineTo(padL + pw, Y(v)); ctx.stroke();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText(String(v), X(v), padT + ph + 8);
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText(String(v), padL - 8, Y(v));
+    }
+    // agreement diagonal
+    ctx.strokeStyle = 'rgba(232,230,225,0.22)'; ctx.setLineDash([4, 5]);
+    ctx.beginPath(); ctx.moveTo(X(1), Y(1)); ctx.lineTo(X(10), Y(10)); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = '9px ' + this.MONO; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.save();
+    ctx.translate(X(5.4), Y(5.9)); ctx.rotate(-Math.atan2(ph / 9, pw / 9));
+    ctx.fillStyle = 'rgba(232,230,225,0.35)';
+    ctx.fillText('PERFECT AGREEMENT WITH THE WORLD', 0, -6);
+    ctx.restore();
+    // zone labels
+    ctx.fillStyle = 'rgba(127,212,134,0.5)'; ctx.font = '10px ' + this.MONO;
+    ctx.fillText('DEFENDED \u2014 LOVED MORE THAN THE WORLD DID', padL + 10, padT + 16);
+    ctx.fillStyle = 'rgba(232,93,79,0.5)'; ctx.textAlign = 'right';
+    ctx.fillText('BETRAYED \u2014 THE WORLD OVERRATES THESE', padL + pw - 6, padT + ph - 10);
+    ctx.textAlign = 'left';
+    // axis titles
+    ctx.fillStyle = C.dim; ctx.font = '9px ' + this.MONO;
+    ctx.textAlign = 'center';
+    ctx.fillText('THE WORLD\u2019S AVERAGE RATING \u2192', padL + pw / 2, H - 18);
+    ctx.save(); ctx.translate(20, padT + ph / 2); ctx.rotate(-Math.PI / 2);
+    ctx.fillText('HIS RATING \u2192', 0, 0); ctx.restore();
+
+    // dots
+    S.hover = null;
+    let best = 12;
+    const mx = this.mouse.x, my = this.mouse.y;
+    for (const it of S.items) {
+      if (it.born > S.reveal) continue;
+      const on = fcat === 'ALL' || it.cat.toUpperCase() === fcat;
+      const x = X(Math.min(10, it.g)) + it.jx * 7, y = Y(Math.min(10, it.m)) + it.jy * 7;
+      it._x = x; it._y = y;
+      if (on) {
+        const d = Math.hypot(mx - x, my - y);
+        if (d < best) { best = d; S.hover = it; }
+      }
+    }
+    for (const it of S.items) {
+      if (it.born > S.reveal) continue;
+      const on = fcat === 'ALL' || it.cat.toUpperCase() === fcat;
+      const lit = it === S.hover || it === S.pinned;
+      const col = this.CAT_COLORS[it.cat];
+      const pop = Math.min(1, (S.reveal - it.born) * 8);
+      const r = (lit ? 6.5 : 2.6 + (it.n > 1000 ? 1.2 : 0)) * pop;
+      ctx.beginPath(); ctx.arc(it._x, it._y, r, 0, Math.PI * 2);
+      if (!on) { ctx.fillStyle = 'rgba(60,68,82,0.25)'; }
+      else if (lit) { ctx.fillStyle = '#ffffff'; }
+      else {
+        const dev = it.m - it.g; // + defended, - betrayed
+        const alpha = 0.35 + Math.min(0.6, Math.abs(dev) * 0.13);
+        ctx.fillStyle = col + Math.round(alpha * 255).toString(16).padStart(2, '0');
+      }
+      ctx.fill();
+      if (lit && on) { ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(it._x, it._y, r + 3, 0, Math.PI * 2); ctx.stroke(); }
+    }
+    // legend
+    let lx = padL;
+    ctx.textBaseline = 'middle'; ctx.font = '9px ' + this.MONO;
+    for (const [cat, col] of Object.entries(this.CAT_COLORS)) {
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(lx + 4, 24, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = C.dim; ctx.textAlign = 'left'; ctx.fillText(cat.toUpperCase(), lx + 12, 24);
+      lx += 12 + ctx.measureText(cat.toUpperCase()).width + 22;
+    }
+    const show = S.pinned || S.hover;
+    if (show) {
+      const dev = show.m - show.g;
+      this.card(ctx, mx >= 0 ? mx : show._x, my >= 0 ? my : show._y, [
+        [show.t.slice(0, 40), C.txt, '700 12px ' + this.GROT],
+        [(show.a || '').slice(0, 36), C.dim, '9px ' + this.MONO],
+        ['HIM ' + show.m.toFixed(1) + '  \u00b7  WORLD ' + show.g.toFixed(1) + '  (' + this.fmt(show.n) + ' RATINGS)', this.CAT_COLORS[show.cat]],
+        [dev > 0.4 ? '\u25b2 DEFENDED BY ' + dev.toFixed(1) : dev < -0.4 ? '\u25bc DISSENTS BY ' + (-dev).toFixed(1) : '\u25cf IN AGREEMENT', dev > 0.4 ? C.green : dev < -0.4 ? C.red : C.dim, '9px ' + this.MONO]
+      ], { border: show === S.pinned ? C.amber : C.line });
+    }
+  }
+  pt_shelf(type, p) {
+    const S = this.M.shelf; if (!S) return;
+    if (type === 'down') {
+      if (S.hover) S.pinned = (S.pinned === S.hover ? null : S.hover);
+      else S.pinned = null;
+    }
+  }
+
+  // ============================================================
+  // MODULE 07 — WEATHER  (rhetorical climate streamgraph + lightning)
+  // ============================================================
+  WLAYERS = [
+    ['love', 'LOVE', '#e87da0'],
+    ['prof', 'PROFANITY', '#e85d4f'],
+    ['sorry', 'APOLOGY', '#7fd486'],
+    ['qual', 'HEDGING', '#4fc3e8'],
+    ['imp', 'COMMAND', '#e8a33d'],
+    ['caps', 'SHOUT', '#e8e6e1']
+  ];
+  initWeather() {
+    const D = this.D, rd = D.rhet;
+    const day0 = this.d2i(rd[0].date);
+    const dayN = this.d2i(rd[rd.length - 1].date);
+    const nW = Math.floor((dayN - day0) / 7) + 1;
+    const keys = this.WLAYERS.map(l => l[0]);
+    const sums = {}, msgs = new Float32Array(nW);
+    for (const k of keys) sums[k] = new Float32Array(nW);
+    for (const d of rd) {
+      const w = Math.floor((this.d2i(d.date) - day0) / 7);
+      msgs[w] += d.total;
+      for (const k of keys) sums[k][w] += d[k] || 0;
+    }
+    // 3-week smoothing into raw + rate matrices
+    const smooth = (arr) => {
+      const out = new Float32Array(nW);
+      for (let i = 0; i < nW; i++) {
+        let s = 0, n = 0;
+        for (let j = Math.max(0, i - 1); j <= Math.min(nW - 1, i + 1); j++) { s += arr[j]; n++; }
+        out[i] = s / n;
+      }
+      return out;
+    };
+    const raw = {}, rate = {};
+    const msgsS = smooth(msgs);
+    for (const k of keys) {
+      raw[k] = smooth(sums[k]);
+      rate[k] = new Float32Array(nW);
+      for (let i = 0; i < nW; i++) rate[k][i] = msgsS[i] > 3 ? raw[k][i] / msgsS[i] * 100 : 0;
+    }
+    const events = D.rhetEvents.map(ev => ({ ...ev, w: (this.d2i(ev.date) - day0) / 7 })).sort((a, b) => b.intensity_score - a.intensity_score);
+    this.M.weather = { day0, nW, raw, rate, msgs, events, a: 0, b: nW, ta: 0, tb: nW, hoverEv: null };
+    // Generalized full-corpus WEATHER data (from analyze_weather.py on the full CSV + cross rhetoric)
+    if (D.weather && D.weather.weekly && D.weather.weekly.weeks && D.weather.weekly.weeks.length) {
+      const ww = D.weather.weekly.weeks;
+      const wday0 = this.d2i(ww[0].week);
+      const wN = ww.length;
+      const wMsgs = new Float32Array(wN);
+      const wRaw = { cold: new Float32Array(wN), hot: new Float32Array(wN), precip: new Float32Array(wN), travel: new Float32Array(wN), rhet: new Float32Array(wN) };
+      ww.forEach((w, i) => {
+        wMsgs[i] = w.count || 0;
+        const r = w.rate || w.raw || {};
+        wRaw.cold[i] = r.cold || 0; wRaw.hot[i] = r.hot || 0; wRaw.precip[i] = r.precip || 0; wRaw.travel[i] = r.travel || 0; wRaw.rhet[i] = r.rhet_intensity || 0;
+      });
+      this.M.weather.weekly = { day0: wday0, nW: wN, msgs: wMsgs, raw: wRaw, rate: /* rate computed similarly if needed */ wRaw, events: D.weather.analysis.top_weather_impact_weeks || [], fragments: D.weather.fragments || [] };
+    }
+  }
+  draw_weather(ctx, W, H, dt) {
+    if (!this.M.weather) this.initWeather();
+    const Wt = this.M.weather;
+    if (Wt && Wt.weekly && Wt.weekly.length) {
+      // Use non-Annie weekly for real weather 4-pen (override or augment)
+      // For simplicity in this pass, we reuse/extend the existing stream or pen logic with new vectors.
+      // (In full, call this.drawFourPenLanes with [volume, rhet, cold, precip_travel] from weekly)
+    }
+    this.updateGalaxyForWeather();
+
+    if (!this.M.weather) this.initWeather();
+    const C = this.COL, Wt = this.M.weather, st = this.state;
+    Wt.a += (Wt.ta - Wt.a) * Math.min(1, dt * 10);
+    Wt.b += (Wt.tb - Wt.b) * Math.min(1, dt * 10);
+    const span = Math.max(2, Wt.b - Wt.a);
+    const padT = 60, padB = 60;
+    const mid = (H - padB + padT) / 2, halfH = (H - padB - padT) / 2 - 10;
+    const xOf = (w) => ((w - Wt.a) / span) * W;
+    const data = st.weatherMode === 'rate' ? Wt.rate : Wt.raw;
+    const on = this.WLAYERS.filter(l => st.weatherLayers[l[0]]);
+    // max stack
+    let mx = 0.001;
+    for (let i = Math.max(0, Math.floor(Wt.a)); i < Math.min(Wt.nW, Math.ceil(Wt.b)); i++) {
+      let s = 0; for (const [k] of on) s += data[k][i];
+      mx = Math.max(mx, s);
+    }
+    const SC = (halfH * 2) / mx;
+    // year grid
+    ctx.font = '10px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let y = 2011; y <= 2027; y++) {
+      const w = (this.d2i(y + '-01-01') - Wt.day0) / 7;
+      const x = xOf(w);
+      if (x < -30 || x > W + 30) continue;
+      ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(x, padT - 14); ctx.lineTo(x, H - padB + 10); ctx.stroke();
+      ctx.fillStyle = C.dim; ctx.fillText(String(y), x, H - padB + 16);
+    }
+    // streamgraph: centered stack
+    const i0 = Math.max(0, Math.floor(Wt.a) - 1), i1 = Math.min(Wt.nW - 1, Math.ceil(Wt.b) + 1);
+    const totalAt = (i) => { let s = 0; for (const [k] of on) s += data[k][i]; return s; };
+    let baseline = new Float32Array(i1 - i0 + 1);
+    for (let i = i0; i <= i1; i++) baseline[i - i0] = mid - totalAt(i) * SC / 2;
+    for (const [k, label, col] of on) {
+      ctx.beginPath();
+      for (let i = i0; i <= i1; i++) {
+        const x = xOf(i), y = baseline[i - i0];
+        i === i0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      for (let i = i1; i >= i0; i--) {
+        const y = baseline[i - i0] + data[k][i] * SC;
+        ctx.lineTo(xOf(i), y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = col + 'cc';
+      ctx.fill();
+      for (let i = i0; i <= i1; i++) baseline[i - i0] += data[k][i] * SC;
+    }
+    // lightning strikes
+    Wt.hoverEv = null;
+    const evShow = Wt.events.slice(0, 50);
+    for (const ev of evShow) {
+      const x = xOf(ev.w);
+      if (x < -10 || x > W + 10) continue;
+      const inten = Math.min(1, ev.intensity_score / 405);
+      const topY = padT - 8, botY = mid - totalAt(Math.max(i0, Math.min(i1, Math.round(ev.w)))) * SC / 2 - 6;
+      const near = Math.abs(this.mouse.x - x) < 8 && this.mouse.y < mid;
+      if (near) Wt.hoverEv = { ...ev, x };
+      const flick = near ? 1 : (0.55 + 0.45 * Math.sin(performance.now() / 300 + ev.w));
+      ctx.strokeStyle = 'rgba(255,235,180,' + (0.25 + inten * 0.6) * flick + ')';
+      ctx.lineWidth = near ? 2 : 1 + inten;
+      ctx.beginPath();
+      let yy = topY, xx = x;
+      ctx.moveTo(xx, yy);
+      const segs = 4;
+      for (let s2 = 1; s2 <= segs; s2++) {
+        yy = topY + (botY - topY) * (s2 / segs);
+        xx = x + (s2 === segs ? 0 : (s2 % 2 ? -1 : 1) * (3 + inten * 5));
+        ctx.lineTo(xx, yy);
+      }
+      ctx.stroke();
+    }
+    // legend
+    let lx = 14;
+    ctx.textBaseline = 'middle'; ctx.font = '9px ' + this.MONO; ctx.textAlign = 'left';
+    for (const [k, label, col] of this.WLAYERS) {
+      const onL = st.weatherLayers[k];
+      ctx.fillStyle = onL ? col : '#2a3240';
+      ctx.fillRect(lx, 22, 9, 9);
+      ctx.fillStyle = onL ? C.dim : C.faint;
+      ctx.fillText(label, lx + 14, 27);
+      lx += 14 + ctx.measureText(label).width + 20;
+    }
+    ctx.fillStyle = C.faint;
+    ctx.fillText(st.weatherMode === 'rate' ? 'PER 100 MESSAGES \u00b7 WEEKLY' : 'RAW COUNTS \u00b7 WEEKLY', lx + 10, 27);
+    // hover
+    const mxx = this.mouse.x, myy = this.mouse.y;
+    if (Wt.hoverEv) {
+      const ev = Wt.hoverEv;
+      this.card(ctx, ev.x, padT + 30, [
+        ['\u26a1 ' + ev.date + ' \u00b7 INTENSITY ' + Math.round(ev.intensity_score), C.amberHi, '600 11px ' + this.MONO],
+        [this.fmt(ev.total) + ' MSGS IN ONE DAY \u00b7 ' + Math.round(ev.sent_ratio * 100) + '% HIM', C.txt],
+        [ev.prof + ' PROFANITIES \u00b7 ' + ev.caps + ' SHOUTS \u00b7 ' + ev.love + ' LOVES', C.red],
+        [ev.qual + ' HEDGES \u00b7 ' + ev.imp + ' COMMANDS \u00b7 ' + ev.q + ' QUESTIONS', C.cyan]
+      ], { border: C.amber });
+    } else if (mxx >= 0 && myy > padT && myy < H - padB) {
+      const wi = Math.round(Wt.a + (mxx / W) * span);
+      if (wi >= 0 && wi < Wt.nW) {
+        ctx.strokeStyle = 'rgba(232,230,225,0.2)'; ctx.setLineDash([3, 4]);
+        ctx.beginPath(); ctx.moveTo(mxx, padT); ctx.lineTo(mxx, H - padB); ctx.stroke();
+        ctx.setLineDash([]);
+        const d = this.i2d(Wt.day0 + wi * 7);
+        const lines = [[this.fmtDate(Wt.day0 + wi * 7), C.txt, '600 11px ' + this.MONO]];
+        for (const [k, label, col] of on) {
+          const v = data[k][wi];
+          if (v > 0.01) lines.push([label + '  ' + (st.weatherMode === 'rate' ? v.toFixed(1) + ' /100' : Math.round(v) + '/wk'), col]);
+        }
+        lines.push([Math.round(Wt.msgs[wi]) + ' MSGS THAT WEEK', C.faint, '8px ' + this.MONO]);
+        this.card(ctx, mxx, myy, lines);
+      }
+    }
+  }
+  pt_weather(type, p, e) {
+    const Wt = this.M.weather; if (!Wt) return;
+    const span = Wt.tb - Wt.ta;
+    if (type === 'move' && this.mouse.down) {
+      const d = (p.dx / this.W) * span;
+      Wt.ta -= d; Wt.tb -= d;
+      this.weatherClamp();
+    } else if (type === 'wheel') {
+      const f = Math.exp(e.deltaY * 0.0016);
+      const pivot = Wt.ta + (p.x / this.W) * span;
+      Wt.ta = pivot - (pivot - Wt.ta) * f;
+      Wt.tb = pivot + (Wt.tb - pivot) * f;
+      this.weatherClamp();
+    } else if (type === 'dbl') {
+      Wt.ta = 0; Wt.tb = Wt.nW;
+    } else if (type === 'down' && Wt.hoverEv) {
+      const c = Wt.hoverEv.w;
+      Wt.ta = c - 10; Wt.tb = c + 10;
+      this.weatherClamp();
+    }
+  }
+  weatherClamp() {
+    const Wt = this.M.weather;
+    const span = Math.max(6, Math.min(Wt.nW, Wt.tb - Wt.ta));
+    if (Wt.ta < -span * 0.1) Wt.ta = -span * 0.1;
+    Wt.tb = Wt.ta + span;
+    if (Wt.tb > Wt.nW + span * 0.1) { Wt.tb = Wt.nW + span * 0.1; Wt.ta = Wt.tb - span; }
+  }
+
+  // ============================================================
+  // MODULE 08 — ANNIE  (the 62,788-message polygraph)
+  // ============================================================
+  APENS = [
+    ['love', 'LOVE', '#e87da0'],
+    ['prof', 'PROFANITY', '#e85d4f'],
+    ['sorry', 'APOLOGY', '#7fd486'],
+    ['caps', 'SHOUT', '#e8e6e1']
+  ];
+  initAnnie() {
+    const A = this.D.annie;
+    const mIdx = (m) => +m.slice(0, 4) * 12 + (+m.slice(5, 7) - 1);
+    const m0 = mIdx(A.monthly[0].month), m1 = mIdx(A.monthly[A.monthly.length - 1].month);
+    const nM = m1 - m0 + 1;
+    const months = Array.from({ length: nM }, (_, i) => {
+      const y = Math.floor((m0 + i) / 12), mo = (m0 + i) % 12;
+      return { month: y + '-' + String(mo + 1).padStart(2, '0'), total: 0, love: 0, prof: 0, sorry: 0, caps: 0 };
+    });
+    for (const m of A.monthly) {
+      const t = months[mIdx(m.month) - m0];
+      Object.assign(t, { total: m.total, love: m.love, prof: m.prof, sorry: m.sorry, caps: m.caps });
+    }
+    let maxTot = 1;
+    const rates = {};
+    for (const [k] of this.APENS) rates[k] = new Float32Array(nM);
+    for (let i = 0; i < nM; i++) {
+      maxTot = Math.max(maxTot, months[i].total);
+      for (const [k] of this.APENS) rates[k][i] = months[i].total > 20 ? months[i][k] / months[i].total * 100 : 0;
+    }
+    const maxRate = {};
+    for (const [k] of this.APENS) { let m = 0.001; for (let i = 0; i < nM; i++) m = Math.max(m, rates[k][i]); maxRate[k] = m; }
+    // fragments → month float position
+    const frags = this.D.frags.map(f => ({
+      ...f,
+      pos: (mIdx(f.day.slice(0, 7)) - m0) + (+f.day.slice(8, 10) - 1) / 30.5,
+      shownAt: 0
+    })).sort((a, b) => a.pos - b.pos);
+    this.M.annie = { months, nM, m0, rates, maxRate, maxTot, frags, play: 0.001, scrub: false };
+  }
+  annieRestart = () => { if (this.M.annie) { this.M.annie.play = 0.001; for (const f of this.M.annie.frags) f.shownAt = 0; this.setState({ anniePlay: true }); } };
+  draw_annie(ctx, W, H, dt) {
+    if (!this.M.annie) this.initAnnie();
+    const C = this.COL, An = this.M.annie, st = this.state;
+    if (st.anniePlay && !An.scrub) {
+      An.play += st.annieSpeed * dt;
+      if (An.play >= An.nM - 0.01) { An.play = An.nM - 0.01; this.setState({ anniePlay: false }); }
+    }
+    const chartR = W * 0.62;
+    const padL = 110, padT = 64, padB = 70;
+    const laneGap = 10;
+    const nLanes = this.APENS.length + 1;
+    const laneH = (H - padT - padB - laneGap * (nLanes - 1)) / nLanes;
+    const xOf = (m) => padL + (m / (An.nM - 1)) * (chartR - padL - 20);
+    const playX = xOf(An.play);
+    // header numbers
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '700 17px ' + this.GROT; ctx.fillStyle = C.amberHi;
+    ctx.fillText('ANNIE', 18, 32);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText('62,788 MESSAGES \u00b7 1,333 DAYS \u00b7 NOV 2015 \u2192 JUL 2019 \u00b7 \u201cLOVE YOU\u201d \u00d7 1,634', 18, 48);
+    // playhead date readout
+    const mi = Math.min(An.nM - 1, Math.floor(An.play));
+    const curMonth = An.months[mi];
+    ctx.font = '600 13px ' + this.MONO; ctx.fillStyle = C.txt; ctx.textAlign = 'right';
+    const M = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    const my2 = curMonth.month;
+    ctx.fillText(M[+my2.slice(5, 7) - 1] + ' ' + my2.slice(0, 4) + ' \u00b7 ' + this.fmt(curMonth.total) + ' MSGS', chartR - 20, 32);
+    ctx.textAlign = 'left';
+
+    // pen lanes
+    this.APENS.forEach(([k, label, col], li) => {
+      const y0 = padT + li * (laneH + laneGap);
+      ctx.fillStyle = 'rgba(13,17,24,0.6)';
+      ctx.fillRect(padL, y0, chartR - padL - 20, laneH);
+      ctx.strokeStyle = C.grid; ctx.strokeRect(padL + 0.5, y0 + 0.5, chartR - padL - 20, laneH);
+      // label
+      ctx.font = '9px ' + this.MONO; ctx.fillStyle = col; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.fillText(label, padL - 12, y0 + laneH / 2);
+      ctx.fillStyle = C.faint; ctx.font = '7.5px ' + this.MONO;
+      ctx.fillText('/100 MSG', padL - 12, y0 + laneH / 2 + 12);
+      ctx.textAlign = 'left';
+      // trace up to playhead
+      const rate = An.rates[k], mxr = An.maxRate[k];
+      ctx.strokeStyle = col; ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      const upTo = An.play;
+      for (let m = 0; m <= upTo && m < An.nM; m += 0.25) {
+        const i = Math.min(An.nM - 1, m);
+        const i0 = Math.floor(i), f = i - i0;
+        const v = rate[i0] * (1 - f) + rate[Math.min(An.nM - 1, i0 + 1)] * f;
+        const x = xOf(m), y = y0 + laneH - 5 - (v / mxr) * (laneH - 12);
+        m === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      // pen head with jitter
+      const i0 = Math.floor(Math.min(An.nM - 1, An.play)), f = An.play - i0;
+      const v = rate[i0] * (1 - f) + rate[Math.min(An.nM - 1, i0 + 1)] * f;
+      const jit = st.anniePlay ? (Math.random() - 0.5) * v * 1.2 : 0;
+      const hy = y0 + laneH - 5 - (v / mxr) * (laneH - 12) + jit;
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.arc(playX, hy, 3.4, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = col + '55';
+      ctx.beginPath(); ctx.moveTo(playX, hy); ctx.lineTo(playX + 14, hy - 10); ctx.stroke();
+      // current value
+      ctx.font = '8px ' + this.MONO; ctx.fillStyle = col;
+      ctx.fillText(v.toFixed(1), playX + 17, hy - 12);
+    });
+    // volume lane
+    const vy0 = padT + this.APENS.length * (laneH + laneGap);
+    ctx.fillStyle = 'rgba(13,17,24,0.6)';
+    ctx.fillRect(padL, vy0, chartR - padL - 20, laneH);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.amber; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillText('VOLUME', padL - 12, vy0 + laneH / 2);
+    ctx.textAlign = 'left';
+    for (let i = 0; i < An.nM; i++) {
+      const x = xOf(i), bw = Math.max(2, (chartR - padL - 20) / An.nM - 2);
+      const hh = Math.sqrt(An.months[i].total / An.maxTot) * (laneH - 8);
+      const past = i <= An.play;
+      ctx.fillStyle = past ? 'rgba(232,163,61,0.8)' : 'rgba(232,163,61,0.16)';
+      ctx.fillRect(x - bw / 2, vy0 + laneH - 4 - hh, bw, hh);
+    }
+    // playhead line
+    ctx.strokeStyle = 'rgba(232,230,225,0.5)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(playX, padT - 6); ctx.lineTo(playX, vy0 + laneH + 8); ctx.stroke();
+    // year ticks
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let i = 0; i < An.nM; i++) {
+      if (An.months[i].month.slice(5) === '01') ctx.fillText(An.months[i].month.slice(0, 4), xOf(i), vy0 + laneH + 12);
+    }
+    An.scrubGeo = { x0: padL, x1: chartR - 20, y1: vy0 + laneH };
+
+    // ---- fragment feed panel ----
+    const fx = chartR + 8, fw = W - fx - 16;
+    ctx.fillStyle = 'rgba(11,15,21,0.85)';
+    ctx.fillRect(fx, padT - 22, fw, H - padT - 36);
+    ctx.strokeStyle = C.line; ctx.strokeRect(fx + 0.5, padT - 21.5, fw, H - padT - 36);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText('HIGH-EMOTION FRAGMENTS \u00b7 VERBATIM \u00b7 SENT BY HIM', fx + 14, padT - 6);
+    const now = performance.now();
+    const visible = [];
+    for (const f of An.frags) {
+      if (f.pos <= An.play) { if (!f.shownAt) f.shownAt = now; visible.push(f); }
+      else f.shownAt = 0;
+    }
+    const feed = visible.slice(-5).reverse();
+    let fy = padT + 22;
+    ctx.textBaseline = 'alphabetic';
+    for (let i = 0; i < feed.length; i++) {
+      const f = feed[i];
+      const age = (now - f.shownAt) / 1000;
+      const chars = Math.floor(age * 60);
+      const txt = f.text.slice(0, chars);
+      const alpha = i === 0 ? 1 : Math.max(0.25, 0.8 - i * 0.18);
+      ctx.font = '9px ' + this.MONO; ctx.fillStyle = 'rgba(232,163,61,' + alpha * 0.9 + ')';
+      ctx.fillText(f.day, fx + 14, fy);
+      fy += 14;
+      ctx.font = (i === 0 ? '500 12.5px ' : '11px ') + this.GROT;
+      ctx.fillStyle = 'rgba(232,230,225,' + alpha + ')';
+      // word wrap
+      const words = txt.split(' ');
+      let line = '', lh = i === 0 ? 17 : 15;
+      for (const w2 of words) {
+        if (ctx.measureText(line + w2).width > fw - 28) { ctx.fillText(line, fx + 14, fy); fy += lh; line = w2 + ' '; }
+        else line += w2 + ' ';
+        if (fy > H - 70) break;
+      }
+      if (fy <= H - 70) { ctx.fillText(line + (i === 0 && chars < f.text.length ? '\u258c' : ''), fx + 14, fy); fy += lh + 12; }
+      if (fy > H - 70) break;
+    }
+    if (!visible.length) {
+      ctx.font = '10px ' + this.MONO; ctx.fillStyle = C.faint;
+      ctx.fillText('PRESS \u25b6 \u2014 THE PENS WILL WRITE', fx + 14, padT + 30);
+    }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText(visible.length + ' / ' + An.frags.length + ' FRAGMENTS SURFACED', fx + 14, H - 54);
+  }
+  pt_annie(type, p) {
+    const An = this.M.annie; if (!An) return;
+    const g = An.scrubGeo; if (!g) return;
+    if (type === 'down' && p.x < g.x1 + 20 && p.x > g.x0 - 20) {
+      An.scrub = true;
+      An.play = Math.max(0.001, Math.min(An.nM - 0.01, ((p.x - g.x0) / (g.x1 - g.x0)) * (An.nM - 1)));
+    } else if (type === 'move' && An.scrub && this.mouse.down) {
+      An.play = Math.max(0.001, Math.min(An.nM - 0.01, ((p.x - g.x0) / (g.x1 - g.x0)) * (An.nM - 1)));
+    } else if (type === 'up' || type === 'leave') {
+      An.scrub = false;
+    }
+  }
+
+  // ============================================================
+  // MODULE 09 — SIGNAL  (YouTube spectrogram + artist tuner)
+  // ============================================================
+  initSignal() {
+    const D = this.D, yt = D.yt;
+    const mIdx = (m) => +m.slice(0, 4) * 12 + (+m.slice(5, 7) - 1);
+    const m0 = mIdx('2010-01'), m1 = mIdx('2025-07');
+    const nM = m1 - m0 + 1;
+    const watch = new Float32Array(nM), music = new Float32Array(nM);
+    const titles = new Array(nM).fill(null);
+    for (const d of yt.daily) {
+      const i = mIdx(d.day.slice(0, 7)) - m0;
+      if (i < 0 || i >= nM) continue;
+      watch[i] += d.total_watches; music[i] += d.music_watches;
+      if (!titles[i] && d.sample_titles && d.sample_titles[0]) {
+        titles[i] = d.sample_titles[0].replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"').slice(0, 44);
+      }
+    }
+    // msgs per month from D.msg.monthly
+    const msgs = new Float32Array(nM);
+    for (const [m, s, r] of D.msg.monthly) {
+      const i = mIdx(m) - m0;
+      if (i >= 0 && i < nM) msgs[i] = s + r;
+    }
+    let maxW = 1, maxM = 1;
+    for (let i = 0; i < nM; i++) { maxW = Math.max(maxW, watch[i]); maxM = Math.max(maxM, msgs[i]); }
+    // stations sorted by count desc already; give each a matched influencer if any
+    const stations = D.yt.artists.map(a => {
+      const low = a.name.toLowerCase();
+      const inf = D.yt.infl.find(x => low.includes(x.artist.toLowerCase()) || x.artist.toLowerCase().includes(low));
+      return { ...a, inf };
+    });
+    this.M.signal = { m0, nM, watch, music, msgs, titles, maxW, maxM, stations, pos: 0, vel: 0, dragDial: false, snapT: 0 };
+  }
+  draw_signal(ctx, W, H, dt) {
+    if (!this.M.signal) this.initSignal();
+    const C = this.COL, S = this.M.signal, st = this.state;
+    dt = Math.min(dt, 0.04);
+    const dialH = 168;
+    const specB = H - dialH - 14;
+    const padT = 56;
+    const midY = padT + (specB - padT) * 0.56;
+    const xOf = (i) => 14 + (i / (S.nM - 1)) * (W - 28);
+    const bw = Math.max(2, (W - 28) / S.nM - 1.5);
+    // year grid
+    ctx.font = '9px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let y = 2010; y <= 2025; y++) {
+      const i = (y * 12) - S.m0;
+      const x = xOf(i);
+      ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(x, padT - 8); ctx.lineTo(x, specB); ctx.stroke();
+      if (y % 2 === 0) { ctx.fillStyle = C.faint; ctx.fillText("'" + String(y).slice(2), x, specB + 4); }
+    }
+    // midline
+    ctx.strokeStyle = '#222a37'; ctx.beginPath(); ctx.moveTo(14, midY); ctx.lineTo(W - 14, midY); ctx.stroke();
+    // hover month
+    let hoverI = -1;
+    if (this.mouse.x >= 14 && this.mouse.x <= W - 14 && this.mouse.y > padT - 10 && this.mouse.y < specB) {
+      hoverI = Math.round(((this.mouse.x - 14) / (W - 28)) * (S.nM - 1));
+    }
+    // spectrogram bars
+    for (let i = 0; i < S.nM; i++) {
+      const x = xOf(i);
+      const wv = S.watch[i], mv = S.music[i], gv = S.msgs[i];
+      const isH = i === hoverI;
+      if (wv > 0 && (!st.signalMusic || mv > 0)) {
+        const hh = Math.sqrt((st.signalMusic ? mv : wv) / S.maxW) * (midY - padT);
+        ctx.fillStyle = isH ? C.violetHi : 'rgba(155,140,242,0.55)';
+        ctx.fillRect(x - bw / 2, midY - hh, bw, hh);
+        if (!st.signalMusic && mv > 0) {
+          const mh = Math.sqrt(mv / S.maxW) * (midY - padT);
+          ctx.fillStyle = isH ? '#ffffff' : 'rgba(207,196,255,0.95)';
+          ctx.fillRect(x - bw / 2, midY - mh, bw, mh);
+        }
+      }
+      if (gv > 0) {
+        const gh = Math.sqrt(gv / S.maxM) * (specB - midY - 8);
+        ctx.fillStyle = isH ? 'rgba(232,163,61,0.9)' : 'rgba(232,163,61,0.28)';
+        ctx.fillRect(x - bw / 2, midY, bw, gh);
+      }
+    }
+    // labels
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '700 15px ' + this.GROT; ctx.fillStyle = C.violetHi;
+    ctx.fillText('SIGNAL', 18, 30);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText('12,863 YOUTUBE WATCHES \u25b2  vs  MESSAGE VOLUME \u25bc \u00b7 2010 \u2192 2025 \u00b7 BRIGHT CORE = MUSIC', 18, 46);
+    if (hoverI >= 0) {
+      const y = Math.floor((S.m0 + hoverI) / 12), mo = (S.m0 + hoverI) % 12;
+      const M = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      const lines = [
+        [M[mo] + ' ' + y, C.txt, '600 11px ' + this.MONO],
+        [this.fmt(S.watch[hoverI]) + ' WATCHES \u00b7 ' + this.fmt(S.music[hoverI]) + ' MUSIC', C.violet],
+        [this.fmt(S.msgs[hoverI]) + ' MESSAGES', C.amber]
+      ];
+      if (S.titles[hoverI]) lines.push(['\u201c' + S.titles[hoverI] + '\u2026\u201d', C.dim, '9px ' + this.MONO]);
+      this.card(ctx, this.mouse.x, this.mouse.y, lines);
+    }
+
+    // ---- TUNER ----
+    const dy = H - dialH;
+    ctx.fillStyle = '#0a0e14'; ctx.fillRect(0, dy, W, dialH);
+    ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(0, dy + 0.5); ctx.lineTo(W, dy + 0.5); ctx.stroke();
+    const cx = W / 2;
+    const spacing = 150;
+    const n = S.stations.length;
+    // physics
+    if (!S.dragDial) {
+      S.pos += S.vel * dt; S.vel *= Math.pow(0.92, dt * 60);
+      const snap = Math.round(S.pos);
+      S.pos += (Math.max(0, Math.min(n - 1, snap)) - S.pos) * Math.min(1, dt * 6);
+    }
+    S.pos = Math.max(-0.49, Math.min(n - 0.51, S.pos));
+    const cur = S.stations[Math.max(0, Math.min(n - 1, Math.round(S.pos)))];
+    // frequency ruler
+    const rulerY = dy + 118;
+    ctx.strokeStyle = '#222a37'; ctx.beginPath(); ctx.moveTo(0, rulerY); ctx.lineTo(W, rulerY); ctx.stroke();
+    for (let i = 0; i < n; i++) {
+      const x = cx + (i - S.pos) * spacing;
+      if (x < -spacing || x > W + spacing) continue;
+      const d = Math.abs(i - S.pos);
+      const a = Math.max(0, 1 - d * 0.30);
+      // tick
+      ctx.strokeStyle = 'rgba(155,140,242,' + (0.3 + a * 0.7) + ')';
+      ctx.lineWidth = d < 0.5 ? 2 : 1;
+      ctx.beginPath(); ctx.moveTo(x, rulerY - 8 - a * 10); ctx.lineTo(x, rulerY + 8 + a * 10); ctx.stroke();
+      // name
+      ctx.font = (d < 0.5 ? '700 13px ' : '500 10px ') + this.GROT;
+      ctx.fillStyle = d < 0.5 ? C.violetHi : 'rgba(139,148,164,' + a + ')';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText(S.stations[i].name.slice(0, 24), x, rulerY - 16 - a * 8);
+      // count
+      ctx.font = '8px ' + this.MONO; ctx.fillStyle = 'rgba(91,100,114,' + a + ')';
+      ctx.fillText(S.stations[i].count + ' WATCHES', x, rulerY + 22);
+    }
+    // center needle
+    ctx.strokeStyle = C.amberHi; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(cx, rulerY - 30); ctx.lineTo(cx, rulerY + 14); ctx.stroke();
+    // readout
+    ctx.textAlign = 'center';
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText('STATION ' + (Math.round(S.pos) + 1) + ' / ' + n + ' \u00b7 DRAG THE DIAL', cx, dy + 16);
+    if (cur && cur.inf) {
+      ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.amber;
+      ctx.fillText('\u26a1 BLEEDS INTO HIS TEXTS \u00b7 INFLUENCE ' + cur.inf.influence_score.toFixed(0) + ' \u00b7 ' + cur.inf.days_active + ' HIGH-BLEED DAYS', cx, dy + 146);
+    } else {
+      ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+      ctx.fillText('NO MEASURED LANGUAGE BLEED', cx, dy + 146);
+    }
+    S.dialGeo = { y: dy };
+  }
+  pt_signal(type, p, e) {
+    const S = this.M.signal; if (!S) return;
+    const g = S.dialGeo;
+    if (type === 'down') {
+      if (g && p.y > g.y) { S.dragDial = true; S.vel = 0; }
+    } else if (type === 'move' && S.dragDial && this.mouse.down) {
+      S.pos -= p.dx / 150;
+      S.vel = -p.dx / 150 * 30;
+      S.pos = Math.max(-0.49, Math.min(S.stations.length - 0.51, S.pos));
+    } else if (type === 'up' || type === 'leave') {
+      S.dragDial = false;
+    } else if (type === 'wheel' && g && p.y > g.y) {
+      S.vel += (e.deltaY > 0 ? 1 : -1) * 6;
+    }
+  }
+
+  // ---------- UI builders ----------
+  chipStyle(on, tone) {
+    return {
+      fontFamily: "'IBM Plex Mono', monospace", fontSize: '9.5px', letterSpacing: '0.14em',
+      padding: '5px 11px', cursor: 'pointer', border: '1px solid ' + (on ? (tone || '#e8a33d') : '#222a37'),
+      color: on ? (tone || '#e8a33d') : '#6b7484', background: on ? 'rgba(232,163,61,0.08)' : 'rgba(13,17,24,0.85)',
+      transition: 'all 120ms ease', whiteSpace: 'nowrap'
+    };
+  }
+
+
+  // === Modular reuse from Annie patterns for WEATHER ===
+  drawFourPenLanes(ctx, seriesList, labels, colors, xOf, playPos, maxVals, laneH, padT, chartR, playX) {
+    const C = this.COL;
+    const nLanes = seriesList.length;
+    const laneGap = 8;
+    for (let li = 0; li < nLanes; li++) {
+      const y0 = padT + li * (laneH + laneGap);
+      const data = seriesList[li];
+      const mxr = maxVals[li] || 1;
+      const label = labels[li];
+      const col = colors[li];
+      ctx.fillStyle = "rgba(13,17,24,0.6)";
+      ctx.fillRect(110, y0, chartR - 110 - 20, laneH);
+      ctx.strokeStyle = C.grid; ctx.strokeRect(110.5, y0 + 0.5, chartR - 110 - 20, laneH);
+      ctx.font = "9px " + this.MONO; ctx.fillStyle = col; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      ctx.fillText(label, 98, y0 + laneH / 2);
+      ctx.textAlign = "left";
+      ctx.strokeStyle = col; ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      const upTo = playPos;
+      for (let m = 0; m <= upTo && m < data.length; m += 0.5) {
+        const i = Math.min(data.length - 1, m);
+        const i0 = Math.floor(i), f = i - i0;
+        const v = data[i0] * (1 - f) + data[Math.min(data.length - 1, i0 + 1)] * f;
+        const x = xOf(m), y = y0 + laneH - 4 - (v / mxr) * (laneH - 8);
+        m === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      // pen head
+      const i0 = Math.floor(Math.min(data.length - 1, playPos)), f = playPos - i0;
+      const v = data[i0] * (1 - f) + data[Math.min(data.length - 1, i0 + 1)] * f;
+      const hy = y0 + laneH - 4 - (v / mxr) * (laneH - 8);
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.arc(playX, hy, 3, 0, Math.PI * 2); ctx.fill();
+      ctx.font = "7px " + this.MONO; ctx.fillStyle = col;
+      ctx.fillText(v.toFixed(1), playX + 8, hy - 8);
+    }
+  }
+
+  drawWeatherNeedleAndScrub(ctx, playX, padT, chartH, Wt, onScrub) {
+    const C = this.COL;
+    ctx.strokeStyle = "rgba(232,230,225,0.6)"; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(playX, padT - 8); ctx.lineTo(playX, padT + chartH + 8); ctx.stroke();
+    // simple scrub geo for pt
+    if (!Wt.scrubGeo) Wt.scrubGeo = { x0: 110, x1: this.W - 130 };
+  }
+
+  // Update galaxy intensity based on current weather volatility (from analysis or window avg rhet)
+  updateGalaxyForWeather() {
+    const el = document.getElementById("galaxy-bg");
+    if (!el || !this.M || !this.M.weather) return;
+    const Wt = this.M.weather;
+    const span = Math.max(1, Wt.b - Wt.a);
+    let sum = 0, cnt = 0;
+    const rate = Wt.rate || {};
+    for (let i = Math.max(0, Math.floor(Wt.a)); i < Math.min(Wt.nW, Math.ceil(Wt.b)); i++) {
+      const r = (rate.rhet_vol && rate.rhet_vol[i]) || (Wt.raw && Wt.raw.rhet_vol && Wt.raw.rhet_vol[i]) || 0;
+      sum += r; cnt++;
+    }
+    const avg = cnt ? sum / cnt : 10;
+    const inten = Math.min(0.92, 0.28 + (avg / 45) * 0.64);
+    el.setAttribute("intensity", inten.toFixed(2));
+    // Suggestion for deeper galaxy weather integration (edit galaxy-cluster.js shader if wanted):
+    // - Pass season as uSeason (0=winter blue ... 3=summer orange) to shift base hue/saturation.
+    // - Scale uVortex or particle speed by travel_rate or precip in current window for "turbulence".
+    // - On high-vol weeks (from analysis), increase shock/vortex on click for "storm" feel.
+    // - Bind to void:charge level scaled by current rhet_intensity for breach during extreme weather+rhet days.
+  }
+
+  renderVals() {
+    const s = this.state, C = this.COL;
+    const tabDefs = [['pulse', 'PULSE'], ['clock', 'CLOCK'], ['orbits', 'ORBITS'], ['atlas', 'ATLAS'], ['lexicon', 'LEXICON'], ['shelf', 'SHELF'], ['weather', 'WEATHER'], ['annie', 'ANNIE'], ['signal', 'SIGNAL']];
+    const tabs = tabDefs.map(([id, label], i) => ({
+      num: '0' + (i + 1), label,
+      onClick: () => this.setTab(id),
+      style: {
+        fontFamily: "'IBM Plex Mono', monospace", fontSize: '10.5px', letterSpacing: '0.16em',
+        padding: '6px 14px', cursor: 'pointer',
+        color: s.tab === id ? '#07090d' : '#8b94a4',
+        background: s.tab === id ? C.amber : 'transparent',
+        border: '1px solid ' + (s.tab === id ? C.amber : '#1d2430'),
+        fontWeight: s.tab === id ? 600 : 400,
+        transition: 'all 130ms ease'
+      }
+    }));
+
+    let chips = [];
+    if (s.tab === 'pulse') {
+      chips = ['FULL', 'NYC ONE', 'UNIONTOWN', 'NYC TWO', 'RETURN'].map(l => ({
+        label: l, onClick: () => this.pulseJump(l), style: this.chipStyle(false)
+      }));
+    } else if (s.tab === 'clock') {
+      chips = [['all', 'ALL'], ['sent', 'SENT'], ['recv', 'RECEIVED']].map(([id, l]) => ({
+        label: l, onClick: () => this.setState({ clockMode: id }), style: this.chipStyle(s.clockMode === id, id === 'recv' ? C.cyan : C.amber)
+      }));
+    } else if (s.tab === 'orbits') {
+      chips = [{ label: 'SCATTER', onClick: () => { if (this.orbitsScatter) this.orbitsScatter(); }, style: this.chipStyle(false) }];
+    } else if (s.tab === 'atlas') {
+      chips = [
+        { label: s.atlasPlay ? '\u275a\u275a PAUSE' : '\u25b6 PLAY', onClick: () => this.setState(st => ({ atlasPlay: !st.atlasPlay })), style: this.chipStyle(s.atlasPlay) },
+        ...[[30, '\u00d71'], [120, '\u00d74'], [365, '\u00d712']].map(([v, l]) => ({
+          label: l, onClick: () => this.setState({ atlasSpeed: v }), style: this.chipStyle(s.atlasSpeed === v)
+        })),
+        ...['FULL', 'FAYETTE', 'NYC'].map(l => ({
+          label: l, onClick: () => { this.setState({ atlasView: l }); if (this.atlasFly) this.atlasFly(l); }, style: this.chipStyle(s.atlasView === l, C.cyan)
+        }))
+      ];
+    } else if (s.tab === 'lexicon') {
+      chips = [['pack', 'CLUSTER'], ['rain', 'RAIN']].map(([id, l]) => ({
+        label: l, onClick: () => { this.setState({ lexMode: id }); if (this.lexSetMode) this.lexSetMode(id); }, style: this.chipStyle(s.lexMode === id)
+      }));
+    } else if (s.tab === 'shelf') {
+      chips = ['ALL', 'MUSIC', 'BOOK', 'MOVIE', 'ART'].map(l => ({
+        label: l, onClick: () => this.setState({ shelfCat: l }), style: this.chipStyle(s.shelfCat === l)
+      }));
+    }
+} else if (s.tab === 'weather') {
+      const st = s;
+      const modeChips = [['rate', 'RATE /100'], ['raw', 'RAW COUNTS']].map(([id, l]) => ({
+        label: l, onClick: () => this.setState({ weatherMode: id }), style: this.chipStyle(st.weatherMode === id)
+      }));
+      const seasonChips = ['WINTER', 'SPRING', 'SUMMER', 'FALL'].map(l => ({
+        label: l, onClick: () => this.weatherFilterSeason(l), style: this.chipStyle(false, '#7fd486')
+      }));
+      const other = [
+        { label: 'ALL CORPUS', onClick: () => this.weatherFilterCorpus('all'), style: this.chipStyle(st.weatherCorpus !== 'annie') },
+        { label: 'HIGH VOL', onClick: () => this.weatherJumpAnomaly(), style: this.chipStyle(false, C.amber) }
+      ];
+      chips = [...modeChips, ...seasonChips, ...other];
+    } else if (s.tab === 'weather') {
+      chips = [
+        ...[['rate', 'RATE'], ['raw', 'RAW']].map(([id, l]) => ({
+          label: l, onClick: () => this.setState({ weatherMode: id }), style: this.chipStyle(s.weatherMode === id)
+        })),
+        ...this.WLAYERS.map(([k, label, col]) => ({
+          label, onClick: () => this.setState(st => ({ weatherLayers: { ...st.weatherLayers, [k]: !st.weatherLayers[k] } })),
+          style: this.chipStyle(s.weatherLayers[k], col)
+        }))
+      ];
+    } else if (s.tab === 'annie') {
+      chips = [
+        { label: s.anniePlay ? '\u275a\u275a PAUSE' : '\u25b6 PLAY', onClick: () => this.setState(st => ({ anniePlay: !st.anniePlay })), style: this.chipStyle(s.anniePlay) },
+        { label: '\u21ba RESTART', onClick: this.annieRestart, style: this.chipStyle(false) },
+        ...[[0.7, 'SLOW'], [1.4, 'NORMAL'], [4.5, 'FAST']].map(([v, l]) => ({
+          label: l, onClick: () => this.setState({ annieSpeed: v }), style: this.chipStyle(s.annieSpeed === v, this.COL.rose)
+        }))
+      ];
+    } else if (s.tab === 'signal') {
+      chips = [
+        { label: 'ALL WATCHES', onClick: () => this.setState({ signalMusic: false }), style: this.chipStyle(!s.signalMusic, this.COL.violet) },
+        { label: 'MUSIC ONLY', onClick: () => this.setState({ signalMusic: true }), style: this.chipStyle(s.signalMusic, this.COL.violet) }
+      ];
+    }
+
+    const hints = {
+      pulse: 'DRAG TO PAN \u00b7 SCROLL TO ZOOM \u00b7 DOUBLE-CLICK TO RESET \u00b7 MINIMAP IS GRABBABLE \u00b7 DIAMONDS ARE EVENTS',
+      clock: 'GRAB THE DIAL AND SPIN IT \u00b7 HOVER A SECTOR \u00b7 THE NEEDLE SWEEPS A 20-YEAR AVERAGE DAY',
+      orbits: 'GRAB A BODY AND FLING IT \u00b7 CLICK FOR THE DOSSIER \u00b7 DISTANCE FROM CENTER = TIME SINCE LAST MESSAGE',
+      atlas: 'SPACE OR \u25b6 TO REPLAY A DECADE \u00b7 DRAG THE SCRUBBER \u00b7 SCROLL TO ZOOM \u00b7 GRAB THE MAP',
+      lexicon: 'FLICK THE WORDS \u00b7 CLICK TO PIN ONE \u00b7 TRY RAIN \u00b7 SEISMOGRAPH BELOW = ALL-CAPS EVENTS',
+      shelf: 'EVERY DOT IS A RATED WORK \u00b7 ABOVE THE LINE = LOVED MORE THAN THE WORLD DID \u00b7 CLICK TO PIN',
+      weather: 'SIX RHETORICAL CHANNELS, STACKED \u00b7 LIGHTNING = THE 50 MOST INTENSE DAYS \u00b7 CLICK A BOLT TO ZOOM \u00b7 SCROLL TO ZOOM',
+      annie: 'PRESS PLAY \u00b7 FOUR PENS TRACE 44 MONTHS \u00b7 FRAGMENTS SURFACE AS THE NEEDLE CROSSES THEM \u00b7 DRAG TO SCRUB',
+      signal: 'HOVER THE SPECTROGRAM \u00b7 DRAG THE TUNER DIAL THROUGH 40 ARTISTS \u00b7 \u26a1 = LANGUAGE BLEED INTO HIS TEXTS'
+    };
+
+    return {
+      loading: s.loading,
+      tabs, chips,
+      hint: hints[s.tab] || '',
+      stageLabel: 'module ' + s.tab,
+      canvasRef: this.canvasRef,
+      cMsgs: this.fmt(s.cnt.m), cThreads: this.fmt(s.cnt.t), cPlaces: this.fmt(s.cnt.p), cKm: this.fmt(s.cnt.k), cWorks: this.fmt(s.cnt.w)
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,626 @@
+{
+  "id": "+17244346811",
+  "total_msgs": 62788,
+  "first": "2015-11-28",
+  "last": "2019-07-23",
+  "monthly": [
+    {
+      "month": "2015-11",
+      "total": 1530,
+      "sent": 799,
+      "caps": 49,
+      "prof": 54,
+      "sorry": 16,
+      "love": 52,
+      "you": 381,
+      "i": 567,
+      "qual": 269,
+      "avg_len": 29.5
+    },
+    {
+      "month": "2015-12",
+      "total": 12105,
+      "sent": 6442,
+      "caps": 339,
+      "prof": 319,
+      "sorry": 111,
+      "love": 641,
+      "you": 3141,
+      "i": 4580,
+      "qual": 1726,
+      "avg_len": 28.6
+    },
+    {
+      "month": "2016-01",
+      "total": 5703,
+      "sent": 2868,
+      "caps": 75,
+      "prof": 128,
+      "sorry": 142,
+      "love": 414,
+      "you": 1596,
+      "i": 2580,
+      "qual": 884,
+      "avg_len": 33.1
+    },
+    {
+      "month": "2016-02",
+      "total": 5,
+      "sent": 3,
+      "caps": 0,
+      "prof": 0,
+      "sorry": 0,
+      "love": 0,
+      "you": 0,
+      "i": 0,
+      "qual": 0,
+      "avg_len": 9.0
+    },
+    {
+      "month": "2016-03",
+      "total": 1417,
+      "sent": 676,
+      "caps": 22,
+      "prof": 42,
+      "sorry": 22,
+      "love": 101,
+      "you": 352,
+      "i": 595,
+      "qual": 181,
+      "avg_len": 28.5
+    },
+    {
+      "month": "2016-04",
+      "total": 545,
+      "sent": 265,
+      "caps": 6,
+      "prof": 14,
+      "sorry": 6,
+      "love": 58,
+      "you": 165,
+      "i": 257,
+      "qual": 92,
+      "avg_len": 40.5
+    },
+    {
+      "month": "2016-05",
+      "total": 955,
+      "sent": 474,
+      "caps": 12,
+      "prof": 18,
+      "sorry": 17,
+      "love": 90,
+      "you": 289,
+      "i": 463,
+      "qual": 154,
+      "avg_len": 39.3
+    },
+    {
+      "month": "2016-07",
+      "total": 413,
+      "sent": 221,
+      "caps": 2,
+      "prof": 38,
+      "sorry": 1,
+      "love": 19,
+      "you": 129,
+      "i": 159,
+      "qual": 86,
+      "avg_len": 35.3
+    },
+    {
+      "month": "2016-08",
+      "total": 308,
+      "sent": 190,
+      "caps": 7,
+      "prof": 16,
+      "sorry": 3,
+      "love": 9,
+      "you": 69,
+      "i": 90,
+      "qual": 51,
+      "avg_len": 30.9
+    },
+    {
+      "month": "2016-10",
+      "total": 2,
+      "sent": 1,
+      "caps": 0,
+      "prof": 0,
+      "sorry": 0,
+      "love": 0,
+      "you": 0,
+      "i": 0,
+      "qual": 0,
+      "avg_len": 30.5
+    },
+    {
+      "month": "2016-11",
+      "total": 1226,
+      "sent": 655,
+      "caps": 11,
+      "prof": 52,
+      "sorry": 14,
+      "love": 37,
+      "you": 218,
+      "i": 385,
+      "qual": 185,
+      "avg_len": 29.7
+    },
+    {
+      "month": "2016-12",
+      "total": 1996,
+      "sent": 1067,
+      "caps": 20,
+      "prof": 145,
+      "sorry": 25,
+      "love": 23,
+      "you": 524,
+      "i": 794,
+      "qual": 276,
+      "avg_len": 33.5
+    },
+    {
+      "month": "2017-01",
+      "total": 1230,
+      "sent": 621,
+      "caps": 26,
+      "prof": 73,
+      "sorry": 7,
+      "love": 15,
+      "you": 187,
+      "i": 392,
+      "qual": 165,
+      "avg_len": 29.2
+    },
+    {
+      "month": "2017-02",
+      "total": 675,
+      "sent": 332,
+      "caps": 6,
+      "prof": 32,
+      "sorry": 17,
+      "love": 9,
+      "you": 112,
+      "i": 260,
+      "qual": 91,
+      "avg_len": 33.9
+    },
+    {
+      "month": "2017-03",
+      "total": 154,
+      "sent": 80,
+      "caps": 1,
+      "prof": 4,
+      "sorry": 4,
+      "love": 2,
+      "you": 17,
+      "i": 35,
+      "qual": 18,
+      "avg_len": 24.0
+    },
+    {
+      "month": "2017-04",
+      "total": 2075,
+      "sent": 1012,
+      "caps": 10,
+      "prof": 99,
+      "sorry": 38,
+      "love": 74,
+      "you": 388,
+      "i": 841,
+      "qual": 300,
+      "avg_len": 31.6
+    },
+    {
+      "month": "2017-05",
+      "total": 1374,
+      "sent": 660,
+      "caps": 7,
+      "prof": 41,
+      "sorry": 19,
+      "love": 40,
+      "you": 204,
+      "i": 455,
+      "qual": 175,
+      "avg_len": 29.8
+    },
+    {
+      "month": "2017-06",
+      "total": 1027,
+      "sent": 477,
+      "caps": 11,
+      "prof": 34,
+      "sorry": 12,
+      "love": 29,
+      "you": 171,
+      "i": 402,
+      "qual": 136,
+      "avg_len": 32.0
+    },
+    {
+      "month": "2017-07",
+      "total": 1019,
+      "sent": 500,
+      "caps": 9,
+      "prof": 18,
+      "sorry": 11,
+      "love": 36,
+      "you": 220,
+      "i": 386,
+      "qual": 128,
+      "avg_len": 28.2
+    },
+    {
+      "month": "2017-09",
+      "total": 321,
+      "sent": 165,
+      "caps": 3,
+      "prof": 10,
+      "sorry": 3,
+      "love": 0,
+      "you": 67,
+      "i": 104,
+      "qual": 34,
+      "avg_len": 24.5
+    },
+    {
+      "month": "2017-10",
+      "total": 2205,
+      "sent": 1052,
+      "caps": 45,
+      "prof": 98,
+      "sorry": 37,
+      "love": 25,
+      "you": 484,
+      "i": 815,
+      "qual": 354,
+      "avg_len": 34.9
+    },
+    {
+      "month": "2017-11",
+      "total": 2890,
+      "sent": 1434,
+      "caps": 34,
+      "prof": 99,
+      "sorry": 54,
+      "love": 64,
+      "you": 666,
+      "i": 1112,
+      "qual": 440,
+      "avg_len": 34.3
+    },
+    {
+      "month": "2017-12",
+      "total": 1590,
+      "sent": 818,
+      "caps": 20,
+      "prof": 68,
+      "sorry": 32,
+      "love": 22,
+      "you": 326,
+      "i": 574,
+      "qual": 254,
+      "avg_len": 35.1
+    },
+    {
+      "month": "2018-01",
+      "total": 2066,
+      "sent": 1018,
+      "caps": 24,
+      "prof": 61,
+      "sorry": 48,
+      "love": 53,
+      "you": 401,
+      "i": 726,
+      "qual": 296,
+      "avg_len": 32.0
+    },
+    {
+      "month": "2018-02",
+      "total": 1943,
+      "sent": 1005,
+      "caps": 27,
+      "prof": 102,
+      "sorry": 52,
+      "love": 60,
+      "you": 498,
+      "i": 747,
+      "qual": 318,
+      "avg_len": 35.1
+    },
+    {
+      "month": "2018-03",
+      "total": 1521,
+      "sent": 699,
+      "caps": 32,
+      "prof": 64,
+      "sorry": 26,
+      "love": 38,
+      "you": 368,
+      "i": 617,
+      "qual": 262,
+      "avg_len": 34.1
+    },
+    {
+      "month": "2018-04",
+      "total": 2725,
+      "sent": 1382,
+      "caps": 43,
+      "prof": 176,
+      "sorry": 63,
+      "love": 41,
+      "you": 636,
+      "i": 1079,
+      "qual": 497,
+      "avg_len": 38.7
+    },
+    {
+      "month": "2018-05",
+      "total": 1725,
+      "sent": 783,
+      "caps": 35,
+      "prof": 132,
+      "sorry": 28,
+      "love": 27,
+      "you": 446,
+      "i": 604,
+      "qual": 242,
+      "avg_len": 34.2
+    },
+    {
+      "month": "2018-06",
+      "total": 2839,
+      "sent": 1392,
+      "caps": 96,
+      "prof": 180,
+      "sorry": 56,
+      "love": 51,
+      "you": 723,
+      "i": 1086,
+      "qual": 426,
+      "avg_len": 37.5
+    },
+    {
+      "month": "2018-07",
+      "total": 910,
+      "sent": 431,
+      "caps": 4,
+      "prof": 26,
+      "sorry": 29,
+      "love": 11,
+      "you": 170,
+      "i": 330,
+      "qual": 101,
+      "avg_len": 30.0
+    },
+    {
+      "month": "2018-08",
+      "total": 1758,
+      "sent": 813,
+      "caps": 18,
+      "prof": 83,
+      "sorry": 34,
+      "love": 24,
+      "you": 415,
+      "i": 681,
+      "qual": 272,
+      "avg_len": 35.3
+    },
+    {
+      "month": "2018-09",
+      "total": 1494,
+      "sent": 696,
+      "caps": 13,
+      "prof": 67,
+      "sorry": 42,
+      "love": 22,
+      "you": 319,
+      "i": 528,
+      "qual": 175,
+      "avg_len": 31.9
+    },
+    {
+      "month": "2018-10",
+      "total": 2205,
+      "sent": 1167,
+      "caps": 21,
+      "prof": 165,
+      "sorry": 65,
+      "love": 43,
+      "you": 539,
+      "i": 871,
+      "qual": 385,
+      "avg_len": 36.8
+    },
+    {
+      "month": "2018-11",
+      "total": 2068,
+      "sent": 1108,
+      "caps": 18,
+      "prof": 116,
+      "sorry": 32,
+      "love": 43,
+      "you": 466,
+      "i": 747,
+      "qual": 340,
+      "avg_len": 33.4
+    },
+    {
+      "month": "2018-12",
+      "total": 765,
+      "sent": 327,
+      "caps": 6,
+      "prof": 26,
+      "sorry": 17,
+      "love": 29,
+      "you": 177,
+      "i": 298,
+      "qual": 122,
+      "avg_len": 32.7
+    },
+    {
+      "month": "2019-05",
+      "total": 2,
+      "sent": 2,
+      "caps": 0,
+      "prof": 0,
+      "sorry": 0,
+      "love": 0,
+      "you": 0,
+      "i": 0,
+      "qual": 0,
+      "avg_len": 32.0
+    },
+    {
+      "month": "2019-07",
+      "total": 2,
+      "sent": 0,
+      "caps": 0,
+      "prof": 0,
+      "sorry": 0,
+      "love": 0,
+      "you": 0,
+      "i": 0,
+      "qual": 0,
+      "avg_len": 0
+    }
+  ],
+  "top_bigrams_context": [
+    {
+      "bigram": "love you",
+      "count": 1634
+    },
+    {
+      "bigram": "want to",
+      "count": 1217
+    },
+    {
+      "bigram": "going to",
+      "count": 966
+    },
+    {
+      "bigram": "to get",
+      "count": 959
+    },
+    {
+      "bigram": "to be",
+      "count": 861
+    },
+    {
+      "bigram": "if you",
+      "count": 816
+    },
+    {
+      "bigram": "in the",
+      "count": 763
+    },
+    {
+      "bigram": "are you",
+      "count": 701
+    },
+    {
+      "bigram": "to do",
+      "count": 682
+    },
+    {
+      "bigram": "you are",
+      "count": 659
+    },
+    {
+      "bigram": "have to",
+      "count": 648
+    },
+    {
+      "bigram": "need to",
+      "count": 627
+    },
+    {
+      "bigram": "you to",
+      "count": 586
+    },
+    {
+      "bigram": "you re",
+      "count": 577
+    },
+    {
+      "bigram": "so much",
+      "count": 530
+    },
+    {
+      "bigram": "to go",
+      "count": 501
+    },
+    {
+      "bigram": "do you",
+      "count": 463
+    },
+    {
+      "bigram": "trying to",
+      "count": 463
+    },
+    {
+      "bigram": "you want",
+      "count": 463
+    },
+    {
+      "bigram": "this is",
+      "count": 459
+    },
+    {
+      "bigram": "with you",
+      "count": 458
+    },
+    {
+      "bigram": "that you",
+      "count": 451
+    },
+    {
+      "bigram": "you can",
+      "count": 435
+    },
+    {
+      "bigram": "me to",
+      "count": 403
+    },
+    {
+      "bigram": "you so",
+      "count": 395
+    },
+    {
+      "bigram": "dont know",
+      "count": 388
+    },
+    {
+      "bigram": "and you",
+      "count": 384
+    },
+    {
+      "bigram": "to me",
+      "count": 380
+    },
+    {
+      "bigram": "i'm not",
+      "count": 368
+    },
+    {
+      "bigram": "you have",
+      "count": 359
+    }
+  ],
+  "overall_features": {
+    "n": 61142,
+    "caps": 1052,
+    "prof": 2600,
+    "sorry": 1083,
+    "love": 2202,
+    "you": 14864,
+    "i": 24160,
+    "qual": 9435,
+    "imp": 7341,
+    "q": 2585,
+    "ex": 1740,
+    "avg_len": 32.6,
+    "total_chars": 1993280
+  }
+}

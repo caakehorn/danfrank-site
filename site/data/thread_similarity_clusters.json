@@ -1,0 +1,762 @@
+{
+  "generated": "2026-06-11",
+  "note": "Simple Jaccard similarity on top words for GRAVITY echo clusters and influence arcs. Top threads only.",
+  "clusters": [
+    {
+      "thread": "+17244346811",
+      "name": null,
+      "similar": [
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.818
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.714
+        },
+        {
+          "thread": "+12124702449",
+          "similarity": 0.622
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.538
+        }
+      ]
+    },
+    {
+      "thread": "+12124702449",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17249204125",
+          "similarity": 0.818
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.622
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.622
+        },
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.538
+        },
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.5
+        }
+      ]
+    },
+    {
+      "thread": "+13307038747",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17249204125",
+          "similarity": 0.667
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.667
+        },
+        {
+          "thread": "+12124702449",
+          "similarity": 0.622
+        },
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.622
+        },
+        {
+          "thread": "+19165013615",
+          "similarity": 0.579
+        }
+      ]
+    },
+    {
+      "thread": "Orphaned/System",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17244346811",
+          "similarity": 0.818
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.622
+        },
+        {
+          "thread": "+12124702449",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17249844280",
+          "similarity": 0.538
+        }
+      ]
+    },
+    {
+      "thread": "+17249204125",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+12124702449",
+          "similarity": 0.818
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.714
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.667
+        },
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.622
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.538
+        }
+      ]
+    },
+    {
+      "thread": "+17243223678",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17244346811",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+12532025869",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17249639933",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17245578229",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17249636436",
+          "similarity": 0.395
+        }
+      ]
+    },
+    {
+      "thread": "+17249987341",
+      "name": null,
+      "similar": [
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.714
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.667
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+19165013615",
+          "similarity": 0.538
+        }
+      ]
+    },
+    {
+      "thread": "+13476070497",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17243233522",
+          "similarity": 0.304
+        },
+        {
+          "thread": "+13478611908",
+          "similarity": 0.2
+        },
+        {
+          "thread": "+17242526986",
+          "similarity": 0.2
+        },
+        {
+          "thread": "+16469534978",
+          "similarity": 0.2
+        },
+        {
+          "thread": "+17249846036",
+          "similarity": 0.2
+        }
+      ]
+    },
+    {
+      "thread": "+17243228715",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17244346811",
+          "similarity": 0.5
+        },
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+12124702449",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.429
+        }
+      ]
+    },
+    {
+      "thread": "+12532025869",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+14125139408",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+17249639933",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+19165013615",
+          "similarity": 0.463
+        }
+      ]
+    },
+    {
+      "thread": "phloxenheim@gmail.com",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17249987341",
+          "similarity": 0.714
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.622
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+12124702449",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.5
+        }
+      ]
+    },
+    {
+      "thread": "+19165013615",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+13307038747",
+          "similarity": 0.579
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17248808111",
+          "similarity": 0.538
+        },
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+18172693422",
+          "similarity": 0.5
+        }
+      ]
+    },
+    {
+      "thread": "+14125139408",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+15619061550",
+          "similarity": 0.579
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+12532025869",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17248808111",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+13474936671",
+          "similarity": 0.5
+        }
+      ]
+    },
+    {
+      "thread": "+17249124645",
+      "name": null,
+      "similar": [
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.364
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.333
+        },
+        {
+          "thread": "+17243223678",
+          "similarity": 0.333
+        },
+        {
+          "thread": "+17243228715",
+          "similarity": 0.333
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.304
+        }
+      ]
+    },
+    {
+      "thread": "+17248808111",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+19165013615",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+14125139408",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.5
+        },
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.463
+        }
+      ]
+    },
+    {
+      "thread": "+17249844280",
+      "name": null,
+      "similar": [
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.538
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+12532025869",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+19165013615",
+          "similarity": 0.429
+        }
+      ]
+    },
+    {
+      "thread": "+15619061550",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+14125139408",
+          "similarity": 0.579
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.463
+        },
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+13474936671",
+          "similarity": 0.463
+        }
+      ]
+    },
+    {
+      "thread": "+18337924420",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+18334172274",
+          "similarity": 0.333
+        },
+        {
+          "thread": "28581",
+          "similarity": 0.304
+        }
+      ]
+    },
+    {
+      "thread": "+17249639933",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+12532025869",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+14125139408",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+17243223678",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17248808111",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17249636436",
+          "similarity": 0.395
+        }
+      ]
+    },
+    {
+      "thread": "+17248803413",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+15619061550",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17244157286",
+          "similarity": 0.429
+        },
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+14125139408",
+          "similarity": 0.395
+        }
+      ]
+    },
+    {
+      "thread": "+18172693422",
+      "name": null,
+      "similar": [
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+19165013615",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+14125139408",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+17248808111",
+          "similarity": 0.429
+        }
+      ]
+    },
+    {
+      "thread": "28581",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+18334172274",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+18337924420",
+          "similarity": 0.304
+        }
+      ]
+    },
+    {
+      "thread": "+13474936671",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+14125139408",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+15619061550",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+12532025869",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+18172693422",
+          "similarity": 0.395
+        }
+      ]
+    },
+    {
+      "thread": "+17249124338",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+12124702449",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17243228715",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.395
+        }
+      ]
+    },
+    {
+      "thread": "+17247074184",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17244346811",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+12124702449",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17248803413",
+          "similarity": 0.395
+        },
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.364
+        }
+      ]
+    },
+    {
+      "thread": "+17245578229",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17248121368",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17243223678",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17249636436",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17249632572",
+          "similarity": 0.364
+        },
+        {
+          "thread": "+17247074184",
+          "similarity": 0.333
+        }
+      ]
+    },
+    {
+      "thread": "+13478611908",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17247074184",
+          "similarity": 0.364
+        },
+        {
+          "thread": "+19177251279",
+          "similarity": 0.333
+        },
+        {
+          "thread": "+17243223678",
+          "similarity": 0.277
+        },
+        {
+          "thread": "+17249124338",
+          "similarity": 0.277
+        },
+        {
+          "thread": "+12124702449",
+          "similarity": 0.25
+        }
+      ]
+    },
+    {
+      "thread": "+17248808079",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+17244346811",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+12532025869",
+          "similarity": 0.429
+        },
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17243223678",
+          "similarity": 0.364
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.364
+        }
+      ]
+    },
+    {
+      "thread": "chat159239664500651272",
+      "name": null,
+      "similar": [
+        {
+          "thread": "phloxenheim@gmail.com",
+          "similarity": 0.5
+        },
+        {
+          "thread": "+17249987341",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+15619061550",
+          "similarity": 0.463
+        },
+        {
+          "thread": "+13307038747",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17248808111",
+          "similarity": 0.429
+        }
+      ]
+    },
+    {
+      "thread": "+17249636436",
+      "name": null,
+      "similar": [
+        {
+          "thread": "+12532025869",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17248121368",
+          "similarity": 0.429
+        },
+        {
+          "thread": "+17244346811",
+          "similarity": 0.395
+        },
+        {
+          "thread": "Orphaned/System",
+          "similarity": 0.395
+        },
+        {
+          "thread": "+17249204125",
+          "similarity": 0.395
+        }
+      ]
+    }
+  ]
+}

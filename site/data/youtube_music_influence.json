@@ -1,0 +1,87 @@
+{
+  "generated": "2026-06-11",
+  "source": "artists from youtube_daily whose days align with high rhetoric load (from daily_cross)",
+  "note": "For influence arcs (GRAVITY), recurring motifs/particles (ECHO CHAMBER), taste evolution layers (FORGE), correlation with favs ratings (MIRROR). Top artists here are more lyrical/emotional than pure bass \u2013 data-driven for the voiceprint.",
+  "top_influencers": [
+    {
+      "artist": "Lana Del Rey",
+      "days_active": 2,
+      "influence_score": 74.4,
+      "avg_love": 0.0,
+      "avg_you": 7.0,
+      "avg_bleed": 65.1
+    },
+    {
+      "artist": "Too Much Drake",
+      "days_active": 2,
+      "influence_score": 64.0,
+      "avg_love": 0.0,
+      "avg_you": 0.0,
+      "avg_bleed": 56.0
+    },
+    {
+      "artist": "Kanye West",
+      "days_active": 2,
+      "influence_score": 46.2,
+      "avg_love": 0.0,
+      "avg_you": 0.5,
+      "avg_bleed": 38.1
+    },
+    {
+      "artist": "Disparate Youth Santigold",
+      "days_active": 2,
+      "influence_score": 42.4,
+      "avg_love": 0.0,
+      "avg_you": 3.0,
+      "avg_bleed": 33.9
+    },
+    {
+      "artist": "Art Is Dead Bo Burnham",
+      "days_active": 3,
+      "influence_score": 32.9,
+      "avg_love": 0.0,
+      "avg_you": 1.3,
+      "avg_bleed": 13.7
+    },
+    {
+      "artist": "K.Flay",
+      "days_active": 2,
+      "influence_score": 31.2,
+      "avg_love": 0.0,
+      "avg_you": 0.5,
+      "avg_bleed": 23.1
+    },
+    {
+      "artist": "Cath... Death Cab for Cutie",
+      "days_active": 5,
+      "influence_score": 29.6,
+      "avg_love": 0.0,
+      "avg_you": 2.2,
+      "avg_bleed": 3.5
+    },
+    {
+      "artist": "Frick Park Market Mac Miller",
+      "days_active": 2,
+      "influence_score": 28.2,
+      "avg_love": 0.0,
+      "avg_you": 0.5,
+      "avg_bleed": 20.1
+    },
+    {
+      "artist": "Heart Of A Lion (Kid Cudi Theme Music) Kid Cudi",
+      "days_active": 2,
+      "influence_score": 25.0,
+      "avg_love": 0.0,
+      "avg_you": 0.0,
+      "avg_bleed": 17.0
+    },
+    {
+      "artist": "Time to Pretend MGMT",
+      "days_active": 2,
+      "influence_score": 12.9,
+      "avg_love": 0.0,
+      "avg_you": 4.0,
+      "avg_bleed": 4.2
+    }
+  ]
+}

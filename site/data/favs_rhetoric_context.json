@@ -1,0 +1,455 @@
+{
+  "generated": "2026-06-11",
+  "note": "Favs joined with +/-14d rhetoric avg for RHETORICAL MIRROR / psyche sectors. Correlates ratings with linguistic state at time.",
+  "count": 56,
+  "favs": [
+    {
+      "title": "Death Throes of the Republic (Hardcore History, #34-39)",
+      "rating": 5,
+      "date": "2024-04-10",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 3
+    },
+    {
+      "title": "Oath and Honor: A Memoir and a Warning",
+      "rating": 4,
+      "date": "2024-02-14",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 4
+    },
+    {
+      "title": "The Hundred Years\u2019 War on Palestine: A History of Settler Co",
+      "rating": 3,
+      "date": "2024-01-25",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.2,
+      "nearby_days": 6
+    },
+    {
+      "title": "A True History of the United States",
+      "rating": 4,
+      "date": "2024-01-10",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 12
+    },
+    {
+      "title": "One Nation Under Blackmail: The Sordid Union Between Intelli",
+      "rating": 5,
+      "date": "2024-02-20",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "Complete Works of Plutarch",
+      "rating": 5,
+      "date": "2024-09-21",
+      "nearby_avg_prof": 0.1,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "Nuclear War: A Scenario",
+      "rating": 5,
+      "date": "2024-05-14",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 8
+    },
+    {
+      "title": "Philip and Alexander: Kings and Conquerors",
+      "rating": 4,
+      "date": "2024-06-24",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "The Forever War: America\u2019s Unending Conflict with Itself",
+      "rating": 3,
+      "date": "2024-07-30",
+      "nearby_avg_prof": 3.0,
+      "nearby_avg_love": 0.7,
+      "nearby_days": 29
+    },
+    {
+      "title": "The Assassination of Julius Caesar: A People's History of An",
+      "rating": 5,
+      "date": "2024-03-29",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "Gotham: A History of New York City to 1898",
+      "rating": 4,
+      "date": "2024-02-05",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.3,
+      "nearby_days": 3
+    },
+    {
+      "title": "Enough",
+      "rating": 2,
+      "date": "2024-03-28",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "Augustus: First Emperor of Rome",
+      "rating": 4,
+      "date": "2024-06-02",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 25
+    },
+    {
+      "title": "Augustus",
+      "rating": 3,
+      "date": "2024-06-22",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "The Betrayal: How Mitch McConnell and the Senate Republicans",
+      "rating": 4,
+      "date": "2024-06-22",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "The Afghanistan Papers: A Secret History of the War",
+      "rating": 5,
+      "date": "2024-03-29",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "Caesar: Life of a Colossus",
+      "rating": 5,
+      "date": "2024-03-27",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "Rubicon: The Last Years of the Roman Republic",
+      "rating": 5,
+      "date": "2024-03-29",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "One Nation Under Blackmail, Vol. 1: The Sordid Union Between",
+      "rating": 4,
+      "date": "2024-02-20",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "The Rise and Fall of the Third Reich: A History of Nazi Germ",
+      "rating": 5,
+      "date": "2022-12-26",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 1.0,
+      "nearby_days": 1
+    },
+    {
+      "title": "War",
+      "rating": 3,
+      "date": "2024-11-22",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "This Is Berlin: Reporting from Nazi Germany 1938-40",
+      "rating": 4,
+      "date": "2024-09-16",
+      "nearby_avg_prof": 0.1,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "Commander in Cheat: How Golf Explains Trump",
+      "rating": 3,
+      "date": "2024-02-09",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.2,
+      "nearby_days": 4
+    },
+    {
+      "title": "The Price of Justice: A True Story of Greed and Corruption",
+      "rating": 4,
+      "date": "2024-12-25",
+      "nearby_avg_prof": 0.1,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "Personality Types: Using the Enneagram for Self-Discovery",
+      "rating": 5,
+      "date": "2024-09-21",
+      "nearby_avg_prof": 0.1,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "Manhunt: The 12-Day Chase for Lincoln's Killer",
+      "rating": 5,
+      "date": "2024-02-16",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 4
+    },
+    {
+      "title": "American Brutus: John Wilkes Booth and the Lincoln Conspirac",
+      "rating": 3,
+      "date": "2024-06-29",
+      "nearby_avg_prof": 0.5,
+      "nearby_avg_love": 0.1,
+      "nearby_days": 29
+    },
+    {
+      "title": "Game Change: Obama and the Clintons, McCain and Palin, and t",
+      "rating": 5,
+      "date": "2024-01-17",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.1,
+      "nearby_days": 10
+    },
+    {
+      "title": "Trump on Trial: The Investigation, Impeachment, Acquittal an",
+      "rating": 4,
+      "date": "2024-03-01",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "In the Name of Rome: The Men Who Won the Roman Empire",
+      "rating": 4,
+      "date": "2024-06-25",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "It's OK to Be Angry About Capitalism",
+      "rating": 4,
+      "date": "2024-02-17",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 4
+    },
+    {
+      "title": "Lives of the Noble Romans",
+      "rating": 5,
+      "date": "2024-06-04",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 27
+    },
+    {
+      "title": "Wannabe Fascists: A Guide to Understanding the Greatest Thre",
+      "rating": 0,
+      "date": "2024-06-29",
+      "nearby_avg_prof": 0.5,
+      "nearby_avg_love": 0.1,
+      "nearby_days": 29
+    },
+    {
+      "title": "A Fatal Thing Happened on the Way to the Forum: Murder in An",
+      "rating": 3,
+      "date": "2024-06-29",
+      "nearby_avg_prof": 0.5,
+      "nearby_avg_love": 0.1,
+      "nearby_days": 29
+    },
+    {
+      "title": "Mortal Republic: How Rome Fell into Tyranny",
+      "rating": 3,
+      "date": "2024-06-29",
+      "nearby_avg_prof": 0.5,
+      "nearby_avg_love": 0.1,
+      "nearby_days": 29
+    },
+    {
+      "title": "SPQR: A History of Ancient Rome",
+      "rating": 4,
+      "date": "2024-03-28",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "Caesar's Legion: The Epic Saga of Julius Caesar's Elite Tent",
+      "rating": 3,
+      "date": "2024-06-04",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 27
+    },
+    {
+      "title": "None of This Rocks: A Memoir",
+      "rating": 1,
+      "date": "2022-12-26",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 1.0,
+      "nearby_days": 1
+    },
+    {
+      "title": "Masters of Command: Alexander, Hannibal, Caesar, and the Gen",
+      "rating": 3,
+      "date": "2024-05-27",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 19
+    },
+    {
+      "title": "Battle for the Soul: Inside the Democrats' Campaigns to Defe",
+      "rating": 4,
+      "date": "2024-06-22",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "This Will Not Pass: Trump, Biden and the Battle for American",
+      "rating": 3,
+      "date": "2023-12-05",
+      "nearby_avg_prof": 1.3,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 22
+    },
+    {
+      "title": "Downtown: My Manhattan",
+      "rating": 0,
+      "date": "2024-04-29",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 5
+    },
+    {
+      "title": "Shocking Psychological Studies and the Lessons They Teach",
+      "rating": 3,
+      "date": "2024-09-04",
+      "nearby_avg_prof": 0.1,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 28
+    },
+    {
+      "title": "The Death of Cool: From Teenage Rebellion to the Hangover of",
+      "rating": 2,
+      "date": "2024-02-14",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 4
+    },
+    {
+      "title": "The Death of Caesar: The Story of History's Most Famous Assa",
+      "rating": 3,
+      "date": "2024-04-07",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 2
+    },
+    {
+      "title": "Legacy of Ashes: The History of the CIA",
+      "rating": 4,
+      "date": "2024-01-10",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 12
+    },
+    {
+      "title": "End of Days: The Assassination of John F. Kennedy",
+      "rating": 2,
+      "date": "2024-02-17",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 4
+    },
+    {
+      "title": "Fight: Inside the Wildest Battle for the White House",
+      "rating": 5,
+      "date": "2025-04-21",
+      "nearby_avg_prof": 0.1,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 16
+    },
+    {
+      "title": "What Every Body is Saying: An Ex-FBI Agent's Guide to Speed-",
+      "rating": 3,
+      "date": "2023-12-05",
+      "nearby_avg_prof": 1.3,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 22
+    },
+    {
+      "title": "Cicero: The Life and Times of Rome's Greatest Politician",
+      "rating": 5,
+      "date": "2024-08-28",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 28
+    },
+    {
+      "title": "The Making of Donald Trump",
+      "rating": 4,
+      "date": "2024-02-17",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 4
+    },
+    {
+      "title": "Abundance",
+      "rating": 3,
+      "date": "2025-05-22",
+      "nearby_avg_prof": 0.2,
+      "nearby_avg_love": 0.2,
+      "nearby_days": 18
+    },
+    {
+      "title": "Where We Go from Here",
+      "rating": 5,
+      "date": "2024-06-23",
+      "nearby_avg_prof": 0.0,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "The End is Always Near: Apocalyptic Moments, from the Bronze",
+      "rating": 3,
+      "date": "2024-09-16",
+      "nearby_avg_prof": 0.1,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 29
+    },
+    {
+      "title": "A Sacred Oath: Memoirs of a Secretary of Defense During Extr",
+      "rating": 4,
+      "date": "2023-12-04",
+      "nearby_avg_prof": 1.3,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 22
+    },
+    {
+      "title": "What's the Matter with Kansas? How Conservatives Won the Hea",
+      "rating": 4,
+      "date": "2023-12-05",
+      "nearby_avg_prof": 1.3,
+      "nearby_avg_love": 0.0,
+      "nearby_days": 22
+    }
+  ]
+}
