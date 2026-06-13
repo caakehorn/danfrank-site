@@ -95,7 +95,7 @@
     '  vec2 sd = pos - uShock;',
     '  float sr = length(sd) + 1e-4;',
     '  float ring = exp(-pow((sr - uShockT * 2.4) * 7.0, 2.0)) * exp(-uShockT * 2.6) * uShockAmp;',
-    '  acc += (sd / sr) * ring * 620.0;',
+    '  acc += (sd / sr) * ring * 200.0;',
     '  vel += acc * dt;',
     '  /* flick / throw momentum from cursor velocity */',
     '  vel += uMouseVel * exp(-mr * 8.0) * (dt * 60.0) * 0.09;',
@@ -420,8 +420,8 @@
       var A = this._aspect;
       var w = this._c.width, h = this._c.height;
       var N = this._N = gl
-        ? Math.max(14000, Math.min(56000, Math.round((w * h) / 38)))
-        : Math.max(3000, Math.min(7500, Math.round((w * h) / 140)));
+        ? Math.max(10000, Math.min(32000, Math.round((w * h) / 68)))
+        : Math.max(2500, Math.min(5000, Math.round((w * h) / 180)));
 
       var st = this._st = new Float32Array(N * 8);   /* home.xy, ctr.xy, hue, size, phase, type */
       var pv = new Float32Array(N * 4);              /* pos.xy, vel.xy */
@@ -709,7 +709,7 @@
       this._mx = p.x; this._my = p.y;
       this._hoverT = 1;
       this._lastInteract = performance.now();
-      this._shock(p.x, p.y, 1);
+      this._shock(p.x, p.y, 0.45);
       this._addCharge(p, 0.03);
     }
 
@@ -767,9 +767,9 @@
       if (this._vortex > 0.4) this._addCharge({ x: this._mx, y: this._my }, 0.004);
 
       /* ambient life when idle */
-      if (tms - this._lastInteract > 3200 && tms - this._lastAuto > 2600) {
+      if (tms - this._lastInteract > 4000 && tms - this._lastAuto > 5000) {
         this._lastAuto = tms;
-        this._shock((Math.random() * 2 - 1) * this._aspect * 0.8, (Math.random() * 2 - 1) * 0.8, 0.45);
+        this._shock((Math.random() * 2 - 1) * this._aspect * 0.8, (Math.random() * 2 - 1) * 0.8, 0.25);
       }
 
       if (this._gl) this._frameGPU(t, dt);
@@ -934,8 +934,8 @@
           var sr = Math.sqrt(sdx * sdx + sdy * sdy) + 1e-4;
           var rg = (sr - shockT * 2.4) * 7;
           var ring = Math.exp(-rg * rg) * shockEnv;
-          accx += (sdx / sr) * ring * 620;
-          accy += (sdy / sr) * ring * 620;
+          accx += (sdx / sr) * ring * 200;
+          accy += (sdy / sr) * ring * 200;
         }
         vx += accx * dt; vy += accy * dt;
         var fl = Math.exp(-mr * 8) * flickK;
