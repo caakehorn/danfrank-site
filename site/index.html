@@ -361,6 +361,7 @@ class Component extends DCLogic {
     atlasSpeed: 120,
     atlasView: 'FULL',
     atlasMap: true,
+    atlasLock: false,
     lexMode: 'pack',
     shelfCat: 'ALL',
     weatherView: 'pens',
@@ -1346,20 +1347,52 @@ class Component extends DCLogic {
   draw_atlas(ctx, W, H, dt) {
     if (!this.M.atlas) this.initAtlas();
     const C = this.COL, A = this.M.atlas, D = this.D, pl = D.plc.places, tl = D.plc.tl;
-    const v = A.view, tg = A.target, e = Math.min(1, dt * 4.5);
-    v.lat += (tg.lat - v.lat) * e; v.lng += (tg.lng - v.lng) * e;
-    v.zoom += (tg.zoom - v.zoom) * Math.min(1, dt * 4.5);
+    const v = A.view, tg = A.target;
+    const eFly = Math.min(1, dt * (this.state.atlasLock ? 2.8 : 4.5));
+    v.lat  += (tg.lat  - v.lat)  * eFly;
+    v.lng  += (tg.lng  - v.lng)  * eFly;
+    v.zoom += (tg.zoom - v.zoom) * Math.min(1, dt * (this.state.atlasLock ? 2.2 : 4.5));
     const cx = W / 2, cy = H / 2, cosL = Math.cos(v.lat * Math.PI / 180);
     const px = (lng) => cx + (lng - v.lng) * v.zoom * cosL;
     const py = (lat) => cy - (lat - v.lat) * v.zoom;
 
+    const locked = this.state.atlasLock;
     if (this.state.atlasPlay && !A.scrub) {
-      A.playDay += this.state.atlasSpeed * dt;
+      // lock-on mode throttles playback to 6 days/sec so individual days are legible
+      const speed = locked ? Math.min(this.state.atlasSpeed, 6) : this.state.atlasSpeed;
+      A.playDay += speed * dt;
       if (A.playDay >= A.maxDay) { A.playDay = A.maxDay; this.setState({ atlasPlay: false }); }
     }
     A.heat.fill(0);
     let idx = 0;
     for (; idx < tl.length; idx++) { if (tl[idx][0] > A.playDay) break; A.heat[tl[idx][1]] += tl[idx][3] || 30; }
+
+    // LOCK-ON: every frame recompute today's bounding box and fly the camera to fit it
+    if (locked && !A.scrub && !A.drag) {
+      const day0 = Math.floor(A.playDay), day1 = day0 + 1;
+      let laMin = 1e9, laMax = -1e9, lnMin = 1e9, lnMax = -1e9, found = false;
+      for (let i = 0; i < tl.length; i++) {
+        const d = tl[i][0];
+        if (d < day0 || d >= day1) continue;
+        const p = pl[tl[i][1]];
+        laMin = Math.min(laMin, p.lat); laMax = Math.max(laMax, p.lat);
+        lnMin = Math.min(lnMin, p.lng); lnMax = Math.max(lnMax, p.lng);
+        found = true;
+      }
+      if (found) {
+        const pad = 0.04; // degrees padding
+        const laSpan = Math.max(laMax - laMin + pad * 2, 0.02);
+        const lnSpan = Math.max(lnMax - lnMin + pad * 2, 0.02);
+        const cosM = Math.cos(((laMin + laMax) / 2) * Math.PI / 180);
+        const fitZoom = Math.min((W * 0.82) / (lnSpan * cosM), (H * 0.82) / laSpan);
+        // cap zoom: never wider than the FULL view, never tighter than street-level
+        const { FULL } = this.atlasViews;
+        const clampedZoom = Math.max(FULL.zoom, Math.min(fitZoom, 28000));
+        tg.lat = (laMin + laMax) / 2;
+        tg.lng = (lnMin + lnMax) / 2;
+        tg.zoom = clampedZoom;
+      }
+    }
 
     // terrain map (drawn before dots so dots sit on top)
     if (this.state.atlasMap) this._drawAtlasMap(ctx, W, H, px, py);
@@ -1400,14 +1433,17 @@ class Component extends DCLogic {
       const last = tl[idx - 1][1];
       const x = A.screen[last * 2], y = A.screen[last * 2 + 1];
       const pr = 6 + Math.sin(performance.now() / 180) * 2;
-      // radar pulse rings emanating from current position
+      // radar pulse rings — amber normally, cyan when locked for visual distinction
       const t = performance.now() / 1000;
+      const ringHz = locked ? 0.9 : 0.45;
+      const ringR  = locked ? 60  : 90;
+      const ringCol = locked ? '79,195,232' : '232,163,61';
       for (let ring = 0; ring < 4; ring++) {
-        const phase = ((t * 0.45 + ring * 0.25) % 1);
-        const rr = 18 + phase * 90;
-        const al = (1 - phase) * (ring === 0 ? 0.45 : 0.28);
+        const phase = ((t * ringHz + ring * 0.25) % 1);
+        const rr = 14 + phase * ringR;
+        const al = (1 - phase) * (ring === 0 ? 0.55 : 0.32);
         ctx.beginPath(); ctx.arc(x, y, rr, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(232,163,61,${al.toFixed(3)})`; ctx.lineWidth = ring === 0 ? 1.2 : 0.8;
+        ctx.strokeStyle = `rgba(${ringCol},${al.toFixed(3)})`; ctx.lineWidth = ring === 0 ? 1.5 : 0.9;
         ctx.stroke();
       }
       // crosshair lines through current position
@@ -1428,6 +1464,31 @@ class Component extends DCLogic {
         ctx.fillStyle = 'rgba(255,210,138,0.55)';
         ctx.fillText(Math.abs(cLat).toFixed(3) + '°N  ' + Math.abs(cLng).toFixed(3) + '°W', x + 14, y - 4);
       }
+    }
+    // LOCK-ON HUD — badge + today's fix count and date span
+    if (locked) {
+      const day0 = Math.floor(A.playDay);
+      let fixes = 0, todayPlaces = new Set();
+      for (let i = 0; i < tl.length; i++) {
+        const d = tl[i][0];
+        if (d < day0 || d >= day0 + 1) continue;
+        fixes++; todayPlaces.add(tl[i][1]);
+      }
+      const ms = Date.UTC(2014, 0, 1) + A.playDay * 86400000;
+      const dd = new Date(ms);
+      const MO = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      const dateStr = MO[dd.getUTCMonth()] + ' ' + String(dd.getUTCDate()).padStart(2,'0') + ' ' + dd.getUTCFullYear();
+      // badge background
+      ctx.fillStyle = 'rgba(8,12,22,0.78)';
+      ctx.fillRect(W - 210, 14, 196, 48);
+      ctx.strokeStyle = 'rgba(79,195,232,0.45)'; ctx.lineWidth = 1;
+      ctx.strokeRect(W - 210 + 0.5, 14.5, 195, 47);
+      // label
+      ctx.font = '600 9px ' + this.MONO; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillStyle = C.cyan;
+      ctx.fillText('⊕ LOCK ON · ' + dateStr, W - 202, 22);
+      ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.dim;
+      ctx.fillText(fixes + ' FIX' + (fixes !== 1 ? 'ES' : '') + ' · ' + todayPlaces.size + ' LOCATION' + (todayPlaces.size !== 1 ? 'S' : '') + ' · ' + (fixes === 0 ? 'NO DATA' : 'TRACKING'), W - 202, 38);
     }
     // live crosshair at mouse when not hovering a point (map mode)
     if (this.state.atlasMap && A.hover < 0 && this.mouse.x > 0 && this.mouse.y < H - 56) {
@@ -2737,7 +2798,8 @@ class Component extends DCLogic {
         ...['FULL', 'FAYETTE', 'NYC'].map(l => ({
           label: l, onClick: () => { this.setState({ atlasView: l }); if (this.atlasFly) this.atlasFly(l); }, style: this.chipStyle(s.atlasView === l, C.cyan)
         })),
-        { label: s.atlasMap ? '⬡ MAP' : '⬡ VOID', onClick: () => this.setState(st => ({ atlasMap: !st.atlasMap })), style: this.chipStyle(s.atlasMap, C.amber) }
+        { label: s.atlasMap ? '⬡ MAP' : '⬡ VOID', onClick: () => this.setState(st => ({ atlasMap: !st.atlasMap })), style: this.chipStyle(s.atlasMap, C.amber) },
+        { label: s.atlasLock ? '⊕ LOCKED' : '⊕ LOCK ON', onClick: () => this.setState(st => ({ atlasLock: !st.atlasLock })), style: this.chipStyle(s.atlasLock, C.cyan) }
       ];
     } else if (s.tab === 'lexicon') {
       chips = [['pack', 'CLUSTER'], ['rain', 'RAIN']].map(([id, l]) => ({
@@ -2788,7 +2850,7 @@ class Component extends DCLogic {
       pulse: 'DRAG TO PAN · SCROLL TO ZOOM · DOUBLE-CLICK TO RESET · MINIMAP IS GRABBABLE · DIAMONDS ARE EVENTS',
       clock: 'GRAB THE DIAL AND SPIN IT · HOVER A SECTOR · THE NEEDLE SWEEPS A 20-YEAR AVERAGE DAY',
       orbits: 'GRAB A BODY AND FLING IT · CLICK FOR THE DOSSIER · DISTANCE FROM CENTER = TIME SINCE LAST MESSAGE',
-      atlas: 'SPACE OR ▶ TO REPLAY A DECADE · DRAG THE SCRUBBER · SCROLL TO ZOOM · GRAB THE MAP · ⬡ MAP TOGGLES TERRAIN',
+      atlas: 'SPACE OR ▶ TO REPLAY · ⊕ LOCK ON = FOLLOWS EACH DAY · DRAG SCRUBBER · SCROLL TO ZOOM · ⬡ MAP TOGGLES TERRAIN',
       lexicon: 'FLICK THE WORDS · CLICK TO PIN ONE · TRY RAIN · SEISMOGRAPH BELOW = ALL-CAPS EVENTS',
       shelf: 'EVERY DOT IS A RATED WORK · ABOVE THE LINE = LOVED MORE THAN THE WORLD DID · CLICK TO PIN',
       weather: s.weatherView === 'pens'
