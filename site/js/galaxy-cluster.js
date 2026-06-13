@@ -64,7 +64,7 @@
     '  } else if (type > 0.5) {',
     '    /* wordmark constellation: tight spring + shimmer */',
     '    home = aHomeCtr.xy + 0.0055 * vec2(sin(uTime * 1.8 + ph * 37.0), cos(uTime * 1.3 + ph * 21.0));',
-    '    spring = 30.0; damp = 5.2;',
+    '    spring = 55.0; damp = 5.2;',
     '  } else {',
     '    /* galaxy disc: home orbits its center, differential rotation winds the arms */',
     '    vec2 c = aHomeCtr.zw;',
@@ -91,11 +91,12 @@
     '    float sfall = exp(-cr * 1.1) * uStorm;',
     '    acc += (vec2(-cdir.y, cdir.x) * 95.0 - cdir * 18.0) * sfall;',
     '  }',
-    '  /* click = expanding shockwave ring */',
+    '  /* click = expanding shockwave ring; wordmark particles are nearly immune */',
     '  vec2 sd = pos - uShock;',
     '  float sr = length(sd) + 1e-4;',
     '  float ring = exp(-pow((sr - uShockT * 2.4) * 7.0, 2.0)) * exp(-uShockT * 2.6) * uShockAmp;',
-    '  acc += (sd / sr) * ring * 100.0;',
+    '  float shockMult = (type > 0.5 && type < 1.5) ? 0.05 : 1.0;',
+    '  acc += (sd / sr) * ring * 100.0 * shockMult;',
     '  vel += acc * dt;',
     '  /* flick / throw momentum from cursor velocity */',
     '  vel += uMouseVel * exp(-mr * 8.0) * (dt * 60.0) * 0.09;',
@@ -314,6 +315,36 @@
       var c = this._c = document.createElement('canvas');
       c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;';
       this.appendChild(c);
+
+      /* always-visible wordmark overlay — sits above the canvas so it shows
+         regardless of particle positions; particles orbit and interact around it */
+      var ov = this._overlay = document.createElement('div');
+      ov.style.cssText = [
+        'position:absolute', 'inset:0', 'display:flex', 'flex-direction:column',
+        'align-items:center', 'justify-content:center', 'pointer-events:none',
+        'z-index:1', 'user-select:none', 'text-align:center', 'padding:0 1rem'
+      ].join(';');
+      var wm = document.createElement('div');
+      wm.textContent = '@danfrank';
+      wm.style.cssText = [
+        'font-family:"Unbounded",sans-serif', 'font-weight:900',
+        'font-size:clamp(2.2rem,7vw,6rem)', 'letter-spacing:-0.01em',
+        'color:rgba(79,195,232,0.28)',
+        'text-shadow:0 0 18px rgba(79,195,232,0.22),0 0 40px rgba(79,195,232,0.12)',
+        'line-height:1'
+      ].join(';');
+      var sub = document.createElement('div');
+      sub.textContent = 'U N I Q U E  ·  A I  ·  S O L U T I O N S';
+      sub.style.cssText = [
+        'font-family:"IBM Plex Mono",monospace', 'font-weight:500',
+        'font-size:clamp(0.45rem,1.1vw,0.85rem)', 'letter-spacing:0.18em',
+        'color:rgba(79,195,232,0.16)',
+        'text-shadow:0 0 10px rgba(79,195,232,0.10)',
+        'margin-top:0.55em'
+      ].join(';');
+      ov.appendChild(wm);
+      ov.appendChild(sub);
+      this.appendChild(ov);
 
       /* interaction state */
       this._mx = 99; this._my = 99;       /* world-space cursor (parked far away) */
@@ -900,7 +931,7 @@
         } else if (type > 0.5) {
           hx = st[o8] + 0.0055 * Math.sin(t * 1.8 + ph * 37);
           hy = st[o8 + 1] + 0.0055 * Math.cos(t * 1.3 + ph * 21);
-          spring = 30; damp = dampText;
+          spring = 55; damp = dampText;
         } else {
           var gcx = st[o8 + 2], gcy = st[o8 + 3];
           var relx = st[o8] - gcx, rely = st[o8 + 1] - gcy;
@@ -934,8 +965,9 @@
           var sr = Math.sqrt(sdx * sdx + sdy * sdy) + 1e-4;
           var rg = (sr - shockT * 2.4) * 7;
           var ring = Math.exp(-rg * rg) * shockEnv;
-          accx += (sdx / sr) * ring * 100;
-          accy += (sdy / sr) * ring * 100;
+          var shockMult = (type > 0.5 && type < 1.5) ? 0.05 : 1.0;
+          accx += (sdx / sr) * ring * 100 * shockMult;
+          accy += (sdy / sr) * ring * 100 * shockMult;
         }
         vx += accx * dt; vy += accy * dt;
         var fl = Math.exp(-mr * 8) * flickK;
