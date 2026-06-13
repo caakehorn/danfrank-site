@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>@danfrank — Unique AI Solutions · VOID + LEVIATHAN</title>
+<script src="./js/support.js"></script>
+<script src="./js/galaxy-cluster.js"></script>
+<script src="./js/void-engine.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&amp;family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <meta name="ext-resource-dependency" content="data/messages.json" data-resource-id="messages">
+  <meta name="ext-resource-dependency" content="data/places.json" data-resource-id="places">
+  <meta name="ext-resource-dependency" content="data/favs.json" data-resource-id="favs">
+  <meta name="ext-resource-dependency" content="data/rhetorical_daily.json" data-resource-id="rhetoricalDaily">
+  <meta name="ext-resource-dependency" content="data/top_rhetorical_events.json" data-resource-id="rhetoricalEvents">
+  <meta name="ext-resource-dependency" content="data/annie_rhetoric.json" data-resource-id="annie">
+  <meta name="ext-resource-dependency" content="data/high_emotion_fragments.json" data-resource-id="fragments">
+  <meta name="ext-resource-dependency" content="data/youtube_daily.json" data-resource-id="youtubeDaily">
+  <meta name="ext-resource-dependency" content="data/youtube_top_entities.json" data-resource-id="youtubeEntities">
+  <meta name="ext-resource-dependency" content="data/youtube_music_influence.json" data-resource-id="youtubeInfluence">
+  <meta name="ext-resource-dependency" content="data/weather_non_annie_weekly.json" data-resource-id="weatherWeeklyNA">
+  <meta name="ext-resource-dependency" content="data/weather_analysis.json" data-resource-id="weatherAnalysis">
+  <meta name="ext-resource-dependency" content="data/weather_fragments_non_annie.json" data-resource-id="weatherFragsNA">
+  <meta name="ext-resource-dependency" content="data/daily_cross_corpus.json" data-resource-id="dailyCross">
+  <style>
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; background: #020008; color: #e8e6ff; }
+    body { overflow-x: hidden; font-family: 'IBM Plex Mono', monospace; }
+    * { box-sizing: border-box; }
+    ::selection { background: #ff2d95; color: #020008; }
+    textarea::placeholder { color: #4d4774; }
+    @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    @keyframes floaty { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 10px); } }
+    @keyframes glitch1 {
+      0%, 86%, 100% { text-shadow: 3px 0 #ff2d95, -3px 0 #00f0ff; transform: none; }
+      87% { text-shadow: -7px 0 #ff2d95, 7px 0 #00f0ff; transform: translateX(3px) skewX(3deg); }
+      90% { text-shadow: 5px 2px #7b2dff, -5px -2px #00ff9d; transform: translateX(-4px); }
+      93% { text-shadow: 2px 0 #ff2d95, -2px 0 #00f0ff; transform: none; }
+    }
+    @keyframes enterflash {
+      0% { opacity: 1; } 10% { opacity: 0; } 18% { opacity: 0.9; } 30% { opacity: 0; }
+      38% { opacity: 0.55; } 50% { opacity: 0; } 62% { opacity: 0.3; } 74% { opacity: 0; }
+      88% { opacity: 0.12; } 100% { opacity: 0; }
+    }
+    @keyframes pulseglow {
+      0%, 100% { box-shadow: 0 0 22px rgba(255,45,149,0.8), 0 0 90px rgba(123,45,255,0.45); }
+      50% { box-shadow: 0 0 44px rgba(0,240,255,0.85), 0 0 130px rgba(255,45,149,0.5); }
+    }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @keyframes lvShimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(340px); } }
+    @keyframes lvBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  </style>
+</helmet>
+
+<!-- ════════ VOID LAYERS ════════
+     static-void: zero-cost CSS nebula, always on (void + archive phases)
+     galaxy-bg:   live particle sim, SPLASH ONLY — paused + hidden elsewhere -->
+<div id="static-void" style="position: fixed; inset: 0; z-index: 0; pointer-events: none; background:
+  radial-gradient(ellipse 70% 55% at 22% 28%, rgba(36,8,66,0.55) 0%, transparent 60%),
+  radial-gradient(ellipse 60% 50% at 78% 70%, rgba(8,38,58,0.5) 0%, transparent 60%),
+  radial-gradient(ellipse 40% 35% at 60% 15%, rgba(60,8,44,0.35) 0%, transparent 65%),
+  radial-gradient(ellipse 90% 80% at 50% 50%, rgba(10,4,26,0.8) 0%, #020008 100%),
+  #020008;">
+  <div style="position: absolute; inset: 0; opacity: 0.5; background-image:
+    radial-gradient(1px 1px at 12% 22%, #aee9ff 50%, transparent 51%),
+    radial-gradient(1px 1px at 34% 71%, #cdb7ff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 57% 38%, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 73% 81%, #9fdcff 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 14%, #ffc4e3 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 45% 90%, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 8% 64%, #b7f5ff 50%, transparent 51%),
+    radial-gradient(1px 1px at 66% 6%, #e2d6ff 50%, transparent 51%),
+    radial-gradient(1px 1px at 25% 47%, #ffffff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 93% 55%, #a9c9ff 50%, transparent 51%);
+    background-size: 520px 520px, 460px 460px, 610px 610px, 380px 380px, 700px 700px, 540px 540px, 430px 430px, 650px 650px, 490px 490px, 570px 570px;"></div>
+</div>
+<galaxy-cluster id="galaxy-bg" intensity="1" style="position: fixed; inset: 0; z-index: 0;"></galaxy-cluster>
+<div style="position: fixed; inset: 0; z-index: 1; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0,0,8,0.18) 0px, rgba(0,0,8,0.18) 1px, transparent 1px, transparent 3px);"></div>
+
+<sc-if value="{{ flash }}" hint-placeholder-val="{{ false }}">
+  <div style="position: fixed; inset: 0; z-index: 90; pointer-events: none; background: #ffffff; animation: enterflash 0.9s steps(1) forwards;"></div>
+</sc-if>
+
+<!-- ════════ PHASE 00 — SPLASH · GRAVITY WELL ════════ -->
+<sc-if value="{{ isSplash }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Splash — The Cluster">
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 10; pointer-events: none; display: flex; justify-content: space-between; align-items: center; padding: 20px 26px;">
+      <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.3em; color: #ffffff; text-shadow: 0 0 14px rgba(0,240,255,0.9);">@danfrank<span style="color: #ff2d95; animation: blink 1.1s steps(1) infinite;">_</span></div>
+      <div style="font-size: 10px; letter-spacing: 0.4em; color: #00f0ff;">PHASE 00 // GRAVITY WELL</div>
+    </div>
+
+    <div style="position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%); z-index: 10; pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 18px;">
+      <button onClick="{{ enterVoid }}" style="pointer-events: auto; cursor: pointer; position: relative; font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 16px; letter-spacing: 0.16em; color: #020008; background: #00f0ff; border: none; border-radius: 999px; padding: 18px 42px; animation: pulseglow 2.6s ease-in-out infinite;" style-hover="background: #ff2d95; color: #ffffff;">ENTER THE VOID ►</button>
+      <button onClick="{{ enterArchive }}" style="pointer-events: auto; cursor: pointer; background: none; border: 1px solid rgba(232,163,61,0.7); font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.3em; color: #e8a33d; padding: 9px 18px;" style-hover="background: rgba(232,163,61,0.14); box-shadow: 0 0 30px rgba(232,163,61,0.35);">SKIP STRAIGHT TO THE DATA ARCHIVE ▸</button>
+    </div>
+
+    <div style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 0 24px 18px; text-align: center;">
+      <div style="font-size: 12px; letter-spacing: 0.22em; color: #e6e0ff; text-shadow: 0 0 10px rgba(123,45,255,0.9);">GRAB THE GALAXY · CLICK = SHOCKWAVE · HOLD = VORTEX · ENTER WHENEVER YOU'RE READY</div>
+      <div style="font-size: 10px; letter-spacing: 0.14em; color: #ff7fba;">⚠ photosensitivity advisory</div>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ════════ PHASE 01 — THE VOID CONSOLE (consultancy) ════════ -->
+<sc-if value="{{ isVoid }}" hint-placeholder-val="{{ false }}">
+  <div data-screen-label="Main — The Void Console">
+    <div style="position: fixed; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(ellipse at 50% 50%, transparent 48%, rgba(2,0,8,0.5) 100%);"></div>
+
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 22px; background: linear-gradient(180deg, rgba(2,0,8,0.85), transparent);">
+      <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.3em; color: #ffffff;">@danfrank<span style="color: #ff2d95; animation: blink 1.1s steps(1) infinite;">_</span></div>
+      <div style="display: flex; gap: 22px; align-items: center; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;">
+        <a href="#philosophy" style="color: #00f0ff; text-decoration: none;" style-hover="color: #ffffff; text-shadow: 0 0 12px #00f0ff;">philosophy</a>
+        <a href="#capabilities" style="color: #ff2d95; text-decoration: none;" style-hover="color: #ffffff; text-shadow: 0 0 12px #ff2d95;">capabilities</a>
+        <a href="#transmit" style="color: #00ff9d; text-decoration: none;" style-hover="color: #ffffff; text-shadow: 0 0 12px #00ff9d;">transmit</a>
+        <button onClick="{{ enterArchive }}" style="cursor: pointer; background: rgba(232,163,61,0.1); border: 1px solid rgba(232,163,61,0.75); color: #e8a33d; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; padding: 7px 14px;" style-hover="background: rgba(232,163,61,0.22); box-shadow: 0 0 26px rgba(232,163,61,0.4);">⬢ archive</button>
+      </div>
+    </div>
+
+    <main style="position: relative; z-index: 10;">
+
+      <section data-screen-label="Hero" style="min-height: 100vh; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 90px 24px 70px; pointer-events: none;">
+        <x-import component-from-global-scope="particle-type" from="./js/void-engine.js" text="@danfrank" style="width: min(94vw, 1320px); height: clamp(150px, 32vh, 340px); pointer-events: auto;" hint-size="100%,300px"></x-import>
+        <div style="margin-top: 8px; font-size: clamp(11px, 1.4vw, 15px); letter-spacing: 0.46em; color: #ffffff; text-transform: uppercase; text-shadow: 0 0 22px rgba(123,45,255,1), 0 0 60px rgba(255,45,149,0.7);">unique · ai · solutions</div>
+        <div style="margin-top: 22px; font-size: 11px; letter-spacing: 0.3em; color: #00f0ff; text-shadow: 0 0 12px rgba(0,240,255,0.8);">◉ CLICK IT — SHOCKWAVE · HOLD IT — VORTEX · IT'S ALIVE</div>
+        <div style="margin-top: 18px; max-width: 700px; text-align: center; font-size: 13px; line-height: 2.1; color: #b3abdd;">recursive self-analysis · adversarial imagination · bespoke machine builds<br>a consultancy for weirdos, by a weirdo.</div>
+        <div style="position: absolute; bottom: 26px; left: 50%; font-size: 11px; letter-spacing: 0.4em; color: #00f0ff; text-shadow: 0 0 14px #00f0ff; animation: floaty 2.4s ease-in-out infinite;">▼ DESCEND ▼</div>
+      </section>
+
+      <section id="philosophy" data-screen-label="Philosophy" style="position: relative; padding: 150px 24px 110px; display: flex; justify-content: center;">
+        <div style="max-width: 880px; display: flex; flex-direction: column; gap: 40px;">
+          <div style="font-size: 11px; letter-spacing: 0.45em; color: #00ff9d; text-shadow: 0 0 12px rgba(0,255,157,0.8);">/// 01 — THE PHILOSOPHY</div>
+          <h2 style="margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: clamp(30px, 5vw, 58px); line-height: 1.14; color: #ffffff; text-wrap: balance; animation: glitch1 5.6s steps(1) infinite;">YOU'VE BEEN GENERATING THE DATASET YOUR ENTIRE LIFE.</h2>
+          <p style="margin: 0; font-size: 14px; line-height: 2.2; color: #c5bee8; text-wrap: pretty;">Years of texts. Search histories. Notes, drafts, arguments, 3am voice memos. That isn't clutter — it's the highest-fidelity record of a mind that has ever existed, and it's yours. Most people let it rot in the cloud.</p>
+          <p style="margin: 0; font-size: 14px; line-height: 2.2; color: #c5bee8; text-wrap: pretty;">I anchor frontier models to that record and run recursion on it: deep analysis, passed across multiple tools, with prompting tuned until the outputs stop being generic and start being <em style="color: #ff2d95; font-style: normal; text-shadow: 0 0 14px rgba(255,45,149,0.9);">yours</em>. The results read less like a report and more like a mirror with opinions.</p>
+          <p style="margin: 0; font-size: 14px; line-height: 2.2; color: #c5bee8; text-wrap: pretty;">No CS degree. No pedigree. A childhood G4 tower, a pathological refusal to accept default settings, and an unreasonable number of hours spent finding out what these models actually do when you stop asking them normal questions.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 10px; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: clamp(13px, 2vw, 19px);">
+            <span style="color: #00f0ff; text-shadow: 0 0 22px rgba(0,240,255,1);">EXCAVATE</span>
+            <span style="color: #5e5880;">→</span>
+            <span style="color: #7b2dff; text-shadow: 0 0 22px rgba(123,45,255,1);">ANCHOR</span>
+            <span style="color: #5e5880;">→</span>
+            <span style="color: #ff2d95; text-shadow: 0 0 22px rgba(255,45,149,1);">RECURSE</span>
+            <span style="color: #5e5880;">→</span>
+            <span style="color: #00ff9d; text-shadow: 0 0 22px rgba(0,255,157,1);">ILLUMINATE</span>
+          </div>
+          <div style="margin-top: 6px; border: 1px solid rgba(232,163,61,0.5); background: rgba(10,6,24,0.7); backdrop-filter: blur(6px); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px;" style-hover="border-color: #e8a33d; box-shadow: 0 0 60px rgba(232,163,61,0.3);">
+            <div style="font-size: 10px; letter-spacing: 0.3em; color: #e8a33d;">PROOF OF WORK</div>
+            <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">I RAN THE FULL RECURSION ON MYSELF.</div>
+            <div style="font-size: 12px; line-height: 1.95; color: #a89fd0;">181,650 messages · 6,185 location fixes · 12,863 watches · 1,121 rated works · 15 years. Nine interactive instruments, one subject. The LEVIATHAN archive is the live demo of everything described above.</div>
+            <button onClick="{{ enterArchive }}" style="align-self: flex-start; cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; padding: 12px 20px; color: #020008; background: #e8a33d; border: 1px solid #e8a33d;" style-hover="background: #ffd28a; box-shadow: 0 0 40px rgba(232,163,61,0.5);">OPEN THE LEVIATHAN ARCHIVE ►</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" data-screen-label="Capabilities" style="position: relative; padding: 110px 24px; display: flex; justify-content: center;">
+        <div style="max-width: 1240px; width: 100%; display: flex; flex-direction: column; gap: 42px;">
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-size: 11px; letter-spacing: 0.45em; color: #ff2d95; text-shadow: 0 0 12px rgba(255,45,149,0.8);">/// 02 — CAPABILITIES</div>
+            <h2 style="margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: clamp(28px, 4.4vw, 50px); color: #ffffff; animation: glitch1 7.2s steps(1) infinite;">THE MENU</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px;">
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(0,240,255,0.55); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #00f0ff; transform: translateY(-5px); box-shadow: 0 0 60px rgba(0,240,255,0.4);">
+              <div style="font-size: 10px; letter-spacing: 0.3em; color: #00f0ff;">SVC/01</div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">PERSONALITY CARTOGRAPHY</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">Deep-structure analysis of how you actually think — patterns, contradictions, blind spots — sourced from your own words, not a twelve-question quiz.</div>
+            </div>
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(123,45,255,0.6); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #7b2dff; transform: translateY(-5px); box-shadow: 0 0 60px rgba(123,45,255,0.45);">
+              <div style="font-size: 10px; letter-spacing: 0.3em; color: #9d6bff;">SVC/02</div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">BIOGRAPHICAL EXCAVATION</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">Compiling the scattered archive of your life — texts, emails, histories, ephemera — into a coherent corpus a model can actually reason over.</div>
+            </div>
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(255,45,149,0.6); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #ff2d95; transform: translateY(-5px); box-shadow: 0 0 60px rgba(255,45,149,0.42);">
+              <div style="font-size: 10px; letter-spacing: 0.3em; color: #ff2d95;">SVC/03</div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">INTERPERSONAL SIGNAL SYNTHESIS</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">Communication analysis and generation: how you talk, how they talk, what is actually being said, and what to say next.</div>
+            </div>
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(0,255,157,0.55); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #00ff9d; transform: translateY(-5px); box-shadow: 0 0 60px rgba(0,255,157,0.4);">
+              <div style="font-size: 10px; letter-spacing: 0.3em; color: #00ff9d;">SVC/04</div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">FULL SYSTEM BUILDS</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">End-to-end custom AI systems designed around exactly one user: you. Not a SaaS subscription — a machine with your name on it.</div>
+            </div>
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(0,240,255,0.55); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #00f0ff; transform: translateY(-5px); box-shadow: 0 0 60px rgba(0,240,255,0.4);">
+              <div style="font-size: 10px; letter-spacing: 0.3em; color: #00f0ff;">SVC/05</div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">CONTEXT MEMORY ARCHITECTURE</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">Persistent memory setups so your tools stop meeting you for the first time every single morning.</div>
+            </div>
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(255,45,149,0.6); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #ff2d95; transform: translateY(-5px); box-shadow: 0 0 60px rgba(255,45,149,0.42);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 10px; letter-spacing: 0.3em; color: #ff2d95;">SVC/06</div>
+                <div style="font-size: 9px; letter-spacing: 0.2em; color: #020008; background: #ff2d95; padding: 3px 8px;">ADVERSARIAL</div>
+              </div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">HOSTILE CURIOSITY // TEXT</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">I push language models until they say the quiet part — stress-testing guardrails, failure modes, and the places the rules bend. Before someone less polite does.</div>
+            </div>
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(123,45,255,0.6); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #7b2dff; transform: translateY(-5px); box-shadow: 0 0 60px rgba(123,45,255,0.45);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 10px; letter-spacing: 0.3em; color: #9d6bff;">SVC/07</div>
+                <div style="font-size: 9px; letter-spacing: 0.2em; color: #020008; background: #9d6bff; padding: 3px 8px;">ADVERSARIAL</div>
+              </div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">HOSTILE CURIOSITY // VISUAL</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">The same energy pointed at image and video systems — finding what the filters miss, and documenting exactly how they missed it.</div>
+            </div>
+
+            <div style="background: rgba(10,6,24,0.74); border: 1px solid rgba(0,255,157,0.55); backdrop-filter: blur(6px); padding: 26px; display: flex; flex-direction: column; gap: 12px; transition: all 0.25s ease;" style-hover="border-color: #00ff9d; transform: translateY(-5px); box-shadow: 0 0 60px rgba(0,255,157,0.4);">
+              <div style="font-size: 10px; letter-spacing: 0.3em; color: #00ff9d;">SVC/08</div>
+              <div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; color: #ffffff; line-height: 1.4;">TECHNICAL PLUS-UP</div>
+              <div style="font-size: 12px; line-height: 1.95; color: #a89fd0; text-wrap: pretty;">Terminal literacy, coding tools, custom instructions, workflow surgery. I learned this the stupid hard way so you don't have to.</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="transmit" data-screen-label="Transmit" style="position: relative; padding: 150px 24px 90px; display: flex; justify-content: center;">
+        <div style="max-width: 760px; width: 100%; display: flex; flex-direction: column; gap: 28px;">
+          <div style="font-size: 11px; letter-spacing: 0.45em; color: #00f0ff; text-shadow: 0 0 12px rgba(0,240,255,0.8);">/// 03 — OPEN A CHANNEL</div>
+          <h2 style="margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: clamp(28px, 4.4vw, 50px); color: #ffffff; animation: glitch1 6.4s steps(1) infinite;">TRANSMIT</h2>
+          <p style="margin: 0; font-size: 13px; line-height: 2.1; color: #a89fd0; text-wrap: pretty;">The composer below fires from <em style="font-style: normal; color: #00f0ff;">your</em> account on X — straight into my mentions, which I actually watch. This is the fastest known path to a reply.</p>
+
+          <div style="border: 1px solid rgba(0,240,255,0.65); background: rgba(2,8,16,0.82); backdrop-filter: blur(8px); padding: 22px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 0 80px rgba(0,240,255,0.18);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+              <div style="font-size: 11px; letter-spacing: 0.3em; color: #4d8fa0;">── TRANSMISSION COMPOSER ──</div>
+              <div style="font-size: 11px; letter-spacing: 0.2em; color: #020008; background: #00f0ff; padding: 4px 10px; font-weight: 700;">TO: @danfrank</div>
+            </div>
+            <textarea value="{{ msg }}" onChange="{{ setMsg }}" placeholder="describe the weird thing you want built / broken / understood…" style="width: 100%; min-height: 130px; background: transparent; border: 1px dashed rgba(0,240,255,0.5); color: #d9f6ff; font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.9; padding: 14px; resize: vertical;"></textarea>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+              <div style="font-size: 11px; letter-spacing: 0.15em; color: {{ charColor }};">{{ charsLeft }} CHARS REMAIN</div>
+              <button onClick="{{ transmit }}" style="cursor: pointer; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; padding: 14px 24px; color: #020008; background: #00f0ff; border: 1px solid #00f0ff; animation: pulseglow 3s ease-in-out infinite;" style-hover="background: #ff2d95; border-color: #ff2d95;">TRANSMIT VIA X ►</button>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px; color: #5e5880; font-size: 11px; letter-spacing: 0.3em;">
+            <div style="flex: 1; height: 1px; background: rgba(94,88,128,0.5);"></div>
+            <div>OR</div>
+            <div style="flex: 1; height: 1px; background: rgba(94,88,128,0.5);"></div>
+          </div>
+
+          <a href="{{ mailto }}" style="display: block; text-decoration: none; border: 1px solid rgba(94,88,128,0.5); background: rgba(10,6,24,0.6); padding: 18px 22px; color: #a89fd0; font-size: 12px; line-height: 2;" style-hover="border-color: #7b2dff; color: #ddd5fa; box-shadow: 0 0 40px rgba(123,45,255,0.3);">route to the dead-letter inbox → dfrank88@gmail.com<br><span style="font-size: 10px; color: #5e5880;">checked approximately never. expected latency: weeks → ∞. you were warned.</span></a>
+        </div>
+      </section>
+
+      <footer style="position: relative; border-top: 1px solid rgba(123,45,255,0.5); overflow: hidden; background: rgba(2,0,8,0.6);">
+        <div style="display: flex; white-space: nowrap; animation: ticker 22s linear infinite; font-size: 11px; letter-spacing: 0.32em; color: #9d6bff; padding: 16px 0;">
+          <span>@DANFRANK · UNIQUE AI SOLUTIONS · FOR WEIRDOS, BY WEIRDOS · NO COOKIES · NO TRACKERS · ALL SIGNAL · EST. SOMEWHERE IN THE VOID · </span><span>@DANFRANK · UNIQUE AI SOLUTIONS · FOR WEIRDOS, BY WEIRDOS · NO COOKIES · NO TRACKERS · ALL SIGNAL · EST. SOMEWHERE IN THE VOID · </span>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</sc-if>
+
+<!-- ════════ PHASE 02 — LEVIATHAN ARCHIVE (the visualizers) ════════ -->
+<sc-if value="{{ isArchive }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="LEVIATHAN console" style="position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column; background: transparent; color: #e8e6e1; font-family: 'Space Grotesk', sans-serif; user-select: none; -webkit-user-select: none;">
+
+  <!-- ======== HEADER ======== -->
+  <div style="display: flex; align-items: stretch; gap: 24px; padding: 14px 22px 10px 22px; border-bottom: 1px solid #161b24; flex-wrap: wrap; background: rgba(7,9,13,0.86);">
+    <div style="display: flex; flex-direction: column; justify-content: center; gap: 2px; min-width: 235px;">
+      <div style="display: flex; align-items: baseline; gap: 8px;">
+        <div style="font-size: 23px; font-weight: 700; letter-spacing: 0.22em;">LEVIATHAN</div>
+        <div style="width: 8px; height: 8px; background: #e8a33d; transform: rotate(45deg); animation: lvBlink 2.4s infinite;"></div>
+        <button onClick="{{ exitArchive }}" style="margin-left: 10px; cursor: pointer; background: none; border: 1px solid #222a37; color: #6b7484; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.22em; padding: 5px 10px;" style-hover="color: #00f0ff; border-color: #00f0ff;">◂ VOID</button>
+      </div>
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.18em; color: #5b6472;">TOTAL RECORD &middot; 2011&ndash;2026 &middot; SIX CORPORA, ONE SUBJECT</div>
+    </div>
+
+    <div style="display: flex; gap: 26px; align-items: center; flex: 1; justify-content: flex-end; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8a33d;">{{ cMsgs }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">MESSAGES</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8e6e1;">{{ cThreads }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">THREADS</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8e6e1;">{{ cPlaces }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">PLACES</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #4fc3e8;">{{ cKm }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">KM TRACKED</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; align-items: flex-end;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; color: #e8e6e1;">{{ cWorks }}</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.2em; color: #5b6472;">RATED WORKS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== TAB BAR ======== -->
+  <div style="display: flex; gap: 6px; padding: 8px 22px; border-bottom: 1px solid #161b24; align-items: center; background: rgba(7,9,13,0.86); overflow-x: auto;">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
+      <div onClick="{{ t.onClick }}" style="{{ t.style }}">
+        <span style="opacity: 0.55; margin-right: 7px;">{{ t.num }}</span>{{ t.label }}
+      </div>
+    </sc-for>
+    <div style="flex: 1;"></div>
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #3d4554;">KEYS 1&ndash;9</div>
+  </div>
+
+  <!-- ======== STAGE ======== -->
+  <div style="flex: 1; position: relative; min-height: 0;" data-screen-label="{{ stageLabel }}">
+    <canvas ref="{{ canvasRef }}" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: crosshair;"></canvas>
+
+    <!-- module chips -->
+    <div style="position: absolute; top: 12px; right: 16px; display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; max-width: 70%;">
+      <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
+        <div onClick="{{ ch.onClick }}" style="{{ ch.style }}">{{ ch.label }}</div>
+      </sc-for>
+    </div>
+
+    <!-- loading overlay -->
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: rgba(7,9,13,0.92);">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.3em; color: #e8a33d;">DECOMPRESSING CORPUS</div>
+        <div style="width: 340px; height: 2px; background: #1a2029; overflow: hidden; position: relative;">
+          <div style="position: absolute; top: 0; left: 0; width: 120px; height: 100%; background: linear-gradient(90deg, transparent, #e8a33d, transparent); animation: lvShimmer 1.1s linear infinite;"></div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; color: #5b6472; text-align: center; line-height: 1.9;">181,650 MESSAGES &middot; 6,185 LOCATION FIXES &middot; 12,863 WATCHES<br>1,121 RATED WORKS &middot; 2,210 DAYS OF RHETORIC &middot; 41,971 KM</div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <div style="display: flex; align-items: center; gap: 16px; padding: 7px 22px; border-top: 1px solid #161b24; background: rgba(7,9,13,0.86);">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: #6b7484;">{{ hint }}</div>
+    <div style="flex: 1;"></div>
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #3d4554;">LEVIATHAN CORPUS &middot; SEMANTIC LOCATION &middot; FINALFAVS &middot; @danfrank</div>
+  </div>
+</div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}}">
+
+class Component extends DCLogic {
+  state = {
+    // shell
+    phase: 'splash',
+    flash: false,
+    msg: '',
+    // console
+    loading: true,
+    tab: 'pulse',
+    cnt: { m: 0, t: 0, p: 0, k: 0, w: 0 },
+    clockMode: 'all',
+    atlasPlay: false,
+    atlasSpeed: 120,
+    atlasView: 'FULL',
+    lexMode: 'pack',
+    shelfCat: 'ALL',
+    weatherView: 'pens',
+    weatherPlay: false,
+    weatherSpeed: 9,
+    weatherMode: 'rate',
+    weatherLayers: { love: true, prof: true, sorry: true, qual: true, imp: true, caps: true },
+    anniePlay: false,
+    annieSpeed: 4,
+    signalMusic: false
+  };
+
+  // ---------- constants ----------
+  COL = {
+    bg: '#07090d', panel: '#10141b', line: '#1d2430', grid: '#141a23',
+    txt: '#e8e6e1', dim: '#5b6472', faint: '#3d4554',
+    amber: '#e8a33d', amberHi: '#ffd28a', cyan: '#4fc3e8', cyanHi: '#a6e6ff',
+    red: '#e85d4f', green: '#7fd486', rose: '#e87da0', violet: '#9b8cf2', violetHi: '#cfc4ff'
+  };
+  MONO = "'IBM Plex Mono', monospace";
+  GROT = "'Space Grotesk', sans-serif";
+
+  // ---------- lifecycle ----------
+  componentDidMount() {
+    this.alive = true;
+    this.mouse = { x: -1, y: -1, down: false, dragTab: null };
+    this.lastT = 0;
+    document.body.style.overflow = 'hidden'; // splash phase
+    this.onKey = (e) => {
+      if (e.key === 'Enter' && this.state.phase === 'splash') { this._setPhase('void'); return; }
+      if (e.key === 'Escape' && this.state.phase === 'archive') { this._setPhase('void'); return; }
+      if (this.state.phase !== 'archive') return;
+      if (e.target && (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT')) return;
+      const order = ['pulse', 'clock', 'orbits', 'atlas', 'lexicon', 'shelf', 'weather', 'annie', 'signal'];
+      const i = '123456789'.indexOf(e.key);
+      if (i >= 0) this.setTab(order[i]);
+      if (e.key === ' ' && this.state.tab === 'atlas') { e.preventDefault(); this.setState(s => ({ atlasPlay: !s.atlasPlay })); }
+      if (e.key === ' ' && this.state.tab === 'annie') { e.preventDefault(); this.setState(s => ({ anniePlay: !s.anniePlay })); }
+      if (e.key === ' ' && this.state.tab === 'weather' && this.state.weatherView === 'pens') { e.preventDefault(); this.setState(s => ({ weatherPlay: !s.weatherPlay })); }
+    };
+    window.addEventListener('keydown', this.onKey);
+    // Data is encrypted and loaded on demand — the archive prompts for a
+    // passphrase (see requestArchive/_showGate) before decrypting.
+  }
+
+  componentWillUnmount() {
+    this.alive = false;
+    window.removeEventListener('keydown', this.onKey);
+    if (this.ro) this.ro.disconnect();
+  }
+
+  // Decrypt the single encrypted data bundle (AES-256-GCM, key = PBKDF2(passphrase)).
+  // A wrong passphrase makes AES-GCM authentication fail and throws, which the gate
+  // catches to show "wrong passphrase". The raw data only ever exists in memory here.
+  async _decryptBundle(pw) {
+    const src = (id, path) => (window.__resources && window.__resources[id]) || path;
+    const res = await fetch(src('leviathan', 'data/leviathan.enc'));
+    if (!res.ok) throw new Error('bundle fetch failed');
+    const blob = await res.json();
+    const b = (s) => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey(
+      { name: 'PBKDF2', salt: b(blob.salt), iterations: blob.iter, hash: 'SHA-256' },
+      base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b(blob.iv) }, key, b(blob.ct));
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+
+  async loadData(pw) {
+    {
+      const data = await this._decryptBundle(pw);
+      const g = (id) => data[id];
+      const msg = g('messages'), plc = g('places'), fav = g('favs'),
+        rhetD = g('rhetoricalDaily'), evs = g('rhetoricalEvents'), annie = g('annie'),
+        frags = g('fragments'), ytd = g('youtubeDaily'), yte = g('youtubeEntities'),
+        yti = g('youtubeInfluence'), wWeekly = g('weatherWeeklyNA'),
+        wAnalysis = g('weatherAnalysis'), wFrags = g('weatherFragsNA'), dailyCross = g('dailyCross');
+      const rhet = { daily: rhetD.daily };
+      this.buildDerived(msg, plc, fav);
+      const dec = (s) => (s || '').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n));
+      this.D.rhet = rhet.daily;
+      this.D.rhetEvents = evs.top;
+      this.D.annie = annie;
+      this.D.frags = frags.fragments;
+      this.D.yt = {
+        daily: ytd.daily.filter(d => d.day >= '2009-01-01'),
+        total: ytd.total_watches,
+        artists: yte.top_music_artists.map(a => ({ name: dec(a.name), count: a.count })),
+        infl: yti.top_influencers.map(a => ({ ...a, artist: dec(a.artist) }))
+      };
+      // 07 WEATHER — non-Annie one-pass corpus (analyze_weather.py output)
+      this.D.wx = {
+        weeks: (wWeekly && wWeekly.weeks) || [],
+        analysis: wAnalysis || {},
+        fragments: (wFrags && wFrags.fragments) || []
+      };
+      // 08 POLYGRAPH — corpus-wide high-signal fragments (one per day, deduped)
+      const seen = new Set();
+      this.D.crossFrags = [];
+      for (const dd of (dailyCross && dailyCross.daily) || []) {
+        const hs = dd.high_signal_fragments;
+        if (!hs || !hs.length) continue;
+        const t = dec(hs[0]).trim();
+        if (t.length < 8 || seen.has(t)) continue;
+        seen.add(t);
+        this.D.crossFrags.push({ day: dd.day, text: t });
+      }
+      this.setState({ loading: false });
+      this.animateCounters();
+    }
+  }
+
+  // ---------- archive passphrase gate ----------
+  // The archive is only reachable after a successful decrypt. Encryption is the
+  // real protection; this overlay is just the passphrase entry surface.
+  requestArchive() {
+    if (this._dataLoaded) { this._setPhase('archive'); return; }
+    this._showGate();
+  }
+
+  _showGate() {
+    if (this._gateEl) { this._gateEl.style.display = 'flex'; setTimeout(() => this._gateInput.focus(), 30); return; }
+    const ov = document.createElement('div');
+    ov.style.cssText = "position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(2,0,8,0.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:'IBM Plex Mono',monospace;";
+    const box = document.createElement('div');
+    box.style.cssText = 'width:min(420px,86vw);border:1px solid rgba(232,163,61,0.5);background:rgba(8,8,18,0.96);padding:30px 28px;box-shadow:0 0 60px rgba(232,163,61,0.18);';
+    box.innerHTML =
+      '<div style="font-size:11px;letter-spacing:0.3em;color:#e8a33d;margin-bottom:6px;">⬢ LEVIATHAN ARCHIVE</div>'
+      + '<div style="font-size:12px;line-height:1.7;color:#a89fd0;margin-bottom:18px;">This archive is encrypted. Enter the passphrase to decrypt and view the data.</div>'
+      + '<input type="password" autocomplete="off" placeholder="passphrase" style="width:100%;box-sizing:border-box;background:rgba(0,0,0,0.5);border:1px solid rgba(232,163,61,0.4);color:#ffd28a;font-family:inherit;font-size:13px;padding:11px 12px;letter-spacing:0.05em;outline:none;">'
+      + '<div data-err style="min-height:16px;font-size:10px;letter-spacing:0.1em;color:#ff2d95;margin:8px 2px 0;"></div>'
+      + '<button data-go style="width:100%;margin-top:10px;cursor:pointer;background:#e8a33d;border:1px solid #e8a33d;color:#020008;font-family:inherit;font-weight:700;font-size:11px;letter-spacing:0.22em;padding:12px;">DECRYPT ►</button>'
+      + '<button data-cancel style="width:100%;margin-top:8px;cursor:pointer;background:none;border:1px solid rgba(168,159,208,0.3);color:#a89fd0;font-family:inherit;font-size:10px;letter-spacing:0.2em;padding:9px;">CANCEL</button>';
+    ov.appendChild(box);
+    document.body.appendChild(ov);
+    const input = box.querySelector('input');
+    const err = box.querySelector('[data-err]');
+    const go = box.querySelector('[data-go]');
+    this._gateEl = ov; this._gateInput = input;
+    const submit = async () => {
+      const pw = input.value;
+      if (!pw) return;
+      err.textContent = ''; go.disabled = true; go.textContent = 'DECRYPTING…';
+      try {
+        await this.loadData(pw);
+        this._dataLoaded = true;
+        ov.style.display = 'none';
+        this._setPhase('archive');
+      } catch (e) {
+        err.textContent = '✕ WRONG PASSPHRASE — ACCESS DENIED';
+        go.disabled = false; go.textContent = 'DECRYPT ►';
+        input.select();
+      }
+    };
+    go.addEventListener('click', submit);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+    box.querySelector('[data-cancel]').addEventListener('click', () => { ov.style.display = 'none'; });
+    setTimeout(() => input.focus(), 30);
+  }
+
+  // ---------- derived data ----------
+  d2i(dateStr) { return Math.round(Date.UTC(+dateStr.slice(0, 4), +dateStr.slice(5, 7) - 1, +dateStr.slice(8, 10)) / 86400000); }
+  i2d(idx) { const d = new Date(idx * 86400000); return d; }
+  fmtDate(idx, long) {
+    const d = this.i2d(idx);
+    const M = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    if (long) return M[d.getUTCMonth()] + ' ' + String(d.getUTCDate()).padStart(2, '0') + ' ' + d.getUTCFullYear();
+    return M[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+  }
+
+  buildDerived(msg, plc, fav) {
+    const D = { msg, plc, fav };
+    // contiguous daily series
+    const first = this.d2i(msg.daily[0][0]);
+    const last = this.d2i(msg.daily[msg.daily.length - 1][0]);
+    const N = last - first + 1;
+    const S = new Float32Array(N), R = new Float32Array(N);
+    for (const [d, s, r] of msg.daily) { const i = this.d2i(d) - first; S[i] = s; R[i] = r; }
+    let maxDay = 1;
+    for (let i = 0; i < N; i++) maxDay = Math.max(maxDay, S[i], R[i]);
+    D.day0 = first; D.N = N; D.S = S; D.R = R; D.maxDay = maxDay;
+    D.eras = [
+      { a: '2011-03-18', b: '2013-05-01', label: 'NYC ONE', tone: 'amber' },
+      { a: '2013-05-01', b: '2019-02-01', label: 'UNIONTOWN', tone: 'slate' },
+      { a: '2019-02-01', b: '2025-02-01', label: 'NYC TWO', tone: 'amber' },
+      { a: '2025-02-01', b: '2026-06-09', label: 'RETURN', tone: 'slate' }
+    ].map(e => ({ ...e, i0: this.d2i(e.a) - first, i1: this.d2i(e.b) - first }));
+    D.events = [
+      ['2011-03-18', 'first recorded message'],
+      ['2015-11-26', 'annie thread opens'],
+      ['2019-02-15', 'move \u2192 307 E 76th'],
+      ['2025-02-22', 'return \u2192 337 saratoga'],
+      ['2025-09-09', 'loudest day on record \u00b7 1,373 msgs'],
+      ['2026-06-01', 'closure']
+    ].map(([d, label]) => ({ i: this.d2i(d) - first, label }));
+    // module states
+    this.M = {
+      pulse: { a: 0, b: N, ta: 0, tb: N, vx: 0, reveal: 0, drag: null },
+      clock: { rot: 0, rotV: 0, needle: 0, flash: new Float32Array(24), drag: null },
+      orbits: null,
+      atlas: null,
+      lexicon: null,
+      shelf: null
+    };
+    this.D = D;
+  }
+
+  animateCounters() {
+    const t0 = performance.now(), dur = 1500;
+    const target = { m: 181650, t: 568, p: 548, k: 41971, w: 1121 };
+    const step = () => {
+      if (!this.alive) return;
+      const p = Math.min(1, (performance.now() - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      this.setState({ cnt: { m: Math.round(target.m * e), t: Math.round(target.t * e), p: Math.round(target.p * e), k: Math.round(target.k * e), w: Math.round(target.w * e) } });
+      if (p < 1) setTimeout(step, 40);
+    };
+    step();
+  }
+
+  // ---------- canvas plumbing ----------
+  canvasRef = (el) => {
+    if (!el || el === this.cv) return;
+    this.cv = el;
+    this.ctx = el.getContext('2d');
+    const pos = (e) => { const r = el.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+    el.addEventListener('pointerdown', (e) => { el.setPointerCapture(e.pointerId); const p = pos(e); this.mouse.x = p.x; this.mouse.y = p.y; this.mouse.down = true; this.dispatch('down', p, e); });
+    el.addEventListener('pointermove', (e) => { const p = pos(e); const dx = p.x - this.mouse.x, dy = p.y - this.mouse.y; this.mouse.x = p.x; this.mouse.y = p.y; this.dispatch('move', { ...p, dx, dy }, e); });
+    el.addEventListener('pointerup', (e) => { const p = pos(e); this.mouse.down = false; this.dispatch('up', p, e); });
+    el.addEventListener('pointerleave', () => { this.mouse.x = -1; this.mouse.y = -1; this.mouse.down = false; this.dispatch('leave', {}, null); });
+    el.addEventListener('wheel', (e) => { e.preventDefault(); this.dispatch('wheel', pos(e), e); }, { passive: false });
+    el.addEventListener('dblclick', (e) => this.dispatch('dbl', pos(e), e));
+    if (this.ro) this.ro.disconnect();
+    this.ro = new ResizeObserver(() => this.fit());
+    this.ro.observe(el.parentElement);
+    this.fit();
+    if (!this.rafOn) { this.rafOn = true; requestAnimationFrame(this.loop); }
+  };
+
+  fit() {
+    if (!this.cv) return;
+    const r = this.cv.parentElement.getBoundingClientRect();
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    this.W = Math.max(50, r.width); this.H = Math.max(50, r.height);
+    this.cv.width = Math.round(this.W * dpr); this.cv.height = Math.round(this.H * dpr);
+    this.dpr = dpr;
+  }
+
+  loop = (t) => {
+    if (!this.alive) return;
+    requestAnimationFrame(this.loop);
+    const dt = Math.min(0.05, (t - this.lastT) / 1000 || 0.016);
+    this.lastT = t;
+    if (!this.ctx) return;
+    const ctx = this.ctx;
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    // translucent wash instead of opaque fill — the galaxy void bleeds through the stage
+    ctx.clearRect(0, 0, this.W, this.H);
+    ctx.fillStyle = 'rgba(7,9,13,0.78)';
+    ctx.fillRect(0, 0, this.W, this.H);
+    if (!this.D || this.state.loading) return;
+    const fn = this['draw_' + this.state.tab];
+    if (fn) fn.call(this, ctx, this.W, this.H, dt);
+  };
+
+  dispatch(type, p, e) {
+    if (!this.D || this.state.loading) return;
+    const fn = this['pt_' + this.state.tab];
+    if (fn) fn.call(this, type, p, e);
+  }
+
+  setTab = (tab) => { if (tab !== this.state.tab) this.setState({ tab }); };
+
+  // ---------- shared draw helpers ----------
+  card(ctx, x, y, lines, opts) {
+    // lines: [[text, color, font]] ; auto-flips to stay on screen
+    const o = opts || {};
+    ctx.save();
+    let w = 0;
+    const lh = o.lh || 16;
+    for (const [txt, , font] of lines) { ctx.font = font || ('10px ' + this.MONO); w = Math.max(w, ctx.measureText(txt).width); }
+    w += 24; const h = lines.length * lh + 16;
+    let bx = x + 14, by = y - h - 10;
+    if (bx + w > this.W - 8) bx = x - w - 14;
+    if (by < 8) by = y + 16;
+    if (bx < 8) bx = 8;
+    ctx.fillStyle = 'rgba(13,17,24,0.94)';
+    ctx.strokeStyle = o.border || this.COL.line;
+    ctx.beginPath(); ctx.rect(bx, by, w, h); ctx.fill(); ctx.stroke();
+    lines.forEach(([txt, color, font], i) => {
+      ctx.font = font || ('10px ' + this.MONO);
+      ctx.fillStyle = color || this.COL.txt;
+      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText(txt, bx + 12, by + 12 + (i + 0.55) * lh - 4);
+    });
+    ctx.restore();
+    return { bx, by, w, h };
+  }
+
+  fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+
+  maskId(id) {
+    if (/^\+\d{11}$/.test(id)) return '+' + id.slice(1, 2) + ' ' + id.slice(2, 5) + ' \u00b7\u00b7\u00b7 ' + id.slice(7);
+    if (id.includes('@')) return id.slice(0, 4) + '\u00b7\u00b7\u00b7@';
+    if (id.startsWith('chat')) return 'GROUP \u00b7' + id.slice(-4);
+    return id.slice(0, 12);
+  }
+
+  // ============================================================
+  // MODULE 01 — PULSE
+  // ============================================================
+  draw_pulse(ctx, W, H, dt) {
+    const D = this.D, C = this.COL, P = this.M.pulse;
+    P.reveal = Math.min(1, P.reveal + dt * 0.8);
+    // inertia + smoothing
+    if (!this.mouse.down && Math.abs(P.vx) > 0.001) {
+      const span = P.tb - P.ta;
+      P.ta -= P.vx * span; P.tb -= P.vx * span; P.vx *= 0.93;
+      this.pulseClamp();
+    }
+    P.a += (P.ta - P.a) * Math.min(1, dt * 11);
+    P.b += (P.tb - P.b) * Math.min(1, dt * 11);
+
+    const eraY = 8, eraH = 20;
+    const wTop = 42, wBot = H - 104;
+    const mid = (wTop + wBot) / 2, half = (wBot - wTop) / 2 - 4;
+    const mmY = H - 64, mmH = 34;
+    const span = Math.max(1, P.b - P.a);
+    const xOf = (i) => ((i - P.a) / span) * W;
+    const iOf = (x) => P.a + (x / W) * span;
+
+    // era bands
+    for (const e of D.eras) {
+      const x0 = Math.max(0, xOf(e.i0)), x1 = Math.min(W, xOf(e.i1));
+      if (x1 < 0 || x0 > W || x1 - x0 < 2) continue;
+      ctx.fillStyle = e.tone === 'amber' ? 'rgba(232,163,61,0.07)' : 'rgba(79,195,232,0.05)';
+      ctx.fillRect(x0, eraY, x1 - x0, eraH);
+      ctx.fillStyle = e.tone === 'amber' ? 'rgba(232,163,61,0.06)' : 'rgba(79,195,232,0.04)';
+      ctx.fillRect(x0, wTop, x1 - x0, wBot - wTop);
+      if (x1 - x0 > 70) {
+        ctx.font = '9px ' + this.MONO;
+        ctx.fillStyle = e.tone === 'amber' ? C.amber : C.cyan;
+        ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+        ctx.fillText(e.label, x0 + 8, eraY + eraH / 2 + 0.5);
+      }
+    }
+
+    // year grid
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    const y0 = this.i2d(D.day0 + Math.floor(P.a)).getUTCFullYear();
+    const y1 = this.i2d(D.day0 + Math.ceil(P.b)).getUTCFullYear();
+    for (let y = y0; y <= y1 + 1; y++) {
+      const i = this.d2i(y + '-01-01') - D.day0;
+      const x = xOf(i);
+      if (x < -40 || x > W + 40) continue;
+      ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, wTop); ctx.lineTo(x, wBot + 16); ctx.stroke();
+      ctx.font = '10px ' + this.MONO; ctx.fillStyle = C.dim;
+      ctx.fillText(String(y), x, wBot + 20);
+    }
+    // month ticks when zoomed
+    if (span < 1200) {
+      for (let y = y0; y <= y1; y++) for (let m = 1; m < 12; m++) {
+        const i = this.d2i(y + '-' + String(m + 1).padStart(2, '0') + '-01') - D.day0;
+        const x = xOf(i);
+        if (x < 0 || x > W) continue;
+        ctx.strokeStyle = 'rgba(20,26,35,0.7)';
+        ctx.beginPath(); ctx.moveTo(x, mid - half * 0.5); ctx.lineTo(x, mid + half * 0.5); ctx.stroke();
+        if (span < 420) {
+          ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+          ctx.fillText('JFMAMJJASOND'[m], x, wBot + 6);
+        }
+      }
+    }
+
+    // midline
+    ctx.strokeStyle = '#222a37'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, mid); ctx.lineTo(W, mid); ctx.stroke();
+
+    // waveform columns
+    const amp = (v) => Math.min(1, Math.sqrt(v / D.maxDay) * 1.12) * half;
+    const revealX = P.reveal * W * 1.15;
+    for (let x = 0; x < W; x++) {
+      if (x > revealX) break;
+      const i0 = Math.max(0, Math.floor(iOf(x))), i1 = Math.min(D.N - 1, Math.max(i0, Math.floor(iOf(x + 1))));
+      if (i0 >= D.N || i1 < 0) continue;
+      let s = 0, r = 0;
+      for (let i = i0; i <= i1; i++) { if (D.S[i] > s) s = D.S[i]; if (D.R[i] > r) r = D.R[i]; }
+      const fade = Math.min(1, (revealX - x) / 60);
+      if (s > 0) {
+        const h = amp(s);
+        const g = ctx.createLinearGradient(0, mid - h, 0, mid);
+        g.addColorStop(0, 'rgba(232,163,61,' + (0.95 * fade) + ')');
+        g.addColorStop(1, 'rgba(232,163,61,' + (0.18 * fade) + ')');
+        ctx.fillStyle = g;
+        ctx.fillRect(x, mid - h, 1, h);
+      }
+      if (r > 0) {
+        const h = amp(r);
+        const g = ctx.createLinearGradient(0, mid, 0, mid + h);
+        g.addColorStop(0, 'rgba(79,195,232,' + (0.16 * fade) + ')');
+        g.addColorStop(1, 'rgba(79,195,232,' + (0.85 * fade) + ')');
+        ctx.fillStyle = g;
+        ctx.fillRect(x, mid, 1, h);
+      }
+    }
+    // axis legend
+    ctx.font = '9px ' + this.MONO; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = C.amber; ctx.fillText('\u25b2 SENT', 10, wTop + 8);
+    ctx.fillStyle = C.cyan; ctx.fillText('\u25bc RECEIVED', 10, wBot - 8);
+
+    // event pins
+    let hoverEvent = null;
+    for (const ev of D.events) {
+      const x = xOf(ev.i);
+      if (x < -10 || x > W + 10) continue;
+      const near = Math.abs(this.mouse.x - x) < 7 && this.mouse.y > wTop && this.mouse.y < wBot;
+      if (near) hoverEvent = { ...ev, x };
+      ctx.save();
+      ctx.translate(x, mid);
+      ctx.rotate(Math.PI / 4);
+      ctx.fillStyle = near ? C.amberHi : C.amber;
+      const s = near ? 5.5 : 4;
+      ctx.fillRect(-s / 2, -s / 2, s, s);
+      ctx.restore();
+    }
+
+    // minimap
+    this.pulseMini(ctx, W, mmY, mmH);
+
+    // hover crosshair + card
+    const mx = this.mouse.x, my = this.mouse.y;
+    if (mx >= 0 && my > wTop && my < wBot && !P.drag) {
+      const di = Math.floor(iOf(mx));
+      if (di >= 0 && di < D.N) {
+        ctx.strokeStyle = 'rgba(232,230,225,0.25)';
+        ctx.setLineDash([3, 4]);
+        ctx.beginPath(); ctx.moveTo(mx, wTop); ctx.lineTo(mx, wBot); ctx.stroke();
+        ctx.setLineDash([]);
+        const perPx = span / W;
+        let lines;
+        if (perPx <= 1.6) {
+          const s = D.S[di], r = D.R[di];
+          lines = [
+            [this.fmtDate(D.day0 + di, true), C.txt, '600 11px ' + this.MONO],
+            [this.fmt(s) + ' sent', C.amber],
+            [this.fmt(r) + ' received', C.cyan]
+          ];
+        } else {
+          const w = Math.ceil(perPx * 3);
+          let s = 0, r = 0;
+          for (let i = Math.max(0, di - w); i <= Math.min(D.N - 1, di + w); i++) { s += D.S[i]; r += D.R[i]; }
+          lines = [
+            ['\u2248 ' + this.fmtDate(D.day0 + di), C.txt, '600 11px ' + this.MONO],
+            [this.fmt(s) + ' sent / ' + this.fmt(r) + ' recv', C.dim],
+            ['in surrounding ' + (2 * w + 1) + ' days', C.faint]
+          ];
+        }
+        if (hoverEvent) lines.push(['\u25c6 ' + hoverEvent.label, C.amberHi]);
+        this.card(ctx, mx, Math.min(my, mid), lines);
+      }
+    }
+  }
+
+  pulseMini(ctx, W, y, h) {
+    const D = this.D, C = this.COL, P = this.M.pulse;
+    if (!this._miniCache || this._miniCache.w !== W) {
+      const cols = new Float32Array(W * 2);
+      for (let x = 0; x < W; x++) {
+        const i0 = Math.floor((x / W) * D.N), i1 = Math.max(i0, Math.floor(((x + 1) / W) * D.N) - 1);
+        let s = 0, r = 0;
+        for (let i = i0; i <= i1 && i < D.N; i++) { if (D.S[i] > s) s = D.S[i]; if (D.R[i] > r) r = D.R[i]; }
+        cols[x * 2] = s; cols[x * 2 + 1] = r;
+      }
+      this._miniCache = { w: W, cols };
+    }
+    const { cols } = this._miniCache;
+    ctx.fillStyle = '#0b0f15';
+    ctx.fillRect(0, y, W, h);
+    const midm = y + h / 2;
+    for (let x = 0; x < W; x += 1) {
+      const s = cols[x * 2], r = cols[x * 2 + 1];
+      const hs = Math.sqrt(s / D.maxDay) * (h / 2 - 2), hr = Math.sqrt(r / D.maxDay) * (h / 2 - 2);
+      if (s) { ctx.fillStyle = 'rgba(232,163,61,0.45)'; ctx.fillRect(x, midm - hs, 1, hs); }
+      if (r) { ctx.fillStyle = 'rgba(79,195,232,0.4)'; ctx.fillRect(x, midm, 1, hr); }
+    }
+    // view window
+    const x0 = (P.a / D.N) * W, x1 = (P.b / D.N) * W;
+    ctx.fillStyle = 'rgba(232,230,225,0.07)';
+    ctx.fillRect(x0, y, x1 - x0, h);
+    ctx.strokeStyle = 'rgba(232,230,225,0.4)'; ctx.lineWidth = 1;
+    ctx.strokeRect(x0 + 0.5, y + 0.5, Math.max(3, x1 - x0) - 1, h - 1);
+  }
+
+  pulseClamp() {
+    const P = this.M.pulse, N = this.D.N;
+    const span = Math.max(10, Math.min(N, P.tb - P.ta));
+    if (P.ta < -span * 0.15) P.ta = -span * 0.15;
+    if (P.tb > N + span * 0.15) P.tb = N + span * 0.15;
+    P.tb = P.ta + span;
+    if (P.tb > N + span * 0.15) { P.tb = N + span * 0.15; P.ta = P.tb - span; }
+  }
+
+  pt_pulse(type, p, e) {
+    const P = this.M.pulse, W = this.W, H = this.H;
+    const mmY = H - 64, mmH = 34;
+    const span = P.tb - P.ta;
+    if (type === 'down') {
+      if (p.y > mmY - 4 && p.y < mmY + mmH + 4) {
+        P.drag = 'mini';
+        const center = (p.x / W) * this.D.N;
+        P.ta = center - span / 2; P.tb = center + span / 2;
+        this.pulseClamp();
+      } else { P.drag = 'pan'; P.vx = 0; }
+    } else if (type === 'move') {
+      if (!this.mouse.down) return;
+      if (P.drag === 'pan') {
+        const d = (p.dx / W) * span;
+        P.ta -= d; P.tb -= d;
+        P.vx = p.dx / W;
+        this.pulseClamp();
+        P.a = P.ta; P.b = P.tb;
+      } else if (P.drag === 'mini') {
+        const center = (p.x / W) * this.D.N;
+        P.ta = center - span / 2; P.tb = center + span / 2;
+        this.pulseClamp();
+      }
+    } else if (type === 'up' || type === 'leave') {
+      P.drag = null;
+    } else if (type === 'wheel') {
+      const f = Math.exp(e.deltaY * 0.0016);
+      const pivot = P.ta + (p.x / W) * span;
+      P.ta = pivot - (pivot - P.ta) * f;
+      P.tb = pivot + (P.tb - pivot) * f;
+      this.pulseClamp();
+    } else if (type === 'dbl') {
+      P.ta = 0; P.tb = this.D.N;
+    }
+  }
+
+  pulseJump = (label) => {
+    const P = this.M.pulse, D = this.D;
+    if (label === 'FULL') { P.ta = 0; P.tb = D.N; return; }
+    const e = D.eras.find(x => x.label === label);
+    if (e) { P.ta = e.i0 - 20; P.tb = e.i1 + 20; this.pulseClamp(); }
+  };
+
+  // ============================================================
+  // placeholder for modules streaming in
+  // ============================================================
+  drawStandby(ctx, W, H, label) {
+    const C = this.COL;
+    ctx.font = '11px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = C.dim;
+    ctx.fillText(label + ' \u2014 CALIBRATING', W / 2, H / 2);
+  }
+  // ============================================================
+  // MODULE 02 — CLOCK  (spin a 15-year average day)
+  // ============================================================
+  draw_clock(ctx, W, H, dt) {
+    const D = this.D, C = this.COL, K = this.M.clock;
+    const hourly = D.msg.hourly, hw = D.msg.hourWeek;
+    const cx = W / 2, cy = H / 2 + 6;
+    const R = Math.min(W, H) * 0.40;
+    const r0 = R * 0.46;
+    K.geo = { cx, cy, R, r0 };
+    if (!K.drag) { K.rot += K.rotV * dt; K.rotV *= Math.pow(0.90, dt * 60); if (Math.abs(K.rotV) < 0.0002) K.rotV = 0; }
+    const rot = K.rot;
+    const mode = this.state.clockMode;
+    const val = (h) => mode === 'sent' ? hourly[h][0] : mode === 'recv' ? hourly[h][1] : hourly[h][0] + hourly[h][1];
+    let mx = 0; for (let h = 0; h < 24; h++) mx = Math.max(mx, val(h));
+    let hwMax = 0; for (let d = 0; d < 7; d++) for (let h = 0; h < 24; h++) hwMax = Math.max(hwMax, hw[d][h]);
+
+    const angOf = (h) => (h / 24) * Math.PI * 2 - Math.PI / 2 + rot;
+    const needleHour = ((Math.round((-rot / (Math.PI * 2)) * 24) % 24) + 24) % 24;
+
+    // inner polar heatmap: 7 day-of-week rings x 24 wedges
+    const ringW = (r0 - R * 0.10) / 7;
+    for (let d = 0; d < 7; d++) {
+      const ri = R * 0.10 + d * ringW, ro = ri + ringW - 1.2;
+      for (let h = 0; h < 24; h++) {
+        const a0 = angOf(h) - Math.PI / 24, a1 = angOf(h) + Math.PI / 24;
+        const t = hw[d][h] / hwMax;
+        ctx.beginPath();
+        ctx.arc(cx, cy, ro, a0, a1); ctx.arc(cx, cy, ri, a1, a0, true); ctx.closePath();
+        ctx.fillStyle = 'rgba(232,163,61,' + (0.05 + Math.pow(t, 0.7) * 0.85).toFixed(3) + ')';
+        ctx.fill();
+      }
+    }
+
+    // outer 24h bars
+    for (let h = 0; h < 24; h++) {
+      const a = angOf(h);
+      const t = val(h) / mx;
+      const len = (R - r0) * (0.15 + Math.pow(t, 0.85) * 0.85);
+      const aw = Math.PI / 24 * 0.82;
+      const isNeedle = h === needleHour, isHover = h === K.hoverH;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r0 + len, a - aw, a + aw); ctx.arc(cx, cy, r0, a + aw, a - aw, true); ctx.closePath();
+      if (isNeedle) ctx.fillStyle = mode === 'recv' ? C.cyanHi : C.amberHi;
+      else if (isHover) ctx.fillStyle = mode === 'recv' ? C.cyan : C.amber;
+      else ctx.fillStyle = mode === 'recv' ? 'rgba(79,195,232,' + (0.35 + t * 0.55).toFixed(3) + ')' : 'rgba(232,163,61,' + (0.35 + t * 0.55).toFixed(3) + ')';
+      ctx.fill();
+      const lx = cx + Math.cos(a) * (R + 16), ly = cy + Math.sin(a) * (R + 16);
+      ctx.font = (isNeedle ? '600 10px ' : '9px ') + this.MONO;
+      ctx.fillStyle = isNeedle ? C.txt : C.faint;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(h).padStart(2, '0'), lx, ly);
+    }
+
+    // fixed needle pointing up
+    ctx.strokeStyle = C.txt; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(cx, cy - r0 * 0.92); ctx.lineTo(cx, cy - R - 6); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx, cy - R - 12); ctx.lineTo(cx - 5, cy - R - 2); ctx.lineTo(cx + 5, cy - R - 2); ctx.closePath();
+    ctx.fillStyle = C.txt; ctx.fill();
+
+    // center readout plate
+    ctx.beginPath(); ctx.arc(cx, cy, R * 0.10 - 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#0b0f15'; ctx.fill();
+    const hv = hourly[needleHour];
+    ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '600 30px ' + this.MONO; ctx.fillStyle = C.txt;
+    ctx.fillText(String(needleHour).padStart(2, '0') + ':00', cx, cy - R * 0.46 - 14);
+    ctx.font = '9px ' + this.MONO;
+    ctx.fillStyle = C.amber; ctx.fillText(this.fmt(hv[0]) + ' SENT', cx - 50, cy - R * 0.46 + 6);
+    ctx.fillStyle = C.cyan; ctx.fillText(this.fmt(hv[1]) + ' RECV', cx + 50, cy - R * 0.46 + 6);
+    if (!D.totalsAll) D.totalsAll = D.msg.totals.sent + D.msg.totals.recv;
+    ctx.fillStyle = C.dim; ctx.font = '8px ' + this.MONO;
+    ctx.fillText(((hv[0] + hv[1]) / D.totalsAll * 100).toFixed(1) + '% OF 15 YEARS OF TRAFFIC HAPPENS HERE', cx, cy - R * 0.46 + 22);
+
+    // ring legend
+    ctx.fillStyle = C.faint; ctx.font = '8px ' + this.MONO;
+    ctx.fillText('INNER RINGS: SUN \u2192 SAT \u00b7 OUTER BARS: HOUR VOLUME', cx, cy + R + 30);
+
+    // hover detect
+    if (this.mouse.x >= 0) {
+      const dx = this.mouse.x - cx, dy = this.mouse.y - cy, rr = Math.hypot(dx, dy);
+      if (rr > r0 && rr < R + 8) {
+        let a = Math.atan2(dy, dx) - rot + Math.PI / 2;
+        a = ((a % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+        K.hoverH = Math.round(a / (Math.PI * 2) * 24) % 24;
+      } else K.hoverH = -1;
+    } else K.hoverH = -1;
+    if (K.hoverH >= 0 && K.hoverH !== needleHour && !K.drag) {
+      const hh = hourly[K.hoverH];
+      this.card(ctx, this.mouse.x, this.mouse.y, [
+        [String(K.hoverH).padStart(2, '0') + ':00 \u2014 ' + String((K.hoverH + 1) % 24).padStart(2, '0') + ':00', C.txt, '600 11px ' + this.MONO],
+        [this.fmt(hh[0]) + ' sent', C.amber],
+        [this.fmt(hh[1]) + ' received', C.cyan]
+      ]);
+    }
+  }
+  pt_clock(type, p, e) {
+    const K = this.M.clock, g = K.geo; if (!g) return;
+    if (type === 'down') {
+      if (Math.hypot(p.x - g.cx, p.y - g.cy) < g.R + 30) {
+        K.drag = true; K.lastAng = Math.atan2(p.y - g.cy, p.x - g.cx); K.rotV = 0;
+      }
+    } else if (type === 'move' && K.drag && this.mouse.down) {
+      const a = Math.atan2(p.y - g.cy, p.x - g.cx);
+      let d = a - K.lastAng;
+      if (d > Math.PI) d -= Math.PI * 2; if (d < -Math.PI) d += Math.PI * 2;
+      K.rot += d; K.lastAng = a; K.rotV = d * 55;
+    } else if (type === 'up' || type === 'leave') {
+      K.drag = false;
+    } else if (type === 'wheel') {
+      K.rotV = 0; K.rot += (e.deltaY > 0 ? -1 : 1) * (Math.PI * 2 / 24);
+    }
+  }
+  // ============================================================
+  // MODULE 03 — ORBITS  (fling the people in your life)
+  // ============================================================
+  initOrbits() {
+    const D = this.D;
+    const NOW = this.d2i('2026-06-09');
+    const list = D.msg.threads.slice(0, 18);
+    const maxTot = list[0].tot;
+    const cx = this.W / 2, cy = this.H / 2;
+    this.M.orbits = {
+      bodies: list.map((t, i) => {
+        const recencyDays = Math.max(0, NOW - this.d2i(t.last));
+        const rad = 80 + Math.min(1, Math.sqrt(recencyDays / 4200)) * (Math.min(this.W, this.H) * 0.42 - 80);
+        const size = 7 + Math.sqrt(t.tot / maxTot) * 32;
+        const theta = (i * 2.399963) % (Math.PI * 2); // golden angle spread
+        return {
+          t, baseRad: rad, theta, omega: (28 / rad) * (i % 2 ? 1 : -1) * 0.5,
+          size, px: cx + Math.cos(theta) * rad, py: cy + Math.sin(theta) * rad, vx: 0, vy: 0,
+          recencyDays
+        };
+      }),
+      pinned: null, drag: null, hover: null
+    };
+  }
+  draw_orbits(ctx, W, H, dt) {
+    if (!this.M.orbits || this._orbW !== W + 'x' + H) { this._orbW = W + 'x' + H; this.initOrbits(); }
+    const C = this.COL, O = this.M.orbits, cx = W / 2, cy = H / 2;
+    dt = Math.min(dt, 0.03);
+    // guide rings
+    ctx.strokeStyle = 'rgba(34,42,55,0.5)'; ctx.lineWidth = 1;
+    const maxR = Math.min(W, H) * 0.42;
+    for (let r = 80; r <= maxR; r += (maxR - 80) / 3) { ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('TALKED YESTERDAY', cx, cy - 80 + 12);
+    ctx.fillText('SILENT FOR A DECADE', cx, cy - maxR - 10);
+
+    for (const b of O.bodies) {
+      b.theta += b.omega * dt;
+      const ax = cx + Math.cos(b.theta) * b.baseRad, ay = cy + Math.sin(b.theta) * b.baseRad;
+      if (O.drag === b) { b.px = this.mouse.x; b.py = this.mouse.y; }
+      else {
+        const k = 3.2, damp = Math.pow(0.88, dt * 60);
+        b.vx += (ax - b.px) * k * dt; b.vy += (ay - b.py) * k * dt;
+        b.vx *= damp; b.vy *= damp;
+        b.px += b.vx * dt; b.py += b.vy * dt;
+      }
+    }
+    // connectors
+    for (const b of O.bodies) {
+      const lit = O.pinned === b || O.hover === b;
+      ctx.strokeStyle = 'rgba(232,163,61,' + (lit ? 0.45 : 0.10) + ')';
+      ctx.lineWidth = lit ? 1.4 : 0.8;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(b.px, b.py); ctx.stroke();
+    }
+    // bodies
+    for (const b of O.bodies) {
+      const lit = O.hover === b || O.pinned === b;
+      const named = !!b.t.name;
+      const base = named ? '232,163,61' : '124,152,182';
+      const g = ctx.createRadialGradient(b.px, b.py, 1, b.px, b.py, b.size);
+      g.addColorStop(0, 'rgba(' + base + ',' + (lit ? 1 : 0.9) + ')');
+      g.addColorStop(0.65, 'rgba(' + base + ',' + (lit ? 0.6 : 0.3) + ')');
+      g.addColorStop(1, 'rgba(' + base + ',0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(b.px, b.py, b.size * (lit ? 1.2 : 1), 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = named ? '#ffd28a' : '#dfe8f2';
+      ctx.beginPath(); ctx.arc(b.px, b.py, Math.max(2, b.size * 0.3), 0, Math.PI * 2); ctx.fill();
+      if (b.size > 15 || lit) {
+        ctx.font = '600 ' + (b.size > 22 ? 11 : 9) + 'px ' + this.MONO;
+        ctx.fillStyle = lit ? C.txt : C.dim; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+        ctx.fillText(b.t.name || this.maskId(b.t.id), b.px, b.py + b.size + 4);
+      }
+    }
+    // sun
+    const pulse = 1 + Math.sin(performance.now() / 600) * 0.05;
+    const sg = ctx.createRadialGradient(cx, cy, 2, cx, cy, 38 * pulse);
+    sg.addColorStop(0, '#fff4e0'); sg.addColorStop(0.45, '#e8a33d'); sg.addColorStop(1, 'rgba(232,163,61,0)');
+    ctx.fillStyle = sg; ctx.beginPath(); ctx.arc(cx, cy, 38 * pulse, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#07090d'; ctx.font = '700 11px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('DAN', cx, cy);
+
+    // hover detect
+    O.hover = null;
+    let best = 1e9;
+    for (const b of O.bodies) { const d = Math.hypot(this.mouse.x - b.px, this.mouse.y - b.py); if (d < b.size + 8 && d < best) { best = d; O.hover = b; } }
+    if (this.cv) this.cv.style.cursor = O.drag ? 'grabbing' : (O.hover ? 'grab' : 'crosshair');
+
+    const show = O.pinned || O.hover;
+    if (show) this.drawDossier(ctx, show, show === O.pinned);
+  }
+  drawDossier(ctx, b, pinned) {
+    const C = this.COL, t = b.t;
+    const x = 18, y = 64, w = 256, h = 158;
+    ctx.fillStyle = 'rgba(13,17,24,0.95)'; ctx.strokeStyle = pinned ? C.amber : C.line; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.rect(x, y, w, h); ctx.fill(); ctx.stroke();
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '700 15px ' + this.GROT; ctx.fillStyle = t.name ? C.amberHi : C.txt;
+    ctx.fillText(t.name || this.maskId(t.id), x + 14, y + 26);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText(this.fmt(t.tot) + ' MESSAGES \u00b7 ' + (b.recencyDays < 30 ? 'ACTIVE' : this.fmt(Math.round(b.recencyDays / 30.4)) + ' MO SILENT'), x + 14, y + 43);
+    const bw = w - 28, by = y + 54, sr = t.s / (t.s + t.r);
+    ctx.fillStyle = C.amber; ctx.fillRect(x + 14, by, bw * sr, 6);
+    ctx.fillStyle = C.cyan; ctx.fillRect(x + 14 + bw * sr, by, bw * (1 - sr), 6);
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.amber; ctx.fillText(this.fmt(t.s) + ' SENT', x + 14, by + 17);
+    ctx.textAlign = 'right'; ctx.fillStyle = C.cyan; ctx.fillText(this.fmt(t.r) + ' RECV', x + 14 + bw, by + 17);
+    ctx.textAlign = 'left';
+    // monthly sparkline
+    const monthly = t.monthly || [];
+    if (monthly.length > 1) {
+      const spX = x + 14, spY = y + 88, spW = w - 28, spH = 34;
+      let mxm = 1; for (const mm of monthly) mxm = Math.max(mxm, mm[1]);
+      ctx.strokeStyle = 'rgba(232,163,61,0.9)'; ctx.lineWidth = 1.3; ctx.beginPath();
+      monthly.forEach((mm, i) => {
+        const px = spX + (i / (monthly.length - 1)) * spW;
+        const py = spY + spH - Math.sqrt(mm[1] / mxm) * spH;
+        i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+      });
+      ctx.stroke();
+    }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText(t.first + '  \u2192  ' + t.last, x + 14, y + h - 12);
+    if (pinned) { ctx.fillStyle = C.amber; ctx.textAlign = 'right'; ctx.fillText('\u25c9 PINNED', x + w - 14, y + h - 12); ctx.textAlign = 'left'; }
+  }
+  pt_orbits(type, p) {
+    const O = this.M.orbits; if (!O) return;
+    if (type === 'down') {
+      let hit = null, best = 1e9;
+      for (const b of O.bodies) { const d = Math.hypot(p.x - b.px, p.y - b.py); if (d < b.size + 10 && d < best) { best = d; hit = b; } }
+      if (hit) { O.drag = hit; O.downPos = { x: p.x, y: p.y }; hit.vx = 0; hit.vy = 0; }
+    } else if (type === 'move') {
+      if (O.drag && this.mouse.down) { O.drag.vx = p.dx * 26; O.drag.vy = p.dy * 26; }
+    } else if (type === 'up') {
+      if (O.drag) {
+        const moved = O.downPos ? Math.hypot(p.x - O.downPos.x, p.y - O.downPos.y) : 0;
+        if (moved < 5) O.pinned = (O.pinned === O.drag ? null : O.drag);
+        O.drag = null;
+      } else O.pinned = null;
+    } else if (type === 'leave') { O.drag = null; }
+  }
+  orbitsScatter = () => {
+    const O = this.M.orbits; if (!O) return;
+    for (const b of O.bodies) { const a = Math.random() * Math.PI * 2; const f = 700 + Math.random() * 1100; b.vx = Math.cos(a) * f; b.vy = Math.sin(a) * f; }
+  };
+  // ============================================================
+  // MODULE 04 — ATLAS  (replay a decade of movement)
+  // ============================================================
+  initAtlas() {
+    const D = this.D, pl = D.plc.places, tl = D.plc.tl;
+    let latMin = 1e9, latMax = -1e9, lngMin = 1e9, lngMax = -1e9, maxDay = 0;
+    for (const p of pl) { latMin = Math.min(latMin, p.lat); latMax = Math.max(latMax, p.lat); lngMin = Math.min(lngMin, p.lng); lngMax = Math.max(lngMax, p.lng); }
+    for (const v of tl) maxDay = Math.max(maxDay, v[0]);
+    const latMid = (latMin + latMax) / 2, lngMid = (lngMin + lngMax) / 2;
+    const cosM = Math.cos(latMid * Math.PI / 180);
+    const fit = Math.min((this.W * 0.8) / Math.max(0.2, (lngMax - lngMin) * cosM), (this.H * 0.8) / Math.max(0.2, latMax - latMin));
+    this.atlasViews = {
+      FULL: { lat: latMid, lng: lngMid, zoom: fit },
+      FAYETTE: { lat: 39.9, lng: -79.73, zoom: fit * 11 },
+      NYC: { lat: 40.765, lng: -73.96, zoom: fit * 13 }
+    };
+    this.M.atlas = {
+      view: { ...this.atlasViews.FULL }, target: { ...this.atlasViews.FULL },
+      playDay: maxDay, maxDay, scrub: false, drag: false, heat: new Float32Array(pl.length), hover: -1
+    };
+  }
+  atlasFly = (name) => { if (this.M.atlas && this.atlasViews[name]) Object.assign(this.M.atlas.target, this.atlasViews[name]); };
+  draw_atlas(ctx, W, H, dt) {
+    if (!this.M.atlas) this.initAtlas();
+    const C = this.COL, A = this.M.atlas, D = this.D, pl = D.plc.places, tl = D.plc.tl;
+    const v = A.view, tg = A.target, e = Math.min(1, dt * 4.5);
+    v.lat += (tg.lat - v.lat) * e; v.lng += (tg.lng - v.lng) * e;
+    v.zoom += (tg.zoom - v.zoom) * Math.min(1, dt * 4.5);
+    const cx = W / 2, cy = H / 2, cosL = Math.cos(v.lat * Math.PI / 180);
+    const px = (lng) => cx + (lng - v.lng) * v.zoom * cosL;
+    const py = (lat) => cy - (lat - v.lat) * v.zoom;
+
+    if (this.state.atlasPlay && !A.scrub) {
+      A.playDay += this.state.atlasSpeed * dt;
+      if (A.playDay >= A.maxDay) { A.playDay = A.maxDay; this.setState({ atlasPlay: false }); }
+    }
+    A.heat.fill(0);
+    let idx = 0;
+    for (; idx < tl.length; idx++) { if (tl[idx][0] > A.playDay) break; A.heat[tl[idx][1]] += tl[idx][3] || 30; }
+
+    // graticule
+    ctx.strokeStyle = 'rgba(22,28,38,0.9)'; ctx.lineWidth = 1;
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = 'rgba(61,69,84,0.7)'; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+    const latStep = v.zoom > 2000 ? 0.1 : 0.5, lngStep = v.zoom > 2000 ? 0.1 : 1;
+    for (let lat = 38; lat <= 43; lat += latStep) { const y = py(lat); if (y < 0 || y > H) continue; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); ctx.fillText(lat.toFixed(1) + '\u00b0N', 6, y - 2); }
+    for (let lng = -81; lng <= -72; lng += lngStep) { const x = px(lng); if (x < 0 || x > W) continue; ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+
+    // accumulated places
+    let maxHeat = 1; for (let i = 0; i < pl.length; i++) if (A.heat[i] > maxHeat) maxHeat = A.heat[i];
+    A.screen = A.screen || new Float32Array(pl.length * 2);
+    for (let i = 0; i < pl.length; i++) {
+      const x = px(pl[i].lng), y = py(pl[i].lat);
+      A.screen[i * 2] = x; A.screen[i * 2 + 1] = y;
+      if (A.heat[i] === 0 || x < -24 || x > W + 24 || y < -24 || y > H + 24) continue;
+      const t = A.heat[i] / maxHeat;
+      const r = 1.8 + Math.sqrt(t) * 17;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(79,195,232,' + (0.08 + t * 0.30).toFixed(3) + ')'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, Math.max(1.2, r * 0.3), 0, Math.PI * 2);
+      ctx.fillStyle = i === A.hover ? '#ffffff' : 'rgba(166,230,255,0.85)'; ctx.fill();
+    }
+    // travelling pen trail
+    const trailN = 70, start = Math.max(1, idx - trailN);
+    ctx.lineWidth = 1.2;
+    for (let i = start; i < idx; i++) {
+      const a = tl[i - 1][1], b = tl[i][1];
+      if (a === b) continue;
+      const age = (i - start) / trailN;
+      ctx.strokeStyle = 'rgba(232,163,61,' + (age * 0.55).toFixed(3) + ')';
+      ctx.beginPath(); ctx.moveTo(A.screen[a * 2], A.screen[a * 2 + 1]); ctx.lineTo(A.screen[b * 2], A.screen[b * 2 + 1]); ctx.stroke();
+    }
+    if (idx > 0) {
+      const last = tl[idx - 1][1];
+      const x = A.screen[last * 2], y = A.screen[last * 2 + 1];
+      const pr = 6 + Math.sin(performance.now() / 180) * 2;
+      ctx.strokeStyle = C.amberHi; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.arc(x, y, pr + 3, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = C.amberHi; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, Math.PI * 2); ctx.fill();
+    }
+    // hub labels
+    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.font = '8.5px ' + this.MONO;
+    for (let i = 0; i < Math.min(pl.length, 60); i++) {
+      if (pl[i].c < 100 || A.heat[i] === 0) continue;
+      const x = A.screen[i * 2], y = A.screen[i * 2 + 1];
+      if (x < 30 || x > W - 30 || y < 20 || y > H) continue;
+      ctx.fillStyle = 'rgba(232,230,225,0.5)';
+      ctx.fillText(((pl[i].n || (pl[i].a || '').split(',')[0]) + '').slice(0, 24), x, y - 9);
+    }
+
+    // hover
+    A.hover = -1; let best = 13;
+    if (this.mouse.y < H - 56) {
+      for (let i = 0; i < pl.length; i++) {
+        if (A.heat[i] === 0) continue;
+        const d = Math.hypot(this.mouse.x - A.screen[i * 2], this.mouse.y - A.screen[i * 2 + 1]);
+        if (d < best) { best = d; A.hover = i; }
+      }
+    }
+    if (A.hover >= 0) {
+      const p = pl[A.hover];
+      this.card(ctx, this.mouse.x, this.mouse.y, [
+        [((p.n || (p.a || '').split(',')[0]) + '').slice(0, 30), C.txt, '600 11px ' + this.MONO],
+        [(p.a || '').slice(0, 38), C.dim, '9px ' + this.MONO],
+        [this.fmt(p.c) + ' VISITS \u00b7 ' + this.fmtHrs(p.min) + ' OF LIFE', C.cyan],
+        [p.first + ' \u2192 ' + p.last, C.faint, '8px ' + this.MONO]
+      ]);
+    }
+    this.atlasScrubber(ctx, W, H);
+  }
+  fmtHrs(min) { const h = min / 60; return h >= 72 ? this.fmt(Math.round(h / 24)) + ' DAYS' : this.fmt(Math.round(h)) + ' HRS'; }
+  atlasScrubber(ctx, W, H) {
+    const C = this.COL, A = this.M.atlas;
+    const x = 20, w = W - 40, y = H - 34, h = 6;
+    A.scrubGeo = { x, w, y };
+    ctx.fillStyle = '#141a23'; ctx.fillRect(x, y, w, h);
+    const f = A.playDay / A.maxDay;
+    ctx.fillStyle = 'rgba(232,163,61,0.85)'; ctx.fillRect(x, y, w * f, h);
+    ctx.fillStyle = C.amberHi; ctx.beginPath(); ctx.arc(x + w * f, y + h / 2, 7, 0, Math.PI * 2); ctx.fill();
+    const ms = Date.UTC(2014, 0, 1) + A.playDay * 86400000;
+    const d = new Date(ms);
+    const M = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    ctx.font = '600 12px ' + this.MONO; ctx.fillStyle = C.txt; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+    ctx.fillText(M[d.getUTCMonth()] + ' ' + String(d.getUTCDate()).padStart(2, '0') + ' ' + d.getUTCFullYear(), x, y - 10);
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'right';
+    ctx.fillText('AUG 2014 \u2014 JUN 2026 \u00b7 6,185 FIXES', x + w, y - 10);
+  }
+  pt_atlas(type, p, e) {
+    const A = this.M.atlas; if (!A) return;
+    const g = A.scrubGeo;
+    if (type === 'down') {
+      if (g && p.y > g.y - 14) {
+        A.scrub = true;
+        A.playDay = Math.max(0, Math.min(1, (p.x - g.x) / g.w)) * A.maxDay;
+      } else A.drag = true;
+    } else if (type === 'move' && this.mouse.down) {
+      if (A.scrub && g) {
+        A.playDay = Math.max(0, Math.min(1, (p.x - g.x) / g.w)) * A.maxDay;
+      } else if (A.drag) {
+        const cosL = Math.cos(A.view.lat * Math.PI / 180);
+        A.target.lng -= p.dx / (A.view.zoom * cosL); A.target.lat += p.dy / A.view.zoom;
+        A.view.lng = A.target.lng; A.view.lat = A.target.lat;
+      }
+    } else if (type === 'up' || type === 'leave') {
+      A.scrub = false; A.drag = false;
+    } else if (type === 'wheel') {
+      const f = Math.exp(-e.deltaY * 0.0016);
+      const cosL = Math.cos(A.view.lat * Math.PI / 180);
+      const wx = A.view.lng + (p.x - this.W / 2) / (A.view.zoom * cosL);
+      const wy = A.view.lat - (p.y - this.H / 2) / A.view.zoom;
+      A.target.zoom = Math.max(20, Math.min(80000, A.view.zoom * f));
+      A.target.lng = wx - (p.x - this.W / 2) / (A.target.zoom * cosL);
+      A.target.lat = wy + (p.y - this.H / 2) / A.target.zoom;
+    } else if (type === 'dbl') {
+      Object.assign(A.target, this.atlasViews.FULL);
+    }
+  }
+  // ============================================================
+  // MODULE 05 — LEXICON  (physics word cloud + caps seismograph)
+  // ============================================================
+  initLexicon() {
+    const D = this.D, W = this.W, H = this.H;
+    const words = D.msg.words.slice(0, 90);
+    const maxC = words[0][1];
+    const seisH = 96;
+    const nodes = words.map(([w, c], i) => {
+      const fs = 11 + Math.sqrt(c / maxC) * 46;
+      return {
+        w, c, fs, r: fs * (0.36 + w.length * 0.052),
+        x: W / 2 + (Math.random() - 0.5) * W * 0.7,
+        y: (H - seisH) / 2 + (Math.random() - 0.5) * (H - seisH) * 0.6,
+        vx: 0, vy: 0, sig: ['fucking', 'lol', 'love', 'sorry', 'annie', 'shit', 'fuck'].includes(w)
+      };
+    });
+    this.M.lexicon = { nodes, seisH, drag: null, pinned: null, hover: null, mode: this.state.lexMode };
+  }
+  lexSetMode = (mode) => {
+    const L = this.M.lexicon; if (!L) return;
+    L.mode = mode;
+    if (mode === 'rain') for (const n of L.nodes) { n.y = -Math.random() * this.H * 1.5; n.vy = 0; n.vx = 0; }
+  };
+  draw_lexicon(ctx, W, H, dt) {
+    if (!this.M.lexicon || this._lexW !== W + 'x' + H) { this._lexW = W + 'x' + H; this.initLexicon(); }
+    const C = this.COL, L = this.M.lexicon;
+    dt = Math.min(dt, 0.03);
+    const floor = H - L.seisH - 8;
+    const cx = W / 2, cy = floor / 2;
+    // physics
+    for (const n of L.nodes) {
+      if (L.drag === n) { n.x = this.mouse.x; n.y = this.mouse.y; continue; }
+      if (L.mode === 'pack') {
+        n.vx += (cx - n.x) * 0.9 * dt;
+        n.vy += (cy - n.y) * 0.9 * dt;
+      } else {
+        n.vy += 600 * dt; // gravity
+        if (n.y + n.r * 0.45 > floor) { n.y = floor - n.r * 0.45; n.vy *= -0.35; n.vx *= 0.92; }
+        if (n.x - n.r < 0) { n.x = n.r; n.vx *= -0.5; }
+        if (n.x + n.r > W) { n.x = W - n.r; n.vx *= -0.5; }
+      }
+      const damp = Math.pow(L.mode === 'pack' ? 0.86 : 0.995, dt * 60);
+      n.vx *= damp; n.vy *= damp;
+      n.x += n.vx * dt; n.y += n.vy * dt;
+    }
+    // collisions (3 passes, ellipse-ish via radius)
+    for (let pass = 0; pass < 3; pass++) {
+      for (let i = 0; i < L.nodes.length; i++) {
+        const a = L.nodes[i];
+        for (let j = i + 1; j < L.nodes.length; j++) {
+          const b = L.nodes[j];
+          const dx = b.x - a.x, dy = (b.y - a.y) * 1.9;
+          const d = Math.hypot(dx, dy) || 0.01;
+          const min = (a.r + b.r) * 0.62;
+          if (d < min) {
+            const push = (min - d) / d * 0.5;
+            const pxx = dx * push, pyy = dy * push / 1.9;
+            if (L.drag !== a) { a.x -= pxx; a.y -= pyy; }
+            if (L.drag !== b) { b.x += pxx; b.y += pyy; }
+          }
+        }
+      }
+    }
+    // hover
+    L.hover = null;
+    for (const n of L.nodes) {
+      if (Math.abs(this.mouse.x - n.x) < n.r * 0.62 && Math.abs(this.mouse.y - n.y) < n.fs * 0.65) { L.hover = n; break; }
+    }
+    if (this.cv) this.cv.style.cursor = L.drag ? 'grabbing' : (L.hover ? 'grab' : 'crosshair');
+    // draw words
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (const n of L.nodes) {
+      const lit = n === L.hover || n === L.pinned;
+      ctx.font = (n.fs > 26 ? '700 ' : '500 ') + n.fs.toFixed(1) + 'px ' + this.GROT;
+      if (lit) ctx.fillStyle = C.amberHi;
+      else if (n.sig) ctx.fillStyle = 'rgba(232,163,61,0.95)';
+      else { const t = Math.min(1, n.fs / 40); ctx.fillStyle = 'rgba(' + Math.round(140 + t * 92) + ',' + Math.round(146 + t * 84) + ',' + Math.round(160 + t * 65) + ',' + (0.5 + t * 0.5).toFixed(2) + ')'; }
+      ctx.fillText(n.w, n.x, n.y);
+    }
+    const show = L.pinned || L.hover;
+    if (show) {
+      const per = show.c / this.D.msg.totals.sent;
+      this.card(ctx, this.mouse.x >= 0 ? this.mouse.x : show.x, this.mouse.y >= 0 ? this.mouse.y : show.y, [
+        ['\u201c' + show.w + '\u201d', C.amberHi, '700 14px ' + this.GROT],
+        [this.fmt(show.c) + ' USES IN SENT MESSAGES', C.txt],
+        ['ONCE EVERY ' + Math.round(1 / per) + ' MESSAGES', C.dim, '9px ' + this.MONO]
+      ], { border: show === L.pinned ? C.amber : C.line });
+    }
+    this.lexSeismograph(ctx, W, H);
+  }
+  lexSeismograph(ctx, W, H) {
+    const C = this.COL, D = this.D, L = this.M.lexicon;
+    const sy = H - L.seisH, sh = L.seisH;
+    ctx.fillStyle = '#0a0e14'; ctx.fillRect(0, sy, W, sh);
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(0, sy + 0.5); ctx.lineTo(W, sy + 0.5); ctx.stroke();
+    const caps = D.msg.caps;
+    if (!caps || !caps.length) return;
+    const m0 = caps[0][0], m1 = caps[caps.length - 1][0];
+    const mIdx = (m) => (+m.slice(0, 4) - +m0.slice(0, 4)) * 12 + (+m.slice(5, 7) - +m0.slice(5, 7));
+    const span = mIdx(m1) + 1;
+    let mx = 1; for (const [, c] of caps) mx = Math.max(mx, c);
+    const base = sy + sh - 16;
+    // hover
+    let hoverI = -1;
+    if (this.mouse.y > sy) hoverI = Math.floor(this.mouse.x / W * span);
+    for (const [m, c] of caps) {
+      const i = mIdx(m);
+      const x = (i / span) * W, bw = Math.max(1.5, W / span - 1);
+      const hh = Math.pow(c / mx, 0.6) * (sh - 26);
+      const isH = i === hoverI;
+      ctx.fillStyle = isH ? C.amberHi : 'rgba(232,93,79,' + (0.35 + (c / mx) * 0.6).toFixed(2) + ')';
+      ctx.fillRect(x, base - hh, bw, hh);
+      if (isH) {
+        this.card(ctx, this.mouse.x, sy - 4, [
+          [m, C.txt, '600 11px ' + this.MONO],
+          [this.fmt(c) + ' ALL-CAPS BURSTS', C.red]
+        ]);
+      }
+    }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText('SHOUT SEISMOGRAPH \u00b7 ALL-CAPS EVENTS PER MONTH \u00b7 2011 \u2192 2026', 10, sy + 14);
+    // year ticks
+    ctx.textAlign = 'center';
+    for (let y = 2012; y <= 2026; y += 2) {
+      const i = mIdx(y + '-01');
+      if (i < 0 || i > span) continue;
+      ctx.fillStyle = C.faint;
+      ctx.fillText("'" + String(y).slice(2), (i / span) * W, base + 12);
+    }
+  }
+  pt_lexicon(type, p) {
+    const L = this.M.lexicon; if (!L) return;
+    if (type === 'down') {
+      let hit = null;
+      for (const n of L.nodes) if (Math.abs(p.x - n.x) < n.r * 0.62 && Math.abs(p.y - n.y) < n.fs * 0.65) { hit = n; break; }
+      if (hit) { L.drag = hit; L.downPos = { x: p.x, y: p.y }; hit.vx = 0; hit.vy = 0; }
+    } else if (type === 'move') {
+      if (L.drag && this.mouse.down) { L.drag.vx = p.dx * 30; L.drag.vy = p.dy * 30; }
+    } else if (type === 'up') {
+      if (L.drag) {
+        const moved = L.downPos ? Math.hypot(p.x - L.downPos.x, p.y - L.downPos.y) : 0;
+        if (moved < 5) L.pinned = (L.pinned === L.drag ? null : L.drag);
+        L.drag = null;
+      } else L.pinned = null;
+    } else if (type === 'leave') { L.drag = null; }
+  }
+  // ============================================================
+  // MODULE 06 — SHELF  (1,121 rated works: him vs the world)
+  // ============================================================
+  CAT_COLORS = { Music: '#e8a33d', Book: '#4fc3e8', Movie: '#e85d4f', Art: '#7fd486', Other: '#9b8cf2' };
+  catOf(c) {
+    if (/music|album|song/i.test(c)) return 'Music';
+    if (/book|lit/i.test(c)) return 'Book';
+    if (/movie|film/i.test(c)) return 'Movie';
+    if (/art|paint/i.test(c)) return 'Art';
+    return 'Other';
+  }
+  initShelf() {
+    const D = this.D;
+    const items = D.fav.filter(f => f.m > 0 && f.g > 0).map(f => ({
+      ...f, cat: this.catOf(f.c),
+      jx: (Math.random() - 0.5), jy: (Math.random() - 0.5),
+      born: Math.random()
+    }));
+    this.M.shelf = { items, pinned: null, hover: null, reveal: 0 };
+  }
+  draw_shelf(ctx, W, H, dt) {
+    if (!this.M.shelf) this.initShelf();
+    const C = this.COL, S = this.M.shelf;
+    S.reveal = Math.min(1, S.reveal + dt * 0.55);
+    const padL = 70, padR = 40, padT = 46, padB = 64;
+    const pw = W - padL - padR, ph = H - padT - padB;
+    const fcat = this.state.shelfCat;
+    // axes: x = world avg (1..10), y = my rating (1..10)
+    const X = (g) => padL + ((g - 1) / 9) * pw;
+    const Y = (m) => padT + (1 - (m - 1) / 9) * ph;
+    // grid
+    ctx.strokeStyle = C.grid; ctx.lineWidth = 1;
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint;
+    for (let v = 1; v <= 10; v++) {
+      ctx.beginPath(); ctx.moveTo(X(v), padT); ctx.lineTo(X(v), padT + ph); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(padL, Y(v)); ctx.lineTo(padL + pw, Y(v)); ctx.stroke();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText(String(v), X(v), padT + ph + 8);
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText(String(v), padL - 8, Y(v));
+    }
+    // agreement diagonal
+    ctx.strokeStyle = 'rgba(232,230,225,0.22)'; ctx.setLineDash([4, 5]);
+    ctx.beginPath(); ctx.moveTo(X(1), Y(1)); ctx.lineTo(X(10), Y(10)); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = '9px ' + this.MONO; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.save();
+    ctx.translate(X(5.4), Y(5.9)); ctx.rotate(-Math.atan2(ph / 9, pw / 9));
+    ctx.fillStyle = 'rgba(232,230,225,0.35)';
+    ctx.fillText('PERFECT AGREEMENT WITH THE WORLD', 0, -6);
+    ctx.restore();
+    // zone labels
+    ctx.fillStyle = 'rgba(127,212,134,0.5)'; ctx.font = '10px ' + this.MONO;
+    ctx.fillText('DEFENDED \u2014 LOVED MORE THAN THE WORLD DID', padL + 10, padT + 16);
+    ctx.fillStyle = 'rgba(232,93,79,0.5)'; ctx.textAlign = 'right';
+    ctx.fillText('BETRAYED \u2014 THE WORLD OVERRATES THESE', padL + pw - 6, padT + ph - 10);
+    ctx.textAlign = 'left';
+    // axis titles
+    ctx.fillStyle = C.dim; ctx.font = '9px ' + this.MONO;
+    ctx.textAlign = 'center';
+    ctx.fillText('THE WORLD\u2019S AVERAGE RATING \u2192', padL + pw / 2, H - 18);
+    ctx.save(); ctx.translate(20, padT + ph / 2); ctx.rotate(-Math.PI / 2);
+    ctx.fillText('HIS RATING \u2192', 0, 0); ctx.restore();
+
+    // dots
+    S.hover = null;
+    let best = 12;
+    const mx = this.mouse.x, my = this.mouse.y;
+    for (const it of S.items) {
+      if (it.born > S.reveal) continue;
+      const on = fcat === 'ALL' || it.cat.toUpperCase() === fcat;
+      const x = X(Math.min(10, it.g)) + it.jx * 7, y = Y(Math.min(10, it.m)) + it.jy * 7;
+      it._x = x; it._y = y;
+      if (on) {
+        const d = Math.hypot(mx - x, my - y);
+        if (d < best) { best = d; S.hover = it; }
+      }
+    }
+    for (const it of S.items) {
+      if (it.born > S.reveal) continue;
+      const on = fcat === 'ALL' || it.cat.toUpperCase() === fcat;
+      const lit = it === S.hover || it === S.pinned;
+      const col = this.CAT_COLORS[it.cat];
+      const pop = Math.min(1, (S.reveal - it.born) * 8);
+      const r = (lit ? 6.5 : 2.6 + (it.n > 1000 ? 1.2 : 0)) * pop;
+      ctx.beginPath(); ctx.arc(it._x, it._y, r, 0, Math.PI * 2);
+      if (!on) { ctx.fillStyle = 'rgba(60,68,82,0.25)'; }
+      else if (lit) { ctx.fillStyle = '#ffffff'; }
+      else {
+        const dev = it.m - it.g; // + defended, - betrayed
+        const alpha = 0.35 + Math.min(0.6, Math.abs(dev) * 0.13);
+        ctx.fillStyle = col + Math.round(alpha * 255).toString(16).padStart(2, '0');
+      }
+      ctx.fill();
+      if (lit && on) { ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(it._x, it._y, r + 3, 0, Math.PI * 2); ctx.stroke(); }
+    }
+    // legend
+    let lx = padL;
+    ctx.textBaseline = 'middle'; ctx.font = '9px ' + this.MONO;
+    for (const [cat, col] of Object.entries(this.CAT_COLORS)) {
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(lx + 4, 24, 3.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = C.dim; ctx.textAlign = 'left'; ctx.fillText(cat.toUpperCase(), lx + 12, 24);
+      lx += 12 + ctx.measureText(cat.toUpperCase()).width + 22;
+    }
+    const show = S.pinned || S.hover;
+    if (show) {
+      const dev = show.m - show.g;
+      this.card(ctx, mx >= 0 ? mx : show._x, my >= 0 ? my : show._y, [
+        [show.t.slice(0, 40), C.txt, '700 12px ' + this.GROT],
+        [(show.a || '').slice(0, 36), C.dim, '9px ' + this.MONO],
+        ['HIM ' + show.m.toFixed(1) + '  \u00b7  WORLD ' + show.g.toFixed(1) + '  (' + this.fmt(show.n) + ' RATINGS)', this.CAT_COLORS[show.cat]],
+        [dev > 0.4 ? '\u25b2 DEFENDED BY ' + dev.toFixed(1) : dev < -0.4 ? '\u25bc DISSENTS BY ' + (-dev).toFixed(1) : '\u25cf IN AGREEMENT', dev > 0.4 ? C.green : dev < -0.4 ? C.red : C.dim, '9px ' + this.MONO]
+      ], { border: show === S.pinned ? C.amber : C.line });
+    }
+  }
+  pt_shelf(type, p) {
+    const S = this.M.shelf; if (!S) return;
+    if (type === 'down') {
+      if (S.hover) S.pinned = (S.pinned === S.hover ? null : S.hover);
+      else S.pinned = null;
+    }
+  }
+
+  // ============================================================
+  // MODULE 07 — WEATHER  (rhetorical climate streamgraph + lightning)
+  // ============================================================
+  WLAYERS = [
+    ['love', 'LOVE', '#e87da0'],
+    ['prof', 'PROFANITY', '#e85d4f'],
+    ['sorry', 'APOLOGY', '#7fd486'],
+    ['qual', 'HEDGING', '#4fc3e8'],
+    ['imp', 'COMMAND', '#e8a33d'],
+    ['caps', 'SHOUT', '#e8e6e1']
+  ];
+  initWeather() {
+    const D = this.D, rd = D.rhet;
+    const day0 = this.d2i(rd[0].date);
+    const dayN = this.d2i(rd[rd.length - 1].date);
+    const nW = Math.floor((dayN - day0) / 7) + 1;
+    const keys = this.WLAYERS.map(l => l[0]);
+    const sums = {}, msgs = new Float32Array(nW);
+    for (const k of keys) sums[k] = new Float32Array(nW);
+    for (const d of rd) {
+      const w = Math.floor((this.d2i(d.date) - day0) / 7);
+      msgs[w] += d.total;
+      for (const k of keys) sums[k][w] += d[k] || 0;
+    }
+    // 3-week smoothing into raw + rate matrices
+    const smooth = (arr) => {
+      const out = new Float32Array(nW);
+      for (let i = 0; i < nW; i++) {
+        let s = 0, n = 0;
+        for (let j = Math.max(0, i - 1); j <= Math.min(nW - 1, i + 1); j++) { s += arr[j]; n++; }
+        out[i] = s / n;
+      }
+      return out;
+    };
+    const raw = {}, rate = {};
+    const msgsS = smooth(msgs);
+    for (const k of keys) {
+      raw[k] = smooth(sums[k]);
+      rate[k] = new Float32Array(nW);
+      for (let i = 0; i < nW; i++) rate[k][i] = msgsS[i] > 3 ? raw[k][i] / msgsS[i] * 100 : 0;
+    }
+    const events = D.rhetEvents.map(ev => ({ ...ev, w: (this.d2i(ev.date) - day0) / 7 })).sort((a, b) => b.intensity_score - a.intensity_score);
+    this.M.weather = { day0, nW, raw, rate, msgs, events, a: 0, b: nW, ta: 0, tb: nW, hoverEv: null };
+  }
+
+  draw_weatherStorm(ctx, W, H, dt) {
+    if (!this.M.weather) this.initWeather();
+    const C = this.COL, Wt = this.M.weather, st = this.state;
+    Wt.a += (Wt.ta - Wt.a) * Math.min(1, dt * 10);
+    Wt.b += (Wt.tb - Wt.b) * Math.min(1, dt * 10);
+    const span = Math.max(2, Wt.b - Wt.a);
+    const padT = 60, padB = 60;
+    const mid = (H - padB + padT) / 2, halfH = (H - padB - padT) / 2 - 10;
+    const xOf = (w) => ((w - Wt.a) / span) * W;
+    const data = st.weatherMode === 'rate' ? Wt.rate : Wt.raw;
+    const on = this.WLAYERS.filter(l => st.weatherLayers[l[0]]);
+    // max stack
+    let mx = 0.001;
+    for (let i = Math.max(0, Math.floor(Wt.a)); i < Math.min(Wt.nW, Math.ceil(Wt.b)); i++) {
+      let s = 0; for (const [k] of on) s += data[k][i];
+      mx = Math.max(mx, s);
+    }
+    const SC = (halfH * 2) / mx;
+    // year grid
+    ctx.font = '10px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let y = 2011; y <= 2027; y++) {
+      const w = (this.d2i(y + '-01-01') - Wt.day0) / 7;
+      const x = xOf(w);
+      if (x < -30 || x > W + 30) continue;
+      ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(x, padT - 14); ctx.lineTo(x, H - padB + 10); ctx.stroke();
+      ctx.fillStyle = C.dim; ctx.fillText(String(y), x, H - padB + 16);
+    }
+    // streamgraph: centered stack
+    const i0 = Math.max(0, Math.floor(Wt.a) - 1), i1 = Math.min(Wt.nW - 1, Math.ceil(Wt.b) + 1);
+    const totalAt = (i) => { let s = 0; for (const [k] of on) s += data[k][i]; return s; };
+    let baseline = new Float32Array(i1 - i0 + 1);
+    for (let i = i0; i <= i1; i++) baseline[i - i0] = mid - totalAt(i) * SC / 2;
+    for (const [k, label, col] of on) {
+      ctx.beginPath();
+      for (let i = i0; i <= i1; i++) {
+        const x = xOf(i), y = baseline[i - i0];
+        i === i0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      for (let i = i1; i >= i0; i--) {
+        const y = baseline[i - i0] + data[k][i] * SC;
+        ctx.lineTo(xOf(i), y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = col + 'cc';
+      ctx.fill();
+      for (let i = i0; i <= i1; i++) baseline[i - i0] += data[k][i] * SC;
+    }
+    // lightning strikes
+    Wt.hoverEv = null;
+    const evShow = Wt.events.slice(0, 50);
+    for (const ev of evShow) {
+      const x = xOf(ev.w);
+      if (x < -10 || x > W + 10) continue;
+      const inten = Math.min(1, ev.intensity_score / 405);
+      const topY = padT - 8, botY = mid - totalAt(Math.max(i0, Math.min(i1, Math.round(ev.w)))) * SC / 2 - 6;
+      const near = Math.abs(this.mouse.x - x) < 8 && this.mouse.y < mid;
+      if (near) Wt.hoverEv = { ...ev, x };
+      const flick = near ? 1 : (0.55 + 0.45 * Math.sin(performance.now() / 300 + ev.w));
+      ctx.strokeStyle = 'rgba(255,235,180,' + (0.25 + inten * 0.6) * flick + ')';
+      ctx.lineWidth = near ? 2 : 1 + inten;
+      ctx.beginPath();
+      let yy = topY, xx = x;
+      ctx.moveTo(xx, yy);
+      const segs = 4;
+      for (let s2 = 1; s2 <= segs; s2++) {
+        yy = topY + (botY - topY) * (s2 / segs);
+        xx = x + (s2 === segs ? 0 : (s2 % 2 ? -1 : 1) * (3 + inten * 5));
+        ctx.lineTo(xx, yy);
+      }
+      ctx.stroke();
+    }
+    // legend
+    let lx = 14;
+    ctx.textBaseline = 'middle'; ctx.font = '9px ' + this.MONO; ctx.textAlign = 'left';
+    for (const [k, label, col] of this.WLAYERS) {
+      const onL = st.weatherLayers[k];
+      ctx.fillStyle = onL ? col : '#2a3240';
+      ctx.fillRect(lx, 22, 9, 9);
+      ctx.fillStyle = onL ? C.dim : C.faint;
+      ctx.fillText(label, lx + 14, 27);
+      lx += 14 + ctx.measureText(label).width + 20;
+    }
+    ctx.fillStyle = C.faint;
+    ctx.fillText(st.weatherMode === 'rate' ? 'PER 100 MESSAGES \u00b7 WEEKLY' : 'RAW COUNTS \u00b7 WEEKLY', lx + 10, 27);
+    // hover
+    const mxx = this.mouse.x, myy = this.mouse.y;
+    if (Wt.hoverEv) {
+      const ev = Wt.hoverEv;
+      this.card(ctx, ev.x, padT + 30, [
+        ['\u26a1 ' + ev.date + ' \u00b7 INTENSITY ' + Math.round(ev.intensity_score), C.amberHi, '600 11px ' + this.MONO],
+        [this.fmt(ev.total) + ' MSGS IN ONE DAY \u00b7 ' + Math.round(ev.sent_ratio * 100) + '% HIM', C.txt],
+        [ev.prof + ' PROFANITIES \u00b7 ' + ev.caps + ' SHOUTS \u00b7 ' + ev.love + ' LOVES', C.red],
+        [ev.qual + ' HEDGES \u00b7 ' + ev.imp + ' COMMANDS \u00b7 ' + ev.q + ' QUESTIONS', C.cyan]
+      ], { border: C.amber });
+    } else if (mxx >= 0 && myy > padT && myy < H - padB) {
+      const wi = Math.round(Wt.a + (mxx / W) * span);
+      if (wi >= 0 && wi < Wt.nW) {
+        ctx.strokeStyle = 'rgba(232,230,225,0.2)'; ctx.setLineDash([3, 4]);
+        ctx.beginPath(); ctx.moveTo(mxx, padT); ctx.lineTo(mxx, H - padB); ctx.stroke();
+        ctx.setLineDash([]);
+        const d = this.i2d(Wt.day0 + wi * 7);
+        const lines = [[this.fmtDate(Wt.day0 + wi * 7), C.txt, '600 11px ' + this.MONO]];
+        for (const [k, label, col] of on) {
+          const v = data[k][wi];
+          if (v > 0.01) lines.push([label + '  ' + (st.weatherMode === 'rate' ? v.toFixed(1) + ' /100' : Math.round(v) + '/wk'), col]);
+        }
+        lines.push([Math.round(Wt.msgs[wi]) + ' MSGS THAT WEEK', C.faint, '8px ' + this.MONO]);
+        this.card(ctx, mxx, myy, lines);
+      }
+    }
+  }
+  pt_weatherStorm(type, p, e) {
+    const Wt = this.M.weather; if (!Wt) return;
+    const span = Wt.tb - Wt.ta;
+    if (type === 'move' && this.mouse.down) {
+      const d = (p.dx / this.W) * span;
+      Wt.ta -= d; Wt.tb -= d;
+      this.weatherClamp();
+    } else if (type === 'wheel') {
+      const f = Math.exp(e.deltaY * 0.0016);
+      const pivot = Wt.ta + (p.x / this.W) * span;
+      Wt.ta = pivot - (pivot - Wt.ta) * f;
+      Wt.tb = pivot + (Wt.tb - pivot) * f;
+      this.weatherClamp();
+    } else if (type === 'dbl') {
+      Wt.ta = 0; Wt.tb = Wt.nW;
+    } else if (type === 'down' && Wt.hoverEv) {
+      const c = Wt.hoverEv.w;
+      Wt.ta = c - 10; Wt.tb = c + 10;
+      this.weatherClamp();
+    }
+  }
+  weatherClamp() {
+    const Wt = this.M.weather;
+    const span = Math.max(6, Math.min(Wt.nW, Wt.tb - Wt.ta));
+    if (Wt.ta < -span * 0.1) Wt.ta = -span * 0.1;
+    Wt.tb = Wt.ta + span;
+    if (Wt.tb > Wt.nW + span * 0.1) { Wt.tb = Wt.nW + span * 0.1; Wt.ta = Wt.tb - span; }
+  }
+
+  // ============================================================
+  // MODULE 08 — POLYGRAPH  (the full-corpus four-pen instrument ·
+  // same Annie-pattern pens, every thread, 181,650 messages)
+  // ============================================================
+  APENS = [
+    ['love', 'LOVE', '#e87da0'],
+    ['prof', 'PROFANITY', '#e85d4f'],
+    ['sorry', 'APOLOGY', '#7fd486'],
+    ['caps', 'SHOUT', '#e8e6e1']
+  ];
+  initAnnie() {
+    const D = this.D;
+    const mIdx = (m) => +m.slice(0, 4) * 12 + (+m.slice(5, 7) - 1);
+    // month range = the full message corpus (2011 → 2026)
+    const m0 = mIdx(D.msg.monthly[0][0]);
+    const m1 = mIdx(D.msg.monthly[D.msg.monthly.length - 1][0]);
+    const nM = m1 - m0 + 1;
+    // volume: every message, sent + received
+    const vol = new Float32Array(nM);
+    for (const [m, s, r] of D.msg.monthly) {
+      const i = mIdx(m) - m0;
+      if (i >= 0 && i < nM) vol[i] = s + r;
+    }
+    // pens: rhetorical features aggregated monthly across the whole record
+    const tot = new Float32Array(nM);
+    const sums = {};
+    for (const [k] of this.APENS) sums[k] = new Float32Array(nM);
+    for (const d of D.rhet) {
+      const i = mIdx(d.date) - m0;
+      if (i < 0 || i >= nM) continue;
+      tot[i] += d.total || 0;
+      for (const [k] of this.APENS) sums[k][i] += d[k] || 0;
+    }
+    const rates = {};
+    for (const [k] of this.APENS) {
+      rates[k] = new Float32Array(nM);
+      for (let i = 0; i < nM; i++) rates[k][i] = tot[i] > 20 ? sums[k][i] / tot[i] * 100 : 0;
+    }
+    const maxRate = {};
+    for (const [k] of this.APENS) { let m = 0.001; for (let i = 0; i < nM; i++) m = Math.max(m, rates[k][i]); maxRate[k] = m; }
+    let maxVol = 1;
+    for (let i = 0; i < nM; i++) maxVol = Math.max(maxVol, vol[i]);
+    // high-signal fragments (full record) → month float positions
+    const fragSrc = (this.D.crossFrags && this.D.crossFrags.length) ? this.D.crossFrags : this.D.frags;
+    const frags = fragSrc.map(f => ({
+      pos: (mIdx(f.day.slice(0, 7)) - m0) + (+f.day.slice(8, 10) - 1) / 30.5,
+      text: f.text,
+      tag: f.day,
+      shownAt: 0
+    })).filter(f => f.pos >= 0 && f.pos < nM).sort((a, b) => a.pos - b.pos);
+    const monthLabel = (i) => {
+      const y = Math.floor((m0 + i) / 12), mo = (m0 + i) % 12;
+      return y + '-' + String(mo + 1).padStart(2, '0');
+    };
+    this.M.annie = { nM, m0, rates, maxRate, vol, maxVol, frags, monthLabel, play: 0.001, scrub: false, scrubGeo: null };
+  }
+  annieRestart = () => { if (this.M.annie) { this.M.annie.play = 0.001; for (const f of this.M.annie.frags) f.shownAt = 0; this.setState({ anniePlay: true }); } };
+  draw_annie(ctx, W, H, dt) {
+    if (!this.M.annie) this.initAnnie();
+    const C = this.COL, An = this.M.annie, st = this.state;
+    if (st.anniePlay && !An.scrub) {
+      An.play += st.annieSpeed * dt;
+      if (An.play >= An.nM - 0.01) { An.play = An.nM - 0.01; this.setState({ anniePlay: false }); }
+    }
+    const chartR = W * 0.62;
+    const padL = 110, padT = 64, padB = 74;
+    const laneGap = 10;
+    const nLanes = this.APENS.length + 1;
+    const laneH = (H - padT - padB - laneGap * (nLanes - 1)) / nLanes;
+    const xOf = (m) => padL + (m / (An.nM - 1)) * (chartR - padL - 20);
+    const playX = xOf(An.play);
+    const geo = { padL, padT, laneH, laneGap, x0: padL, x1: chartR - 20, xOf };
+    const vy0 = padT + this.APENS.length * (laneH + laneGap);
+
+    // era bands (NYC ONE → UNIONTOWN → NYC TWO → RETURN)
+    this.drawEraBands(ctx, xOf, (di) => {
+      const d = this.i2d(this.D.day0 + di);
+      return (d.getUTCFullYear() * 12 + d.getUTCMonth()) - An.m0 + (d.getUTCDate() - 1) / 30.5;
+    }, padT - 14, vy0 + laneH);
+
+    // header
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '700 17px ' + this.GROT; ctx.fillStyle = C.amberHi;
+    ctx.fillText('POLYGRAPH', 18, 32);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText('FULL CORPUS · 181,650 MESSAGES · 568 THREADS · 2011 → 2026 · FOUR PENS, EVERY WORD', 18, 48);
+    // playhead readout
+    const mi = Math.min(An.nM - 1, Math.floor(An.play));
+    const my2 = An.monthLabel(mi);
+    const MN = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    ctx.font = '600 13px ' + this.MONO; ctx.fillStyle = C.txt; ctx.textAlign = 'right';
+    ctx.fillText(MN[+my2.slice(5, 7) - 1] + ' ' + my2.slice(0, 4) + ' · ' + this.fmt(An.vol[mi]) + ' MSGS', chartR - 20, 32);
+    ctx.textAlign = 'left';
+
+    // four pens + volume (generic primitives — same instrument as 07 WEATHER)
+    const lanes = this.APENS.map(([k, label, col]) => ({
+      data: An.rates[k], label, unit: '/100 MSG', color: col, max: An.maxRate[k]
+    }));
+    this.drawPenLanes(ctx, geo, lanes, An.play, st.anniePlay);
+    this.drawVolumeLane(ctx, geo, vy0, An.vol, An.maxVol, An.play, C.amber);
+
+    // playhead needle
+    ctx.strokeStyle = 'rgba(232,230,225,0.5)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(playX, padT - 6); ctx.lineTo(playX, vy0 + laneH + 8); ctx.stroke();
+    // year ticks
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let i = 0; i < An.nM; i++) {
+      if ((An.m0 + i) % 12 === 0) ctx.fillText(String(Math.floor((An.m0 + i) / 12)), xOf(i), vy0 + laneH + 12);
+    }
+    An.scrubGeo = { x0: padL, x1: chartR - 20, y1: vy0 + laneH };
+
+    // fragment surfacer — verbatim high-emotion lines from the whole record
+    const fx = chartR + 8, fw = W - fx - 16;
+    this.drawFragmentFeed(ctx, { fx, fy: padT - 22, fw, fh: H - padT - 36 }, An.frags, An.play, 'HIGH-EMOTION FRAGMENTS · VERBATIM · FULL RECORD', '#e8a33d');
+  }
+  pt_annie(type, p) {
+    const An = this.M.annie; if (!An) return;
+    const g = An.scrubGeo; if (!g) return;
+    if (type === 'down' && p.x < g.x1 + 20 && p.x > g.x0 - 20) {
+      An.scrub = true;
+      An.play = Math.max(0.001, Math.min(An.nM - 0.01, ((p.x - g.x0) / (g.x1 - g.x0)) * (An.nM - 1)));
+    } else if (type === 'move' && An.scrub && this.mouse.down) {
+      An.play = Math.max(0.001, Math.min(An.nM - 0.01, ((p.x - g.x0) / (g.x1 - g.x0)) * (An.nM - 1)));
+    } else if (type === 'up' || type === 'leave') {
+      An.scrub = false;
+    }
+  }
+
+  // ============================================================
+  // MODULE 09 — SIGNAL  (YouTube spectrogram + artist tuner)
+  // ============================================================
+  initSignal() {
+    const D = this.D, yt = D.yt;
+    const mIdx = (m) => +m.slice(0, 4) * 12 + (+m.slice(5, 7) - 1);
+    const m0 = mIdx('2010-01'), m1 = mIdx('2025-07');
+    const nM = m1 - m0 + 1;
+    const watch = new Float32Array(nM), music = new Float32Array(nM);
+    const titles = new Array(nM).fill(null);
+    for (const d of yt.daily) {
+      const i = mIdx(d.day.slice(0, 7)) - m0;
+      if (i < 0 || i >= nM) continue;
+      watch[i] += d.total_watches; music[i] += d.music_watches;
+      if (!titles[i] && d.sample_titles && d.sample_titles[0]) {
+        titles[i] = d.sample_titles[0].replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/&quot;/g, '"').slice(0, 44);
+      }
+    }
+    // msgs per month from D.msg.monthly
+    const msgs = new Float32Array(nM);
+    for (const [m, s, r] of D.msg.monthly) {
+      const i = mIdx(m) - m0;
+      if (i >= 0 && i < nM) msgs[i] = s + r;
+    }
+    let maxW = 1, maxM = 1;
+    for (let i = 0; i < nM; i++) { maxW = Math.max(maxW, watch[i]); maxM = Math.max(maxM, msgs[i]); }
+    // stations sorted by count desc already; give each a matched influencer if any
+    const stations = D.yt.artists.map(a => {
+      const low = a.name.toLowerCase();
+      const inf = D.yt.infl.find(x => low.includes(x.artist.toLowerCase()) || x.artist.toLowerCase().includes(low));
+      return { ...a, inf };
+    });
+    this.M.signal = { m0, nM, watch, music, msgs, titles, maxW, maxM, stations, pos: 0, vel: 0, dragDial: false, snapT: 0 };
+  }
+  draw_signal(ctx, W, H, dt) {
+    if (!this.M.signal) this.initSignal();
+    const C = this.COL, S = this.M.signal, st = this.state;
+    dt = Math.min(dt, 0.04);
+    const dialH = 168;
+    const specB = H - dialH - 14;
+    const padT = 56;
+    const midY = padT + (specB - padT) * 0.56;
+    const xOf = (i) => 14 + (i / (S.nM - 1)) * (W - 28);
+    const bw = Math.max(2, (W - 28) / S.nM - 1.5);
+    // year grid
+    ctx.font = '9px ' + this.MONO; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let y = 2010; y <= 2025; y++) {
+      const i = (y * 12) - S.m0;
+      const x = xOf(i);
+      ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(x, padT - 8); ctx.lineTo(x, specB); ctx.stroke();
+      if (y % 2 === 0) { ctx.fillStyle = C.faint; ctx.fillText("'" + String(y).slice(2), x, specB + 4); }
+    }
+    // midline
+    ctx.strokeStyle = '#222a37'; ctx.beginPath(); ctx.moveTo(14, midY); ctx.lineTo(W - 14, midY); ctx.stroke();
+    // hover month
+    let hoverI = -1;
+    if (this.mouse.x >= 14 && this.mouse.x <= W - 14 && this.mouse.y > padT - 10 && this.mouse.y < specB) {
+      hoverI = Math.round(((this.mouse.x - 14) / (W - 28)) * (S.nM - 1));
+    }
+    // spectrogram bars
+    for (let i = 0; i < S.nM; i++) {
+      const x = xOf(i);
+      const wv = S.watch[i], mv = S.music[i], gv = S.msgs[i];
+      const isH = i === hoverI;
+      if (wv > 0 && (!st.signalMusic || mv > 0)) {
+        const hh = Math.sqrt((st.signalMusic ? mv : wv) / S.maxW) * (midY - padT);
+        ctx.fillStyle = isH ? C.violetHi : 'rgba(155,140,242,0.55)';
+        ctx.fillRect(x - bw / 2, midY - hh, bw, hh);
+        if (!st.signalMusic && mv > 0) {
+          const mh = Math.sqrt(mv / S.maxW) * (midY - padT);
+          ctx.fillStyle = isH ? '#ffffff' : 'rgba(207,196,255,0.95)';
+          ctx.fillRect(x - bw / 2, midY - mh, bw, mh);
+        }
+      }
+      if (gv > 0) {
+        const gh = Math.sqrt(gv / S.maxM) * (specB - midY - 8);
+        ctx.fillStyle = isH ? 'rgba(232,163,61,0.9)' : 'rgba(232,163,61,0.28)';
+        ctx.fillRect(x - bw / 2, midY, bw, gh);
+      }
+    }
+    // labels
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '700 15px ' + this.GROT; ctx.fillStyle = C.violetHi;
+    ctx.fillText('SIGNAL', 18, 30);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText('12,863 YOUTUBE WATCHES \u25b2  vs  MESSAGE VOLUME \u25bc \u00b7 2010 \u2192 2025 \u00b7 BRIGHT CORE = MUSIC', 18, 46);
+    if (hoverI >= 0) {
+      const y = Math.floor((S.m0 + hoverI) / 12), mo = (S.m0 + hoverI) % 12;
+      const M = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      const lines = [
+        [M[mo] + ' ' + y, C.txt, '600 11px ' + this.MONO],
+        [this.fmt(S.watch[hoverI]) + ' WATCHES \u00b7 ' + this.fmt(S.music[hoverI]) + ' MUSIC', C.violet],
+        [this.fmt(S.msgs[hoverI]) + ' MESSAGES', C.amber]
+      ];
+      if (S.titles[hoverI]) lines.push(['\u201c' + S.titles[hoverI] + '\u2026\u201d', C.dim, '9px ' + this.MONO]);
+      this.card(ctx, this.mouse.x, this.mouse.y, lines);
+    }
+
+    // ---- TUNER ----
+    const dy = H - dialH;
+    ctx.fillStyle = '#0a0e14'; ctx.fillRect(0, dy, W, dialH);
+    ctx.strokeStyle = C.line; ctx.beginPath(); ctx.moveTo(0, dy + 0.5); ctx.lineTo(W, dy + 0.5); ctx.stroke();
+    const cx = W / 2;
+    const spacing = 150;
+    const n = S.stations.length;
+    // physics
+    if (!S.dragDial) {
+      S.pos += S.vel * dt; S.vel *= Math.pow(0.92, dt * 60);
+      const snap = Math.round(S.pos);
+      S.pos += (Math.max(0, Math.min(n - 1, snap)) - S.pos) * Math.min(1, dt * 6);
+    }
+    S.pos = Math.max(-0.49, Math.min(n - 0.51, S.pos));
+    const cur = S.stations[Math.max(0, Math.min(n - 1, Math.round(S.pos)))];
+    // frequency ruler
+    const rulerY = dy + 118;
+    ctx.strokeStyle = '#222a37'; ctx.beginPath(); ctx.moveTo(0, rulerY); ctx.lineTo(W, rulerY); ctx.stroke();
+    for (let i = 0; i < n; i++) {
+      const x = cx + (i - S.pos) * spacing;
+      if (x < -spacing || x > W + spacing) continue;
+      const d = Math.abs(i - S.pos);
+      const a = Math.max(0, 1 - d * 0.30);
+      // tick
+      ctx.strokeStyle = 'rgba(155,140,242,' + (0.3 + a * 0.7) + ')';
+      ctx.lineWidth = d < 0.5 ? 2 : 1;
+      ctx.beginPath(); ctx.moveTo(x, rulerY - 8 - a * 10); ctx.lineTo(x, rulerY + 8 + a * 10); ctx.stroke();
+      // name
+      ctx.font = (d < 0.5 ? '700 13px ' : '500 10px ') + this.GROT;
+      ctx.fillStyle = d < 0.5 ? C.violetHi : 'rgba(139,148,164,' + a + ')';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText(S.stations[i].name.slice(0, 24), x, rulerY - 16 - a * 8);
+      // count
+      ctx.font = '8px ' + this.MONO; ctx.fillStyle = 'rgba(91,100,114,' + a + ')';
+      ctx.fillText(S.stations[i].count + ' WATCHES', x, rulerY + 22);
+    }
+    // center needle
+    ctx.strokeStyle = C.amberHi; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(cx, rulerY - 30); ctx.lineTo(cx, rulerY + 14); ctx.stroke();
+    // readout
+    ctx.textAlign = 'center';
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText('STATION ' + (Math.round(S.pos) + 1) + ' / ' + n + ' \u00b7 DRAG THE DIAL', cx, dy + 16);
+    if (cur && cur.inf) {
+      ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.amber;
+      ctx.fillText('\u26a1 BLEEDS INTO HIS TEXTS \u00b7 INFLUENCE ' + cur.inf.influence_score.toFixed(0) + ' \u00b7 ' + cur.inf.days_active + ' HIGH-BLEED DAYS', cx, dy + 146);
+    } else {
+      ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+      ctx.fillText('NO MEASURED LANGUAGE BLEED', cx, dy + 146);
+    }
+    S.dialGeo = { y: dy };
+  }
+  pt_signal(type, p, e) {
+    const S = this.M.signal; if (!S) return;
+    const g = S.dialGeo;
+    if (type === 'down') {
+      if (g && p.y > g.y) { S.dragDial = true; S.vel = 0; }
+    } else if (type === 'move' && S.dragDial && this.mouse.down) {
+      S.pos -= p.dx / 150;
+      S.vel = -p.dx / 150 * 30;
+      S.pos = Math.max(-0.49, Math.min(S.stations.length - 0.51, S.pos));
+    } else if (type === 'up' || type === 'leave') {
+      S.dragDial = false;
+    } else if (type === 'wheel' && g && p.y > g.y) {
+      S.vel += (e.deltaY > 0 ? 1 : -1) * 6;
+    }
+  }
+
+  // ---------- UI builders ----------
+  chipStyle(on, tone) {
+    return {
+      fontFamily: "'IBM Plex Mono', monospace", fontSize: '9.5px', letterSpacing: '0.14em',
+      padding: '5px 11px', cursor: 'pointer', border: '1px solid ' + (on ? (tone || '#e8a33d') : '#222a37'),
+      color: on ? (tone || '#e8a33d') : '#6b7484', background: on ? 'rgba(232,163,61,0.08)' : 'rgba(13,17,24,0.85)',
+      transition: 'all 120ms ease', whiteSpace: 'nowrap'
+    };
+  }
+
+
+  // ============================================================
+  // SHELL — phase navigation (splash → void → archive)
+  // ============================================================
+  _setPhase(phase) {
+    document.body.style.overflow = (phase === 'void') ? '' : 'hidden';
+    window.scrollTo(0, 0);
+    this.setState({ phase, flash: true });
+    clearTimeout(this._ftid);
+    this._ftid = setTimeout(() => this.setState({ flash: false }), 950);
+    // live galaxy sim runs on the splash ONLY — everywhere else it is paused
+    // and hidden, leaving the zero-cost static-void backdrop
+    const el = this._galaxyEl || (this._galaxyEl = document.getElementById('galaxy-bg'));
+    if (el) {
+      if (phase === 'splash') {
+        el.removeAttribute('paused');
+        el.style.display = '';
+        this.setGalaxyMood({ intensity: 1.0, hue: 0, flow: 1, storm: 0 });
+      } else {
+        el.setAttribute('paused', '');
+        el.style.display = 'none';
+      }
+    }
+  }
+
+  // ============================================================
+  // GALAXY BRIDGE — every module can drive the void through this
+  // ============================================================
+  setGalaxyMood(m) {
+    const el = this._galaxyEl || (this._galaxyEl = document.getElementById('galaxy-bg'));
+    if (!el) return;
+    if (m.intensity != null) el.setAttribute('intensity', Math.max(0.05, Math.min(1.4, m.intensity)).toFixed(3));
+    if (m.hue != null) el.setAttribute('hue-shift', Math.max(-1, Math.min(1, m.hue)).toFixed(3));
+    if (m.flow != null) el.setAttribute('flow', Math.max(0, Math.min(3, m.flow)).toFixed(3));
+    if (m.storm != null) el.setAttribute('storm', Math.max(0, Math.min(1, m.storm)).toFixed(3));
+  }
+
+  // NOTE: the live galaxy is splash-only (perf). setGalaxyMood stays as the
+  // single control surface should any module want to drive the splash sim.
+
+  // ============================================================
+  // REUSABLE INSTRUMENT PRIMITIVES (Annie-pattern, generic)
+  // Any module (PULSE, ORBITS, …) can compose these.
+  // ============================================================
+  // lanes: [{ data: Float32Array, label, unit, color, max }]
+  // geo: { padL, padT, laneH, laneGap, x0, x1, xOf(pos) }
+  drawPenLanes(ctx, geo, lanes, playPos, playing) {
+    const C = this.COL;
+    lanes.forEach((ln, li) => {
+      const y0 = geo.padT + li * (geo.laneH + geo.laneGap);
+      ctx.fillStyle = 'rgba(13,17,24,0.6)';
+      ctx.fillRect(geo.x0, y0, geo.x1 - geo.x0, geo.laneH);
+      ctx.strokeStyle = C.grid; ctx.strokeRect(geo.x0 + 0.5, y0 + 0.5, geo.x1 - geo.x0, geo.laneH);
+      ctx.font = '9px ' + this.MONO; ctx.fillStyle = ln.color; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.fillText(ln.label, geo.x0 - 12, y0 + geo.laneH / 2);
+      if (ln.unit) {
+        ctx.fillStyle = C.faint; ctx.font = '7.5px ' + this.MONO;
+        ctx.fillText(ln.unit, geo.x0 - 12, y0 + geo.laneH / 2 + 12);
+      }
+      ctx.textAlign = 'left';
+      const data = ln.data, n = data.length, mxr = ln.max || 0.001;
+      ctx.strokeStyle = ln.color; ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      for (let m = 0; m <= playPos && m < n; m += 0.25) {
+        const i0 = Math.floor(m), f = m - i0;
+        const v = data[i0] * (1 - f) + data[Math.min(n - 1, i0 + 1)] * f;
+        const x = geo.xOf(m), y = y0 + geo.laneH - 5 - (v / mxr) * (geo.laneH - 12);
+        m === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      // pen head with live jitter
+      const i0 = Math.floor(Math.min(n - 1, playPos)), f = playPos - i0;
+      const v = data[i0] * (1 - f) + data[Math.min(n - 1, i0 + 1)] * f;
+      const jit = playing ? (Math.random() - 0.5) * Math.min(8, v) * 1.1 : 0;
+      const px = geo.xOf(playPos);
+      const hy = y0 + geo.laneH - 5 - (v / mxr) * (geo.laneH - 12) + jit;
+      ctx.fillStyle = ln.color;
+      ctx.beginPath(); ctx.arc(px, hy, 3.4, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = ln.color + '55';
+      ctx.beginPath(); ctx.moveTo(px, hy); ctx.lineTo(px + 14, hy - 10); ctx.stroke();
+      ctx.font = '8px ' + this.MONO; ctx.fillStyle = ln.color;
+      ctx.fillText(v.toFixed(1), px + 17, hy - 12);
+    });
+  }
+
+  drawVolumeLane(ctx, geo, y0, data, max, playPos, color) {
+    const C = this.COL;
+    ctx.fillStyle = 'rgba(13,17,24,0.6)';
+    ctx.fillRect(geo.x0, y0, geo.x1 - geo.x0, geo.laneH);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = color; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillText('VOLUME', geo.x0 - 12, y0 + geo.laneH / 2);
+    ctx.textAlign = 'left';
+    const n = data.length;
+    const bw = Math.max(1.4, (geo.x1 - geo.x0) / n - 1);
+    for (let i = 0; i < n; i++) {
+      const x = geo.xOf(i);
+      const hh = Math.sqrt(data[i] / max) * (geo.laneH - 8);
+      const past = i <= playPos;
+      ctx.fillStyle = past ? color + 'cc' : color + '29';
+      ctx.fillRect(x - bw / 2, y0 + geo.laneH - 4 - hh, bw, hh);
+    }
+  }
+
+  // frags: [{ pos, text, tag, shownAt }] sorted by pos · returns surfaced count
+  drawFragmentFeed(ctx, geo, frags, playPos, title, accent) {
+    const C = this.COL;
+    ctx.fillStyle = 'rgba(11,15,21,0.85)';
+    ctx.fillRect(geo.fx, geo.fy, geo.fw, geo.fh);
+    ctx.strokeStyle = C.line; ctx.strokeRect(geo.fx + 0.5, geo.fy + 0.5, geo.fw, geo.fh);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText(title, geo.fx + 14, geo.fy + 16);
+    const now = performance.now();
+    const visible = [];
+    for (const f of frags) {
+      if (f.pos <= playPos) { if (!f.shownAt) f.shownAt = now; visible.push(f); }
+      else f.shownAt = 0;
+    }
+    const feed = visible.slice(-5).reverse();
+    let fy = geo.fy + 40;
+    const yMax = geo.fy + geo.fh - 26;
+    for (let i = 0; i < feed.length; i++) {
+      const f = feed[i];
+      const age = (now - f.shownAt) / 1000;
+      const chars = Math.floor(age * 60);
+      const txt = f.text.slice(0, chars);
+      const alpha = i === 0 ? 1 : Math.max(0.25, 0.8 - i * 0.18);
+      ctx.font = '9px ' + this.MONO; ctx.fillStyle = accent + Math.round(alpha * 230).toString(16).padStart(2, '0');
+      ctx.fillText(f.tag, geo.fx + 14, fy);
+      fy += 14;
+      ctx.font = (i === 0 ? '500 12.5px ' : '11px ') + this.GROT;
+      ctx.fillStyle = 'rgba(232,230,225,' + alpha + ')';
+      const words = txt.split(' ');
+      let line = '', lh = i === 0 ? 17 : 15;
+      for (const w2 of words) {
+        if (ctx.measureText(line + w2).width > geo.fw - 28) { ctx.fillText(line, geo.fx + 14, fy); fy += lh; line = w2 + ' '; }
+        else line += w2 + ' ';
+        if (fy > yMax) break;
+      }
+      if (fy <= yMax) { ctx.fillText(line + (i === 0 && chars < f.text.length ? '▌' : ''), geo.fx + 14, fy); fy += lh + 12; }
+      if (fy > yMax) break;
+    }
+    if (!visible.length) {
+      ctx.font = '10px ' + this.MONO; ctx.fillStyle = C.faint;
+      ctx.fillText('PRESS ▶ — THE PENS WILL WRITE', geo.fx + 14, geo.fy + 46);
+    }
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText(visible.length + ' / ' + frags.length + ' FRAGMENTS SURFACED', geo.fx + 14, geo.fy + geo.fh - 10);
+    return visible.length;
+  }
+
+  drawEraBands(ctx, xOf, toPos, y0, y1) {
+    const C = this.COL;
+    for (const e of this.D.eras) {
+      const xa = xOf(toPos(e.i0)), xb = xOf(toPos(e.i1));
+      if (xb < 0 || xa > this.W) continue;
+      ctx.fillStyle = e.tone === 'amber' ? 'rgba(232,163,61,0.045)' : 'rgba(79,195,232,0.04)';
+      ctx.fillRect(xa, y0, xb - xa, y1 - y0);
+      ctx.font = '8px ' + this.MONO; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+      ctx.fillStyle = e.tone === 'amber' ? 'rgba(232,163,61,0.55)' : 'rgba(79,195,232,0.5)';
+      ctx.fillText(e.label, Math.max(xa + 6, 6), y0 + 4);
+    }
+  }
+
+  // ============================================================
+  // MODULE 07 — WEATHER  (real weather · non-Annie corpus ·
+  // four pens · needle scrubber · fragment surfacer · void link)
+  // ============================================================
+  WPENS = [
+    ['cold', 'COLD', '#4fc3e8'],
+    ['hot', 'HOT', '#e85d4f'],
+    ['precip', 'PRECIP', '#9b8cf2'],
+    ['travel', 'TRAVEL', '#7fd486']
+  ];
+  SEASON_COL = { winter: '#4fc3e8', spring: '#7fd486', summer: '#e85d4f', fall: '#e8a33d' };
+
+  initWeather07() {
+    const wx = this.D.wx || {};
+    const weeks = wx.weeks || [];
+    if (!weeks.length) { this.M.wx = { nW: 0 }; return; }
+    const day0 = this.d2i(weeks[0].week);
+    const nW = Math.floor((this.d2i(weeks[weeks.length - 1].week) - day0) / 7) + 1;
+    const keys = this.WPENS.map(p => p[0]);
+    const rate = {}, msgs = new Float32Array(nW), rhetInt = new Float32Array(nW);
+    const locNyc = new Float32Array(nW), locUt = new Float32Array(nW);
+    for (const k of keys) rate[k] = new Float32Array(nW);
+    const weekAt = new Array(nW).fill(null);
+    for (const w of weeks) {
+      const i = Math.floor((this.d2i(w.week) - day0) / 7);
+      if (i < 0 || i >= nW) continue;
+      weekAt[i] = w;
+      msgs[i] = w.count || 0;
+      rhetInt[i] = (w.rhet && w.rhet.intensity) || 0;
+      locNyc[i] = (w.rate_weather && w.rate_weather.loc_nyc) || 0;
+      locUt[i] = (w.rate_weather && w.rate_weather.loc_ut) || 0;
+      for (const k of keys) rate[k][i] = (w.rate_weather && w.rate_weather[k]) || 0;
+    }
+    // 3-week smoothing for legible pens (raw kept on weekAt for the readout)
+    const smooth = (arr) => {
+      const out = new Float32Array(nW);
+      for (let i = 0; i < nW; i++) {
+        let s = 0, n = 0;
+        for (let j = Math.max(0, i - 1); j <= Math.min(nW - 1, i + 1); j++) { s += arr[j]; n++; }
+        out[i] = s / n;
+      }
+      return out;
+    };
+    for (const k of keys) rate[k] = smooth(rate[k]);
+    const maxRate = {};
+    for (const k of keys) { let m = 0.001; for (let i = 0; i < nW; i++) m = Math.max(m, rate[k][i]); maxRate[k] = m; }
+    let maxMsgs = 1, maxRhet = 0.001;
+    for (let i = 0; i < nW; i++) { maxMsgs = Math.max(maxMsgs, msgs[i]); maxRhet = Math.max(maxRhet, rhetInt[i]); }
+    // fragments → week float positions
+    const frags = (wx.fragments || []).map(f => ({
+      pos: (this.d2i(f.week) - day0) / 7 + 0.5,
+      text: f.text,
+      tag: f.week + (f.type === 'high_signal' ? ' · HIGH SIGNAL' : ''),
+      shownAt: 0
+    })).filter(f => f.pos >= 0 && f.pos < nW + 1).sort((a, b) => a.pos - b.pos);
+    // high-volatility days → lightning markers
+    const an = wx.analysis || {};
+    const bolts = (an.high_volatility_weather_days || []).map(d => ({
+      ...d,
+      pos: (this.d2i(d.date) - day0) / 7
+    })).filter(b => b.pos >= 0 && b.pos < nW);
+    // analysis microcopy
+    const corr = an.correlations || {};
+    const bySeason = (an.seasonal_monthly_rhetoric_shifts && an.seasonal_monthly_rhetoric_shifts.by_season) || {};
+    this.M.wx = {
+      day0, nW, rate, maxRate, msgs, maxMsgs, rhetInt, maxRhet, locNyc, locUt, weekAt,
+      frags, bolts, corr, bySeason,
+      insights: an.insights || [],
+      play: 0.001, scrub: false, hoverBolt: null, scrubGeo: null
+    };
+  }
+  weatherRestart = () => {
+    if (this.M.wx) {
+      this.M.wx.play = 0.001;
+      for (const f of this.M.wx.frags) f.shownAt = 0;
+      this.setState({ weatherPlay: true });
+    }
+  };
+
+  draw_weather(ctx, W, H, dt) {
+    if (this.state.weatherView === 'storm') { this.draw_weatherStorm(ctx, W, H, dt); return; }
+    if (!this.M.wx) this.initWeather07();
+    const C = this.COL, X = this.M.wx, st = this.state;
+    if (!X.nW) {
+      ctx.font = '11px ' + this.MONO; ctx.fillStyle = C.dim; ctx.textAlign = 'center';
+      ctx.fillText('WEATHER DATA NOT LOADED — run analyze_weather.py', W / 2, H / 2);
+      return;
+    }
+    if (st.weatherPlay && !X.scrub) {
+      X.play += st.weatherSpeed * dt;
+      if (X.play >= X.nW - 0.01) { X.play = X.nW - 0.01; this.setState({ weatherPlay: false }); }
+    }
+    const chartR = W * 0.62;
+    const padL = 110, padT = 64, padB = 74;
+    const laneGap = 10;
+    const nLanes = this.WPENS.length + 1;
+    const laneH = (H - padT - padB - laneGap * (nLanes - 1)) / nLanes;
+    const xOf = (m) => padL + (m / (X.nW - 1)) * (chartR - padL - 20);
+    const playX = xOf(X.play);
+    const geo = { padL, padT, laneH, laneGap, x0: padL, x1: chartR - 20, xOf };
+    const vy0 = padT + this.WPENS.length * (laneH + laneGap);
+
+    // era bands behind everything (location context: NYC ↔ Uniontown)
+    this.drawEraBands(ctx, xOf, (di) => di / 7 - (X.day0 - this.D.day0) / 7, padT - 14, vy0 + laneH);
+
+    // header
+    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.font = '700 17px ' + this.GROT; ctx.fillStyle = C.cyanHi;
+    ctx.fillText('WEATHER', 18, 32);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText('NON-ANNIE CORPUS · ' + X.nW + ' WEEKS · KEYWORD CLIMATE × RHETORIC', 18, 48);
+    // playhead readout + season chip
+    const wi = Math.max(0, Math.min(X.nW - 1, Math.floor(X.play)));
+    const d = this.i2d(X.day0 + wi * 7);
+    const MN = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const mo = d.getUTCMonth();
+    const season = (mo === 11 || mo <= 1) ? 'winter' : mo <= 4 ? 'spring' : mo <= 7 ? 'summer' : 'fall';
+    const sCol = this.SEASON_COL[season];
+    ctx.font = '600 13px ' + this.MONO; ctx.fillStyle = C.txt; ctx.textAlign = 'right';
+    ctx.fillText(MN[mo] + ' ' + d.getUTCFullYear() + ' · ' + this.fmt(X.msgs[wi]) + ' MSGS', chartR - 86, 32);
+    ctx.fillStyle = sCol;
+    ctx.fillRect(chartR - 78, 21, 58, 14);
+    ctx.fillStyle = '#07090d'; ctx.font = '600 8px ' + this.MONO; ctx.textAlign = 'center';
+    ctx.fillText(season.toUpperCase(), chartR - 49, 31);
+    ctx.textAlign = 'left';
+
+    // four pens + volume (the Annie instrument, generalized)
+    const lanes = this.WPENS.map(([k, label, col]) => ({
+      data: X.rate[k], label, unit: '/100 MSG', color: col, max: X.maxRate[k]
+    }));
+    this.drawPenLanes(ctx, geo, lanes, X.play, st.weatherPlay);
+    this.drawVolumeLane(ctx, geo, vy0, X.msgs, X.maxMsgs, X.play, C.amber);
+
+    // playhead needle
+    ctx.strokeStyle = 'rgba(232,230,225,0.5)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(playX, padT - 6); ctx.lineTo(playX, vy0 + laneH + 8); ctx.stroke();
+    // year ticks
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.dim; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let y = 2011; y <= 2027; y++) {
+      const m = (this.d2i(y + '-01-01') - X.day0) / 7;
+      if (m < 0 || m > X.nW - 1) continue;
+      ctx.fillText(String(y), xOf(m), vy0 + laneH + 12);
+    }
+    X.scrubGeo = { x0: padL, x1: chartR - 20, y1: vy0 + laneH };
+
+    // ⚡ high-volatility day strikes above the lanes
+    X.hoverBolt = null;
+    for (const b of X.bolts) {
+      const x = xOf(b.pos);
+      const near = Math.abs(this.mouse.x - x) < 7 && this.mouse.y < padT;
+      if (near) X.hoverBolt = { ...b, x };
+      const flick = near ? 1 : (0.5 + 0.5 * Math.sin(performance.now() / 280 + b.pos));
+      ctx.strokeStyle = 'rgba(255,235,180,' + (0.35 + 0.55 * flick) + ')';
+      ctx.lineWidth = near ? 2 : 1.2;
+      ctx.beginPath();
+      ctx.moveTo(x, padT - 22); ctx.lineTo(x - 3, padT - 13); ctx.lineTo(x + 2, padT - 11); ctx.lineTo(x, padT - 4);
+      ctx.stroke();
+    }
+    if (X.hoverBolt) {
+      const b = X.hoverBolt;
+      this.card(ctx, b.x, padT + 16, [
+        ['⚡ ' + b.date + ' · COMPOSITE ' + Math.round(b.composite_vol), C.amberHi, '600 11px ' + this.MONO],
+        ['COLD ' + b.weather_hits.cold + ' · HOT ' + b.weather_hits.hot + ' · PRECIP ' + b.weather_hits.precip + ' · TRAVEL ' + b.weather_hits.travel, C.cyan],
+        ['RHET INTENSITY ' + b.rhet_intensity + ' · ' + this.fmt(b.msg_total) + ' MSGS', C.red],
+        [(b.samples && b.samples[0] ? '“' + b.samples[0].slice(0, 64) + '…”' : 'no verbatim sample'), C.dim, 'italic 9px ' + this.GROT]
+      ], { border: C.amber });
+    }
+
+    // ---- right rail: conditions readout + fragment surfacer + analysis strip ----
+    const fx = chartR + 8, fw = W - fx - 16;
+    // conditions
+    const cy0 = padT - 22, ch = 128;
+    ctx.fillStyle = 'rgba(11,15,21,0.85)';
+    ctx.fillRect(fx, cy0, fw, ch);
+    ctx.strokeStyle = C.line; ctx.strokeRect(fx + 0.5, cy0 + 0.5, fw, ch);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText('CONDITIONS AT NEEDLE · RATES /100 MSG', fx + 14, cy0 + 16);
+    let cx2 = fx + 14;
+    this.WPENS.forEach(([k, label, col]) => {
+      const v = X.rate[k][wi];
+      ctx.font = '600 15px ' + this.MONO; ctx.fillStyle = col;
+      ctx.fillText(v.toFixed(1), cx2, cy0 + 44);
+      ctx.font = '7.5px ' + this.MONO; ctx.fillStyle = C.dim;
+      ctx.fillText(label, cx2, cy0 + 56);
+      cx2 += (fw - 28) / 4;
+    });
+    // rhet intensity bar
+    const rv = X.rhetInt[wi] / X.maxRhet;
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.dim;
+    ctx.fillText('RHETORICAL PRESSURE', fx + 14, cy0 + 78);
+    ctx.fillStyle = '#1a2029'; ctx.fillRect(fx + 14, cy0 + 84, fw - 28, 5);
+    ctx.fillStyle = C.red; ctx.fillRect(fx + 14, cy0 + 84, (fw - 28) * Math.min(1, rv), 5);
+    // location lean bar NYC ↔ UT
+    const nycV = X.locNyc[wi], utV = X.locUt[wi];
+    const lean = (nycV + utV) > 0.01 ? nycV / (nycV + utV) : 0.5;
+    ctx.fillStyle = C.dim;
+    ctx.fillText('UNIONTOWN', fx + 14, cy0 + 104);
+    ctx.textAlign = 'right'; ctx.fillText('NYC', fx + fw - 14, cy0 + 104); ctx.textAlign = 'left';
+    ctx.fillStyle = '#1a2029'; ctx.fillRect(fx + 14, cy0 + 110, fw - 28, 5);
+    ctx.fillStyle = C.amber;
+    ctx.fillRect(fx + 14 + (fw - 28) * lean - 2, cy0 + 109, 4, 7);
+
+    // fragment surfacer (weather verbatims, typewriter)
+    const fgy = cy0 + ch + 10;
+    const analysisH = 96;
+    const fgh = H - fgy - analysisH - 24;
+    this.drawFragmentFeed(ctx, { fx, fy: fgy, fw, fh: fgh }, X.frags, X.play, 'WEATHER FRAGMENTS · VERBATIM · NON-ANNIE', '#4fc3e8');
+
+    // analysis strip: seasonal means + correlations from the one-pass
+    const ay0 = fgy + fgh + 10;
+    ctx.fillStyle = 'rgba(11,15,21,0.85)';
+    ctx.fillRect(fx, ay0, fw, analysisH);
+    ctx.strokeStyle = C.line; ctx.strokeRect(fx + 0.5, ay0 + 0.5, fw, analysisH);
+    ctx.font = '9px ' + this.MONO; ctx.fillStyle = C.faint;
+    ctx.fillText('ONE-PASS FINDINGS · ' + X.bolts.length + ' HIGH-VOL DAYS PLOTTED', fx + 14, ay0 + 16);
+    let sy = ay0 + 34;
+    const seasons = ['winter', 'spring', 'summer', 'fall'];
+    let sx2 = fx + 14;
+    for (const s of seasons) {
+      const v = X.bySeason[s];
+      if (!v) continue;
+      ctx.font = '600 12px ' + this.MONO; ctx.fillStyle = this.SEASON_COL[s];
+      ctx.fillText((v.mean != null ? v.mean.toFixed(1) : '–'), sx2, sy);
+      ctx.font = '7px ' + this.MONO; ctx.fillStyle = C.dim;
+      ctx.fillText(s.toUpperCase() + ' RHET', sx2, sy + 11);
+      ctx.fillText('σ ' + (v.volatility != null ? v.volatility.toFixed(1) : '–'), sx2, sy + 21);
+      sx2 += (fw - 28) / 4;
+    }
+    sy += 38;
+    ctx.font = '8px ' + this.MONO; ctx.fillStyle = C.dim;
+    const cPrecip = X.corr.precip_vs_rhet_int, cCold = X.corr.cold_vs_apology, cTravel = X.corr.travel_vs_rhet_int;
+    ctx.fillText('r  PRECIP×RHET ' + (cPrecip != null ? cPrecip.toFixed(2) : '–')
+      + '  ·  COLD×APOLOGY ' + (cCold != null ? cCold.toFixed(2) : '–')
+      + '  ·  TRAVEL×RHET ' + (cTravel != null ? cTravel.toFixed(2) : '–'), fx + 14, sy);
+  }
+
+  pt_weather(type, p, e) {
+    if (this.state.weatherView === 'storm') { this.pt_weatherStorm(type, p, e); return; }
+    const X = this.M.wx; if (!X || !X.scrubGeo) return;
+    const g = X.scrubGeo;
+    if (type === 'down') {
+      if (X.hoverBolt) {
+        X.play = Math.max(0.001, Math.min(X.nW - 0.01, X.hoverBolt.pos));
+        for (const f of X.frags) f.shownAt = f.pos <= X.play ? (f.shownAt || performance.now()) : 0;
+        this.setState({ weatherPlay: false });
+        return;
+      }
+      if (p.x < g.x1 + 20 && p.x > g.x0 - 20) {
+        X.scrub = true;
+        X.play = Math.max(0.001, Math.min(X.nW - 0.01, ((p.x - g.x0) / (g.x1 - g.x0)) * (X.nW - 1)));
+      }
+    } else if (type === 'move' && X.scrub && this.mouse.down) {
+      X.play = Math.max(0.001, Math.min(X.nW - 0.01, ((p.x - g.x0) / (g.x1 - g.x0)) * (X.nW - 1)));
+    } else if (type === 'up' || type === 'leave') {
+      X.scrub = false;
+    }
+  }
+
+  // ---------- UI state plumbing ----------
+  renderVals() {
+    const s = this.state, C = this.COL;
+    const tabDefs = [['pulse', 'PULSE'], ['clock', 'CLOCK'], ['orbits', 'ORBITS'], ['atlas', 'ATLAS'], ['lexicon', 'LEXICON'], ['shelf', 'SHELF'], ['weather', 'WEATHER'], ['annie', 'POLYGRAPH'], ['signal', 'SIGNAL']];
+    const tabs = tabDefs.map(([id, label], i) => ({
+      num: '0' + (i + 1), label,
+      onClick: () => this.setTab(id),
+      style: {
+        fontFamily: "'IBM Plex Mono', monospace", fontSize: '10.5px', letterSpacing: '0.16em',
+        padding: '6px 14px', cursor: 'pointer',
+        color: s.tab === id ? '#07090d' : '#8b94a4',
+        background: s.tab === id ? C.amber : 'transparent',
+        border: '1px solid ' + (s.tab === id ? C.amber : '#1d2430'),
+        fontWeight: s.tab === id ? 600 : 400,
+        transition: 'all 130ms ease',
+        whiteSpace: 'nowrap'
+      }
+    }));
+
+    let chips = [];
+    if (s.tab === 'pulse') {
+      chips = ['FULL', 'NYC ONE', 'UNIONTOWN', 'NYC TWO', 'RETURN'].map(l => ({
+        label: l, onClick: () => this.pulseJump(l), style: this.chipStyle(false)
+      }));
+    } else if (s.tab === 'clock') {
+      chips = [['all', 'ALL'], ['sent', 'SENT'], ['recv', 'RECEIVED']].map(([id, l]) => ({
+        label: l, onClick: () => this.setState({ clockMode: id }), style: this.chipStyle(s.clockMode === id, id === 'recv' ? C.cyan : C.amber)
+      }));
+    } else if (s.tab === 'orbits') {
+      chips = [{ label: 'SCATTER', onClick: () => { if (this.orbitsScatter) this.orbitsScatter(); }, style: this.chipStyle(false) }];
+    } else if (s.tab === 'atlas') {
+      chips = [
+        { label: s.atlasPlay ? '❚❚ PAUSE' : '▶ PLAY', onClick: () => this.setState(st => ({ atlasPlay: !st.atlasPlay })), style: this.chipStyle(s.atlasPlay) },
+        ...[[30, '×1'], [120, '×4'], [365, '×12']].map(([v, l]) => ({
+          label: l, onClick: () => this.setState({ atlasSpeed: v }), style: this.chipStyle(s.atlasSpeed === v)
+        })),
+        ...['FULL', 'FAYETTE', 'NYC'].map(l => ({
+          label: l, onClick: () => { this.setState({ atlasView: l }); if (this.atlasFly) this.atlasFly(l); }, style: this.chipStyle(s.atlasView === l, C.cyan)
+        }))
+      ];
+    } else if (s.tab === 'lexicon') {
+      chips = [['pack', 'CLUSTER'], ['rain', 'RAIN']].map(([id, l]) => ({
+        label: l, onClick: () => { this.setState({ lexMode: id }); if (this.lexSetMode) this.lexSetMode(id); }, style: this.chipStyle(s.lexMode === id)
+      }));
+    } else if (s.tab === 'shelf') {
+      chips = ['ALL', 'MUSIC', 'BOOK', 'MOVIE', 'ART'].map(l => ({
+        label: l, onClick: () => this.setState({ shelfCat: l }), style: this.chipStyle(s.shelfCat === l)
+      }));
+    } else if (s.tab === 'weather') {
+      if (s.weatherView === 'pens') {
+        chips = [
+          { label: s.weatherPlay ? '❚❚ PAUSE' : '▶ PLAY', onClick: () => this.setState(st => ({ weatherPlay: !st.weatherPlay })), style: this.chipStyle(s.weatherPlay, C.cyan) },
+          { label: '↺ RESTART', onClick: this.weatherRestart, style: this.chipStyle(false) },
+          ...[[3, 'SLOW'], [9, 'NORMAL'], [26, 'FAST']].map(([v, l]) => ({
+            label: l, onClick: () => this.setState({ weatherSpeed: v }), style: this.chipStyle(s.weatherSpeed === v, C.cyan)
+          })),
+          { label: '⛈ STORM VIEW', onClick: () => this.setState({ weatherView: 'storm' }), style: this.chipStyle(false, C.amber) }
+        ];
+      } else {
+        chips = [
+          { label: '✎ PENS VIEW', onClick: () => this.setState({ weatherView: 'pens' }), style: this.chipStyle(false, C.cyan) },
+          ...[['rate', 'RATE'], ['raw', 'RAW']].map(([id, l]) => ({
+            label: l, onClick: () => this.setState({ weatherMode: id }), style: this.chipStyle(s.weatherMode === id)
+          })),
+          ...this.WLAYERS.map(([k, label, col]) => ({
+            label, onClick: () => this.setState(st => ({ weatherLayers: { ...st.weatherLayers, [k]: !st.weatherLayers[k] } })),
+            style: this.chipStyle(s.weatherLayers[k], col)
+          }))
+        ];
+      }
+    } else if (s.tab === 'annie') {
+      chips = [
+        { label: s.anniePlay ? '❚❚ PAUSE' : '▶ PLAY', onClick: () => this.setState(st => ({ anniePlay: !st.anniePlay })), style: this.chipStyle(s.anniePlay) },
+        { label: '↺ RESTART', onClick: this.annieRestart, style: this.chipStyle(false) },
+        ...[[1.5, 'SLOW'], [4, 'NORMAL'], [12, 'FAST']].map(([v, l]) => ({
+          label: l, onClick: () => this.setState({ annieSpeed: v }), style: this.chipStyle(s.annieSpeed === v, this.COL.rose)
+        }))
+      ];
+    } else if (s.tab === 'signal') {
+      chips = [
+        { label: 'ALL WATCHES', onClick: () => this.setState({ signalMusic: false }), style: this.chipStyle(!s.signalMusic, this.COL.violet) },
+        { label: 'MUSIC ONLY', onClick: () => this.setState({ signalMusic: true }), style: this.chipStyle(s.signalMusic, this.COL.violet) }
+      ];
+    }
+
+    const hints = {
+      pulse: 'DRAG TO PAN · SCROLL TO ZOOM · DOUBLE-CLICK TO RESET · MINIMAP IS GRABBABLE · DIAMONDS ARE EVENTS',
+      clock: 'GRAB THE DIAL AND SPIN IT · HOVER A SECTOR · THE NEEDLE SWEEPS A 20-YEAR AVERAGE DAY',
+      orbits: 'GRAB A BODY AND FLING IT · CLICK FOR THE DOSSIER · DISTANCE FROM CENTER = TIME SINCE LAST MESSAGE',
+      atlas: 'SPACE OR ▶ TO REPLAY A DECADE · DRAG THE SCRUBBER · SCROLL TO ZOOM · GRAB THE MAP',
+      lexicon: 'FLICK THE WORDS · CLICK TO PIN ONE · TRY RAIN · SEISMOGRAPH BELOW = ALL-CAPS EVENTS',
+      shelf: 'EVERY DOT IS A RATED WORK · ABOVE THE LINE = LOVED MORE THAN THE WORLD DID · CLICK TO PIN',
+      weather: s.weatherView === 'pens'
+        ? 'PRESS PLAY · FOUR PENS TRACE 15 YEARS OF REAL WEATHER TALK · ⚡ = HIGH-VOLATILITY DAYS · DRAG TO SCRUB'
+        : 'SIX RHETORICAL CHANNELS, STACKED · LIGHTNING = THE 50 MOST INTENSE DAYS · CLICK A BOLT TO ZOOM · SCROLL TO ZOOM',
+      annie: 'PRESS PLAY · FOUR PENS TRACE THE FULL 15-YEAR RECORD · FRAGMENTS SURFACE AS THE NEEDLE CROSSES THEM · DRAG TO SCRUB',
+      signal: 'HOVER THE SPECTROGRAM · DRAG THE TUNER DIAL THROUGH 40 ARTISTS · ⚡ = LANGUAGE BLEED INTO HIS TEXTS'
+    };
+
+    const msg = s.msg;
+    const charsLeft = 280 - 10 - msg.length;
+    return {
+      // shell
+      isSplash: s.phase === 'splash',
+      isVoid: s.phase === 'void',
+      isArchive: s.phase === 'archive',
+      flash: s.flash,
+      enterVoid: () => this._setPhase('void'),
+      enterArchive: () => this.requestArchive(),
+      exitArchive: () => this._setPhase('void'),
+      msg,
+      setMsg: (e) => this.setState({ msg: e.target.value.slice(0, 270) }),
+      charsLeft,
+      charColor: charsLeft < 40 ? '#ff2d95' : '#4d8fa0',
+      transmit: () => {
+        const body = msg.trim() || 'i found the void console. let’s talk.';
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent('@danfrank ' + body), '_blank');
+      },
+      mailto: 'mailto:dfrank88@gmail.com?subject=' + encodeURIComponent('[SIGNAL] consult request from the void'),
+      // console
+      loading: s.loading,
+      tabs, chips,
+      hint: hints[s.tab] || '',
+      stageLabel: 'module ' + s.tab,
+      canvasRef: this.canvasRef,
+      cMsgs: this.fmt(s.cnt.m), cThreads: this.fmt(s.cnt.t), cPlaces: this.fmt(s.cnt.p), cKm: this.fmt(s.cnt.k), cWorks: this.fmt(s.cnt.w)
+    };
+  }
+}
+</script>
+</body>
+</html>

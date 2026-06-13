@@ -1,0 +1,11 @@
+.DS_Store
+**/.DS_Store
+
+# --- Sensitive personal data: never commit plaintext. Only the encrypted ---
+# --- bundle (site/data/leviathan.enc) is published. See site/encrypt-data.mjs ---
+site/data/*.json
+!site/data/leviathan.enc
+
+# Raw corpus and earlier export with embedded personal data
+LEVIATHAN_FULL_CORPUS.csv
+VISUALIZER SITE/
