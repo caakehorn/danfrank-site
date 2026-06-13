@@ -95,7 +95,7 @@
     '  vec2 sd = pos - uShock;',
     '  float sr = length(sd) + 1e-4;',
     '  float ring = exp(-pow((sr - uShockT * 2.4) * 7.0, 2.0)) * exp(-uShockT * 2.6) * uShockAmp;',
-    '  acc += (sd / sr) * ring * 200.0;',
+    '  acc += (sd / sr) * ring * 100.0;',
     '  vel += acc * dt;',
     '  /* flick / throw momentum from cursor velocity */',
     '  vel += uMouseVel * exp(-mr * 8.0) * (dt * 60.0) * 0.09;',
@@ -709,7 +709,7 @@
       this._mx = p.x; this._my = p.y;
       this._hoverT = 1;
       this._lastInteract = performance.now();
-      this._shock(p.x, p.y, 0.45);
+      this._shock(p.x, p.y, 0.22);
       this._addCharge(p, 0.03);
     }
 
@@ -934,8 +934,8 @@
           var sr = Math.sqrt(sdx * sdx + sdy * sdy) + 1e-4;
           var rg = (sr - shockT * 2.4) * 7;
           var ring = Math.exp(-rg * rg) * shockEnv;
-          accx += (sdx / sr) * ring * 200;
-          accy += (sdy / sr) * ring * 200;
+          accx += (sdx / sr) * ring * 100;
+          accy += (sdy / sr) * ring * 100;
         }
         vx += accx * dt; vy += accy * dt;
         var fl = Math.exp(-mr * 8) * flickK;
